@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="或语法(||) #  传参案例 #  function sum(a, b){ console.log(b) return a&#43;b } console.log(&#39;返回值：&#39;&#43;sum(1)) 此时 b 的值是 undefined ，所以结果是 NaN 无法相加，打出的 b 为 undefined
+为了避免这种情况，可以使用以下写法：
+ES6写法 #  如果 a 或 b === undefined，则等于 0 。相当于未传值时的默认值为 0
+function sum(a=0, b=0){ return a&#43;b }  其中 a=0 相当于 if(a===undefined){ a=0 }，b 同理
+ ES6之前的写法 #  如果 b 为真，则 b = b 否则 b = 0 ，a 同理
+function sum(a, b){ a = a || 0 b = b || 0 return a&#43;b }  其中 b = b || 0 相当于 if(b){ b = b }else{ b = 0 }">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="函数与对象的语法糖一" />
+<meta property="og:description" content="或语法(||) #  传参案例 #  function sum(a, b){ console.log(b) return a&#43;b } console.log(&#39;返回值：&#39;&#43;sum(1)) 此时 b 的值是 undefined ，所以结果是 NaN 无法相加，打出的 b 为 undefined
+为了避免这种情况，可以使用以下写法：
+ES6写法 #  如果 a 或 b === undefined，则等于 0 。相当于未传值时的默认值为 0
+function sum(a=0, b=0){ return a&#43;b }  其中 a=0 相当于 if(a===undefined){ a=0 }，b 同理
+ ES6之前的写法 #  如果 b 为真，则 b = b 否则 b = 0 ，a 同理
+function sum(a, b){ a = a || 0 b = b || 0 return a&#43;b }  其中 b = b || 0 相当于 if(b){ b = b }else{ b = 0 }" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/history/2019-12-01-function-object-sugar/" />
+<meta property="article:published_time" content="2019-12-01T18:32:01+00:00" />
+<meta property="article:modified_time" content="2019-12-01T18:32:01+00:00" />
+<title>函数与对象的语法糖一 | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-10-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E7%AE%80%E8%AE%B0/" class="">多人博客项目(简记)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-15-keyboard-nav/" class="">键盘导航</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-canvas/" class="">Canvas画板</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-%E5%AE%89%E5%8D%93%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E6%A1%88%E4%BE%8B/" class="">安卓音乐播放器案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-12-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E8%AF%AD%E6%B3%95%E7%B3%96%E7%AE%80%E7%89%88/" class="">函数与对象的语法糖(索引)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-function-object-sugar/" class="active">函数与对象的语法糖一</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-%E5%87%BD%E6%95%B0%E4%B8%8E%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96%E4%BA%8C/" class="">函数与对象的语法糖二</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/0cd88b5c/" class="">模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-07-vue%E5%A4%9A%E4%BA%BA%E5%85%B1%E4%BA%AB%E5%8D%9A%E5%AE%A2/" class="">[项目] Vue 多人共享博客</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-03-31-jsonp/" class="">[高级] 35 - JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-25-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E8%AF%A6%E7%BB%86/" class="">多人博客项目(详细)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-vue-plugin-int/" class="">Vue插件安装</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-css-selector/" class="">CSS选择器总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/dd3e7bbd/" class="">常用的HTML5标签</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-25-%E7%AE%80%E5%8E%86%E6%80%8E%E4%B9%88%E5%86%99/" class="">简历怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-12-lx%E4%B8%BB%E9%A2%98%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/" class="">lx主题中文文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-27-css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80/" class="">CSS Grid 网格布局</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-jquery%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">jQuery常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-js%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">JS 常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-yarn%E5%85%A5%E9%97%A8/" class="">yarn 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-npm%E5%85%A5%E9%97%A8/" class="">npm 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-04-es6%E6%96%B0%E7%89%B9%E6%80%A7/" class="">ES6新特性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="">面向对象</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-jquery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/jquery%E8%BD%AE%E6%92%AD%E6%A1%88%E4%BE%8B/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E8%87%AA%E5%88%B6jquery/" class="">自制jQuery</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-01-mvvm/" class="">MVVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-28-this%E6%98%AF%E4%BB%80%E4%B9%88/" class="">this是什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-27-new%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/" class="">New做了什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-21-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9D%97%E5%8C%96/" class="">代码模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-20-mvc%E6%80%9D%E6%83%B3/" class="">MVC思想</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-18-%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0-ajax/" class="">自己实现 AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-17-ajax/" class="">AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-16-jsonp/" class="">JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim-get-started/" class="">vim 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim%E7%9A%84%E4%BD%BF%E7%94%A8/" class="">vim 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-10-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="">命令行常用技巧</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" class="">浏览器缓存</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-css%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/" class="">CSS 常用属性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-01-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2-%E5%93%8D%E5%BA%94%E5%BC%8F/" class="">移动端页面(响应式)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/element-ui/" class="">Element UI</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B/" class="">Vue 入门案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E6%B5%8B%E8%AF%95%E9%A1%B5/" class="">测试页</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-webpack-use/" class="">webpack 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E5%9F%BA%E7%A1%80%E5%B8%B8%E8%AF%86/" class="">JS基础常识</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/action/" class="">Action 官方文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/axios%E5%85%A5%E9%97%A8/" class="">Axios 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E4%B8%AD%E7%9A%84symbol%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JS 中的 Symbol 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/json%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JSON 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-11-12-module%E8%AF%AD%E6%B3%95/" class="">Module语法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-%E7%82%B9%E5%87%BB%E7%A9%BA%E7%99%BD%E5%85%B3%E9%97%AD%E6%B5%AE%E5%B1%82/" class="">Vue 点击空白关闭浮层</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-cli%E4%BD%BF%E7%94%A8/" class="">Vue-cli 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vuex%E4%BD%BF%E7%94%A8/" class="">Vuex 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-02-03-%E5%8E%9F%E5%9E%8B%E9%93%BE%E8%A1%A5%E5%85%85/" class="">原型链补充</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-05-07-%E6%95%B0%E7%BB%84/" class="">数组</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-27-%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E7%AE%80%E5%8E%86%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="">简历该怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BE%A6%E5%90%AC%E5%99%A8/" class="">计算属性和监听器</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>函数与对象的语法糖一</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#或语法">或语法(<code>||</code>)</a>
+      <ul>
+        <li><a href="#传参案例">传参案例</a></li>
+        <li><a href="#es6写法">ES6写法</a></li>
+        <li><a href="#es6之前的写法">ES6之前的写法</a></li>
+        <li><a href="#js与python添加数组的区别">JS与Python添加数组的区别</a></li>
+      </ul>
+    </li>
+    <li><a href="#剩余参数">剩余参数</a>
+      <ul>
+        <li><a href="#1-之前的js写法">1. 之前的JS写法</a></li>
+        <li><a href="#2-参数区分">2. 参数区分</a></li>
+        <li><a href="#3-es6-参数区分">3. ES6 参数区分</a></li>
+        <li><a href="#4-es6-参数区分简化for循环">4. ES6 参数区分(简化for循环)</a></li>
+        <li><a href="#5-es6-伪数组转数组">5. ES6 伪数组转数组</a></li>
+      </ul>
+    </li>
+    <li><a href="#展开语法spread-syntax">展开语法(Spread syntax)</a>
+      <ul>
+        <li><a href="#1-截取数组后半部分内容">1. 截取数组后半部分内容</a></li>
+        <li><a href="#2-截取数组后半部分内容简化">2. 截取数组后半部分内容(简化)</a></li>
+        <li><a href="#3-数组前后追加项">3. 数组前后追加项</a></li>
+        <li><a href="#拓展es6之前的写法">拓展：ES6之前的写法</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="或语法">
+  或语法(<code>||</code>)
+  <a class="anchor" href="#%e6%88%96%e8%af%ad%e6%b3%95">#</a>
+</h2>
+<h3 id="传参案例">
+  传参案例
+  <a class="anchor" href="#%e4%bc%a0%e5%8f%82%e6%a1%88%e4%be%8b">#</a>
+</h3>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> sum(a, b){
+    console.log(b)
+    <span style="color:#719e07">return</span> a<span style="color:#719e07">+</span>b
+}
+console.log(<span style="color:#2aa198">&#39;返回值：&#39;</span><span style="color:#719e07">+</span>sum(<span style="color:#2aa198">1</span>))
+</code></pre></div><p><strong>此时 b 的值是 undefined ，所以结果是 NaN 无法相加，打出的 b 为 undefined</strong></p>
+<p><strong>为了避免这种情况，可以使用以下写法：</strong></p>
+<h3 id="es6写法">
+  ES6写法
+  <a class="anchor" href="#es6%e5%86%99%e6%b3%95">#</a>
+</h3>
+<p>如果 a 或 b === undefined，则等于 0 。相当于未传值时的默认值为 0</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> sum(a<span style="color:#719e07">=</span><span style="color:#2aa198">0</span>, b<span style="color:#719e07">=</span><span style="color:#2aa198">0</span>){
+    <span style="color:#719e07">return</span> a<span style="color:#719e07">+</span>b
+}
+</code></pre></div><blockquote>
+<p>其中 <code>a=0</code> 相当于 <code>if(a===undefined){ a=0 }</code>，b 同理</p>
+</blockquote>
+<h3 id="es6之前的写法">
+  ES6之前的写法
+  <a class="anchor" href="#es6%e4%b9%8b%e5%89%8d%e7%9a%84%e5%86%99%e6%b3%95">#</a>
+</h3>
+<p>如果 b 为真，则 b = b 否则 b = 0 ，a 同理</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> sum(a, b){
+    a <span style="color:#719e07">=</span> a <span style="color:#719e07">||</span> <span style="color:#2aa198">0</span>
+    b <span style="color:#719e07">=</span> b <span style="color:#719e07">||</span> <span style="color:#2aa198">0</span>
+    <span style="color:#719e07">return</span> a<span style="color:#719e07">+</span>b
+}
+</code></pre></div><blockquote>
+<p>其中 <code>b = b || 0</code> 相当于 <code>if(b){ b = b }else{ b = 0 }</code></p>
+</blockquote>
+<h3 id="js与python添加数组的区别">
+  JS与Python添加数组的区别
+  <a class="anchor" href="#js%e4%b8%8epython%e6%b7%bb%e5%8a%a0%e6%95%b0%e7%bb%84%e7%9a%84%e5%8c%ba%e5%88%ab">#</a>
+</h3>
+<p>JS</p>
+<p>每次添加都会重新初始化一个数组</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> push(item, array<span style="color:#719e07">=</span>[]){
+    array.push(item)
+    <span style="color:#719e07">return</span> array
+}
+console.log(push(<span style="color:#2aa198">1</span>))
+<span style="color:#586e75">// 输出: &gt;[1]
+</span><span style="color:#586e75"></span>console.log(push(<span style="color:#2aa198">2</span>))
+<span style="color:#586e75">// 输出: &gt;[2]
+</span></code></pre></div><p>Python</p>
+<p>只会初始化一次数组</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#719e07">def</span> <span style="color:#268bd2">fn</span>(item, array<span style="color:#719e07">=</span>[])
+    array<span style="color:#719e07">.</span>append(item)
+    <span style="color:#719e07">return</span> array
+
+fn(<span style="color:#2aa198">1</span>)
+<span style="color:#586e75"># 输出 [1]</span>
+fn(<span style="color:#2aa198">2</span>)
+<span style="color:#586e75"># 输出 [1, 2]</span>
+</code></pre></div><h2 id="剩余参数">
+  剩余参数
+  <a class="anchor" href="#%e5%89%a9%e4%bd%99%e5%8f%82%e6%95%b0">#</a>
+</h2>
+<h3 id="1-之前的js写法">
+  1. 之前的JS写法
+  <a class="anchor" href="#1-%e4%b9%8b%e5%89%8d%e7%9a%84js%e5%86%99%e6%b3%95">#</a>
+</h3>
+<p>如果函数需要传入多个未知数量的参数：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> sum(){
+    <span style="color:#268bd2">let</span> result <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>
+    <span style="color:#719e07">for</span>(<span style="color:#268bd2">let</span> i<span style="color:#719e07">=</span><span style="color:#2aa198">0</span>;i<span style="color:#719e07">&lt;</span>arguments.length;i<span style="color:#719e07">++</span>){
+        result <span style="color:#719e07">+=</span> arguments[i]
+    }
+    <span style="color:#719e07">return</span> result
+}
+sum(<span style="color:#2aa198">1</span>,<span style="color:#2aa198">2</span>,<span style="color:#2aa198">3</span>,<span style="color:#2aa198">4</span>,<span style="color:#2aa198">5</span>,<span style="color:#2aa198">6</span>,<span style="color:#2aa198">7</span>,<span style="color:#2aa198">8</span>,<span style="color:#2aa198">9</span>,<span style="color:#2aa198">10</span>)
+<span style="color:#586e75">// 输出: 55
+</span></code></pre></div><h3 id="2-参数区分">
+  2. 参数区分
+  <a class="anchor" href="#2-%e5%8f%82%e6%95%b0%e5%8c%ba%e5%88%86">#</a>
+</h3>
+<p>如果在传入的多个参数前加一个前缀的参数，可以用以下写法：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> sum(message){
+    <span style="color:#268bd2">let</span> result <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>
+    <span style="color:#719e07">for</span>(<span style="color:#268bd2">let</span> i<span style="color:#719e07">=</span><span style="color:#2aa198">1</span>;i<span style="color:#719e07">&lt;</span>arguments.length;i<span style="color:#719e07">++</span>){
+        result <span style="color:#719e07">+=</span> arguments[i]
+    }
+    <span style="color:#719e07">return</span> message <span style="color:#719e07">+</span> result
+}
+sum(<span style="color:#2aa198">&#39;结果是: &#39;</span>,<span style="color:#2aa198">1</span>,<span style="color:#2aa198">2</span>,<span style="color:#2aa198">3</span>,<span style="color:#2aa198">4</span>,<span style="color:#2aa198">5</span>,<span style="color:#2aa198">6</span>,<span style="color:#2aa198">7</span>,<span style="color:#2aa198">8</span>,<span style="color:#2aa198">9</span>,<span style="color:#2aa198">10</span>)
+<span style="color:#586e75">// 输出: 
+</span><span style="color:#586e75">// 结果是: 55
+</span></code></pre></div><p>上面的写法就是从第二个参数开始循环将每个参数相加，最后再与第一个参数相加</p>
+<h3 id="3-es6-参数区分">
+  3. ES6 参数区分
+  <a class="anchor" href="#3-es6-%e5%8f%82%e6%95%b0%e5%8c%ba%e5%88%86">#</a>
+</h3>
+<p>ES6 中使用了更简洁的参数区分的写法</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> sum(message, ...numbers){
+    <span style="color:#268bd2">let</span> result <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>
+    <span style="color:#719e07">for</span>(<span style="color:#268bd2">let</span> i<span style="color:#719e07">=</span><span style="color:#2aa198">0</span>;i<span style="color:#719e07">&lt;</span>numbers.length;i<span style="color:#719e07">++</span>){
+        result <span style="color:#719e07">+=</span> numbers[i]
+    }
+    <span style="color:#719e07">return</span> message <span style="color:#719e07">+</span> result
+}
+sum(<span style="color:#2aa198">&#39;结果是: &#39;</span>,<span style="color:#2aa198">1</span>,<span style="color:#2aa198">2</span>,<span style="color:#2aa198">3</span>,<span style="color:#2aa198">4</span>,<span style="color:#2aa198">5</span>,<span style="color:#2aa198">6</span>,<span style="color:#2aa198">7</span>,<span style="color:#2aa198">8</span>,<span style="color:#2aa198">9</span>,<span style="color:#2aa198">10</span>)
+<span style="color:#586e75">// 输出: 
+</span><span style="color:#586e75">// 结果是: 55
+</span></code></pre></div><h3 id="4-es6-参数区分简化for循环">
+  4. ES6 参数区分(简化for循环)
+  <a class="anchor" href="#4-es6-%e5%8f%82%e6%95%b0%e5%8c%ba%e5%88%86%e7%ae%80%e5%8c%96for%e5%be%aa%e7%8e%af">#</a>
+</h3>
+<p>下面的案例中使用了 <code>.reduce((p,v)=&gt;p+v, 0)</code> 方法简化了 for 循环</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> sum(message, ...numbers){
+    <span style="color:#268bd2">let</span> result <span style="color:#719e07">=</span> numbers.reduce((p,v)=&gt;p<span style="color:#719e07">+</span>v, <span style="color:#2aa198">0</span>)
+    <span style="color:#719e07">return</span> message <span style="color:#719e07">+</span> result
+}
+sum(<span style="color:#2aa198">&#39;结果是: &#39;</span>,<span style="color:#2aa198">1</span>,<span style="color:#2aa198">2</span>,<span style="color:#2aa198">3</span>,<span style="color:#2aa198">4</span>,<span style="color:#2aa198">5</span>,<span style="color:#2aa198">6</span>,<span style="color:#2aa198">7</span>,<span style="color:#2aa198">8</span>,<span style="color:#2aa198">9</span>,<span style="color:#2aa198">10</span>)
+<span style="color:#586e75">// 输出: 
+</span><span style="color:#586e75">// 结果是: 55
+</span></code></pre></div><h3 id="5-es6-伪数组转数组">
+  5. ES6 伪数组转数组
+  <a class="anchor" href="#5-es6-%e4%bc%aa%e6%95%b0%e7%bb%84%e8%bd%ac%e6%95%b0%e7%bb%84">#</a>
+</h3>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> sum(message){
+    <span style="color:#268bd2">let</span> args <span style="color:#719e07">=</span> <span style="color:#b58900">Array</span>.prototype.slice.call(arguments) <span style="color:#586e75">// ES5中最便捷的数组转换方式
+</span><span style="color:#586e75"></span>    <span style="color:#268bd2">let</span> args <span style="color:#719e07">=</span> <span style="color:#b58900">Array</span>.from(arguments) <span style="color:#586e75">// ES6语法
+</span><span style="color:#586e75"></span>    <span style="color:#268bd2">let</span> args <span style="color:#719e07">=</span> [...arguments] <span style="color:#586e75">// ES6语法
+</span><span style="color:#586e75"></span>    <span style="color:#268bd2">let</span> result <span style="color:#719e07">=</span> numbers.reduce((p,v)=&gt;p<span style="color:#719e07">+</span>v, <span style="color:#2aa198">0</span>)
+    <span style="color:#719e07">return</span> message <span style="color:#719e07">+</span> result
+}
+sum(<span style="color:#2aa198">&#39;结果是: &#39;</span>,<span style="color:#2aa198">1</span>,<span style="color:#2aa198">2</span>,<span style="color:#2aa198">3</span>,<span style="color:#2aa198">4</span>,<span style="color:#2aa198">5</span>,<span style="color:#2aa198">6</span>,<span style="color:#2aa198">7</span>,<span style="color:#2aa198">8</span>,<span style="color:#2aa198">9</span>,<span style="color:#2aa198">10</span>)
+</code></pre></div><blockquote>
+<p>伪数组：原型链直接指向对象，只有数组的样子，但是没有数组的方法</p>
+</blockquote>
+<h2 id="展开语法spread-syntax">
+  展开语法(Spread syntax)
+  <a class="anchor" href="#%e5%b1%95%e5%bc%80%e8%af%ad%e6%b3%95spread-syntax">#</a>
+</h2>
+<h3 id="1-截取数组后半部分内容">
+  1. 截取数组后半部分内容
+  <a class="anchor" href="#1-%e6%88%aa%e5%8f%96%e6%95%b0%e7%bb%84%e5%90%8e%e5%8d%8a%e9%83%a8%e5%88%86%e5%86%85%e5%ae%b9">#</a>
+</h3>
+<p>截取数组后半部分内容组成新的数组</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">let</span> array1 <span style="color:#719e07">=</span> [<span style="color:#2aa198">1</span>, <span style="color:#2aa198">2</span>, <span style="color:#2aa198">3</span>, <span style="color:#2aa198">4</span>, <span style="color:#2aa198">5</span>, <span style="color:#2aa198">6</span>]
+<span style="color:#268bd2">let</span> [a, b, c, ...array2] <span style="color:#719e07">=</span> array1
+console.log(array2)
+<span style="color:#586e75">// 输出 [4, 5, 6]
+</span></code></pre></div><h3 id="2-截取数组后半部分内容简化">
+  2. 截取数组后半部分内容(简化)
+  <a class="anchor" href="#2-%e6%88%aa%e5%8f%96%e6%95%b0%e7%bb%84%e5%90%8e%e5%8d%8a%e9%83%a8%e5%88%86%e5%86%85%e5%ae%b9%e7%ae%80%e5%8c%96">#</a>
+</h3>
+<p>简化前面的参数</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">let</span> array1 <span style="color:#719e07">=</span> [<span style="color:#2aa198">1</span>, <span style="color:#2aa198">2</span>, <span style="color:#2aa198">3</span>, <span style="color:#2aa198">4</span>, <span style="color:#2aa198">5</span>, <span style="color:#2aa198">6</span>]
+<span style="color:#268bd2">let</span> [,,, ...array2] <span style="color:#719e07">=</span> array1
+console.log(array2)
+<span style="color:#586e75">// 输出 [4, 5, 6]
+</span></code></pre></div><h3 id="3-数组前后追加项">
+  3. 数组前后追加项
+  <a class="anchor" href="#3-%e6%95%b0%e7%bb%84%e5%89%8d%e5%90%8e%e8%bf%bd%e5%8a%a0%e9%a1%b9">#</a>
+</h3>
+<p>在数组的最前和最后分别追加项</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">let</span> array1 <span style="color:#719e07">=</span> [<span style="color:#2aa198">1</span>, <span style="color:#2aa198">2</span>, <span style="color:#2aa198">3</span>, <span style="color:#2aa198">4</span>, <span style="color:#2aa198">5</span>, <span style="color:#2aa198">6</span>]
+<span style="color:#268bd2">let</span> array2 <span style="color:#719e07">=</span> [<span style="color:#2aa198">0</span>, ...array1, <span style="color:#2aa198">7</span>]
+console.log(array2)
+<span style="color:#586e75">// 输出 [0, 1, 2, 3, 4, 5, 6, 7]
+</span></code></pre></div><h3 id="拓展es6之前的写法">
+  拓展：ES6之前的写法
+  <a class="anchor" href="#%e6%8b%93%e5%b1%95es6%e4%b9%8b%e5%89%8d%e7%9a%84%e5%86%99%e6%b3%95">#</a>
+</h3>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">let</span> array1 <span style="color:#719e07">=</span> [<span style="color:#2aa198">1</span>, <span style="color:#2aa198">2</span>, <span style="color:#2aa198">3</span>, <span style="color:#2aa198">4</span>, <span style="color:#2aa198">5</span>, <span style="color:#2aa198">6</span>]
+<span style="color:#268bd2">let</span> array2 <span style="color:#719e07">=</span> [<span style="color:#2aa198">0</span>].concat(array1).concat(<span style="color:#2aa198">7</span>)
+console.log(array2)
+<span style="color:#586e75">// 输出 [0, 1, 2, 3, 4, 5, 6, 7]
+</span></code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#或语法">或语法(<code>||</code>)</a>
+      <ul>
+        <li><a href="#传参案例">传参案例</a></li>
+        <li><a href="#es6写法">ES6写法</a></li>
+        <li><a href="#es6之前的写法">ES6之前的写法</a></li>
+        <li><a href="#js与python添加数组的区别">JS与Python添加数组的区别</a></li>
+      </ul>
+    </li>
+    <li><a href="#剩余参数">剩余参数</a>
+      <ul>
+        <li><a href="#1-之前的js写法">1. 之前的JS写法</a></li>
+        <li><a href="#2-参数区分">2. 参数区分</a></li>
+        <li><a href="#3-es6-参数区分">3. ES6 参数区分</a></li>
+        <li><a href="#4-es6-参数区分简化for循环">4. ES6 参数区分(简化for循环)</a></li>
+        <li><a href="#5-es6-伪数组转数组">5. ES6 伪数组转数组</a></li>
+      </ul>
+    </li>
+    <li><a href="#展开语法spread-syntax">展开语法(Spread syntax)</a>
+      <ul>
+        <li><a href="#1-截取数组后半部分内容">1. 截取数组后半部分内容</a></li>
+        <li><a href="#2-截取数组后半部分内容简化">2. 截取数组后半部分内容(简化)</a></li>
+        <li><a href="#3-数组前后追加项">3. 数组前后追加项</a></li>
+        <li><a href="#拓展es6之前的写法">拓展：ES6之前的写法</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

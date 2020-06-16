@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>npm on MrChen</title>
+    <link>https://bravchen.github.io/tags/npm/</link>
+    <description>Recent content in npm on MrChen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Oct 2019 16:03:54 +0000</lastBuildDate>
+    
+	<atom:link href="https://bravchen.github.io/tags/npm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>npm 入门</title>
+      <link>https://bravchen.github.io/history/2019-10-17-npm%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Thu, 17 Oct 2019 16:03:54 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-10-17-npm%E5%85%A5%E9%97%A8/</guid>
+      <description>npm常用命令 #  npm更新 #  npm install npm@latest -g # 最新稳定版全局安装 npm install npm@4.2.1 -g # 指定版本全局安装 包安装 #  首先初始化，在需要安装的目录下输入
+npm init -y # 默认配置 安装
+npm install xxx # 安装 npm i xxx # 简写 # 安装一些常用库: npm i jquery npm i vue npm i bootstrap # 安装指定版本 npm i jquery@3.1.0 在根目录下的 package.json 中有每个库的版本号，如
+&amp;#34;dependencies&amp;#34;: { &amp;#34;bootstrap&amp;#34;: &amp;#34;^4.3.1&amp;#34;, &amp;#34;jquery&amp;#34;: &amp;#34;^3.4.1&amp;#34;, &amp;#34;vue&amp;#34;: &amp;#34;^2.6.10&amp;#34; } 当移动当前根目录的项目时，即时删除掉 node_modules 文件夹，只要在当前目录下执行：
+npm i # 注意命令后不要加任何其他的东西 即可恢复之前所有的库，版本也是之前对应的。</description>
+    </item>
+    
+  </channel>
+</rss>

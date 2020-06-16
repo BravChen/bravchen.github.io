@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vue on MrChen</title>
+    <link>https://bravchen.github.io/tags/vue/</link>
+    <description>Recent content in Vue on MrChen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Jun 2020 19:05:43 +0800</lastBuildDate>
+    
+	<atom:link href="https://bravchen.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JavaScript达到什么水平，可以写类似Vue的框架？</title>
+      <link>https://bravchen.github.io/posts/2020-06-04-wlfjscywv/</link>
+      <pubDate>Thu, 04 Jun 2020 19:05:43 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/2020-06-04-wlfjscywv/</guid>
+      <description>今天在看方方老师的课程时，看到一个很赞的回答，顺便记录下来鼓励一下自己。
+提问：JavaScript达到什么水平，可以写类似Vue的框架？ #  答：
+在编程界没有什么水平的定义，而是你先定一个目标，去实现它。要么实现了，要么实现不了。
+学习方式不是达到什么水平才去写什么，而是你写了什么才能达到什么水平。
+你要先去做，才能达到那个水平，而不是达到那个水平再去做，因为你没有做过是永远达不到那个水平的。
+先做在达到，做的时候去搜各种知识，不停的去迭代它，完善它。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ES6 on MrChen</title>
+    <link>https://bravchen.github.io/tags/es6/</link>
+    <description>Recent content in ES6 on MrChen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Dec 2019 18:32:01 +0000</lastBuildDate>
+    
+	<atom:link href="https://bravchen.github.io/tags/es6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>函数与对象的语法糖一</title>
+      <link>https://bravchen.github.io/history/2019-12-01-function-object-sugar/</link>
+      <pubDate>Sun, 01 Dec 2019 18:32:01 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-12-01-function-object-sugar/</guid>
+      <description>或语法(||) #  传参案例 #  function sum(a, b){ console.log(b) return a+b } console.log(&amp;#39;返回值：&amp;#39;+sum(1)) 此时 b 的值是 undefined ，所以结果是 NaN 无法相加，打出的 b 为 undefined
+为了避免这种情况，可以使用以下写法：
+ES6写法 #  如果 a 或 b === undefined，则等于 0 。相当于未传值时的默认值为 0
+function sum(a=0, b=0){ return a+b }  其中 a=0 相当于 if(a===undefined){ a=0 }，b 同理
+ ES6之前的写法 #  如果 b 为真，则 b = b 否则 b = 0 ，a 同理
+function sum(a, b){ a = a || 0 b = b || 0 return a+b }  其中 b = b || 0 相当于 if(b){ b = b }else{ b = 0 }</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="作者： 阮一峰
+日期： 2015年7月10日
+ 网页布局（layout）是 CSS 的一个重点应用。
+布局的传统解决方案，基于盒状模型，依赖 display 属性 &#43; position属性 &#43; float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。
+2009年，W3C 提出了一种新的方案&mdash;-Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。
+Flex 布局将成为未来布局的首选方案。本文介绍它的语法，下一篇文章给出常见布局的 Flex 写法。网友 JailBreak 为本文的所有示例制作了 Demo，也可以参考。
+以下内容主要参考了下面两篇文章：A Complete Guide to Flexbox 和 A Visual Guide to CSS3 Flexbox Properties。
+一、Flex 布局是什么？ #  Flex 是 Flexible Box 的缩写，意为&quot;弹性布局&rdquo;，用来为盒状模型提供最大的灵活性。
+任何一个容器都可以指定为 Flex 布局。
+.box{ display: flex; } 行内元素也可以使用 Flex 布局。
+.box{ display: inline-flex; } Webkit 内核的浏览器，必须加上-webkit前缀。
+.box{ display: -webkit-flex; /* Safari */ display: flex; } 注意，设为 Flex 布局以后，子元素的float、clear和vertical-align属性将失效。">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Flex 布局教程：语法篇" />
+<meta property="og:description" content="作者： 阮一峰
+日期： 2015年7月10日
+ 网页布局（layout）是 CSS 的一个重点应用。
+布局的传统解决方案，基于盒状模型，依赖 display 属性 &#43; position属性 &#43; float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。
+2009年，W3C 提出了一种新的方案&mdash;-Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。
+Flex 布局将成为未来布局的首选方案。本文介绍它的语法，下一篇文章给出常见布局的 Flex 写法。网友 JailBreak 为本文的所有示例制作了 Demo，也可以参考。
+以下内容主要参考了下面两篇文章：A Complete Guide to Flexbox 和 A Visual Guide to CSS3 Flexbox Properties。
+一、Flex 布局是什么？ #  Flex 是 Flexible Box 的缩写，意为&quot;弹性布局&rdquo;，用来为盒状模型提供最大的灵活性。
+任何一个容器都可以指定为 Flex 布局。
+.box{ display: flex; } 行内元素也可以使用 Flex 布局。
+.box{ display: inline-flex; } Webkit 内核的浏览器，必须加上-webkit前缀。
+.box{ display: -webkit-flex; /* Safari */ display: flex; } 注意，设为 Flex 布局以后，子元素的float、clear和vertical-align属性将失效。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/posts/flex0001/" />
+<meta property="article:published_time" content="2020-05-19T21:38:35+08:00" />
+<meta property="article:modified_time" content="2020-05-19T21:38:35+08:00" />
+<title>Flex 布局教程：语法篇 | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/flex0001/" class="active">Flex 布局教程：语法篇</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/flex0002/" class="">Flex 布局教程：实例篇</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-02-08-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87and%E6%96%B9%E6%B3%95/" class="">学习目标and方法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000003/" class="">互联网的基石</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-09-window-json-use/" class="">window.JSON的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-09-html5-label/" class="">HTML5标签总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-07-async-use/" class="">async 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-04-wlfjscywv/" class="">JavaScript达到什么水平，可以写类似Vue的框架？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-01-js-mouse-event/" class="">JS 拖曳事件总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-05-29-ajax-use/" class="">AJAX 的封装</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000001/" class="">Document API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000007/" class="">字符串</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000006/" class="">字面量增强</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000002/" class="">新版变量声明：let 和 const</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Flex 布局教程：语法篇</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一flex-布局是什么">一、Flex 布局是什么？</a></li>
+    <li><a href="#二基本概念">二、基本概念</a></li>
+    <li><a href="#三父容器的属性">三、父容器的属性</a>
+      <ul>
+        <li><a href="#31-flex-direction属性">3.1 flex-direction属性</a></li>
+        <li><a href="#32-flex-wrap属性">3.2 flex-wrap属性</a></li>
+        <li><a href="#33-flex-flow">3.3 flex-flow</a></li>
+        <li><a href="#34-justify-content属性">3.4 justify-content属性</a></li>
+        <li><a href="#35-align-items属性">3.5 align-items属性</a></li>
+        <li><a href="#36-align-content属性">3.6 align-content属性</a></li>
+      </ul>
+    </li>
+    <li><a href="#四子元素的属性">四、子元素的属性</a>
+      <ul>
+        <li><a href="#41-order属性">4.1 order属性</a></li>
+        <li><a href="#42-flex-grow属性">4.2 flex-grow属性</a></li>
+        <li><a href="#43-flex-shrink属性">4.3 flex-shrink属性</a></li>
+        <li><a href="#44-flex-basis属性">4.4 flex-basis属性</a></li>
+        <li><a href="#45-flex属性">4.5 flex属性</a></li>
+        <li><a href="#46-align-self属性">4.6 align-self属性</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/flex0001/">Flex 布局教程：语法篇</a>
+  </h1>
+  
+  <h5>2020-05-19 09:38</h5>
+
+
+
+  
+
+  
+
+
+  <p><p>作者： <a href="http://www.ruanyifeng.com/">阮一峰</a></p>
+<p>日期： <a href="http://www.ruanyifeng.com/blog/2015/07/">2015年7月10日</a></p>
+<hr>
+<p>网页布局（layout）是 CSS 的一个重点应用。</p>
+<p><img src="https://chenning02.github.io/Document/blog-img/bg2015071001.jpg" alt="img" /></p>
+<p>布局的传统解决方案，基于<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box_model">盒状模型</a>，依赖 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><code>display</code></a> 属性 + <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"><code>position</code></a>属性 + <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float"><code>float</code></a>属性。它对于那些特殊布局非常不方便，比如，<a href="https://css-tricks.com/centering-css-complete-guide/">垂直居中</a>就不容易实现。</p>
+<p><img src="https://chenning02.github.io/Document/blog-img//bg2015071002.png" alt="img" /></p>
+<p>2009年，W3C 提出了一种新的方案&mdash;-Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。</p>
+<p><img src="https://chenning02.github.io/Document/blog-img/bg2015071003.jpg" alt="img" /></p>
+<p>Flex 布局将成为未来布局的首选方案。本文介绍它的语法，<a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html">下一篇文章</a>给出常见布局的 Flex 写法。网友 <a href="http://vgee.cn/">JailBreak</a> 为本文的所有示例制作了 <a href="http://static.vgee.cn/static/index.html">Demo</a>，也可以参考。</p>
+<p>以下内容主要参考了下面两篇文章：<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a> 和 <a href="https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties">A Visual Guide to CSS3 Flexbox Properties</a>。</p>
+<h2 id="一flex-布局是什么">
+  一、Flex 布局是什么？
+  <a class="anchor" href="#%e4%b8%80flex-%e5%b8%83%e5%b1%80%e6%98%af%e4%bb%80%e4%b9%88">#</a>
+</h2>
+<p>Flex 是 Flexible Box 的缩写，意为&quot;弹性布局&rdquo;，用来为盒状模型提供最大的灵活性。</p>
+<p>任何一个容器都可以指定为 Flex 布局。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#268bd2">box</span>{
+    <span style="color:#719e07">display</span>: <span style="color:#cb4b16">flex</span>;
+}
+</code></pre></div><p>行内元素也可以使用 Flex 布局。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#268bd2">box</span>{
+    <span style="color:#719e07">display</span>: <span style="color:#cb4b16">inline</span><span style="color:#719e07">-</span><span style="color:#cb4b16">flex</span>;
+}
+</code></pre></div><p>Webkit 内核的浏览器，必须加上<code>-webkit</code>前缀。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#268bd2">box</span>{
+    <span style="color:#719e07">display</span>: <span style="color:#719e07">-webkit-</span><span style="color:#cb4b16">flex</span>; <span style="color:#586e75">/* Safari */</span>
+    <span style="color:#719e07">display</span>: <span style="color:#cb4b16">flex</span>;
+}
+</code></pre></div><p>注意，设为 Flex 布局以后，子元素的<code>float</code>、<code>clear</code>和<code>vertical-align</code>属性将失效。</p>
+<h2 id="二基本概念">
+  二、基本概念
+  <a class="anchor" href="#%e4%ba%8c%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5">#</a>
+</h2>
+<p>采用 Flex 布局的元素，称为 Flex 容器（flex container），简称&quot;容器&rdquo;。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称&quot;项目&rdquo;。</p>
+<p><img src="https://chenning02.github.io/Document/blog-img//bg2015071004.png" alt="img" /></p>
+<p>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做<code>main start</code>，结束位置叫做<code>main end</code>；交叉轴的开始位置叫做<code>cross start</code>，结束位置叫做<code>cross end</code>。</p>
+<p>项目默认沿主轴排列。单个项目占据的主轴空间叫做<code>main size</code>，占据的交叉轴空间叫做<code>cross size</code>。</p>
+<h2 id="三父容器的属性">
+  三、父容器的属性
+  <a class="anchor" href="#%e4%b8%89%e7%88%b6%e5%ae%b9%e5%99%a8%e7%9a%84%e5%b1%9e%e6%80%a7">#</a>
+</h2>
+<p>以下6个属性设置在父容器上。</p>
+<ul>
+<li>flex-direction</li>
+<li>flex-wrap</li>
+<li>flex-flow</li>
+<li>justify-content</li>
+<li>align-items</li>
+<li>align-content</li>
+</ul>
+<h3 id="31-flex-direction属性">
+  3.1 flex-direction属性
+  <a class="anchor" href="#31-flex-direction%e5%b1%9e%e6%80%a7">#</a>
+</h3>
+<p><code>flex-direction</code>属性决定主轴的方向（即项目的排列方向）。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#268bd2">box</span> {
+    <span style="color:#719e07">flex-direction</span>: <span style="color:#cb4b16">row</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">row</span><span style="color:#719e07">-</span><span style="color:#cb4b16">reverse</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">column</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">column</span><span style="color:#719e07">-</span><span style="color:#cb4b16">reverse</span>;
+}
+</code></pre></div><p><img src="https://chenning02.github.io/Document/blog-img/css-flex_01.jpg" alt="flex-direction" /></p>
+<p>它可能有4个值。</p>
+<ul>
+<li><code>row</code>（默认值）：主轴为水平方向，起点在左端。</li>
+<li><code>row-reverse</code>：主轴为水平方向，起点在右端。</li>
+<li><code>column</code>：主轴为垂直方向，起点在上沿。</li>
+<li><code>column-reverse</code>：主轴为垂直方向，起点在下沿。</li>
+</ul>
+<h3 id="32-flex-wrap属性">
+  3.2 flex-wrap属性
+  <a class="anchor" href="#32-flex-wrap%e5%b1%9e%e6%80%a7">#</a>
+</h3>
+<p>默认情况下，项目都排在一条线（又称&quot;轴线&rdquo;）上。<code>flex-wrap</code>属性定义，如果一条轴线排不下，如何换行。</p>
+<p><img src="https://chenning02.github.io/Document/blog-img/bg2015071006.png" alt="img" /></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#268bd2">box</span>{
+    <span style="color:#719e07">flex-wrap</span>: <span style="color:#cb4b16">nowrap</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">wrap</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">wrap</span><span style="color:#719e07">-</span><span style="color:#cb4b16">reverse</span>;
+}
+</code></pre></div><p>它可能取三个值。</p>
+<p>（1）<code>nowrap</code>（默认）：不换行。</p>
+<p><img src="https://chenning02.github.io/Document/blog-img/css-flex_04.jpg" alt="nowrap" /></p>
+<p>（2）<code>wrap</code>：换行，第一行在上方。</p>
+<p><img src="https://chenning02.github.io/Document/blog-img/css-flex_02.jpg" alt="wrap" /></p>
+<p>（3）<code>wrap-reverse</code>：换行，第一行在下方。</p>
+<p><img src="https://chenning02.github.io/Document/blog-img/css-flex_03-01.jpg" alt="wrap-reverse" /></p>
+<h3 id="33-flex-flow">
+  3.3 flex-flow
+  <a class="anchor" href="#33-flex-flow">#</a>
+</h3>
+<p><code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code>。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#268bd2">box</span> {
+    <span style="color:#719e07">flex-flow</span>: <span style="color:#719e07">&lt;</span><span style="color:#cb4b16">flex</span><span style="color:#719e07">-</span><span style="color:#719e07">direction</span><span style="color:#719e07">&gt;</span> <span style="color:#719e07">||</span> <span style="color:#719e07">&lt;</span><span style="color:#cb4b16">flex</span><span style="color:#719e07">-</span><span style="color:#cb4b16">wrap</span><span style="color:#719e07">&gt;</span>;
+}
+</code></pre></div><h3 id="34-justify-content属性">
+  3.4 justify-content属性
+  <a class="anchor" href="#34-justify-content%e5%b1%9e%e6%80%a7">#</a>
+</h3>
+<p><code>justify-content</code>属性定义了项目在主轴上的对齐方式。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#268bd2">box</span> {
+    <span style="color:#719e07">justify-content</span>: <span style="color:#cb4b16">flex</span><span style="color:#719e07">-</span><span style="color:#cb4b16">start</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">flex</span><span style="color:#719e07">-</span><span style="color:#cb4b16">end</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">center</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">space</span><span style="color:#719e07">-</span>between <span style="color:#719e07">|</span> <span style="color:#cb4b16">space</span><span style="color:#719e07">-</span>around;
+}
+</code></pre></div><p><img src="https://chenning02.github.io/Document/blog-img/bg2015071010.png" alt="img" /></p>
+<p>它可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。</p>
+<ul>
+<li><code>flex-start</code>（默认值）：左对齐</li>
+<li><code>flex-end</code>：右对齐</li>
+<li><code>center</code>： 居中</li>
+<li><code>space-between</code>：两端对齐，项目之间的间隔都相等。</li>
+<li><code>space-around</code>：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</li>
+</ul>
+<h3 id="35-align-items属性">
+  3.5 align-items属性
+  <a class="anchor" href="#35-align-items%e5%b1%9e%e6%80%a7">#</a>
+</h3>
+<p><code>align-items</code>属性定义项目在交叉轴上如何对齐。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#268bd2">box</span> {
+    <span style="color:#719e07">align-items</span>: <span style="color:#cb4b16">flex</span><span style="color:#719e07">-</span><span style="color:#cb4b16">start</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">flex</span><span style="color:#719e07">-</span><span style="color:#cb4b16">end</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">center</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">baseline</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">stretch</span>;
+}
+</code></pre></div><p><img src="https://chenning02.github.io/Document/blog-img/css-flex_06.jpg" alt="align-items" /></p>
+<p>baseline 属性图示</p>
+<p><img src="https://chenning02.github.io/Document/blog-img/css-flex_07.jpg" alt="" /></p>
+<p>它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。</p>
+<ul>
+<li><code>flex-start</code>：交叉轴的起点对齐。</li>
+<li><code>flex-end</code>：交叉轴的终点对齐。</li>
+<li><code>center</code>：交叉轴的中点对齐。</li>
+<li><code>baseline</code>: 项目的第一行文字的基线对齐。</li>
+<li><code>stretch</code>（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
+</ul>
+<h3 id="36-align-content属性">
+  3.6 align-content属性
+  <a class="anchor" href="#36-align-content%e5%b1%9e%e6%80%a7">#</a>
+</h3>
+<p><code>align-content</code>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#268bd2">box</span> {
+    <span style="color:#719e07">align-content</span>: <span style="color:#cb4b16">flex</span><span style="color:#719e07">-</span><span style="color:#cb4b16">start</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">flex</span><span style="color:#719e07">-</span><span style="color:#cb4b16">end</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">center</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">space</span><span style="color:#719e07">-</span>between <span style="color:#719e07">|</span> <span style="color:#cb4b16">space</span><span style="color:#719e07">-</span>around <span style="color:#719e07">|</span> <span style="color:#cb4b16">stretch</span>;
+}
+</code></pre></div><p><img src="https://chenning02.github.io/Document/blog-img/bg2015071012.png" alt="img" /></p>
+<p>该属性可能取6个值。</p>
+<ul>
+<li><code>flex-start</code>：与交叉轴的起点对齐。</li>
+<li><code>flex-end</code>：与交叉轴的终点对齐。</li>
+<li><code>center</code>：与交叉轴的中点对齐。</li>
+<li><code>space-between</code>：与交叉轴两端对齐，轴线之间的间隔平均分布。</li>
+<li><code>space-around</code>：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li>
+<li><code>stretch</code>（默认值）：轴线占满整个交叉轴。</li>
+</ul>
+<h2 id="四子元素的属性">
+  四、子元素的属性
+  <a class="anchor" href="#%e5%9b%9b%e5%ad%90%e5%85%83%e7%b4%a0%e7%9a%84%e5%b1%9e%e6%80%a7">#</a>
+</h2>
+<p>以下6个属性设置在子元素上。</p>
+<ul>
+<li><code>order</code></li>
+<li><code>flex-grow</code></li>
+<li><code>flex-shrink</code></li>
+<li><code>flex-basis</code></li>
+<li><code>flex</code></li>
+<li><code>align-self</code></li>
+</ul>
+<h3 id="41-order属性">
+  4.1 order属性
+  <a class="anchor" href="#41-order%e5%b1%9e%e6%80%a7">#</a>
+</h3>
+<p><code>order</code>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#268bd2">item</span> {
+    <span style="color:#719e07">order</span>: <span style="color:#719e07">&lt;</span>integer<span style="color:#719e07">&gt;</span>;
+}
+</code></pre></div><p><img src="https://chenning02.github.io/Document/blog-img/bg2015071013.png" alt="img" /></p>
+<h3 id="42-flex-grow属性">
+  4.2 flex-grow属性
+  <a class="anchor" href="#42-flex-grow%e5%b1%9e%e6%80%a7">#</a>
+</h3>
+<p><code>flex-grow</code>属性定义项目的放大比例，默认为<code>0</code>，即如果存在剩余空间，也不放大。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#268bd2">item</span> {
+    <span style="color:#719e07">flex-grow</span>: <span style="color:#719e07">&lt;</span>number<span style="color:#719e07">&gt;</span>; <span style="color:#586e75">/* default 0 */</span>
+}
+</code></pre></div><p><img src="https://chenning02.github.io/Document/blog-img/bg2015071014.png" alt="img" /></p>
+<p>如果所有项目的<code>flex-grow</code>属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的<code>flex-grow</code>属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</p>
+<h3 id="43-flex-shrink属性">
+  4.3 flex-shrink属性
+  <a class="anchor" href="#43-flex-shrink%e5%b1%9e%e6%80%a7">#</a>
+</h3>
+<p><code>flex-shrink</code>属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#268bd2">item</span> {
+    <span style="color:#719e07">flex-shrink</span>: <span style="color:#719e07">&lt;</span>number<span style="color:#719e07">&gt;</span>; <span style="color:#586e75">/* default 1 */</span>
+}
+</code></pre></div><p><img src="https://chenning02.github.io/Document/blog-img/css_flex_08.jpg" alt="img" /></p>
+<p>如果所有项目的<code>flex-shrink</code>属性都为1，当空间不足时，都将等比例缩小。如果一个项目的<code>flex-shrink</code>属性为0，其他项目都为1，则空间不足时，前者不缩小。</p>
+<p>负值对该属性无效。</p>
+<h3 id="44-flex-basis属性">
+  4.4 flex-basis属性
+  <a class="anchor" href="#44-flex-basis%e5%b1%9e%e6%80%a7">#</a>
+</h3>
+<p><code>flex-basis</code>属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#268bd2">item</span> {
+    <span style="color:#719e07">flex-basis</span>: <span style="color:#719e07">&lt;</span>length<span style="color:#719e07">&gt;</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">auto</span>; <span style="color:#586e75">/* default auto */</span>
+}
+</code></pre></div><p>它可以设为跟<code>width</code>或<code>height</code>属性一样的值（比如350px），则项目将占据固定空间。</p>
+<h3 id="45-flex属性">
+  4.5 flex属性
+  <a class="anchor" href="#45-flex%e5%b1%9e%e6%80%a7">#</a>
+</h3>
+<p><code>flex</code>属性是<code>flex-grow</code>, <code>flex-shrink</code> 和 <code>flex-basis</code>的简写，默认值为<code>0 1 auto</code>。后两个属性可选。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#268bd2">item</span> {
+    <span style="color:#719e07">flex</span>: <span style="color:#cb4b16">none</span> <span style="color:#719e07">|</span> [ <span style="color:#719e07">&lt;</span><span style="color:#2aa198">&#39;flex-grow&#39;</span><span style="color:#719e07">&gt;</span> <span style="color:#719e07">&lt;</span><span style="color:#2aa198">&#39;flex-shrink&#39;</span><span style="color:#719e07">&gt;?</span> <span style="color:#719e07">||</span> <span style="color:#719e07">&lt;</span><span style="color:#2aa198">&#39;flex-basis&#39;</span><span style="color:#719e07">&gt;</span> ]
+}
+</code></pre></div><p>该属性有两个快捷值：<code>auto</code> (<code>1 1 auto</code>) 和 none (<code>0 0 auto</code>)。</p>
+<p>建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</p>
+<h3 id="46-align-self属性">
+  4.6 align-self属性
+  <a class="anchor" href="#46-align-self%e5%b1%9e%e6%80%a7">#</a>
+</h3>
+<p><code>align-self</code>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性。默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于<code>stretch</code>。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#268bd2">item</span> {
+    <span style="color:#719e07">align-self</span>: <span style="color:#cb4b16">auto</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">flex</span><span style="color:#719e07">-</span><span style="color:#cb4b16">start</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">flex</span><span style="color:#719e07">-</span><span style="color:#cb4b16">end</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">center</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">baseline</span> <span style="color:#719e07">|</span> <span style="color:#cb4b16">stretch</span>;
+}
+</code></pre></div><p><img src="https://chenning02.github.io/Document/blog-img/bg2015071016.png" alt="img" /></p>
+<p>该属性可能取6个值，除了auto，其他都与 <code>align-items</code> 属性完全一致。</p>
+<p>（完）</p>
+<hr>
+<blockquote>
+<p>本文转载自：http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html<br>
+版权声明：自由转载-非商用-非衍生-保持署名<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a><br>
+发表日期： 2015年7月10日</p>
+</blockquote>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一flex-布局是什么">一、Flex 布局是什么？</a></li>
+    <li><a href="#二基本概念">二、基本概念</a></li>
+    <li><a href="#三父容器的属性">三、父容器的属性</a>
+      <ul>
+        <li><a href="#31-flex-direction属性">3.1 flex-direction属性</a></li>
+        <li><a href="#32-flex-wrap属性">3.2 flex-wrap属性</a></li>
+        <li><a href="#33-flex-flow">3.3 flex-flow</a></li>
+        <li><a href="#34-justify-content属性">3.4 justify-content属性</a></li>
+        <li><a href="#35-align-items属性">3.5 align-items属性</a></li>
+        <li><a href="#36-align-content属性">3.6 align-content属性</a></li>
+      </ul>
+    </li>
+    <li><a href="#四子元素的属性">四、子元素的属性</a>
+      <ul>
+        <li><a href="#41-order属性">4.1 order属性</a></li>
+        <li><a href="#42-flex-grow属性">4.2 flex-grow属性</a></li>
+        <li><a href="#43-flex-shrink属性">4.3 flex-shrink属性</a></li>
+        <li><a href="#44-flex-basis属性">4.4 flex-basis属性</a></li>
+        <li><a href="#45-flex属性">4.5 flex属性</a></li>
+        <li><a href="#46-align-self属性">4.6 align-self属性</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

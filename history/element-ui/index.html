@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="分页组件 #  常用属性 #     名称 作用 类型 可选值 默认值     small 使用小型分页样式 boolean  false   background 为分页按钮添加背景色 boolean  false   page-size 每页显示数据个数 (支持 .sync 修饰符) number  10   total 数据总个数 (总条目数) number     current-page 当前页数 (支持 .sync 修饰符)   1    事件 #     名称 说明 回调参数     current-change 当前页 (currentPage) 改变时会触发 当前页    常用带跳转案例">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Element UI" />
+<meta property="og:description" content="分页组件 #  常用属性 #     名称 作用 类型 可选值 默认值     small 使用小型分页样式 boolean  false   background 为分页按钮添加背景色 boolean  false   page-size 每页显示数据个数 (支持 .sync 修饰符) number  10   total 数据总个数 (总条目数) number     current-page 当前页数 (支持 .sync 修饰符)   1    事件 #     名称 说明 回调参数     current-change 当前页 (currentPage) 改变时会触发 当前页    常用带跳转案例" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/history/element-ui/" />
+<meta property="article:published_time" content="2019-09-01T18:29:26+00:00" />
+<meta property="article:modified_time" content="2019-09-01T18:29:26+00:00" />
+<title>Element UI | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-10-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E7%AE%80%E8%AE%B0/" class="">多人博客项目(简记)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-15-keyboard-nav/" class="">键盘导航</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-canvas/" class="">Canvas画板</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-%E5%AE%89%E5%8D%93%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E6%A1%88%E4%BE%8B/" class="">安卓音乐播放器案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-12-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E8%AF%AD%E6%B3%95%E7%B3%96%E7%AE%80%E7%89%88/" class="">函数与对象的语法糖(索引)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-function-object-sugar/" class="">函数与对象的语法糖一</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-%E5%87%BD%E6%95%B0%E4%B8%8E%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96%E4%BA%8C/" class="">函数与对象的语法糖二</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/0cd88b5c/" class="">模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-07-vue%E5%A4%9A%E4%BA%BA%E5%85%B1%E4%BA%AB%E5%8D%9A%E5%AE%A2/" class="">[项目] Vue 多人共享博客</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-03-31-jsonp/" class="">[高级] 35 - JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-25-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E8%AF%A6%E7%BB%86/" class="">多人博客项目(详细)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-vue-plugin-int/" class="">Vue插件安装</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-css-selector/" class="">CSS选择器总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/dd3e7bbd/" class="">常用的HTML5标签</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-25-%E7%AE%80%E5%8E%86%E6%80%8E%E4%B9%88%E5%86%99/" class="">简历怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-12-lx%E4%B8%BB%E9%A2%98%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/" class="">lx主题中文文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-27-css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80/" class="">CSS Grid 网格布局</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-jquery%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">jQuery常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-js%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">JS 常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-yarn%E5%85%A5%E9%97%A8/" class="">yarn 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-npm%E5%85%A5%E9%97%A8/" class="">npm 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-04-es6%E6%96%B0%E7%89%B9%E6%80%A7/" class="">ES6新特性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="">面向对象</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-jquery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/jquery%E8%BD%AE%E6%92%AD%E6%A1%88%E4%BE%8B/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E8%87%AA%E5%88%B6jquery/" class="">自制jQuery</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-01-mvvm/" class="">MVVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-28-this%E6%98%AF%E4%BB%80%E4%B9%88/" class="">this是什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-27-new%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/" class="">New做了什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-21-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9D%97%E5%8C%96/" class="">代码模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-20-mvc%E6%80%9D%E6%83%B3/" class="">MVC思想</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-18-%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0-ajax/" class="">自己实现 AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-17-ajax/" class="">AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-16-jsonp/" class="">JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim-get-started/" class="">vim 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim%E7%9A%84%E4%BD%BF%E7%94%A8/" class="">vim 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-10-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="">命令行常用技巧</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" class="">浏览器缓存</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-css%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/" class="">CSS 常用属性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-01-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2-%E5%93%8D%E5%BA%94%E5%BC%8F/" class="">移动端页面(响应式)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/element-ui/" class="active">Element UI</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B/" class="">Vue 入门案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E6%B5%8B%E8%AF%95%E9%A1%B5/" class="">测试页</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-webpack-use/" class="">webpack 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E5%9F%BA%E7%A1%80%E5%B8%B8%E8%AF%86/" class="">JS基础常识</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/action/" class="">Action 官方文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/axios%E5%85%A5%E9%97%A8/" class="">Axios 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E4%B8%AD%E7%9A%84symbol%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JS 中的 Symbol 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/json%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JSON 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-11-12-module%E8%AF%AD%E6%B3%95/" class="">Module语法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-%E7%82%B9%E5%87%BB%E7%A9%BA%E7%99%BD%E5%85%B3%E9%97%AD%E6%B5%AE%E5%B1%82/" class="">Vue 点击空白关闭浮层</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-cli%E4%BD%BF%E7%94%A8/" class="">Vue-cli 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vuex%E4%BD%BF%E7%94%A8/" class="">Vuex 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-02-03-%E5%8E%9F%E5%9E%8B%E9%93%BE%E8%A1%A5%E5%85%85/" class="">原型链补充</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-05-07-%E6%95%B0%E7%BB%84/" class="">数组</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-27-%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E7%AE%80%E5%8E%86%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="">简历该怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BE%A6%E5%90%AC%E5%99%A8/" class="">计算属性和监听器</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Element UI</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#分页组件">分页组件</a>
+      <ul>
+        <li><a href="#常用属性">常用属性</a></li>
+        <li><a href="#事件">事件</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="分页组件">
+  分页组件
+  <a class="anchor" href="#%e5%88%86%e9%a1%b5%e7%bb%84%e4%bb%b6">#</a>
+</h2>
+<h3 id="常用属性">
+  常用属性
+  <a class="anchor" href="#%e5%b8%b8%e7%94%a8%e5%b1%9e%e6%80%a7">#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作用</th>
+<th>类型</th>
+<th>可选值</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>small</td>
+<td>使用小型分页样式</td>
+<td>boolean</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>background</td>
+<td>为分页按钮添加背景色</td>
+<td>boolean</td>
+<td></td>
+<td>false</td>
+</tr>
+<tr>
+<td>page-size</td>
+<td>每页显示数据个数 (支持 .sync 修饰符)</td>
+<td>number</td>
+<td></td>
+<td>10</td>
+</tr>
+<tr>
+<td>total</td>
+<td>数据总个数 (总条目数)</td>
+<td>number</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>current-page</td>
+<td>当前页数 (支持 .sync 修饰符)</td>
+<td></td>
+<td></td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="事件">
+  事件
+  <a class="anchor" href="#%e4%ba%8b%e4%bb%b6">#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>回调参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>current-change</td>
+<td>当前页 (currentPage) 改变时会触发</td>
+<td>当前页</td>
+</tr>
+</tbody>
+</table>
+<p>常用带跳转案例</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#268bd2">el-pagination</span>
+  background
+  <span style="color:#268bd2">@current-change</span><span style="color:#2aa198">=&#34;handleCurrentChange&#34;</span>
+  <span style="color:#268bd2">:current-page.sync</span><span style="color:#2aa198">=&#34;currentPage1&#34;</span>
+  <span style="color:#268bd2">:page-size</span><span style="color:#2aa198">=&#34;100&#34;</span>
+  layout<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;total, prev, pager, next&#34;</span>
+  <span style="color:#268bd2">:total</span><span style="color:#2aa198">=&#34;1000&#34;</span>&gt;
+<span style="color:#719e07">&lt;</span>/el-pagination&gt;
+</code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#分页组件">分页组件</a>
+      <ul>
+        <li><a href="#常用属性">常用属性</a></li>
+        <li><a href="#事件">事件</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

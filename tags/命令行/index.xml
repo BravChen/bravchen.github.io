@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>命令行 on MrChen</title>
+    <link>https://bravchen.github.io/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+    <description>Recent content in 命令行 on MrChen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Oct 2019 16:03:54 +0000</lastBuildDate>
+    
+	<atom:link href="https://bravchen.github.io/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>npm 入门</title>
+      <link>https://bravchen.github.io/history/2019-10-17-npm%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Thu, 17 Oct 2019 16:03:54 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-10-17-npm%E5%85%A5%E9%97%A8/</guid>
+      <description>npm常用命令 #  npm更新 #  npm install npm@latest -g # 最新稳定版全局安装 npm install npm@4.2.1 -g # 指定版本全局安装 包安装 #  首先初始化，在需要安装的目录下输入
+npm init -y # 默认配置 安装
+npm install xxx # 安装 npm i xxx # 简写 # 安装一些常用库: npm i jquery npm i vue npm i bootstrap # 安装指定版本 npm i jquery@3.1.0 在根目录下的 package.json 中有每个库的版本号，如
+&amp;#34;dependencies&amp;#34;: { &amp;#34;bootstrap&amp;#34;: &amp;#34;^4.3.1&amp;#34;, &amp;#34;jquery&amp;#34;: &amp;#34;^3.4.1&amp;#34;, &amp;#34;vue&amp;#34;: &amp;#34;^2.6.10&amp;#34; } 当移动当前根目录的项目时，即时删除掉 node_modules 文件夹，只要在当前目录下执行：
+npm i # 注意命令后不要加任何其他的东西 即可恢复之前所有的库，版本也是之前对应的。</description>
+    </item>
+    
+    <item>
+      <title>vim 入门</title>
+      <link>https://bravchen.github.io/history/2019-09-14-vim-get-started/</link>
+      <pubDate>Sat, 14 Sep 2019 20:39:55 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-09-14-vim-get-started/</guid>
+      <description>退出vim #    不保存强制退出：:q!
+  强制退出：:qa!
+  区别：使用 :q! 会退出并且抛出一个错误，而使用 :qa! 会直接退出不抛出错误
+查看官方文档 vimtutor
+使用到的单词
+quit 退出 write/read 写入/读取 copy(yank) 拷贝(把...拽到) paste 粘贴 delete 删除 change 改变 line 行 find 查找文字 word 查找单词 forward/backward 向前/向后 up/down 向上/向下 insert/append 插入/ insert 模式(编辑模式) 普通模式(normal模式) do/undo/redo 做/撤销/还原 默认模式 (普通模式)
+按 x 删除光标所在字母
+按 u 撤销
+按 ctrl + r 重做
+按 i 在光标前插入
+按 a 在光标后插入
+按 Shift + i 移至当前行尾</description>
+    </item>
+    
+    <item>
+      <title>vim 的使用</title>
+      <link>https://bravchen.github.io/history/2019-09-14-vim%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 14 Sep 2019 20:39:55 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-09-14-vim%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>退出vim #    不保存强制退出：:q!
+  强制退出：:qa!
+  区别：使用 :q! 会退出并且抛出一个错误，而使用 :qa! 会直接退出不抛出错误
+查看官方文档 vimtutor
+使用到的单词
+quit 退出 write/read 写入/读取 copy(yank) 拷贝(把...拽到) paste 粘贴 delete 删除 change 改变 line 行 find 查找文字 word 查找单词 forward/backward 向前/向后 up/down 向上/向下 insert/append 插入/ insert 模式(编辑模式) 普通模式(normal模式) do/undo/redo 做/撤销/还原 默认模式 (普通模式)
+按 x 删除光标所在字母
+按 u 撤销
+按 ctrl + r 重做
+按 i 在光标前插入
+按 a 在光标后插入
+按 Shift + i 移至当前行尾</description>
+    </item>
+    
+    <item>
+      <title>webpack 的使用</title>
+      <link>https://bravchen.github.io/history/2019-08-28-webpack-use/</link>
+      <pubDate>Wed, 28 Aug 2019 23:02:51 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-08-28-webpack-use/</guid>
+      <description>部分命令可能会有些过时，所以要多看官方文档
+安装 node-sass #  搜索：node sass github
+github官网：https://github.com/sass/node-sass
+命令行输入：
+npm install node-sass -g  -g 表示全局安装
+ 全局安装与局部安装的区别
+  全局安装的命令会将插件安装在全局目录中 (包含在$PATH中)，不论在哪个目录下都可以调用
+  局部安装只能在当前路径使用该命令
+  使用 #  查看版本号
+node-sass -v sass 的用法
+  更改CSS文件后缀为： scss
+命令行中的写法：mv style.css style.scss
+  使用 sass 编译：node-sass style.scss style.css
+  也可以使用 scss 语法书写代码：
+div { color: red; &amp;gt; ul { font-size: 16px; &amp;gt; li { border: 1px solid #000; &amp;gt; a { font-weight: bold; } } } } 再运行 node-sass style.</description>
+    </item>
+    
+  </channel>
+</rss>

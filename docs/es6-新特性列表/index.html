@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ES 6 新特性列表 #  由 饥人谷 搜集整理。点击链接，查看中文学习资料。
+ 作用域  块级作用域 块级变量 let 块级常量 const   箭头函数  sum = (a, b) =&gt; a &#43; b nums.forEach( v =&gt; { console.log(v) }) 词法 this   参数处理  默认参数值 剩余参数 展开运算符   模板字面量  多行字符串 字符串插值 带标签的模板字面量 原始字符串   原有字面量加强  更安全的二进制字面量（0b1111101） 更安全的八进制字面量（0o767） 字符串支持 Unicode  String.fromCodePoint String.prototype.codePointAt   正则表达式字面量添加 Unicode 支持（u 标记） 正则表达式添加 y 标记，支持粘滞匹配   对象属性加强  属性定义支持短语法 obj = { x, y } 属性名支持表达式 obj = {[&quot;baz&quot; &#43; quux() ]: 42} 添加 __proto__ 属性，但不建议使用   解构赋值  数组匹配 [ b, a ] = [ a, b ] 对象匹配 let { a, b, c } = objABC 参数匹配 function g ({ name: n, val: v }) {}   模块  导入（import） 导出（export） 默认导出（export default）   类  使用 extends 实现继承 重写构造器 super 关键字   迭代  迭代器 for of   生成器 Promise 元编程  代理（Proxy） 反射（Reflect）   新增数据类型  Symbol 类型 Set 类型 Map 类型 WeakSet 类型 WeakMap 类型 TypedArray 类型   原有内置对象 API 增强  Object.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="ES 6 新特性列表" />
+<meta property="og:description" content="ES 6 新特性列表 #  由 饥人谷 搜集整理。点击链接，查看中文学习资料。
+ 作用域  块级作用域 块级变量 let 块级常量 const   箭头函数  sum = (a, b) =&gt; a &#43; b nums.forEach( v =&gt; { console.log(v) }) 词法 this   参数处理  默认参数值 剩余参数 展开运算符   模板字面量  多行字符串 字符串插值 带标签的模板字面量 原始字符串   原有字面量加强  更安全的二进制字面量（0b1111101） 更安全的八进制字面量（0o767） 字符串支持 Unicode  String.fromCodePoint String.prototype.codePointAt   正则表达式字面量添加 Unicode 支持（u 标记） 正则表达式添加 y 标记，支持粘滞匹配   对象属性加强  属性定义支持短语法 obj = { x, y } 属性名支持表达式 obj = {[&quot;baz&quot; &#43; quux() ]: 42} 添加 __proto__ 属性，但不建议使用   解构赋值  数组匹配 [ b, a ] = [ a, b ] 对象匹配 let { a, b, c } = objABC 参数匹配 function g ({ name: n, val: v }) {}   模块  导入（import） 导出（export） 默认导出（export default）   类  使用 extends 实现继承 重写构造器 super 关键字   迭代  迭代器 for of   生成器 Promise 元编程  代理（Proxy） 反射（Reflect）   新增数据类型  Symbol 类型 Set 类型 Map 类型 WeakSet 类型 WeakMap 类型 TypedArray 类型   原有内置对象 API 增强  Object." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/docs/es6-%E6%96%B0%E7%89%B9%E6%80%A7%E5%88%97%E8%A1%A8/" />
+
+<title>ES 6 新特性列表 | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%80%E6%A8%A1%E5%9D%97%E7%9A%84%E5%86%99%E6%B3%95/" class="">Javascript模块化编程（一）：模块的写法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%BA%8Camd%E8%A7%84%E8%8C%83/" class="">Javascript模块化编程（二）：AMD规范</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%89require.js%E7%9A%84%E7%94%A8%E6%B3%95/" class="">Javascript模块化编程（三）：require.js的用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/generator%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E4%B8%8E%E7%94%A8%E6%B3%95/" class="">Generator 函数的含义与用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%E7%9A%844%E7%A7%8D%E6%96%B9%E6%B3%95/" class="">Javascript异步编程的4种方法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/thunk%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" class="">Thunk 函数的含义和用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/co%E5%87%BD%E6%95%B0%E5%BA%93%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" class="">co 函数库的含义和用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/async%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" class="">async 函数的含义和用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-06-04-vuex-use/" class="">快速理解 Vuex 的方法（转载）</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/7bcd3815/" class="">科班 与 培训 的区别</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-04-22-2020-interview-outline/" class="">2020年前端面试提纲</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-04-18-guanyuzhihu-naxiezhishi/" class="">关于知乎 &#34;哪些知识越了解越觉得『对这个世界很绝望』？&#34;</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/" class="">Git用法总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80%E6%95%99%E7%A8%8B/" class="">CSS Grid 网格布局教程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/es6-%E6%96%B0%E7%89%B9%E6%80%A7%E5%88%97%E8%A1%A8/" class="active">ES 6 新特性列表</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/unicode%E4%B8%8Ejavascript%E8%AF%A6%E8%A7%A3/" class="">Unicode与JavaScript详解</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97-%E6%96%87%E7%AB%A0%E7%B2%BE%E9%80%89/" class="">《前端学习指南》文章精选</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E5%A6%82%E4%BD%95%E5%9C%A8-js-%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%B6%88%E7%81%AD-for-%E5%BE%AA%E7%8E%AF/" class="">如何在 JS 代码中消灭 for 循环</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E5%B9%B3%E6%97%B6%E4%BD%A0%E4%BB%8E%E5%93%AA%E9%87%8C%E8%8E%B7%E5%8F%96%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" class="">平时你从哪里获取前端知识？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-04-18-%E6%88%91%E7%94%A8%E4%BA%86%E4%B8%A4%E4%B8%AA%E6%9C%88%E7%9A%84%E6%97%B6%E9%97%B4%E6%89%8D%E7%90%86%E8%A7%A3-let/" class="">我用了两个月的时间才理解 let</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-02-08-%E7%9F%A5%E8%AF%86%E7%9A%84%E8%AF%85%E5%92%92/" class="">知识的诅咒</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>ES 6 新特性列表</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents"></nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="es-6-新特性列表">
+  ES 6 新特性列表
+  <a class="anchor" href="#es-6-%e6%96%b0%e7%89%b9%e6%80%a7%e5%88%97%e8%a1%a8">#</a>
+</h1>
+<p>由 <a href="http://jirengu.com/">饥人谷</a> 搜集整理。点击链接，查看中文学习资料。</p>
+<ul>
+<li>作用域
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/block">块级作用域</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let">块级变量 let</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/const">块级常量 const</a></li>
+</ul>
+</li>
+<li>箭头函数
+<ul>
+<li><code>sum = (a, b) =&gt; a + b</code></li>
+<li><code>nums.forEach( v =&gt; { console.log(v) })</code></li>
+<li>词法 this</li>
+</ul>
+</li>
+<li>参数处理
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Default_parameters">默认参数值</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Rest_parameters">剩余参数</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_operator">展开运算符</a></li>
+</ul>
+</li>
+<li>模板字面量
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/template_strings#%e5%a4%9a%e8%a1%8c%e5%ad%97%e7%ac%a6%e4%b8%b2">多行字符串</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/template_strings#%e8%a1%a8%e8%be%be%e5%bc%8f%e6%8f%92%e8%a1%a5">字符串插值</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/template_strings#%e5%b8%a6%e6%a0%87%e7%ad%be%e7%9a%84%e6%a8%a1%e6%9d%bf%e5%ad%97%e7%ac%a6%e4%b8%b2">带标签的模板字面量</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/template_strings#%e5%8e%9f%e5%a7%8b%e5%ad%97%e7%ac%a6%e4%b8%b2">原始字符串</a></li>
+</ul>
+</li>
+<li>原有字面量加强
+<ul>
+<li>更安全的二进制字面量（0b1111101）</li>
+<li>更安全的八进制字面量（0o767）</li>
+<li>字符串支持 Unicode
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint">String.fromCodePoint</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt">String.prototype.codePointAt</a></li>
+</ul>
+</li>
+<li>正则表达式字面量添加 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode">Unicode 支持（u 标记）</a></li>
+<li>正则表达式添加 y 标记，支持<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp#Example:_Using_a_regular_expression_with_the_sticky_flag">粘滞匹配</a></li>
+</ul>
+</li>
+<li>对象属性加强
+<ul>
+<li>属性定义支持短语法 <code>obj = { x, y }</code></li>
+<li>属性名支持表达式 <code>obj = {[&quot;baz&quot; + quux() ]: 42}</code></li>
+<li>添加 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/proto"><code>__proto__</code> 属性</a>，但不建议使用</li>
+</ul>
+</li>
+<li>解构赋值
+<ul>
+<li>数组匹配 <code>[ b, a ] = [ a, b ]</code></li>
+<li>对象匹配 <code>let { a, b, c } = objABC</code></li>
+<li>参数匹配 <code>function g ({ name: n, val: v }) {}</code></li>
+</ul>
+</li>
+<li>模块
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/import">导入（import）</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/export">导出（export）</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/export#%e9%bb%98%e8%ae%a4%e5%af%bc%e5%87%ba">默认导出（export default）</a></li>
+</ul>
+</li>
+<li>类
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes#%e4%bd%bf%e7%94%a8_extends_%e5%88%9b%e5%bb%ba%e5%ad%90%e7%b1%bb">使用 extends 实现继承</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes#Species">重写构造器</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes#%e4%bd%bf%e7%94%a8_super_%e5%bc%95%e7%94%a8%e7%88%b6%e7%b1%bb">super 关键字</a></li>
+</ul>
+</li>
+<li>迭代
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Iterators_and_Generators#%e8%bf%ad%e4%bb%a3%e5%99%a8">迭代器</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...of">for of</a></li>
+</ul>
+</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Iterators_and_Generators#%e7%94%9f%e6%88%90%e5%99%a8%ef%bc%88Generators%ef%bc%89_%e4%b8%80%e4%b8%aa%e6%9b%b4%e5%a5%bd%e7%9a%84%e6%96%b9%e6%b3%95%e6%9d%a5%e6%9e%84%e5%bb%ba%e9%81%8d%e5%8e%86%e5%99%a8">生成器</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></li>
+<li>元编程
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy">代理（Proxy）</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect">反射（Reflect）</a></li>
+</ul>
+</li>
+<li>新增数据类型
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol">Symbol 类型</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Set">Set 类型</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map">Map 类型</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/WeakSet">WeakSet 类型</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/WeakMap">WeakMap 类型</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypedArray">TypedArray 类型</a></li>
+</ul>
+</li>
+<li>原有内置对象 API 增强
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from">Array.from</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/of">Array.of</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/fill">Array.prototype.fill</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find">Array.prototype.find</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex">Array.prototype.findIndex</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin">Array.prototype.copyWithin</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/entries">Array.prototype.entries</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/keys">Array.prototype.keys</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/values">Array.prototype.values</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/includes">String.prototype.includes</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/repeat">String.prototype.repeat</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith">String.prototype.startsWith</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith">String.prototype.endsWith</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON">Number.EPSILON</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger">Number.isInteger</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger">Number.isSafeInteger</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite">Number.isFinite</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN">Number.isNaN(‘NaN’)</a> // false</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/%e5%8f%8d%e5%8f%8c%e6%9b%b2%e4%bd%99%e5%bc%a6%e5%80%bc">Math.acosh</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/hypot">Math.hypot</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/imul">Math.imul</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/sign">Math.sign</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc">Math.trunc</a></li>
+</ul>
+</li>
+<li>尾递归优化</li>
+</ul>
+<hr>
+<blockquote>
+<p>本文转载自：<a href="https://fangyinghang.com/es-6-tutorials/">饥人谷 - ES 6 新特性列表</a></p>
+</blockquote>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents"></nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Git用法总结 #   老师谈经验：新人无法理解 git 的原理，你只能背命令。等你用 git 用一个月，再谈原理。 用 git 三个月，你就自然理解 git 了。不要试图一开始就理解 git！ Git 课外资料（可不看）：http://www.runoob.com/git/git-tutorial.html  配置 GitHub #    进入 https://github.com/settings/keys
+  如果页面里已经有一些 key，就点「delete」按钮把这些 key 全删掉。如果没有，就往下看
+  点击 New SSH key，你需要输入 Title 和 Key，但是你现在没有 key，往下看
+  打开 Git Bash
+  复制并运行 rm -rf ~/.ssh/* 把现有的 ssh key 都删掉，这句命令行如果你多打一个空格，可能就要重装系统了，建议复制运行。
+  运行 ssh-keygen -t rsa -b 4096 -C &quot;你的邮箱&quot;，注意填写你的邮箱！
+  按回车三次">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="Git用法总结 #   老师谈经验：新人无法理解 git 的原理，你只能背命令。等你用 git 用一个月，再谈原理。 用 git 三个月，你就自然理解 git 了。不要试图一开始就理解 git！ Git 课外资料（可不看）：http://www.runoob.com/git/git-tutorial.html  配置 GitHub #    进入 https://github.com/settings/keys
+  如果页面里已经有一些 key，就点「delete」按钮把这些 key 全删掉。如果没有，就往下看
+  点击 New SSH key，你需要输入 Title 和 Key，但是你现在没有 key，往下看
+  打开 Git Bash
+  复制并运行 rm -rf ~/.ssh/* 把现有的 ssh key 都删掉，这句命令行如果你多打一个空格，可能就要重装系统了，建议复制运行。
+  运行 ssh-keygen -t rsa -b 4096 -C &quot;你的邮箱&quot;，注意填写你的邮箱！
+  按回车三次" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/docs/git%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/" />
+
+<title>Git用法总结 | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%80%E6%A8%A1%E5%9D%97%E7%9A%84%E5%86%99%E6%B3%95/" class="">Javascript模块化编程（一）：模块的写法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%BA%8Camd%E8%A7%84%E8%8C%83/" class="">Javascript模块化编程（二）：AMD规范</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%89require.js%E7%9A%84%E7%94%A8%E6%B3%95/" class="">Javascript模块化编程（三）：require.js的用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/generator%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E4%B8%8E%E7%94%A8%E6%B3%95/" class="">Generator 函数的含义与用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%E7%9A%844%E7%A7%8D%E6%96%B9%E6%B3%95/" class="">Javascript异步编程的4种方法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/thunk%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" class="">Thunk 函数的含义和用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/co%E5%87%BD%E6%95%B0%E5%BA%93%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" class="">co 函数库的含义和用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/async%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" class="">async 函数的含义和用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-06-04-vuex-use/" class="">快速理解 Vuex 的方法（转载）</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/7bcd3815/" class="">科班 与 培训 的区别</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-04-22-2020-interview-outline/" class="">2020年前端面试提纲</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-04-18-guanyuzhihu-naxiezhishi/" class="">关于知乎 &#34;哪些知识越了解越觉得『对这个世界很绝望』？&#34;</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/" class="active">Git用法总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80%E6%95%99%E7%A8%8B/" class="">CSS Grid 网格布局教程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/es6-%E6%96%B0%E7%89%B9%E6%80%A7%E5%88%97%E8%A1%A8/" class="">ES 6 新特性列表</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/unicode%E4%B8%8Ejavascript%E8%AF%A6%E8%A7%A3/" class="">Unicode与JavaScript详解</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97-%E6%96%87%E7%AB%A0%E7%B2%BE%E9%80%89/" class="">《前端学习指南》文章精选</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E5%A6%82%E4%BD%95%E5%9C%A8-js-%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%B6%88%E7%81%AD-for-%E5%BE%AA%E7%8E%AF/" class="">如何在 JS 代码中消灭 for 循环</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E5%B9%B3%E6%97%B6%E4%BD%A0%E4%BB%8E%E5%93%AA%E9%87%8C%E8%8E%B7%E5%8F%96%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" class="">平时你从哪里获取前端知识？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-04-18-%E6%88%91%E7%94%A8%E4%BA%86%E4%B8%A4%E4%B8%AA%E6%9C%88%E7%9A%84%E6%97%B6%E9%97%B4%E6%89%8D%E7%90%86%E8%A7%A3-let/" class="">我用了两个月的时间才理解 let</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-02-08-%E7%9F%A5%E8%AF%86%E7%9A%84%E8%AF%85%E5%92%92/" class="">知识的诅咒</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Git用法总结</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#配置-github">配置 GitHub</a></li>
+    <li><a href="#配置-git">配置 git</a></li>
+    <li><a href="#新建一个git仓库">新建一个Git仓库</a>
+      <ul>
+        <li><a href="#11-初始化">1.1 初始化</a></li>
+        <li><a href="#12-文件变动">1.2 文件变动</a></li>
+        <li><a href="#13-总结">1.3 总结</a></li>
+      </ul>
+    </li>
+    <li><a href="#将本地仓库上传到-github">将本地仓库上传到 GitHub</a></li>
+    <li><a href="#如何上传更新">如何上传更新</a></li>
+    <li><a href="#git-ignore">git ignore</a></li>
+    <li><a href="#记住一句话永远都不要上传-node_modules-到-github">记住一句话：永远都不要上传 node_modules 到 github。</a></li>
+    <li><a href="#直接在-github-创建一个仓库然后下载到本地">直接在 GitHub 创建一个仓库，然后下载到本地</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><p><img src="en-resource://database/444:3" alt="2d23bb2399015a342a611ad5932b372b.png" /></p>
+<h1 id="git用法总结">
+  Git用法总结
+  <a class="anchor" href="#git%e7%94%a8%e6%b3%95%e6%80%bb%e7%bb%93">#</a>
+</h1>
+<ul>
+<li>老师谈经验：新人无法理解 git 的原理，你只能背命令。等你用 git 用一个月，再谈原理。
+用 git 三个月，你就自然理解 git 了。不要试图一开始就理解 git！</li>
+<li>Git 课外资料（可不看）：<a href="http://www.runoob.com/git/git-tutorial.html">http://www.runoob.com/git/git-tutorial.html</a></li>
+</ul>
+<h2 id="配置-github">
+  配置 GitHub
+  <a class="anchor" href="#%e9%85%8d%e7%bd%ae-github">#</a>
+</h2>
+<ol>
+<li>
+<p>进入 <a href="https://github.com/settings/keys">https://github.com/settings/keys</a></p>
+</li>
+<li>
+<p>如果页面里已经有一些 key，就点「delete」按钮把这些 key 全删掉。如果没有，就往下看</p>
+</li>
+<li>
+<p>点击 New SSH key，你需要输入 Title 和 Key，但是你现在没有 key，往下看</p>
+</li>
+<li>
+<p>打开 Git Bash</p>
+</li>
+<li>
+<p>复制并运行 <code>rm -rf ~/.ssh/*</code> 把现有的 ssh key 都删掉，这句命令行如果你多打一个空格，可能就要重装系统了，建议复制运行。</p>
+</li>
+<li>
+<p>运行 <code>ssh-keygen -t rsa -b 4096 -C &quot;你的邮箱&quot;</code>，注意填写你的邮箱！</p>
+</li>
+<li>
+<p>按回车三次</p>
+</li>
+<li>
+<p>运行 <code>cat ~/.ssh/id_rsa.pub</code>，得到一串东西，完整的复制这串东西</p>
+</li>
+<li>
+<p>回到上面第 3 步的页面，在 Title 输入「我的第一个 key」</p>
+</li>
+<li>
+<p>在 Key 里粘贴刚刚你你复制的那串东西</p>
+</li>
+<li>
+<p>点击 Add SSH key</p>
+</li>
+<li>
+<p>回到 Git Bash</p>
+</li>
+<li>
+<p>运行</p>
+<pre><code></code></pre></li>
+</ol>
+<p>ssh -T <a href="mailto:git@github.com">git@github.com</a>
+```</p>
+<pre><code>你可能会看到这样的提示：
+
+![2d23bb2399015a342a611ad5932b372b.png](en-resource://database/444:3)
+</code></pre>
+<p><img src="en-resource://database/444:3" alt="2d23bb2399015a342a611ad5932b372b.png" /></p>
+<pre><code>输入 yes 回车……问你话你就答，别傻在那
+</code></pre>
+<ol start="14">
+<li>然后如果你看到 <code>Permission denied (publickey).</code> 就说明你失败了，请回到第 1 步重来，是的，回到第 1 步重来；如果你看到 <code>Hi FrankFang! You've successfully authenticated, but GitHub does not provide shell access.</code> 就说明你成功了！</li>
+</ol>
+<p>好了，终于 TMD 添加了一个无聊的 SSH key，不要问我这个有什么用，因为一会儿你就会用到它，你想了解原理就看这篇 <a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html">文章</a></p>
+<p>如果要讲清楚，太浪费时间了，我们只是想用用 GitHub 而已。</p>
+<ul>
+<li>一台电脑只需要一个 SSH key</li>
+<li>一个 SSH key 可以访问你的所有仓库，即使你有 1000000 个仓库，都没问题</li>
+<li>如果你新买了电脑，就在新电脑上重新生成一个 SSH key，把这个 key 也上传到 GitHub，它可以和之前的 key 共存在 GitHub 上</li>
+<li>如果你把 key 从电脑上删除了，重新生成一个 key 即可，替换之前的 key</li>
+</ul>
+<h2 id="配置-git">
+  配置 git
+  <a class="anchor" href="#%e9%85%8d%e7%bd%ae-git">#</a>
+</h2>
+<pre><code>git config --global user.name 你的英文名                                                   #此英文名不需要跟GitHub账号保持一致
+git config --global user.email 你的邮箱                                                      #此邮箱不需要跟GitHub账号保持一致
+git config --global push.default matching
+git config --global core.quotepath false
+git config --global core.editor &quot;vim&quot;
+</code></pre><p>五句话，依次在命令行中运行（其中前两句要把中文改成对应的内容）。
+一定要执行这五行！！！
+一定要执行这五行！！！
+一定要执行这五行！！！</p>
+<h2 id="新建一个git仓库">
+  新建一个Git仓库
+  <a class="anchor" href="#%e6%96%b0%e5%bb%ba%e4%b8%80%e4%b8%aagit%e4%bb%93%e5%ba%93">#</a>
+</h2>
+<h3 id="11-初始化">
+  1.1 初始化
+  <a class="anchor" href="#11-%e5%88%9d%e5%a7%8b%e5%8c%96">#</a>
+</h3>
+<ol>
+<li>
+<p>创建目录作为我们的项目目录：<code>mkdir git-demo-1</code></p>
+</li>
+<li>
+<p>进入目录 <code>cd git-demo-1</code></p>
+</li>
+<li>
+<p><code>git init</code>，这句命令会在 git-demo-1 里创建一个 .git 目录</p>
+</li>
+<li>
+<p><code>ls -la</code> 你就会看到 .git 目录，它就是一个「仓库」，不要进去看，这仓库里面有毒，别进去！</p>
+</li>
+<li>
+<p>在 git-demo-1 目录里面添加任意文件，假设我们添加了两个文件，分别是 index.html 和 css/style.css</p>
+<ol>
+<li><code>touch index.html</code></li>
+<li><code>mkdir css</code></li>
+<li><code>touch css/style.css</code></li>
+</ol>
+</li>
+<li>
+<p>运行</p>
+<pre><code>git status -sb
+</code></pre><p>可以看到文件前面有 ?? 号</p>
+<pre><code> ## Initial commit on master
+ ?? css/
+ ?? index.html
+</code></pre><p>这个 ?? 表示 git 一脸懵逼，不知道你要怎么对待这些变动。</p>
+</li>
+<li>
+<p>使用 git add 将文件添加到「暂存区」</p>
+<ol>
+<li>你可以一个一个地 add
+<ol>
+<li><code>git add index.html</code></li>
+<li><code>git add css/style.css</code></li>
+</ol>
+</li>
+<li>你也可以一次性 add
+<ol>
+<li><code>git add .</code> 意思是把当前目录（.表示当前目录）里面的变动都加到「暂存区」</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>再次运行</p>
+<pre><code>git status -sb
+</code></pre><p>可以看到 ?? 变成了 A</p>
+<pre><code> ## Initial commit on master
+ A  css/style.css
+ A  index.html
+</code></pre><p>A 的意思就是添加，也就是说你告诉 git，这些文件我要加到仓库里</p>
+</li>
+<li>
+<p>使用 git commit -m &ldquo;信息&rdquo; 将你 add 过的内容「正式提交」到本地仓库（.git就是本地仓库），并添加一些注释信息，方便日后查阅</p>
+<ol>
+<li>你可以一个一个地 commit
+<ol>
+<li><code>git commit index.html -m '添加index.html'</code></li>
+<li><code>git commit css/style.css -m &quot;添加 css/style.css&quot;</code></li>
+</ol>
+</li>
+<li>你也可以一次性 commit
+<ol>
+<li><code>git commit . -m &quot;添加了几个文件&quot;</code></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>再再次运行 <code>git status -sb</code>，发现没有文件变动了，这是因为文件的变动已经记录在仓库里了。</p>
+</li>
+<li>
+<p>这时你使用 git log 就可以看到历史上的变动：</p>
+<pre><code> commit f0d95058cd32a332b98967f6c0a701c64a00810a
+ Author: frankfang &lt;frankfang1990@gmail.com&gt;
+ Date:   Thu Sep 28 22:30:43 2017 +0800
+    
+     添加几个文件
+</code></pre></li>
+<li>
+<p>以上就是 git add / git commit 的一次完整过程，可以看到，挺复杂的。原则上，你错了任何一步，就给我从头来一遍，做到你不会再手抖为止。</p>
+</li>
+</ol>
+<h3 id="12-文件变动">
+  1.2 文件变动
+  <a class="anchor" href="#12-%e6%96%87%e4%bb%b6%e5%8f%98%e5%8a%a8">#</a>
+</h3>
+<p>如果我想继续改文件，应该怎么做呢？</p>
+<ol>
+<li>
+<p><code>start css/style.css</code> 会使用默认的编辑器打开 css/style.css（macOS 上对应的命令是 <code>open css/style.css</code>）</p>
+</li>
+<li>
+<p>然后我们在 css/style.css 里写入 <code>body {background: red}</code>，保存退出</p>
+</li>
+<li>
+<p>运行</p>
+<pre><code>git status -sb
+</code></pre><p>发现提示中有一个 M</p>
+<pre><code> ## master
+ M css/style.css
+</code></pre><p>这个 M 的意思就是 Modified，表示这个文件被修改了</p>
+</li>
+<li>
+<p>此时你如果想让改动保存到仓库里，你需要先 <code>git add css/style.css</code> 或者也可以 <code>git add .</code>
+注意，由于这个 css/style.css 以前被我们 add 过，你往文章上面看，我们是 add 过 css/style.css 的，所以此处的 git add 操作可以省略，但我建议你使用 git 的前一个月，不要省略 git add。
+换句话说，每一次改动，都要经过 git add 和 git commit 两个命令，才能被添加到 .git 本地仓库里。</p>
+</li>
+<li>
+<p>再次运行 <code>git status -sb</code> 发现 M 有红色变成了绿色，红色和绿色有啥区别呢？别管它们的区别，记住我说的，先 add，再 commit，等你熟练之后再去理解区别。
+先形成肌肉记忆，在去形成大脑记忆！</p>
+</li>
+<li>
+<p>运行 <code>git commit -m &quot;更新 css/style.css&quot;</code>，这个改动就被提交到 .git 本地仓库了。再说一次，不要去 .git 目录里面，那里的东西你一无所知。</p>
+</li>
+<li>
+<p>再再次运行 <code>git status -sb</code>，会发现没有变更了，这说明所有变动都被本地仓库记录在案了。
+这里来透露一下 <code>git status -sb</code> 是什么意思：git status 是用来显示当前的文件状态的，哪个文件变动了，方便你进行 git add 操作。-sb 选项的意思就是，SB都能看懂，哈，这是开玩笑，-s 的意思是显示总结（summary），-b 的意思是显示分支（branch），所以 -sb 的意思是显示总结和分支。</p>
+</li>
+</ol>
+<h3 id="13-总结">
+  1.3 总结
+  <a class="anchor" href="#13-%e6%80%bb%e7%bb%93">#</a>
+</h3>
+<p>至此，我们来总结一下用到的命令</p>
+<ol>
+<li>git init，初始化本地仓库 .git</li>
+<li>git status -sb，显示当前所有文件的状态</li>
+<li>git add 文件路径，用来将变动加到暂存区</li>
+<li>git commit -m &ldquo;信息&rdquo;，用来正式提交变动，提交至 .git 仓库</li>
+<li>如果有新的变动，我们只需要依次执行 git add xxx 和 git commit -m &lsquo;xxx&rsquo; 两个命令即可。别看本教程废话那么多，其实就这一句有用！先 add 再 commit，行了，你学会 git 了。</li>
+<li>git log 查看变更历史</li>
+</ol>
+<h2 id="将本地仓库上传到-github">
+  将本地仓库上传到 GitHub
+  <a class="anchor" href="#%e5%b0%86%e6%9c%ac%e5%9c%b0%e4%bb%93%e5%ba%93%e4%b8%8a%e4%bc%a0%e5%88%b0-github">#</a>
+</h2>
+<p>如何将我们这个 git-demo-1 上传到 GitHub 呢？</p>
+<ol>
+<li>在 GitHub 上新建一个空仓库，名称随意，一般可以跟本地目录名一致，也叫做 git-demo-1</li>
+</ol>
+<p><img src="en-resource://database/442:1" alt="95c5bf78186a309f52bfd6039735de31.png" /></p>
+<p>按照截图所示，除了仓库名，其他的什么都别改，其他的什么都别改，其他的什么都别改，其他的什么都别改，这样你才能创建一个空仓库</p>
+<ol start="2">
+<li>
+<p>点击创建按钮之后，GitHub 就会把后续的操作全告诉你，如图
+<img src="en-resource://database/440:1" alt="779f8530280654e3be730026180b97f0.png" /></p>
+<p>请点击一下 ssh
+<img src="en-resource://database/439:1" alt="76f0690518066e8a20cda43bcee27bdb.png" /></p>
+</li>
+<li>
+<p>看图，点击 SSH 按钮，点击 SSH 按钮，点击 SSH 按钮，我想你现在肯定不会忘了点击 SSH 按钮了吧~~~~如果不点击这个按钮，你就会使用默认的 HTTPS 地址。但是千万不要使用 HTTPS 地址，因为 HTTPS 地址使用起来特别麻烦，每次都要输入密码，而 SSH 不用输入用户名密码。
+为什么 SSH 不用密码呢，因为你已经上传了 SSH public key。还记得吗？如果不记得，翻到本文第一部分「配置 GitHub」章节。</p>
+</li>
+<li>
+<p>由于我们已经有本地仓库了，所以看图，图中下面半部分就是你需要的命令，我们一行一行拷贝过来执行</p>
+<ol>
+<li>找到图中的「…or push an existing repository from the command line」这一行，你会看到 <code>git remote add origin https://github.com/xxxxxxxxxx/git-demo-1.git</code>， 如果你发现这个地址是 https 开头的，那你就做错了，还记得吗，我们要使用 SSH 地址，GitHub 的 SSH 地址是以 <a href="mailto:git@github.com">git@github.com</a> 开头的。</li>
+<li>再次点击 SSH 按钮，不管我强调多少遍，总会有人忘记点击 SSH 按钮，为什么呢？我也不知道，为了防止你忘了点击 SSH 按钮，我最后再说一遍，「点击 SSH按钮」，点击之后，整个世界就会变得美好起来。</li>
+<li>得到新的命令 <code>git remote add origin git@github.com:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/git-demo-1.git</code>，复制并运行它</li>
+<li>复制第二行 <code>git push -u origin master</code>，运行它</li>
+<li>刷新当前页面，你的仓库就上传到 GitHub 了！是不是特别简单？只要你按照我说的做，一丝不苟，即可。</li>
+</ol>
+</li>
+</ol>
+<h2 id="如何上传更新">
+  如何上传更新
+  <a class="anchor" href="#%e5%a6%82%e4%bd%95%e4%b8%8a%e4%bc%a0%e6%9b%b4%e6%96%b0">#</a>
+</h2>
+<p>你在本地目录有任何变动，只需按照以下顺序就能上传：</p>
+<ol>
+<li>git add 文件路径</li>
+<li>git commit -m &ldquo;信息&rdquo;</li>
+<li>git pull （相信我，你一定会忘记这一个命令）</li>
+<li>git push</li>
+</ol>
+<p>下面是例子</p>
+<ol>
+<li><code>cd git-demo-1</code></li>
+<li><code>touch index2.html</code></li>
+<li><code>git add index2.html</code></li>
+<li><code>git commit -m &quot;新建 index2.html&quot;</code></li>
+<li><code>git pull</code></li>
+<li><code>git push</code></li>
+</ol>
+<p>然后你去 git-demo-1 的 GitHub 页面，就能看到 index2.html 出现在里面了。是不是很……简……单……呢……</p>
+<h2 id="git-ignore">
+  git ignore
+  <a class="anchor" href="#git-ignore">#</a>
+</h2>
+<p>在项目目录创建 .gitignore 文件就可以指定「哪些文件不上传到远程仓库」，比如</p>
+<p>.gitignroe</p>
+<pre><code>/node_modules/
+/.vscode/
+</code></pre><p>这样就可以避免 node_modules/ 和 .vscode/ 目录被上传到 github 了。</p>
+<h2 id="记住一句话永远都不要上传-node_modules-到-github">
+  记住一句话：永远都不要上传 node_modules 到 github。
+  <a class="anchor" href="#%e8%ae%b0%e4%bd%8f%e4%b8%80%e5%8f%a5%e8%af%9d%e6%b0%b8%e8%bf%9c%e9%83%bd%e4%b8%8d%e8%a6%81%e4%b8%8a%e4%bc%a0-node_modules-%e5%88%b0-github">#</a>
+</h2>
+<p>如果你想防止自己手贱上传 node_modules 到 github ，可以：</p>
+<ol>
+<li>在项目根目录 touch .gitignore</li>
+<li>在 .gitignore 里添加一行 <code>/node_modules/</code></li>
+<li>git add .gitignore; git commit -m &lsquo;ignore&rsquo;</li>
+</ol>
+<h2 id="直接在-github-创建一个仓库然后下载到本地">
+  直接在 GitHub 创建一个仓库，然后下载到本地
+  <a class="anchor" href="#%e7%9b%b4%e6%8e%a5%e5%9c%a8-github-%e5%88%9b%e5%bb%ba%e4%b8%80%e4%b8%aa%e4%bb%93%e5%ba%93%e7%84%b6%e5%90%8e%e4%b8%8b%e8%bd%bd%e5%88%b0%e6%9c%ac%e5%9c%b0">#</a>
+</h2>
+<p>上面两步讲了</p>
+<ol>
+<li>在本地创建仓库</li>
+<li>将本地仓库上传到 GitHub</li>
+</ol>
+<p>这里将第三种用法，那就是直接在 GitHub 创建一个仓库，然后下载到本地。</p>
+<ol>
+<li>
+<p>在GitHub 上新建一个仓库 git-demo-2，这次就不创建空仓库了，而是自带 README 和 Lisence 的仓库，创建截图如下：
+<img src="en-resource://database/443:1" alt="d7cecf020fe3ccc8e5d9ce937807096e.png" /></p>
+<p>请按图中所示，填写一模一样的内容，然后点击创建按钮。</p>
+</li>
+<li>
+<p>这样一来，这个仓库就会自动拥有三个文件：</p>
+</li>
+</ol>
+<p><img src="en-resource://database/438:1" alt="05e0cde42fbfd786ad0269000f394b3e.png" /></p>
+<ol start="3">
+<li>
+<p>这三个文件的作用请自行了解：<a href="http://gitbook.liuhui998.com/4_1.html">.gitignore 的作用</a>、<a href="http://www.jianshu.com/p/94406f5d9b46">README.md 的作用</a> 以及 <a href="http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html">LISENCE 的作用</a></p>
+</li>
+<li>
+<p>好了，现在远程仓库已经创建好了，怎么下载到我们的本地（也就是我们的电脑上）呢？答案是使用 git clone 命令</p>
+</li>
+<li>
+<p>点击页面中唯一的绿色按钮「clone or download」，会看到一个弹出层</p>
+</li>
+</ol>
+<p><img src="en-resource://database/441:1" alt="9204e98e020b24ac644a68f3addfa36d.png" /></p>
+<ol start="6">
+<li>
+<p>请确保弹出层里的地址是 SSH 地址，也就是 <a href="mailto:git@github.com">git@github.com</a> 开头的地址，如果不是，就点击 Use SSH 按钮，就点击 Use SSH 按钮，就点击 Use SSH 按钮。然后复制这个地址。</p>
+</li>
+<li>
+<p>打开 Git Bash，找一个安全的目录，比如 ~/Desktop 桌面目录就很安全：<code>cd ~/Desktop</code>。运行。</p>
+</li>
+<li>
+<p>运行 <code>git clone 你刚才得到的以git@github.com开头的地址</code>，运行完了你就会发现，桌面上多出一个 git-demo-2 目录。我再说一遍，桌面上多出一个 git-demo-2 目录。我再说一遍，桌面上多出一个 git-demo-2 目录。这个细节很重要，很多小白发现不了这个细节，我也不知道他们是眼瞎还是怎么了……</p>
+</li>
+<li>
+<p>进入这个多出来的目录，对的，你肯定会忽略这一步。</p>
+</li>
+<li>
+<p>进入这个多出来的目录，对的，你肯定会忽略这一步。</p>
+</li>
+<li>
+<p>进入这个多出来的目录，对的，你肯定会忽略这一步。</p>
+</li>
+<li>
+<p>好了你进入了这个目录了，如果没有，我就要吐血了，因为我的提示很明显。</p>
+</li>
+<li>
+<p>运行 <code>ls -la</code> 你会看到，远程目录的所有文件都在这里出现了，另外你还看到了 .git 本地仓库。这是你就可以添加文件，git add，然后 git commit 了。</p>
+</li>
+</ol>
+<p>三种方式都说完了，它们分别是：</p>
+<ol>
+<li>在本地创建仓库</li>
+<li>将本地仓库上传到 GitHub</li>
+<li>下载 GitHub 上的仓库到本地</li>
+</ol>
+<p>其实呢，我还可以说很多种不同的方式，但是，你记住这几种就行了，够你用的了。我们并不想要了解 git 的所有高级用法，我们的目的很明确：能通过 Git 命令使用 GitHub 就行。</p>
+<p>我们再回顾一遍已经学到的命令：（这次只多了一个 git clone 命令）</p>
+<ol>
+<li>git clone <a href="mailto:git@github.com">git@github.com</a>:xxxx，下载仓库</li>
+<li>git init，初始化本地仓库 .git</li>
+<li>git status -sb，显示当前所有文件的状态</li>
+<li>git add 文件路径，用来将变动加到暂存区</li>
+<li>git commit -m &ldquo;信息&rdquo;，用来正式提交变动，提交至 .git 仓库</li>
+<li>如果有新的变动，我们只需要依次执行 git add xxx 和 git commit -m &lsquo;xxx&rsquo; 两个命令即可。别看本教程废话那么多，其实就这一句有用！先 add 再 commit，行了，你学会 git 了。</li>
+<li>git log 查看变更历史</li>
+</ol>
+<blockquote>
+<p>本文所有内容均来自 Copyright © 2018 <a href="https://jirengu.com/">饥人谷</a>版权所有</p>
+</blockquote>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#配置-github">配置 GitHub</a></li>
+    <li><a href="#配置-git">配置 git</a></li>
+    <li><a href="#新建一个git仓库">新建一个Git仓库</a>
+      <ul>
+        <li><a href="#11-初始化">1.1 初始化</a></li>
+        <li><a href="#12-文件变动">1.2 文件变动</a></li>
+        <li><a href="#13-总结">1.3 总结</a></li>
+      </ul>
+    </li>
+    <li><a href="#将本地仓库上传到-github">将本地仓库上传到 GitHub</a></li>
+    <li><a href="#如何上传更新">如何上传更新</a></li>
+    <li><a href="#git-ignore">git ignore</a></li>
+    <li><a href="#记住一句话永远都不要上传-node_modules-到-github">记住一句话：永远都不要上传 node_modules 到 github。</a></li>
+    <li><a href="#直接在-github-创建一个仓库然后下载到本地">直接在 GitHub 创建一个仓库，然后下载到本地</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

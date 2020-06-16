@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="作者： 阮一峰
+日期： 2012年10月30日
+这个系列的第一部分介绍了Javascript模块的基本写法，今天介绍如何规范地使用模块。
+（接上文）
+七、模块的规范
+先想一想，为什么模块很重要？
+因为有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。
+但是，这样做有一个前提，那就是大家必须以同样的方式编写模块，否则你有你的写法，我有我的写法，岂不是乱了套！考虑到Javascript模块现在还没有官方规范，这一点就更重要了。
+目前，通行的Javascript模块规范共有两种：CommonJS和AMD。我主要介绍AMD，但是要先从CommonJS讲起。
+八、CommonJS
+2009年，美国程序员Ryan Dahl创造了node.js项目，将javascript语言用于服务器端编程。
+这标志&quot;Javascript模块化编程&quot;正式诞生。因为老实说，在浏览器环境下，没有模块也不是特别大的问题，毕竟网页程序的复杂性有限；但是在服务器端，一定要有模块，与操作系统和其他应用程序互动，否则根本没法编程。
+node.js的模块系统，就是参照CommonJS规范实现的。在CommonJS中，有一个全局性方法require()，用于加载模块。假定有一个数学模块math.js，就可以像下面这样加载。
+ 　var math = require(&lsquo;math&rsquo;);
+ 然后，就可以调用模块提供的方法：
+ 　var math = require(&lsquo;math&rsquo;);
+　math.add(2,3); // 5
+ 因为这个系列主要针对浏览器编程，不涉及node.js，所以对CommonJS就不多做介绍了。我们在这里只要知道，require()用于加载模块就行了。
+九、浏览器环境
+有了服务器端模块以后，很自然地，大家就想要客户端模块。而且最好两者能够兼容，一个模块不用修改，在服务器和浏览器都可以运行。
+但是，由于一个重大的局限，使得CommonJS规范不适用于浏览器环境。还是上一节的代码，如果在浏览器中运行，会有一个很大的问题，你能看出来吗？
+ 　var math = require(&lsquo;math&rsquo;);
+　math.add(2, 3);
+ 第二行math.add(2, 3)，在第一行require(&lsquo;math&rsquo;)之后运行，因此必须等math.js加载完成。也就是说，如果加载时间很长，整个应用就会停在那里等。
+这对服务器端不是一个问题，因为所有的模块都存放在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间。但是，对于浏览器，这却是一个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等很长时间，浏览器处于&quot;假死&quot;状态。
+因此，浏览器端的模块，不能采用&quot;同步加载&rdquo;（synchronous），只能采用&quot;异步加载&rdquo;（asynchronous）。这就是AMD规范诞生的背景。
+十、AMD
+AMD是&quot;Asynchronous Module Definition&quot;的缩写，意思就是&quot;异步模块定义&rdquo;。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。
+AMD也采用require()语句加载模块，但是不同于CommonJS，它要求两个参数：
+ 　require([module], callback);
+ 第一个参数[module]，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。如果将前面的代码改写成AMD形式，就是下面这样：
+ 　require([&lsquo;math&rsquo;], function (math) {">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Javascript模块化编程（二）：AMD规范" />
+<meta property="og:description" content="作者： 阮一峰
+日期： 2012年10月30日
+这个系列的第一部分介绍了Javascript模块的基本写法，今天介绍如何规范地使用模块。
+（接上文）
+七、模块的规范
+先想一想，为什么模块很重要？
+因为有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。
+但是，这样做有一个前提，那就是大家必须以同样的方式编写模块，否则你有你的写法，我有我的写法，岂不是乱了套！考虑到Javascript模块现在还没有官方规范，这一点就更重要了。
+目前，通行的Javascript模块规范共有两种：CommonJS和AMD。我主要介绍AMD，但是要先从CommonJS讲起。
+八、CommonJS
+2009年，美国程序员Ryan Dahl创造了node.js项目，将javascript语言用于服务器端编程。
+这标志&quot;Javascript模块化编程&quot;正式诞生。因为老实说，在浏览器环境下，没有模块也不是特别大的问题，毕竟网页程序的复杂性有限；但是在服务器端，一定要有模块，与操作系统和其他应用程序互动，否则根本没法编程。
+node.js的模块系统，就是参照CommonJS规范实现的。在CommonJS中，有一个全局性方法require()，用于加载模块。假定有一个数学模块math.js，就可以像下面这样加载。
+ 　var math = require(&lsquo;math&rsquo;);
+ 然后，就可以调用模块提供的方法：
+ 　var math = require(&lsquo;math&rsquo;);
+　math.add(2,3); // 5
+ 因为这个系列主要针对浏览器编程，不涉及node.js，所以对CommonJS就不多做介绍了。我们在这里只要知道，require()用于加载模块就行了。
+九、浏览器环境
+有了服务器端模块以后，很自然地，大家就想要客户端模块。而且最好两者能够兼容，一个模块不用修改，在服务器和浏览器都可以运行。
+但是，由于一个重大的局限，使得CommonJS规范不适用于浏览器环境。还是上一节的代码，如果在浏览器中运行，会有一个很大的问题，你能看出来吗？
+ 　var math = require(&lsquo;math&rsquo;);
+　math.add(2, 3);
+ 第二行math.add(2, 3)，在第一行require(&lsquo;math&rsquo;)之后运行，因此必须等math.js加载完成。也就是说，如果加载时间很长，整个应用就会停在那里等。
+这对服务器端不是一个问题，因为所有的模块都存放在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间。但是，对于浏览器，这却是一个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等很长时间，浏览器处于&quot;假死&quot;状态。
+因此，浏览器端的模块，不能采用&quot;同步加载&rdquo;（synchronous），只能采用&quot;异步加载&rdquo;（asynchronous）。这就是AMD规范诞生的背景。
+十、AMD
+AMD是&quot;Asynchronous Module Definition&quot;的缩写，意思就是&quot;异步模块定义&rdquo;。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。
+AMD也采用require()语句加载模块，但是不同于CommonJS，它要求两个参数：
+ 　require([module], callback);
+ 第一个参数[module]，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。如果将前面的代码改写成AMD形式，就是下面这样：
+ 　require([&lsquo;math&rsquo;], function (math) {" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%BA%8Camd%E8%A7%84%E8%8C%83/" />
+
+<title>Javascript模块化编程（二）：AMD规范 | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%80%E6%A8%A1%E5%9D%97%E7%9A%84%E5%86%99%E6%B3%95/" class="">Javascript模块化编程（一）：模块的写法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%BA%8Camd%E8%A7%84%E8%8C%83/" class="active">Javascript模块化编程（二）：AMD规范</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%89require.js%E7%9A%84%E7%94%A8%E6%B3%95/" class="">Javascript模块化编程（三）：require.js的用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/generator%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E4%B8%8E%E7%94%A8%E6%B3%95/" class="">Generator 函数的含义与用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%E7%9A%844%E7%A7%8D%E6%96%B9%E6%B3%95/" class="">Javascript异步编程的4种方法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/thunk%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" class="">Thunk 函数的含义和用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/co%E5%87%BD%E6%95%B0%E5%BA%93%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" class="">co 函数库的含义和用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/async%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" class="">async 函数的含义和用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-06-04-vuex-use/" class="">快速理解 Vuex 的方法（转载）</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/7bcd3815/" class="">科班 与 培训 的区别</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-04-22-2020-interview-outline/" class="">2020年前端面试提纲</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-04-18-guanyuzhihu-naxiezhishi/" class="">关于知乎 &#34;哪些知识越了解越觉得『对这个世界很绝望』？&#34;</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/" class="">Git用法总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80%E6%95%99%E7%A8%8B/" class="">CSS Grid 网格布局教程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/es6-%E6%96%B0%E7%89%B9%E6%80%A7%E5%88%97%E8%A1%A8/" class="">ES 6 新特性列表</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/unicode%E4%B8%8Ejavascript%E8%AF%A6%E8%A7%A3/" class="">Unicode与JavaScript详解</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97-%E6%96%87%E7%AB%A0%E7%B2%BE%E9%80%89/" class="">《前端学习指南》文章精选</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E5%A6%82%E4%BD%95%E5%9C%A8-js-%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%B6%88%E7%81%AD-for-%E5%BE%AA%E7%8E%AF/" class="">如何在 JS 代码中消灭 for 循环</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E5%B9%B3%E6%97%B6%E4%BD%A0%E4%BB%8E%E5%93%AA%E9%87%8C%E8%8E%B7%E5%8F%96%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" class="">平时你从哪里获取前端知识？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-04-18-%E6%88%91%E7%94%A8%E4%BA%86%E4%B8%A4%E4%B8%AA%E6%9C%88%E7%9A%84%E6%97%B6%E9%97%B4%E6%89%8D%E7%90%86%E8%A7%A3-let/" class="">我用了两个月的时间才理解 let</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-02-08-%E7%9F%A5%E8%AF%86%E7%9A%84%E8%AF%85%E5%92%92/" class="">知识的诅咒</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Javascript模块化编程（二）：AMD规范</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#文档信息">文档信息</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><p>作者： <a href="http://www.ruanyifeng.com/">阮一峰</a></p>
+<p>日期： <a href="http://www.ruanyifeng.com/blog/2012/10/">2012年10月30日</a></p>
+<p>这个系列的<a href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html">第一部分</a>介绍了Javascript模块的基本写法，今天介绍如何规范地使用模块。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201210/bg2012103001.jpg" alt="img" /></p>
+<p>（接<a href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html">上文</a>）</p>
+<p><strong>七、模块的规范</strong></p>
+<p>先想一想，为什么模块很重要？</p>
+<p>因为有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。</p>
+<p>但是，这样做有一个前提，那就是大家必须以同样的方式编写模块，否则你有你的写法，我有我的写法，岂不是乱了套！考虑到Javascript模块现在还没有官方规范，这一点就更重要了。</p>
+<p>目前，通行的Javascript模块规范共有两种：<a href="http://wiki.commonjs.org/wiki/Modules/1.1">CommonJS</a>和<a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a>。我主要介绍AMD，但是要先从CommonJS讲起。</p>
+<p><strong>八、CommonJS</strong></p>
+<p>2009年，美国程序员Ryan Dahl创造了<a href="http://nodejs.org/">node.js</a>项目，将javascript语言用于服务器端编程。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201210/bg2012103002.jpg" alt="img" /></p>
+<p>这标志&quot;Javascript模块化编程&quot;正式诞生。因为老实说，在浏览器环境下，没有模块也不是特别大的问题，毕竟网页程序的复杂性有限；但是在服务器端，一定要有模块，与操作系统和其他应用程序互动，否则根本没法编程。</p>
+<p>node.js的<a href="http://nodejs.org/docs/latest/api/modules.html">模块系统</a>，就是参照<a href="http://wiki.commonjs.org/wiki/Modules/1.1">CommonJS</a>规范实现的。在CommonJS中，有一个全局性方法require()，用于加载模块。假定有一个数学模块math.js，就可以像下面这样加载。</p>
+<blockquote>
+<p>　　var math = require(&lsquo;math&rsquo;);</p>
+</blockquote>
+<p>然后，就可以调用模块提供的方法：</p>
+<blockquote>
+<p>　　var math = require(&lsquo;math&rsquo;);</p>
+<p>　　math.add(2,3); // 5</p>
+</blockquote>
+<p>因为这个系列主要针对浏览器编程，不涉及node.js，所以对CommonJS就不多做介绍了。我们在这里只要知道，require()用于加载模块就行了。</p>
+<p><strong>九、浏览器环境</strong></p>
+<p>有了服务器端模块以后，很自然地，大家就想要客户端模块。而且最好两者能够兼容，一个模块不用修改，在服务器和浏览器都可以运行。</p>
+<p>但是，由于一个重大的局限，使得CommonJS规范不适用于浏览器环境。还是上一节的代码，如果在浏览器中运行，会有一个很大的问题，你能看出来吗？</p>
+<blockquote>
+<p>　　var math = require(&lsquo;math&rsquo;);</p>
+<p>　　math.add(2, 3);</p>
+</blockquote>
+<p>第二行math.add(2, 3)，在第一行require(&lsquo;math&rsquo;)之后运行，因此必须等math.js加载完成。也就是说，如果加载时间很长，整个应用就会停在那里等。</p>
+<p>这对服务器端不是一个问题，因为所有的模块都存放在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间。但是，对于浏览器，这却是一个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等很长时间，浏览器处于&quot;假死&quot;状态。</p>
+<p>因此，浏览器端的模块，不能采用&quot;同步加载&rdquo;（synchronous），只能采用&quot;异步加载&rdquo;（asynchronous）。这就是AMD规范诞生的背景。</p>
+<p><strong>十、AMD</strong></p>
+<p><a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a>是&quot;Asynchronous Module Definition&quot;的缩写，意思就是&quot;异步模块定义&rdquo;。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。</p>
+<p>AMD也采用require()语句加载模块，但是不同于CommonJS，它要求两个参数：</p>
+<blockquote>
+<p>　　require([module], callback);</p>
+</blockquote>
+<p>第一个参数[module]，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。如果将前面的代码改写成AMD形式，就是下面这样：</p>
+<blockquote>
+<p>　　require([&lsquo;math&rsquo;], function (math) {</p>
+<p>　　　　math.add(2, 3);</p>
+<p>　　});</p>
+</blockquote>
+<p>math.add()与math模块加载不是同步的，浏览器不会发生假死。所以很显然，AMD比较适合浏览器环境。</p>
+<p>目前，主要有两个Javascript库实现了AMD规范：<a href="http://requirejs.org/">require.js</a>和<a href="https://github.com/cujojs/curl">curl.js</a>。本系列的第三部分，将通过介绍require.js，进一步讲解AMD的用法，以及如何将模块化编程投入实战。</p>
+<p>（完）</p>
+<h3 id="文档信息">
+  文档信息
+  <a class="anchor" href="#%e6%96%87%e6%a1%a3%e4%bf%a1%e6%81%af">#</a>
+</h3>
+<ul>
+<li>版权声明：自由转载-非商用-非衍生-保持署名（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>）</li>
+<li>发表日期： 2012年10月30日</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#文档信息">文档信息</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

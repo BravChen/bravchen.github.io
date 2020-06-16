@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="设置请求 #  案例
+request.open(&#39;POST&#39;, &#39;/xxx&#39;) // 第一部分 配置 request request.setRequestHeader(&#39;chen&#39;,&#39;16&#39;) // 第二部分 属性配置 request.setRequestHeader(&#39;Content-Type&#39;, &#39;x-www-form-urlencoded&#39;) // 第二部分 属性配置 request.send(&#39;a=1&amp;b=2&#39;) // 第四部分 请求第二部分
+XMLHttpRequest.setRequestHeader() 是设置HTTP请求头部的方法。此方法必须在 open() 方法和 send() 之间调用。如果多次对同一个请求头赋值，只会生成一个合并了多个值的请求头。
+request.setRequestHeader(header, value); 效果图
+设置响应 #  if(path === &#39;/&#39;){ let string = fs.readFileSync(&#39;./index.html&#39;,&#39;utf8&#39;) // 响应第四部分内容格式  response.statusCode = 200 // 设置响应第一部分响应码  response.setHeader(&#39;Content-Type&#39;, &#39;text/html;charset=utf-8&#39;) // 设置响应第二部分属性  response.write(string) // 设置响应第四部分  response.end() // 响应结束 } 获取响应 #  获取响应的状态
+response.statusText; 获取响应的第二部分">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="自己实现 AJAX" />
+<meta property="og:description" content="设置请求 #  案例
+request.open(&#39;POST&#39;, &#39;/xxx&#39;) // 第一部分 配置 request request.setRequestHeader(&#39;chen&#39;,&#39;16&#39;) // 第二部分 属性配置 request.setRequestHeader(&#39;Content-Type&#39;, &#39;x-www-form-urlencoded&#39;) // 第二部分 属性配置 request.send(&#39;a=1&amp;b=2&#39;) // 第四部分 请求第二部分
+XMLHttpRequest.setRequestHeader() 是设置HTTP请求头部的方法。此方法必须在 open() 方法和 send() 之间调用。如果多次对同一个请求头赋值，只会生成一个合并了多个值的请求头。
+request.setRequestHeader(header, value); 效果图
+设置响应 #  if(path === &#39;/&#39;){ let string = fs.readFileSync(&#39;./index.html&#39;,&#39;utf8&#39;) // 响应第四部分内容格式  response.statusCode = 200 // 设置响应第一部分响应码  response.setHeader(&#39;Content-Type&#39;, &#39;text/html;charset=utf-8&#39;) // 设置响应第二部分属性  response.write(string) // 设置响应第四部分  response.end() // 响应结束 } 获取响应 #  获取响应的状态
+response.statusText; 获取响应的第二部分" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/history/2019-09-18-%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0-ajax/" />
+<meta property="article:published_time" content="2019-09-18T21:40:15+00:00" />
+<meta property="article:modified_time" content="2019-09-18T21:40:15+00:00" />
+<title>自己实现 AJAX | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-10-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E7%AE%80%E8%AE%B0/" class="">多人博客项目(简记)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-15-keyboard-nav/" class="">键盘导航</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-canvas/" class="">Canvas画板</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-%E5%AE%89%E5%8D%93%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E6%A1%88%E4%BE%8B/" class="">安卓音乐播放器案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-12-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E8%AF%AD%E6%B3%95%E7%B3%96%E7%AE%80%E7%89%88/" class="">函数与对象的语法糖(索引)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-function-object-sugar/" class="">函数与对象的语法糖一</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-%E5%87%BD%E6%95%B0%E4%B8%8E%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96%E4%BA%8C/" class="">函数与对象的语法糖二</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/0cd88b5c/" class="">模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-07-vue%E5%A4%9A%E4%BA%BA%E5%85%B1%E4%BA%AB%E5%8D%9A%E5%AE%A2/" class="">[项目] Vue 多人共享博客</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-03-31-jsonp/" class="">[高级] 35 - JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-25-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E8%AF%A6%E7%BB%86/" class="">多人博客项目(详细)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-vue-plugin-int/" class="">Vue插件安装</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-css-selector/" class="">CSS选择器总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/dd3e7bbd/" class="">常用的HTML5标签</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-25-%E7%AE%80%E5%8E%86%E6%80%8E%E4%B9%88%E5%86%99/" class="">简历怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-12-lx%E4%B8%BB%E9%A2%98%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/" class="">lx主题中文文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-27-css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80/" class="">CSS Grid 网格布局</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-jquery%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">jQuery常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-js%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">JS 常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-yarn%E5%85%A5%E9%97%A8/" class="">yarn 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-npm%E5%85%A5%E9%97%A8/" class="">npm 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-04-es6%E6%96%B0%E7%89%B9%E6%80%A7/" class="">ES6新特性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="">面向对象</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-jquery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/jquery%E8%BD%AE%E6%92%AD%E6%A1%88%E4%BE%8B/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E8%87%AA%E5%88%B6jquery/" class="">自制jQuery</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-01-mvvm/" class="">MVVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-28-this%E6%98%AF%E4%BB%80%E4%B9%88/" class="">this是什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-27-new%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/" class="">New做了什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-21-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9D%97%E5%8C%96/" class="">代码模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-20-mvc%E6%80%9D%E6%83%B3/" class="">MVC思想</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-18-%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0-ajax/" class="active">自己实现 AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-17-ajax/" class="">AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-16-jsonp/" class="">JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim-get-started/" class="">vim 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim%E7%9A%84%E4%BD%BF%E7%94%A8/" class="">vim 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-10-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="">命令行常用技巧</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" class="">浏览器缓存</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-css%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/" class="">CSS 常用属性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-01-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2-%E5%93%8D%E5%BA%94%E5%BC%8F/" class="">移动端页面(响应式)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/element-ui/" class="">Element UI</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B/" class="">Vue 入门案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E6%B5%8B%E8%AF%95%E9%A1%B5/" class="">测试页</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-webpack-use/" class="">webpack 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E5%9F%BA%E7%A1%80%E5%B8%B8%E8%AF%86/" class="">JS基础常识</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/action/" class="">Action 官方文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/axios%E5%85%A5%E9%97%A8/" class="">Axios 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E4%B8%AD%E7%9A%84symbol%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JS 中的 Symbol 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/json%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JSON 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-11-12-module%E8%AF%AD%E6%B3%95/" class="">Module语法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-%E7%82%B9%E5%87%BB%E7%A9%BA%E7%99%BD%E5%85%B3%E9%97%AD%E6%B5%AE%E5%B1%82/" class="">Vue 点击空白关闭浮层</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-cli%E4%BD%BF%E7%94%A8/" class="">Vue-cli 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vuex%E4%BD%BF%E7%94%A8/" class="">Vuex 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-02-03-%E5%8E%9F%E5%9E%8B%E9%93%BE%E8%A1%A5%E5%85%85/" class="">原型链补充</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-05-07-%E6%95%B0%E7%BB%84/" class="">数组</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-27-%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E7%AE%80%E5%8E%86%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="">简历该怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BE%A6%E5%90%AC%E5%99%A8/" class="">计算属性和监听器</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>自己实现 AJAX</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#设置请求">设置请求</a></li>
+    <li><a href="#设置响应">设置响应</a></li>
+    <li><a href="#获取响应">获取响应</a></li>
+    <li><a href="#ajax-的功能">AJAX 的功能</a></li>
+    <li><a href="#jquery-promise">jQuery-Promise</a></li>
+    <li><a href="#自制的promise">自制的Promise</a>
+      <ul>
+        <li><a href="#封装方式">封装方式</a></li>
+        <li><a href="#then-的作用">then 的作用</a></li>
+        <li><a href="#案例">案例</a></li>
+      </ul>
+    </li>
+    <li><a href="#api-参考文档">API 参考文档</a>
+      <ul>
+        <li><a href="#xmlhttprequest">XMLHttpRequest</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="设置请求">
+  设置请求
+  <a class="anchor" href="#%e8%ae%be%e7%bd%ae%e8%af%b7%e6%b1%82">#</a>
+</h2>
+<p><strong>案例</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">request.open(<span style="color:#2aa198">&#39;POST&#39;</span>, <span style="color:#2aa198">&#39;/xxx&#39;</span>)  <span style="color:#586e75">// 第一部分 配置 request
+</span><span style="color:#586e75"></span>request.setRequestHeader(<span style="color:#2aa198">&#39;chen&#39;</span>,<span style="color:#2aa198">&#39;16&#39;</span>)  <span style="color:#586e75">// 第二部分 属性配置
+</span><span style="color:#586e75"></span>request.setRequestHeader(<span style="color:#2aa198">&#39;Content-Type&#39;</span>, <span style="color:#2aa198">&#39;x-www-form-urlencoded&#39;</span>) <span style="color:#586e75">// 第二部分 属性配置
+</span><span style="color:#586e75"></span>request.send(<span style="color:#2aa198">&#39;a=1&amp;b=2&#39;</span>)  <span style="color:#586e75">// 第四部分 
+</span></code></pre></div><p><strong>请求第二部分</strong></p>
+<p><strong>XMLHttpRequest.setRequestHeader()</strong> 是设置HTTP请求头部的方法。此方法必须在  <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/open"><code>open()</code></a> 方法和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/send"><code>send()</code></a>   之间调用。如果多次对同一个请求头赋值，只会生成一个合并了多个值的请求头。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">request.setRequestHeader(header, value);
+</code></pre></div><p>效果图</p>
+<p><img src="https://chenning02.github.io/img/made-ajax_01.jpg" alt="" /></p>
+<h2 id="设置响应">
+  设置响应
+  <a class="anchor" href="#%e8%ae%be%e7%bd%ae%e5%93%8d%e5%ba%94">#</a>
+</h2>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#719e07">if</span>(path <span style="color:#719e07">===</span> <span style="color:#2aa198">&#39;/&#39;</span>){
+  <span style="color:#268bd2">let</span> string <span style="color:#719e07">=</span> fs.readFileSync(<span style="color:#2aa198">&#39;./index.html&#39;</span>,<span style="color:#2aa198">&#39;utf8&#39;</span>)  <span style="color:#586e75">// 响应第四部分内容格式
+</span><span style="color:#586e75"></span>  response.statusCode <span style="color:#719e07">=</span> <span style="color:#2aa198">200</span>  <span style="color:#586e75">// 设置响应第一部分响应码
+</span><span style="color:#586e75"></span>  response.setHeader(<span style="color:#2aa198">&#39;Content-Type&#39;</span>, <span style="color:#2aa198">&#39;text/html;charset=utf-8&#39;</span>) <span style="color:#586e75">// 设置响应第二部分属性
+</span><span style="color:#586e75"></span>  response.write(string) <span style="color:#586e75">// 设置响应第四部分
+</span><span style="color:#586e75"></span>  response.end()  <span style="color:#586e75">// 响应结束
+</span><span style="color:#586e75"></span>}
+</code></pre></div><h2 id="获取响应">
+  获取响应
+  <a class="anchor" href="#%e8%8e%b7%e5%8f%96%e5%93%8d%e5%ba%94">#</a>
+</h2>
+<p><strong>获取响应的状态</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">response.statusText;
+</code></pre></div><p><strong>获取响应的第二部分</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">request.getAllResponseHeaders()
+</code></pre></div><p><strong>获取响应的第二部分指定信息</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">request.getResponseHeader(<span style="color:#2aa198">&#39;Content-Type&#39;</span>)
+</code></pre></div><p><strong>获取响应的第四部分</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">request.responseText
+</code></pre></div><p><strong>案例</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#719e07">if</span>(request.status <span style="color:#719e07">&gt;=</span> <span style="color:#2aa198">200</span> <span style="color:#719e07">&amp;&amp;</span> request.status <span style="color:#719e07">&lt;</span> <span style="color:#2aa198">300</span>){
+    <span style="color:#268bd2">let</span> string <span style="color:#719e07">=</span> request.responseText
+    <span style="color:#586e75">// 使用浏览器提供的API将应该符合JSON语法的字符串转换为JS对应类型的值
+</span><span style="color:#586e75"></span>    <span style="color:#268bd2">let</span> object <span style="color:#719e07">=</span> <span style="color:#b58900">window</span>.JSON.parse(string)
+    console.log(object)
+    console.log(<span style="color:#2aa198">&#39;---获取响应---&#39;</span>)
+    console.log(<span style="color:#2aa198">&#39;响应状态：&#39;</span>)
+    console.log(request.statusText)
+    console.log(<span style="color:#2aa198">&#39;响应的第二部分&#39;</span>)
+    console.log(request.getAllResponseHeaders())
+    console.log(<span style="color:#2aa198">&#39;获取响应的第二部分指定信息&#39;</span>)
+    console.log(request.getResponseHeader(<span style="color:#2aa198">&#39;Content-Type&#39;</span>))
+    console.log(<span style="color:#2aa198">&#39;获取响应的第四部分&#39;</span>)
+    console.log(request.responseText)
+}
+</code></pre></div><p><strong>源代码链接</strong></p>
+<p><a href="https://github.com/ChenNing02/git-hunger/tree/master/course-demo/Made-AJAX/Obtain">https://github.com/ChenNing02/git-hunger/tree/master/course-demo/Made-AJAX/Obtain</a></p>
+<h2 id="ajax-的功能">
+  AJAX 的功能
+  <a class="anchor" href="#ajax-%e7%9a%84%e5%8a%9f%e8%83%bd">#</a>
+</h2>
+<ul>
+<li>客户端的JS发起请求（浏览器上的）</li>
+<li>服务端的JS发送响应（Node.js上的）</li>
+</ul>
+<ol>
+<li>JS 可以设置任意请求 header 吗
+第一部分 <code>request.open('get', '/xxx')</code>
+第二部分<code> request.setRequestHeader('content-type','x-www-form-urlencoded')</code>
+第四部分 <code>request.send('a=1&amp;b=2')</code></li>
+<li>JS 可以获取任意响应 header 吗？
+第一部分 <code>request.status / request.statusText</code>
+第二部分 <code>request.getResponseHeader() / request.getAllResponseHeaders()</code>
+第四部分 <code>request.responseText</code></li>
+</ol>
+<h2 id="jquery-promise">
+  jQuery-Promise
+  <a class="anchor" href="#jquery-promise">#</a>
+</h2>
+<p><strong>源代码链接</strong></p>
+<p><a href="https://github.com/ChenNing02/git-hunger/tree/master/course-demo/Made-AJAX/jQuery-Promise">https://github.com/ChenNing02/git-hunger/tree/master/course-demo/Made-AJAX/jQuery-Promise</a></p>
+<p>首先需要在主页引入 jQuery 库，可以使用 cdnjs 也可以使用本地的文件</p>
+<p>成功返回 .then 的第一个参数，失败返回 .then 的第二个参数</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> success(responseText){ console.log(responseText)}
+<span style="color:#268bd2">function</span> fail(request){ console.log(request)}
+buttons.addEventListener(<span style="color:#2aa198">&#39;click&#39;</span>, (e)=&gt;{
+    <span style="color:#b58900">window</span>.jQuery.ajax({
+        url<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;/xxx&#39;</span>,
+        method<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;POST&#39;</span>,
+        method<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;get&#39;</span>,
+    }).then(success, fail)    
+})
+</code></pre></div><p>简化：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">buttons.addEventListener(<span style="color:#2aa198">&#39;click&#39;</span>, (e)=&gt;{
+    <span style="color:#b58900">window</span>.jQuery.ajax({
+        url<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;/xxx&#39;</span>,
+        method<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;POST&#39;</span>,
+        method<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;get&#39;</span>,
+    }).then(
+        (responseText)=&gt;{ console.log(responseText)}, 
+        (request)=&gt;{{ console.log(request)}}
+    )    
+})
+</code></pre></div><p>使用xxx可以返回两个处理函数</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">
+buttons.addEventListener(<span style="color:#2aa198">&#39;click&#39;</span>, (e)=&gt;{
+    <span style="color:#b58900">window</span>.jQuery.ajax({
+        url<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;/xxx&#39;</span>,
+        method<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;POST&#39;</span>,
+        method<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;get&#39;</span>,
+    }).then(
+        (responseText)=&gt;{ 
+            console.log(responseText)
+            <span style="color:#719e07">return</span> responseText
+        }, 
+        (request)=&gt;{
+            console.log(request)
+            <span style="color:#719e07">return</span> request
+        }
+    ).then(
+        (responseText)=&gt;{
+            console.log(responseText)
+        },
+        (request)=&gt;{
+            console.log(request)
+        }
+
+    )    
+})
+</code></pre></div><p>其中第一个 .then 中的函数的 return 返回值会作为后面的 .then 的对应的函数中的参数。</p>
+<h2 id="自制的promise">
+  自制的Promise
+  <a class="anchor" href="#%e8%87%aa%e5%88%b6%e7%9a%84promise">#</a>
+</h2>
+<p><strong>源代码链接</strong></p>
+<p><a href="https://github.com/ChenNing02/git-hunger/tree/master/course-demo/Made-AJAX/Promise-z">https://github.com/ChenNing02/git-hunger/tree/master/course-demo/Made-AJAX/Promise-z</a></p>
+<h3 id="封装方式">
+  封装方式
+  <a class="anchor" href="#%e5%b0%81%e8%a3%85%e6%96%b9%e5%bc%8f">#</a>
+</h3>
+<ul>
+<li>
+<p>就是在原来的基础上 <code>return new Promise(function(resolve,reject){})</code></p>
+</li>
+<li>
+<p>将要做的事都放到Promise传入的函数中</p>
+</li>
+<li>
+<p>函数的两个参数分别表示 成功调用的函数 和 失败调用的函数</p>
+</li>
+</ul>
+<h3 id="then-的作用">
+  then 的作用
+  <a class="anchor" href="#then-%e7%9a%84%e4%bd%9c%e7%94%a8">#</a>
+</h3>
+<p>封装的函数在调用时可以 <code>.then</code> 传入两个函数，这两个函数对应封装时的两个参数 <code>resolve, reject</code> ，分别表示 成功后执行的函数 和 失败后执行的函数。</p>
+<p><code>.then()</code> 是 Promise 对象特有的</p>
+<h3 id="案例">
+  案例
+  <a class="anchor" href="#%e6%a1%88%e4%be%8b">#</a>
+</h3>
+<p><strong>封装</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#b58900">window</span>.jQuery.ajax <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span> ({url, method, body, headers}){ 
+    <span style="color:#719e07">return</span> <span style="color:#719e07">new</span> <span style="color:#b58900">Promise</span>(<span style="color:#268bd2">function</span>(resolve,reject){
+        <span style="color:#268bd2">let</span> request <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> XMLHttpRequest()
+        request.open(method, url)  <span style="color:#586e75">// 配置 request
+</span><span style="color:#586e75"></span>        <span style="color:#719e07">for</span>(<span style="color:#268bd2">let</span> key <span style="color:#719e07">in</span> headers){
+            <span style="color:#268bd2">let</span> value <span style="color:#719e07">=</span> headers[key]
+            request.setRequestHeader(key,value)
+        }
+        request.setRequestHeader(<span style="color:#2aa198">&#39;chen&#39;</span>,<span style="color:#2aa198">&#39;16&#39;</span>)
+        request.onreadystatechange <span style="color:#719e07">=</span> ()=&gt;{
+            <span style="color:#719e07">if</span>(request.readyState <span style="color:#719e07">===</span> <span style="color:#2aa198">4</span>){
+                <span style="color:#719e07">if</span>(request.status <span style="color:#719e07">&gt;=</span> <span style="color:#2aa198">200</span> <span style="color:#719e07">&amp;&amp;</span> request.status <span style="color:#719e07">&lt;</span> <span style="color:#2aa198">300</span>){
+                    <span style="color:#586e75">// 这里传入获取到的响应第四部分内容，当函数使用这个参数时，这就是回调函数
+</span><span style="color:#586e75"></span>                    resolve.call(<span style="color:#cb4b16">undefined</span>,request.responseText) 
+                }<span style="color:#719e07">else</span> <span style="color:#719e07">if</span>(request.status <span style="color:#719e07">&gt;=</span> <span style="color:#2aa198">400</span>){
+                    reject.call(<span style="color:#cb4b16">undefined</span>, request)
+                }
+            }
+        }
+        request.send(body)
+    })
+}
+</code></pre></div><p><strong>调用</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">buttons.addEventListener(<span style="color:#2aa198">&#39;click&#39;</span>, (e)=&gt;{
+    <span style="color:#b58900">window</span>.jQuery.ajax({
+        url<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;/xxx&#39;</span>,
+        method<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;POST&#39;</span>,
+        body<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;a=1&amp;b=2&#39;</span>,
+        headers<span style="color:#719e07">:</span> {
+            <span style="color:#2aa198">&#39;content-type&#39;</span><span style="color:#719e07">:</span><span style="color:#2aa198">&#39;application/x-www-form-urlencoded&#39;</span>,
+            <span style="color:#2aa198">&#39;chen&#39;</span><span style="color:#719e07">:</span><span style="color:#2aa198">&#39;16&#39;</span>
+        }
+    }).then(
+        (text)=&gt;{console.log(text)},
+        (request)=&gt;{console.log(request)}
+    )    
+})
+</code></pre></div><p><strong>更易懂的调用方式</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">buttons.addEventListener(<span style="color:#2aa198">&#39;click&#39;</span>, (e)=&gt;{
+    <span style="color:#268bd2">let</span> promise <span style="color:#719e07">=</span> <span style="color:#b58900">window</span>.jQuery.ajax({
+        url<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;/xxx&#39;</span>,
+        method<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;POST&#39;</span>,
+        body<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;a=1&amp;b=2&#39;</span>,
+        headers<span style="color:#719e07">:</span> {
+            <span style="color:#2aa198">&#39;content-type&#39;</span><span style="color:#719e07">:</span><span style="color:#2aa198">&#39;application/x-www-form-urlencoded&#39;</span>,
+            <span style="color:#2aa198">&#39;chen&#39;</span><span style="color:#719e07">:</span><span style="color:#2aa198">&#39;16&#39;</span>
+        }
+    })
+    promise.then(
+        (text)=&gt;{console.log(text)},
+        (request)=&gt;{console.log(request)}
+    )    
+})
+</code></pre></div><h2 id="api-参考文档">
+  API 参考文档
+  <a class="anchor" href="#api-%e5%8f%82%e8%80%83%e6%96%87%e6%a1%a3">#</a>
+</h2>
+<h3 id="xmlhttprequest">
+  XMLHttpRequest
+  <a class="anchor" href="#xmlhttprequest">#</a>
+</h3>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest"><code>XMLHttpRequest</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/setRequestHeader"><code>XMLHttpRequest.setRequestHeader()</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/onreadystatechange"><code>XMLHttpRequest.onreadystatechange</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/readyState"><code>XMLHttpRequest.readyState</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/status"><code>XMLHttpRequest.status</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/statusText"><code>XMLHttpRequest.statusText</code></a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#设置请求">设置请求</a></li>
+    <li><a href="#设置响应">设置响应</a></li>
+    <li><a href="#获取响应">获取响应</a></li>
+    <li><a href="#ajax-的功能">AJAX 的功能</a></li>
+    <li><a href="#jquery-promise">jQuery-Promise</a></li>
+    <li><a href="#自制的promise">自制的Promise</a>
+      <ul>
+        <li><a href="#封装方式">封装方式</a></li>
+        <li><a href="#then-的作用">then 的作用</a></li>
+        <li><a href="#案例">案例</a></li>
+      </ul>
+    </li>
+    <li><a href="#api-参考文档">API 参考文档</a>
+      <ul>
+        <li><a href="#xmlhttprequest">XMLHttpRequest</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

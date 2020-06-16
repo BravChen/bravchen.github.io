@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="作者： 阮一峰
+日期： 2015年5月 6日
+ 以下是《深入掌握 ECMAScript 6 异步编程》系列文章的第三篇。
+  Generator函数的含义与用法 Thunk函数的含义与用法 co函数库的含义与用法 async函数的含义与用法   一、什么是 co 函数库？ #  co 函数库是著名程序员 TJ Holowaychuk 于2013年6月发布的一个小工具，用于 Generator 函数的自动执行。
+比如，有一个 Generator 函数，用于依次读取两个文件。
+var gen = function* (){ var f1 = yield readFile(&#39;/etc/fstab&#39;); var f2 = yield readFile(&#39;/etc/shells&#39;); console.log(f1.toString()); console.log(f2.toString()); }; co 函数库可以让你不用编写 Generator 函数的执行器。
+var co = require(&#39;co&#39;); co(gen); 上面代码中，Generator 函数只要传入 co 函数，就会自动执行。
+co 函数返回一个 Promise 对象，因此可以用 then 方法添加回调函数。">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="co 函数库的含义和用法" />
+<meta property="og:description" content="作者： 阮一峰
+日期： 2015年5月 6日
+ 以下是《深入掌握 ECMAScript 6 异步编程》系列文章的第三篇。
+  Generator函数的含义与用法 Thunk函数的含义与用法 co函数库的含义与用法 async函数的含义与用法   一、什么是 co 函数库？ #  co 函数库是著名程序员 TJ Holowaychuk 于2013年6月发布的一个小工具，用于 Generator 函数的自动执行。
+比如，有一个 Generator 函数，用于依次读取两个文件。
+var gen = function* (){ var f1 = yield readFile(&#39;/etc/fstab&#39;); var f2 = yield readFile(&#39;/etc/shells&#39;); console.log(f1.toString()); console.log(f2.toString()); }; co 函数库可以让你不用编写 Generator 函数的执行器。
+var co = require(&#39;co&#39;); co(gen); 上面代码中，Generator 函数只要传入 co 函数，就会自动执行。
+co 函数返回一个 Promise 对象，因此可以用 then 方法添加回调函数。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/docs/co%E5%87%BD%E6%95%B0%E5%BA%93%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" />
+
+<title>co 函数库的含义和用法 | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%80%E6%A8%A1%E5%9D%97%E7%9A%84%E5%86%99%E6%B3%95/" class="">Javascript模块化编程（一）：模块的写法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%BA%8Camd%E8%A7%84%E8%8C%83/" class="">Javascript模块化编程（二）：AMD规范</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%89require.js%E7%9A%84%E7%94%A8%E6%B3%95/" class="">Javascript模块化编程（三）：require.js的用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/generator%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E4%B8%8E%E7%94%A8%E6%B3%95/" class="">Generator 函数的含义与用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%E7%9A%844%E7%A7%8D%E6%96%B9%E6%B3%95/" class="">Javascript异步编程的4种方法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/thunk%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" class="">Thunk 函数的含义和用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/co%E5%87%BD%E6%95%B0%E5%BA%93%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" class="active">co 函数库的含义和用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/async%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" class="">async 函数的含义和用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-06-04-vuex-use/" class="">快速理解 Vuex 的方法（转载）</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/7bcd3815/" class="">科班 与 培训 的区别</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-04-22-2020-interview-outline/" class="">2020年前端面试提纲</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-04-18-guanyuzhihu-naxiezhishi/" class="">关于知乎 &#34;哪些知识越了解越觉得『对这个世界很绝望』？&#34;</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/" class="">Git用法总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80%E6%95%99%E7%A8%8B/" class="">CSS Grid 网格布局教程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/es6-%E6%96%B0%E7%89%B9%E6%80%A7%E5%88%97%E8%A1%A8/" class="">ES 6 新特性列表</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/unicode%E4%B8%8Ejavascript%E8%AF%A6%E8%A7%A3/" class="">Unicode与JavaScript详解</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97-%E6%96%87%E7%AB%A0%E7%B2%BE%E9%80%89/" class="">《前端学习指南》文章精选</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E5%A6%82%E4%BD%95%E5%9C%A8-js-%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%B6%88%E7%81%AD-for-%E5%BE%AA%E7%8E%AF/" class="">如何在 JS 代码中消灭 for 循环</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E5%B9%B3%E6%97%B6%E4%BD%A0%E4%BB%8E%E5%93%AA%E9%87%8C%E8%8E%B7%E5%8F%96%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" class="">平时你从哪里获取前端知识？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-04-18-%E6%88%91%E7%94%A8%E4%BA%86%E4%B8%A4%E4%B8%AA%E6%9C%88%E7%9A%84%E6%97%B6%E9%97%B4%E6%89%8D%E7%90%86%E8%A7%A3-let/" class="">我用了两个月的时间才理解 let</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-02-08-%E7%9F%A5%E8%AF%86%E7%9A%84%E8%AF%85%E5%92%92/" class="">知识的诅咒</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>co 函数库的含义和用法</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一什么是-co-函数库">一、什么是 co 函数库？</a></li>
+    <li><a href="#二-co-函数库的原理">二、 co 函数库的原理</a></li>
+    <li><a href="#三基于-promise-对象的自动执行">三、基于 Promise 对象的自动执行</a></li>
+    <li><a href="#四co-函数库的源码">四、co 函数库的源码</a></li>
+    <li><a href="#五并发的异步操作">五、并发的异步操作</a>
+      <ul>
+        <li><a href="#文档信息">文档信息</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><p>作者： <a href="http://www.ruanyifeng.com/">阮一峰</a></p>
+<p>日期： <a href="http://www.ruanyifeng.com/blog/2015/05/">2015年5月 6日</a></p>
+<hr>
+<p>以下是《深入掌握 ECMAScript 6 异步编程》系列文章的第三篇。</p>
+<blockquote>
+<ul>
+<li><a href="https://chenning02.gitee.io/docs/reprint/generator%e5%87%bd%e6%95%b0%e7%9a%84%e5%90%ab%e4%b9%89%e4%b8%8e%e7%94%a8%e6%b3%95/">Generator函数的含义与用法</a></li>
+<li><a href="https://chenning02.gitee.io/docs/reprint/thunk%e5%87%bd%e6%95%b0%e7%9a%84%e5%90%ab%e4%b9%89%e5%92%8c%e7%94%a8%e6%b3%95/">Thunk函数的含义与用法</a></li>
+<li><strong>co函数库的含义与用法</strong></li>
+<li><a href="https://chenning02.gitee.io/docs/reprint/async%e5%87%bd%e6%95%b0%e7%9a%84%e5%90%ab%e4%b9%89%e5%92%8c%e7%94%a8%e6%b3%95/">async函数的含义与用法</a></li>
+</ul>
+</blockquote>
+<h2 id="一什么是-co-函数库">
+  一、什么是 co 函数库？
+  <a class="anchor" href="#%e4%b8%80%e4%bb%80%e4%b9%88%e6%98%af-co-%e5%87%bd%e6%95%b0%e5%ba%93">#</a>
+</h2>
+<p><a href="https://github.com/tj/co">co 函数库</a>是著名程序员 TJ Holowaychuk 于2013年6月发布的一个小工具，用于 Generator 函数的自动执行。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015050601.jpg" alt="img" /></p>
+<p>比如，有一个 Generator 函数，用于依次读取两个文件。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">var</span> gen <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span><span style="color:#719e07">*</span> (){
+  <span style="color:#268bd2">var</span> f1 <span style="color:#719e07">=</span> <span style="color:#719e07">yield</span> readFile(<span style="color:#2aa198">&#39;/etc/fstab&#39;</span>);
+  <span style="color:#268bd2">var</span> f2 <span style="color:#719e07">=</span> <span style="color:#719e07">yield</span> readFile(<span style="color:#2aa198">&#39;/etc/shells&#39;</span>);
+  console.log(f1.toString());
+  console.log(f2.toString());
+};
+</code></pre></div><p><strong>co 函数库可以让你不用编写 Generator 函数的执行器。</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">var</span> co <span style="color:#719e07">=</span> require(<span style="color:#2aa198">&#39;co&#39;</span>);
+co(gen);
+</code></pre></div><p>上面代码中，Generator 函数只要传入 co 函数，就会自动执行。</p>
+<p>co 函数返回一个 Promise 对象，因此可以用 then 方法添加回调函数。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">co(gen).then(<span style="color:#268bd2">function</span> (){
+  console.log(<span style="color:#2aa198">&#39;Generator 函数执行完成&#39;</span>);
+})
+</code></pre></div><p>上面代码中，等到 Generator 函数执行结束，就会输出一行提示。</p>
+<h2 id="二-co-函数库的原理">
+  二、 co 函数库的原理
+  <a class="anchor" href="#%e4%ba%8c-co-%e5%87%bd%e6%95%b0%e5%ba%93%e7%9a%84%e5%8e%9f%e7%90%86">#</a>
+</h2>
+<p>为什么 co 可以自动执行 Generator 函数？</p>
+<p>前面文章说过，Generator 函数就是一个异步操作的容器。它的自动执行需要一种机制，当异步操作有了结果，能够自动交回执行权。</p>
+<p>两种方法可以做到这一点。</p>
+<blockquote>
+<p>（1）回调函数。将异步操作包装成 Thunk 函数，在回调函数里面交回执行权。</p>
+<p>（2）Promise 对象。将异步操作包装成 Promise 对象，用 then 方法交回执行权。</p>
+</blockquote>
+<p>**co 函数库其实就是将两种自动执行器（Thunk 函数和 Promise 对象），包装成一个库。**使用 co 的前提条件是，Generator 函数的 yield 命令后面，只能是 Thunk 函数或 Promise 对象。</p>
+<p><a href="http://www.ruanyifeng.com/blog/2015/05/thunk.html">上一篇文章</a>已经介绍了基于 Thunk 函数的自动执行器。下面来看，基于 Promise 对象的自动执行器。这是理解 co 函数库必须的。</p>
+<h2 id="三基于-promise-对象的自动执行">
+  三、基于 Promise 对象的自动执行
+  <a class="anchor" href="#%e4%b8%89%e5%9f%ba%e4%ba%8e-promise-%e5%af%b9%e8%b1%a1%e7%9a%84%e8%87%aa%e5%8a%a8%e6%89%a7%e8%a1%8c">#</a>
+</h2>
+<p>还是沿用上面的例子。首先，把 fs 模块的 readFile 方法包装成一个 Promise 对象。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">var</span> fs <span style="color:#719e07">=</span> require(<span style="color:#2aa198">&#39;fs&#39;</span>);
+
+<span style="color:#268bd2">var</span> readFile <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span> (fileName){
+  <span style="color:#719e07">return</span> <span style="color:#719e07">new</span> <span style="color:#b58900">Promise</span>(<span style="color:#268bd2">function</span> (resolve, reject){
+    fs.readFile(fileName, <span style="color:#268bd2">function</span>(error, data){
+      <span style="color:#719e07">if</span> (error) reject(error);
+      resolve(data);
+    });
+  });
+};
+
+<span style="color:#268bd2">var</span> gen <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span><span style="color:#719e07">*</span> (){
+  <span style="color:#268bd2">var</span> f1 <span style="color:#719e07">=</span> <span style="color:#719e07">yield</span> readFile(<span style="color:#2aa198">&#39;/etc/fstab&#39;</span>);
+  <span style="color:#268bd2">var</span> f2 <span style="color:#719e07">=</span> <span style="color:#719e07">yield</span> readFile(<span style="color:#2aa198">&#39;/etc/shells&#39;</span>);
+  console.log(f1.toString());
+  console.log(f2.toString());
+};
+</code></pre></div><p>然后，手动执行上面的 Generator 函数。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">var</span> g <span style="color:#719e07">=</span> gen();
+
+g.next().value.then(<span style="color:#268bd2">function</span>(data){
+  g.next(data).value.then(<span style="color:#268bd2">function</span>(data){
+    g.next(data);
+  });
+})
+</code></pre></div><p>手动执行其实就是用 then 方法，层层添加回调函数。理解了这一点，就可以写出一个自动执行器。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> run(gen){
+  <span style="color:#268bd2">var</span> g <span style="color:#719e07">=</span> gen();
+
+  <span style="color:#268bd2">function</span> next(data){
+    <span style="color:#268bd2">var</span> result <span style="color:#719e07">=</span> g.next(data);
+    <span style="color:#719e07">if</span> (result.done) <span style="color:#719e07">return</span> result.value;
+    result.value.then(<span style="color:#268bd2">function</span>(data){
+      next(data);
+    });
+  }
+
+  next();
+}
+
+run(gen);
+</code></pre></div><p>上面代码中，只要 Generator 函数还没执行到最后一步，next 函数就调用自身，以此实现自动执行。</p>
+<h2 id="四co-函数库的源码">
+  四、co 函数库的源码
+  <a class="anchor" href="#%e5%9b%9bco-%e5%87%bd%e6%95%b0%e5%ba%93%e7%9a%84%e6%ba%90%e7%a0%81">#</a>
+</h2>
+<p>co 就是上面那个自动执行器的扩展，它的<a href="https://github.com/tj/co/blob/master/index.js">源码</a>只有几十行，非常简单。</p>
+<p>首先，co 函数接受 Generator 函数作为参数，返回一个 Promise 对象。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> co(gen) {
+  <span style="color:#268bd2">var</span> ctx <span style="color:#719e07">=</span> <span style="color:#719e07">this</span>;
+
+  <span style="color:#719e07">return</span> <span style="color:#719e07">new</span> <span style="color:#b58900">Promise</span>(<span style="color:#268bd2">function</span>(resolve, reject) {
+  });
+}
+</code></pre></div><p>在返回的 Promise 对象里面，co 先检查参数 gen 是否为 Generator 函数。如果是，就执行该函数，得到一个内部指针对象；如果不是就返回，并将 Promise 对象的状态改为 resolved 。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> co(gen) {
+  <span style="color:#268bd2">var</span> ctx <span style="color:#719e07">=</span> <span style="color:#719e07">this</span>;
+
+  <span style="color:#719e07">return</span> <span style="color:#719e07">new</span> <span style="color:#b58900">Promise</span>(<span style="color:#268bd2">function</span>(resolve, reject) {
+    <span style="color:#719e07">if</span> (<span style="color:#719e07">typeof</span> gen <span style="color:#719e07">===</span> <span style="color:#2aa198">&#39;function&#39;</span>) gen <span style="color:#719e07">=</span> gen.call(ctx);
+    <span style="color:#719e07">if</span> (<span style="color:#719e07">!</span>gen <span style="color:#719e07">||</span> <span style="color:#719e07">typeof</span> gen.next <span style="color:#719e07">!==</span> <span style="color:#2aa198">&#39;function&#39;</span>) <span style="color:#719e07">return</span> resolve(gen);
+  });
+}
+</code></pre></div><p>接着，co 将 Generator 函数的内部指针对象的 next 方法，包装成 onFulefilled 函数。这主要是为了能够捕捉抛出的错误。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> co(gen) {
+  <span style="color:#268bd2">var</span> ctx <span style="color:#719e07">=</span> <span style="color:#719e07">this</span>;
+
+  <span style="color:#719e07">return</span> <span style="color:#719e07">new</span> <span style="color:#b58900">Promise</span>(<span style="color:#268bd2">function</span>(resolve, reject) {
+    <span style="color:#719e07">if</span> (<span style="color:#719e07">typeof</span> gen <span style="color:#719e07">===</span> <span style="color:#2aa198">&#39;function&#39;</span>) gen <span style="color:#719e07">=</span> gen.call(ctx);
+    <span style="color:#719e07">if</span> (<span style="color:#719e07">!</span>gen <span style="color:#719e07">||</span> <span style="color:#719e07">typeof</span> gen.next <span style="color:#719e07">!==</span> <span style="color:#2aa198">&#39;function&#39;</span>) <span style="color:#719e07">return</span> resolve(gen);
+
+    onFulfilled();
+    <span style="color:#268bd2">function</span> onFulfilled(res) {
+      <span style="color:#268bd2">var</span> ret;
+      <span style="color:#719e07">try</span> {
+        ret <span style="color:#719e07">=</span> gen.next(res);
+      } <span style="color:#719e07">catch</span> (e) {
+        <span style="color:#719e07">return</span> reject(e);
+      }
+      next(ret);
+    }    
+  });
+}
+</code></pre></div><p>最后，就是关键的 next 函数，它会反复调用自身。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> next(ret) {
+  <span style="color:#719e07">if</span> (ret.done) <span style="color:#719e07">return</span> resolve(ret.value);
+  <span style="color:#268bd2">var</span> value <span style="color:#719e07">=</span> toPromise.call(ctx, ret.value);
+  <span style="color:#719e07">if</span> (value <span style="color:#719e07">&amp;&amp;</span> isPromise(value)) <span style="color:#719e07">return</span> value.then(onFulfilled, onRejected);
+  <span style="color:#719e07">return</span> onRejected(<span style="color:#719e07">new</span> TypeError(<span style="color:#2aa198">&#39;You may only yield a function, promise, generator, array, or object, &#39;</span>
+        <span style="color:#719e07">+</span> <span style="color:#2aa198">&#39;but the following object was passed: &#34;&#39;</span> <span style="color:#719e07">+</span> <span style="color:#b58900">String</span>(ret.value) <span style="color:#719e07">+</span> <span style="color:#2aa198">&#39;&#34;&#39;</span>));
+    }
+});
+</code></pre></div><p>上面代码中，next 函数的内部代码，一共只有四行命令。</p>
+<blockquote>
+<p>第一行，检查当前是否为 Generator 函数的最后一步，如果是就返回。</p>
+<p>第二行，确保每一步的返回值，是 Promise 对象。</p>
+<p>第三行，使用 then 方法，为返回值加上回调函数，然后通过 onFulfilled 函数再次调用 next 函数。</p>
+<p>第四行，在参数不符合要求的情况下（参数非 Thunk 函数和 Promise 对象），将 Promise 对象的状态改为 rejected，从而终止执行。</p>
+</blockquote>
+<h2 id="五并发的异步操作">
+  五、并发的异步操作
+  <a class="anchor" href="#%e4%ba%94%e5%b9%b6%e5%8f%91%e7%9a%84%e5%bc%82%e6%ad%a5%e6%93%8d%e4%bd%9c">#</a>
+</h2>
+<p>co 支持并发的异步操作，即允许某些操作同时进行，等到它们全部完成，才进行下一步。</p>
+<p>这时，要把并发的操作都放在数组或对象里面。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#586e75">// 数组的写法
+</span><span style="color:#586e75"></span>co(<span style="color:#268bd2">function</span><span style="color:#719e07">*</span> () {
+  <span style="color:#268bd2">var</span> res <span style="color:#719e07">=</span> <span style="color:#719e07">yield</span> [
+    <span style="color:#b58900">Promise</span>.resolve(<span style="color:#2aa198">1</span>),
+    <span style="color:#b58900">Promise</span>.resolve(<span style="color:#2aa198">2</span>)
+  ];
+  console.log(res); 
+}).<span style="color:#719e07">catch</span>(onerror);
+
+<span style="color:#586e75">// 对象的写法
+</span><span style="color:#586e75"></span>co(<span style="color:#268bd2">function</span><span style="color:#719e07">*</span> () {
+  <span style="color:#268bd2">var</span> res <span style="color:#719e07">=</span> <span style="color:#719e07">yield</span> {
+    <span style="color:#2aa198">1</span><span style="color:#719e07">:</span> <span style="color:#b58900">Promise</span>.resolve(<span style="color:#2aa198">1</span>),
+    <span style="color:#2aa198">2</span><span style="color:#719e07">:</span> <span style="color:#b58900">Promise</span>.resolve(<span style="color:#2aa198">2</span>),
+  };
+  console.log(res); 
+}).<span style="color:#719e07">catch</span>(onerror);
+</code></pre></div><h3 id="文档信息">
+  文档信息
+  <a class="anchor" href="#%e6%96%87%e6%a1%a3%e4%bf%a1%e6%81%af">#</a>
+</h3>
+<ul>
+<li>版权声明：自由转载-非商用-非衍生-保持署名（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>）</li>
+<li>发表日期： 2015年5月 6日</li>
+</ul>
+<hr>
+<blockquote>
+<p>本文转自：http://www.ruanyifeng.com/blog/2015/05/co.html</p>
+</blockquote>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一什么是-co-函数库">一、什么是 co 函数库？</a></li>
+    <li><a href="#二-co-函数库的原理">二、 co 函数库的原理</a></li>
+    <li><a href="#三基于-promise-对象的自动执行">三、基于 Promise 对象的自动执行</a></li>
+    <li><a href="#四co-函数库的源码">四、co 函数库的源码</a></li>
+    <li><a href="#五并发的异步操作">五、并发的异步操作</a>
+      <ul>
+        <li><a href="#文档信息">文档信息</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

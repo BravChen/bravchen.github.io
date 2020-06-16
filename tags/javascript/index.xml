@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JavaScript on MrChen</title>
+    <link>https://bravchen.github.io/tags/javascript/</link>
+    <description>Recent content in JavaScript on MrChen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Jun 2020 19:05:43 +0800</lastBuildDate>
+    
+	<atom:link href="https://bravchen.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>函数与对象的语法糖一</title>
+      <link>https://bravchen.github.io/history/2019-12-01-function-object-sugar/</link>
+      <pubDate>Sun, 01 Dec 2019 18:32:01 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-12-01-function-object-sugar/</guid>
+      <description>或语法(||) #  传参案例 #  function sum(a, b){ console.log(b) return a+b } console.log(&amp;#39;返回值：&amp;#39;+sum(1)) 此时 b 的值是 undefined ，所以结果是 NaN 无法相加，打出的 b 为 undefined
+为了避免这种情况，可以使用以下写法：
+ES6写法 #  如果 a 或 b === undefined，则等于 0 。相当于未传值时的默认值为 0
+function sum(a=0, b=0){ return a+b }  其中 a=0 相当于 if(a===undefined){ a=0 }，b 同理
+ ES6之前的写法 #  如果 b 为真，则 b = b 否则 b = 0 ，a 同理
+function sum(a, b){ a = a || 0 b = b || 0 return a+b }  其中 b = b || 0 相当于 if(b){ b = b }else{ b = 0 }</description>
+    </item>
+    
+    <item>
+      <title>JavaScript达到什么水平，可以写类似Vue的框架？</title>
+      <link>https://bravchen.github.io/posts/2020-06-04-wlfjscywv/</link>
+      <pubDate>Thu, 04 Jun 2020 19:05:43 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/2020-06-04-wlfjscywv/</guid>
+      <description>今天在看方方老师的课程时，看到一个很赞的回答，顺便记录下来鼓励一下自己。
+提问：JavaScript达到什么水平，可以写类似Vue的框架？ #  答：
+在编程界没有什么水平的定义，而是你先定一个目标，去实现它。要么实现了，要么实现不了。
+学习方式不是达到什么水平才去写什么，而是你写了什么才能达到什么水平。
+你要先去做，才能达到那个水平，而不是达到那个水平再去做，因为你没有做过是永远达不到那个水平的。
+先做在达到，做的时候去搜各种知识，不停的去迭代它，完善它。</description>
+    </item>
+    
+    <item>
+      <title>JS 拖曳事件总结</title>
+      <link>https://bravchen.github.io/posts/2020-06-01-js-mouse-event/</link>
+      <pubDate>Mon, 01 Jun 2020 19:17:59 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/2020-06-01-js-mouse-event/</guid>
+      <description>常用的三个事件 #  mousedown #  当指针(鼠标)在元素上按下时触发
+mousemove #  当指针(鼠标)在元素上移动时触发
+mouseup #  当指针(鼠标)在元素上抬起时触发
+使用案例 #  demo.onmousedown = function(){ console.log(&amp;#39;鼠标已按下&amp;#39;) } demo.addEventListener(&amp;#39;mousedown&amp;#39;, function(e){ console.log(&amp;#39;鼠标已按下&amp;#39;) }) </description>
+    </item>
+    
+    <item>
+      <title>AJAX 的封装</title>
+      <link>https://bravchen.github.io/posts/2020-05-29-ajax-use/</link>
+      <pubDate>Fri, 29 May 2020 21:19:30 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/2020-05-29-ajax-use/</guid>
+      <description>原生 JS 实现 AJAX #  let request = new XMLHttpRequest() request.open(&amp;#39;get&amp;#39;, &amp;#39;http://jack.com:8002/xxx&amp;#39;) request.send() request.onreadystatechange = ()=&amp;gt;{ if(request.readyState === 4){ if(request.status &amp;gt;= 200 &amp;amp;&amp;amp; request.status &amp;lt; 300){ let string = request.responseText let object = window.JSON.parse(string) console.log(&amp;#39;请求成功!&amp;#39;) }else if(request.status &amp;gt;= 400){ console.log(&amp;#39;请求失败!&amp;#39;) } } } 封装一个 jQuery.ajax #  window.jQuery.ajax = function(url, method, body, successFn, failFn){ let request = new XMLHttpRequest() request.open(method, url) request.onreadystatechange = ()=&amp;gt;{ if(request.readyState === 4){ if(request.status &amp;gt;= 200 &amp;amp;&amp;amp; request.</description>
+    </item>
+    
+    <item>
+      <title>Document API</title>
+      <link>https://bravchen.github.io/posts/a0000001/</link>
+      <pubDate>Sat, 16 May 2020 22:22:05 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/a0000001/</guid>
+      <description>Class 类名添加与删除 #  当点击 id 为 xxx 的元素时，如果 id 为 yyy 元素存在 active 的 class 样式就删除该 class 名，不存在就添加该 class 名
+xxx.onclick = function(){ yyy.classList.toggle(&amp;#39;active&amp;#39;) } 案例链接：https://jsbin.com/xoxelaj/1/edit?html,css,js,output
+String #  获取某一个索引对应的字符 (String.prototype.charAt()) #  var str = &amp;#39;wobuzaiyi&amp;#39; // 获取某一个索引对应的字符 str.charAt(0) // &amp;#34;w&amp;#34; // 获取某一个索引对应的字符的编码 -- String.prototype.charCodeAt() str.charCodeAt(0) // 119 -- &amp;#34;w&amp;#34;对应的字符编码 去掉字符串两边的空格 (String.prototype.trim()) #  &amp;#39; username &amp;#39;.trim() // &amp;#34;username&amp;#34; 字符串拼接 (Array.prototype.concat()) #  var s1 = &amp;#39;Hello&amp;#39; var s2 = &amp;#39;World&amp;#39; s1.</description>
+    </item>
+    
+    <item>
+      <title>JS 常用API总结</title>
+      <link>https://bravchen.github.io/history/2019-10-17-js%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Thu, 17 Oct 2019 21:19:32 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-10-17-js%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/</guid>
+      <description>获取元素 #  根据 id 或 class 获取元素
+document.querySelector(&amp;#39;#demo&amp;#39;) 文档对象模型Document引用的querySelector()方法返回文档中与指定选择器或选择器组匹配的第一个 html元素Element。 如果找不到匹配项，则返回null。
+根据 id 或 class 获取元素列表
+与上面的区别是返回的是多个元素组成的伪数组
+document.querySelectorAll(&amp;#39;#demo&amp;#39;) 判断类型 #  instanceof #  instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。
+语法
+object instanceof constructor MDN 文档 instanceof
+toString #  toString() 方法返回一个表示该对象的字符串。例如：
+判断当前变量是元素还是数组
+var obj = { } var arr = []; console.log(Object.prototype.toString.call(arr)); 创建元素 #  创建标签并添加到元素中
+// 创建一个新的段落p元素,然后添加到body的最尾部 var p = document.createElement(&amp;#34;p&amp;#34;); document.body.appendChild(p); 给元素设置 class 名
+element.className = &amp;#39;demo&amp;#39; 处理事件 #  请求成功处理函数</description>
+    </item>
+    
+    <item>
+      <title>JS基础常识</title>
+      <link>https://bravchen.github.io/history/js%E5%9F%BA%E7%A1%80%E5%B8%B8%E8%AF%86/</link>
+      <pubDate>Tue, 27 Aug 2019 23:00:41 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/js%E5%9F%BA%E7%A1%80%E5%B8%B8%E8%AF%86/</guid>
+      <description>七种数据类型 #   number string boolean symbol null undefined object  五个 false 值 #   null undefined 0 NaN &#39;&amp;rsquo; ( 空字符串 )  </description>
+    </item>
+    
+  </channel>
+</rss>

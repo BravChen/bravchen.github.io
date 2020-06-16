@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="目录跳转 #  跳转至用户目录 cd ~/
+查看当前目录 pwd
+打开指定文件 start 路径
+快速跳转 #  安装
+ 注：如果觉得文字过多步骤繁琐，下面有简化版
+ 在用户目录下创建一个文件夹进入这个目录
+mkdir ~/GitHub/rupa cd ~/GitHub/rupa 下载 z 命令的文件：
+git clone https://github.com/rupa/z.git 进入 z 目录 cd z
+使用 pwd 查看当前目录路径，复制 pwd 显示的路径并在路径后添加 /z.sh
+/c/Users/xxx/GitHub/rupa/z/z.sh 可以用 ~ 代替用户目录，如下：
+~/GitHub/rupa/z/z.sh 用 VSCode (其他编辑器也可以，但是不要使用记事本等打开) 打开 用户目录下的 .bashrc 文件
+然后把上面的路径复制添加在用户目录 ( cd ~/ ) 下的 .bashrc 文件中：
+在前面加一个 . 并用空格隔开
+. ~/GitHub/rupa/z/z.sh  . 是 source 的缩写 所以也可以写作 source">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="命令行常用技巧" />
+<meta property="og:description" content="目录跳转 #  跳转至用户目录 cd ~/
+查看当前目录 pwd
+打开指定文件 start 路径
+快速跳转 #  安装
+ 注：如果觉得文字过多步骤繁琐，下面有简化版
+ 在用户目录下创建一个文件夹进入这个目录
+mkdir ~/GitHub/rupa cd ~/GitHub/rupa 下载 z 命令的文件：
+git clone https://github.com/rupa/z.git 进入 z 目录 cd z
+使用 pwd 查看当前目录路径，复制 pwd 显示的路径并在路径后添加 /z.sh
+/c/Users/xxx/GitHub/rupa/z/z.sh 可以用 ~ 代替用户目录，如下：
+~/GitHub/rupa/z/z.sh 用 VSCode (其他编辑器也可以，但是不要使用记事本等打开) 打开 用户目录下的 .bashrc 文件
+然后把上面的路径复制添加在用户目录 ( cd ~/ ) 下的 .bashrc 文件中：
+在前面加一个 . 并用空格隔开
+. ~/GitHub/rupa/z/z.sh  . 是 source 的缩写 所以也可以写作 source" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/history/2019-09-10-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" />
+<meta property="article:published_time" content="2019-09-10T21:31:23+00:00" />
+<meta property="article:modified_time" content="2019-09-10T21:31:23+00:00" />
+<title>命令行常用技巧 | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-10-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E7%AE%80%E8%AE%B0/" class="">多人博客项目(简记)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-15-keyboard-nav/" class="">键盘导航</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-canvas/" class="">Canvas画板</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-%E5%AE%89%E5%8D%93%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E6%A1%88%E4%BE%8B/" class="">安卓音乐播放器案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-12-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E8%AF%AD%E6%B3%95%E7%B3%96%E7%AE%80%E7%89%88/" class="">函数与对象的语法糖(索引)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-function-object-sugar/" class="">函数与对象的语法糖一</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-%E5%87%BD%E6%95%B0%E4%B8%8E%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96%E4%BA%8C/" class="">函数与对象的语法糖二</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/0cd88b5c/" class="">模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-07-vue%E5%A4%9A%E4%BA%BA%E5%85%B1%E4%BA%AB%E5%8D%9A%E5%AE%A2/" class="">[项目] Vue 多人共享博客</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-03-31-jsonp/" class="">[高级] 35 - JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-25-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E8%AF%A6%E7%BB%86/" class="">多人博客项目(详细)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-vue-plugin-int/" class="">Vue插件安装</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-css-selector/" class="">CSS选择器总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/dd3e7bbd/" class="">常用的HTML5标签</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-25-%E7%AE%80%E5%8E%86%E6%80%8E%E4%B9%88%E5%86%99/" class="">简历怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-12-lx%E4%B8%BB%E9%A2%98%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/" class="">lx主题中文文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-27-css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80/" class="">CSS Grid 网格布局</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-jquery%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">jQuery常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-js%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">JS 常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-yarn%E5%85%A5%E9%97%A8/" class="">yarn 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-npm%E5%85%A5%E9%97%A8/" class="">npm 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-04-es6%E6%96%B0%E7%89%B9%E6%80%A7/" class="">ES6新特性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="">面向对象</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-jquery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/jquery%E8%BD%AE%E6%92%AD%E6%A1%88%E4%BE%8B/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E8%87%AA%E5%88%B6jquery/" class="">自制jQuery</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-01-mvvm/" class="">MVVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-28-this%E6%98%AF%E4%BB%80%E4%B9%88/" class="">this是什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-27-new%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/" class="">New做了什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-21-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9D%97%E5%8C%96/" class="">代码模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-20-mvc%E6%80%9D%E6%83%B3/" class="">MVC思想</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-18-%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0-ajax/" class="">自己实现 AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-17-ajax/" class="">AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-16-jsonp/" class="">JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim-get-started/" class="">vim 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim%E7%9A%84%E4%BD%BF%E7%94%A8/" class="">vim 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-10-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="active">命令行常用技巧</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" class="">浏览器缓存</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-css%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/" class="">CSS 常用属性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-01-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2-%E5%93%8D%E5%BA%94%E5%BC%8F/" class="">移动端页面(响应式)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/element-ui/" class="">Element UI</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B/" class="">Vue 入门案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E6%B5%8B%E8%AF%95%E9%A1%B5/" class="">测试页</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-webpack-use/" class="">webpack 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E5%9F%BA%E7%A1%80%E5%B8%B8%E8%AF%86/" class="">JS基础常识</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/action/" class="">Action 官方文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/axios%E5%85%A5%E9%97%A8/" class="">Axios 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E4%B8%AD%E7%9A%84symbol%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JS 中的 Symbol 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/json%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JSON 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-11-12-module%E8%AF%AD%E6%B3%95/" class="">Module语法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-%E7%82%B9%E5%87%BB%E7%A9%BA%E7%99%BD%E5%85%B3%E9%97%AD%E6%B5%AE%E5%B1%82/" class="">Vue 点击空白关闭浮层</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-cli%E4%BD%BF%E7%94%A8/" class="">Vue-cli 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vuex%E4%BD%BF%E7%94%A8/" class="">Vuex 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-02-03-%E5%8E%9F%E5%9E%8B%E9%93%BE%E8%A1%A5%E5%85%85/" class="">原型链补充</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-05-07-%E6%95%B0%E7%BB%84/" class="">数组</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-27-%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E7%AE%80%E5%8E%86%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="">简历该怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BE%A6%E5%90%AC%E5%99%A8/" class="">计算属性和监听器</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>命令行常用技巧</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#目录跳转">目录跳转</a>
+      <ul>
+        <li><a href="#快速跳转">快速跳转</a></li>
+        <li><a href="#简化版快速跳转">简化版快速跳转</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置bashrc">配置.bashrc</a>
+      <ul>
+        <li><a href="#简洁的-git-命令">简洁的 git 命令</a></li>
+        <li><a href="#打开文件">打开文件</a></li>
+        <li><a href="#历史">历史</a></li>
+      </ul>
+    </li>
+    <li><a href="#装一个好看的字体">装一个好看的字体</a></li>
+    <li><a href="#添加tree命令">添加tree命令</a>
+      <ul>
+        <li><a href="#安装tree">安装tree</a></li>
+      </ul>
+    </li>
+    <li><a href="#翻译工具">翻译工具</a></li>
+    <li><a href="#命令行中的快捷键">命令行中的快捷键</a>
+      <ul>
+        <li><a href="#搜索历史">搜索历史</a></li>
+        <li><a href="#删除当前行">删除当前行</a></li>
+        <li><a href="#其他快捷键">其他快捷键</a></li>
+      </ul>
+    </li>
+    <li><a href="#安装ubuntu">安装Ubuntu</a></li>
+    <li><a href="#拓展">拓展</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="目录跳转">
+  目录跳转
+  <a class="anchor" href="#%e7%9b%ae%e5%bd%95%e8%b7%b3%e8%bd%ac">#</a>
+</h2>
+<p>跳转至用户目录 <code>cd ~/</code></p>
+<p>查看当前目录 <code>pwd</code></p>
+<p>打开指定文件 <code>start 路径</code></p>
+<h3 id="快速跳转">
+  快速跳转
+  <a class="anchor" href="#%e5%bf%ab%e9%80%9f%e8%b7%b3%e8%bd%ac">#</a>
+</h3>
+<p><strong>安装</strong></p>
+<blockquote>
+<p>注：如果觉得文字过多步骤繁琐，下面有简化版</p>
+</blockquote>
+<p>在用户目录下创建一个文件夹进入这个目录</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir ~/GitHub/rupa
+<span style="color:#b58900">cd</span> ~/GitHub/rupa
+</code></pre></div><p>下载 z 命令的文件：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/rupa/z.git
+</code></pre></div><p>进入 z 目录 <code>cd z</code></p>
+<p>使用 <code>pwd</code> 查看当前目录路径，复制 <code>pwd</code> 显示的路径并在路径后添加 <code>/z.sh</code></p>
+<pre><code>/c/Users/xxx/GitHub/rupa/z/z.sh
+</code></pre><p>可以用 ~ 代替用户目录，如下：</p>
+<pre><code>~/GitHub/rupa/z/z.sh
+</code></pre><p>用 VSCode (其他编辑器也可以，但是不要使用记事本等打开) 打开 用户目录下的 <code>.bashrc</code> 文件</p>
+<p>然后把上面的路径复制添加在用户目录 ( <code>cd ~/</code> ) 下的 <code>.bashrc</code> 文件中：</p>
+<p>在前面加一个 . 并用空格隔开</p>
+<pre><code>. ~/GitHub/rupa/z/z.sh
+</code></pre><blockquote>
+<p>. 是 source 的缩写 所以也可以写作 source</p>
+</blockquote>
+<p>在 <code>.bashrc</code> 文件中添加一行以下内容，就可以使用 <code>j </code> 键代替 <code>z</code> 键了</p>
+<pre><code>alias j='z'
+</code></pre><p><strong>使用</strong></p>
+<p>使用 <code>j</code> + 任何文件名可以快速跳转至该文件目录，可以不写全称。</p>
+<p>只输入 <code>j</code> 可显示历史目录</p>
+<blockquote>
+<p>注：快速跳转只支持去过的历史目录</p>
+</blockquote>
+<p>文中的 <code>git clone https://github.com/rupa/z.git</code> 来源：</p>
+<ol>
+<li>
+<p>在 GitHub 仓库搜索 z ，选择 <code>rupa/z</code>，如图：</p>
+<p><img src="https://chenning02.github.io/Document/images/bash_z-01.png" alt="" /></p>
+</li>
+<li>
+<p>之后就可以下载啦</p>
+<p><img src="https://chenning02.github.io/Document/images/bash_z-02.png" alt="" /></p>
+</li>
+</ol>
+<hr>
+<h3 id="简化版快速跳转">
+  简化版快速跳转
+  <a class="anchor" href="#%e7%ae%80%e5%8c%96%e7%89%88%e5%bf%ab%e9%80%9f%e8%b7%b3%e8%bd%ac">#</a>
+</h3>
+<p>打开命令行工具</p>
+<ol>
+<li>
+<p><code>mkdir ~/repos</code></p>
+</li>
+<li>
+<p><code>cd ~/repos</code></p>
+</li>
+<li>
+<p><code>git clone https://github.com/rupa/z.git</code></p>
+</li>
+<li>
+<p><code>touch ~/.bashrc</code></p>
+</li>
+<li>
+<p><code>start ~/.bashrc</code></p>
+<p>在文件中写入</p>
+<pre><code>. ~/repos/z/z.sh
+alias j='z'
+</code></pre></li>
+<li>
+<p>重启 Git Bash</p>
+</li>
+<li>
+<p>你去过的所有目录都会被记录了！使用 <code>j XXX</code> 就可以快速到达之前去过的目录了！</p>
+</li>
+<li>
+<p>使用 j 可以查看所有去过的目录</p>
+</li>
+</ol>
+<h2 id="配置bashrc">
+  配置.bashrc
+  <a class="anchor" href="#%e9%85%8d%e7%bd%aebashrc">#</a>
+</h2>
+<h3 id="简洁的-git-命令">
+  简洁的 git 命令
+  <a class="anchor" href="#%e7%ae%80%e6%b4%81%e7%9a%84-git-%e5%91%bd%e4%bb%a4">#</a>
+</h3>
+<p>在 <code>~/.bashrc</code> 中添加如下</p>
+<pre><code>alias gst=&quot;git status -sb&quot;
+alias ga=&quot;git add&quot;
+alias gc=&quot;git commit -v&quot;
+alias gcc=&quot;git commit . -m update&quot;
+alias gp=&quot;git push&quot;
+alias gl=&quot;git pull&quot;
+</code></pre><p>再执行 <code>. ~/.bashrc</code>  (或者重启命令行)，就可以使用更简洁的 git 命令</p>
+<blockquote>
+<p><code>. ~/.bashrc</code> 是 <code>source ~/.bashrc</code> 命令的简称</p>
+</blockquote>
+<h3 id="打开文件">
+  打开文件
+  <a class="anchor" href="#%e6%89%93%e5%bc%80%e6%96%87%e4%bb%b6">#</a>
+</h3>
+<p>首先在 <code>~/.bashrc</code> 文件中添加：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#b58900">alias</span> <span style="color:#268bd2">open</span><span style="color:#719e07">=</span><span style="color:#2aa198">&#39;start&#39;</span>
+</code></pre></div><p>然后在命令行执行 <code>. ~/.bashrc</code></p>
+<p>即可用 <code>open</code> 代替 <code>start</code> 执行打开文件命令</p>
+<h3 id="历史">
+  历史
+  <a class="anchor" href="#%e5%8e%86%e5%8f%b2">#</a>
+</h3>
+<p>在 <code>~/.bashrc</code> 中添加，查看历史 log 更直观</p>
+<pre><code>alias glog=&quot;git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit -- | less&quot;
+</code></pre><p>然后在命令行执行 <code>. ~/.bashrc</code></p>
+<p>添加后就可以使用 <code>glog</code> 命令查看当前 git 仓库的历史的提交了</p>
+<blockquote>
+<p>注：退出按 q</p>
+</blockquote>
+<p>打开当前仓库</p>
+<p>安装</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">npm i -g git-open
+</code></pre></div><p>安装后在当前仓库运行以下命令，即可打开对应仓库GItHub链接</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git open
+</code></pre></div><h2 id="装一个好看的字体">
+  装一个好看的字体
+  <a class="anchor" href="#%e8%a3%85%e4%b8%80%e4%b8%aa%e5%a5%bd%e7%9c%8b%e7%9a%84%e5%ad%97%e4%bd%93">#</a>
+</h2>
+<p>先下载：https://github.com/powerline/fonts/tree/master/SourceCodePro</p>
+<p>最好把每个 <code>.otf</code> 后缀的文件都下载，这样字体的样式很多，下载后全选右键选择安装即可</p>
+<p>然后重启命令行在设置中选择该字体即可</p>
+<h2 id="添加tree命令">
+  添加tree命令
+  <a class="anchor" href="#%e6%b7%bb%e5%8a%a0tree%e5%91%bd%e4%bb%a4">#</a>
+</h2>
+<h3 id="安装tree">
+  安装tree
+  <a class="anchor" href="#%e5%ae%89%e8%a3%85tree">#</a>
+</h3>
+<p>官网：http://gnuwin32.sourceforge.net/packages/tree.htm</p>
+<p>选择 Complete package, except sources 那一行下载完整包，如图：</p>
+<p><img src="https://chenning02.github.io/Document/images/bash_tree-01.png" alt="" /></p>
+<p>安装成功后在用户目录下的 <code> .bashrc</code> 输入</p>
+<pre><code>export PATH=&quot;$PATH:/C/Software/GnuWin32/bin&quot;
+</code></pre><p>其中 $PATH: 后的路径为 tree 安装路径下的 bin 路径 (注意路径中的 \ 要修改为 / 格式)</p>
+<p>然后 <code>. ~/.bashrc</code> 一下</p>
+<p>然后运行 <code>which tree </code> 如果出现了安装路径就说明成功了</p>
+<p>使用 <code>tree .</code> 即可查看当前目录</p>
+<p>这篇教程的原文来自方方老师一篇博客：https://xiedaimala.com/bbs/topics/184#/</p>
+<h2 id="翻译工具">
+  翻译工具
+  <a class="anchor" href="#%e7%bf%bb%e8%af%91%e5%b7%a5%e5%85%b7">#</a>
+</h2>
+<p>安装 <code>npm i -g fanyi</code></p>
+<p>使用 <code>fy hi</code></p>
+<h2 id="命令行中的快捷键">
+  命令行中的快捷键
+  <a class="anchor" href="#%e5%91%bd%e4%bb%a4%e8%a1%8c%e4%b8%ad%e7%9a%84%e5%bf%ab%e6%8d%b7%e9%94%ae">#</a>
+</h2>
+<h3 id="搜索历史">
+  搜索历史
+  <a class="anchor" href="#%e6%90%9c%e7%b4%a2%e5%8e%86%e5%8f%b2">#</a>
+</h3>
+<p>首先按一下 <code>ctrl</code> + <code>R</code> 然后输入命令 的一部分</p>
+<p>然后会显示历史命令，然后按住 <code>ctrl</code> 再按 <code>R</code> 切换历史命令，直到切换到自己想要的，按方向键左右键即可退出</p>
+<p>如果是需要的命令 按方向键左右即可在当前行显示该命令</p>
+<p>如果不想搜索 使用 Ctrl + Go 退出搜索</p>
+<h3 id="删除当前行">
+  删除当前行
+  <a class="anchor" href="#%e5%88%a0%e9%99%a4%e5%bd%93%e5%89%8d%e8%a1%8c">#</a>
+</h3>
+<p>按下 <code>ctrl</code> + <code>a</code> 到达命令首字母，然后再按下 <code>ctrl</code> + <code>k</code> 删除本行命令</p>
+<h3 id="其他快捷键">
+  其他快捷键
+  <a class="anchor" href="#%e5%85%b6%e4%bb%96%e5%bf%ab%e6%8d%b7%e9%94%ae">#</a>
+</h3>
+<ul>
+<li>光标移至行首 <code>Ctrl + A </code></li>
+<li>光标移至行尾 <code>Ctrl + E </code></li>
+<li>光标退后 <code>Ctrl + B </code></li>
+<li>光标前进 <code>Ctrl + F </code></li>
+<li>删一个单词 <code>Ctrl + W</code></li>
+<li>中断命令 <code>Ctrl + Cancel </code></li>
+<li>使用上一条命令的最后一个参数 <code>Alt + .</code></li>
+</ul>
+<p><strong>查看更多快捷键</strong></p>
+<p>谷歌搜索 <code>bash 快捷键</code>，推荐网址：https://linuxtoy.org/archives/bash-shortcuts.html</p>
+<h2 id="安装ubuntu">
+  安装Ubuntu
+  <a class="anchor" href="#%e5%ae%89%e8%a3%85ubuntu">#</a>
+</h2>
+<p>在 Win10 的 Microsoft Store 搜索 Ubuntu 下载安装</p>
+<p><strong>windows目录</strong></p>
+<p>在 Ubuntu 中 windows 目录在 <code>/mnt/</code> 下</p>
+<p>如 c 盘 <code>/mnt/c/</code></p>
+<p><strong>设置快捷打开目录</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ln -s /mnt/c/xxx/GitHub/
+</code></pre></div><p>设置后直接使用 <code>cd 当前目录</code> 即可</p>
+<p><strong>打开当前目录文件夹</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">explorer.exe .
+</code></pre></div><p>你可以将 explorer.exe 设置为 start ，用 vim 打开 <code>vi ~/.bashrc</code></p>
+<p>按 <code>i</code> 然后在最下方插入 <code>alias start=&quot;explorer.exe&quot;</code></p>
+<p>然后 <code>:wq</code> 保存</p>
+<p>然后就可以使用 <code>start .</code> 打开目录了</p>
+<p><strong>一个报错</strong></p>
+<pre><code>error: 0x8007019e
+</code></pre><p>解决方法</p>
+<p>键盘行按键win+x，选择Windows PowerShell（管理员）</p>
+<p>输入：</p>
+<pre><code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+</code></pre><p>回车输入Y并重启。 重启打开Ubuntu的命令窗口，等几分钟，输入账户和密码即可。</p>
+<p><strong>以 root 方式进入 Ubuntu</strong></p>
+<p>使用 <code>sudo passwd root</code> 设置 root 的密码 (默认情况下密码在命令行不会显示)</p>
+<p>设置后输入 <code>su root</code> 输入密码进入</p>
+<p><strong>在Cmder中添加Ubuntu</strong></p>
+<p>首先打开设置，在启动中设置以下选项</p>
+<p><img src="https://chenning02.github.io/Document/images/ubuntu_01.png" alt="" /></p>
+<p>然后就可以在 Cmder 中新建 Ubuntu 窗口了</p>
+<p>也可以把 Ubuntu 设置为默认启动</p>
+<p><img src="https://chenning02.github.io/Document/images/ubuntu_02.png" alt="" /></p>
+<h2 id="拓展">
+  拓展
+  <a class="anchor" href="#%e6%8b%93%e5%b1%95">#</a>
+</h2>
+<p><strong>复制粘贴快捷键</strong></p>
+<p>Git Bash 粘贴：按住鼠标中键，或者 Shift + Ins 是复制</p>
+<p>cmd 复制：选中然后按回车键</p>
+<p><strong>npm 命令卸载插件</strong></p>
+<pre><code>npm uninstall 插件名 -g
+</code></pre></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#目录跳转">目录跳转</a>
+      <ul>
+        <li><a href="#快速跳转">快速跳转</a></li>
+        <li><a href="#简化版快速跳转">简化版快速跳转</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置bashrc">配置.bashrc</a>
+      <ul>
+        <li><a href="#简洁的-git-命令">简洁的 git 命令</a></li>
+        <li><a href="#打开文件">打开文件</a></li>
+        <li><a href="#历史">历史</a></li>
+      </ul>
+    </li>
+    <li><a href="#装一个好看的字体">装一个好看的字体</a></li>
+    <li><a href="#添加tree命令">添加tree命令</a>
+      <ul>
+        <li><a href="#安装tree">安装tree</a></li>
+      </ul>
+    </li>
+    <li><a href="#翻译工具">翻译工具</a></li>
+    <li><a href="#命令行中的快捷键">命令行中的快捷键</a>
+      <ul>
+        <li><a href="#搜索历史">搜索历史</a></li>
+        <li><a href="#删除当前行">删除当前行</a></li>
+        <li><a href="#其他快捷键">其他快捷键</a></li>
+      </ul>
+    </li>
+    <li><a href="#安装ubuntu">安装Ubuntu</a></li>
+    <li><a href="#拓展">拓展</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

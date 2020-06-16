@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="作者： 阮一峰
+日期： 2012年10月26日
+随着网站逐渐变成&rdquo;互联网应用程序&quot;，嵌入网页的Javascript代码越来越庞大，越来越复杂。
+
+网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试等等&hellip;&hellip;开发者不得不使用软件工程的方法，管理网页的业务逻辑。
+Javascript模块化编程，已经成为一个迫切的需求。理想情况下，开发者只需要实现核心的业务逻辑，其他都可以加载别人已经写好的模块。
+但是，Javascript不是一种模块化编程语言，它不支持&rdquo;类&quot;（class），更遑论&quot;模块&rdquo;（module）了。（正在制定中的ECMAScript标准第六版，将正式支持&quot;类&quot;和&quot;模块&rdquo;，但还需要很长时间才能投入实用。）
+Javascript社区做了很多努力，在现有的运行环境中，实现&quot;模块&quot;的效果。本文总结了当前＂Javascript模块化编程＂的最佳实践，说明如何投入实用。虽然这不是初级教程，但是只要稍稍了解Javascript的基本语法，就能看懂。
+一、原始写法
+模块就是实现特定功能的一组方法。
+只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。
+function m1(){ //... } function m2(){ //... } 上面的函数m1()和m2()，组成一个模块。使用的时候，直接调用就行了。
+这种做法的缺点很明显：&ldquo;污染&quot;了全局变量，无法保证不与其他模块发生变量名冲突，而且模块成员之间看不出直接关系。
+二、对象写法
+为了解决上面的缺点，可以把模块写成一个对象，所有的模块成员都放到这个对象里面。
+var module1 = new Object({ _count : 0, m1 : function (){ //...  }, m2 : function (){ //...  } }); 上面的函数m1()和m2(），都封装在module1对象里。使用的时候，就是调用这个对象的属性。
+module1.m1(); 但是，这样的写法会暴露所有模块成员，内部状态可以被外部改写。比如，外部代码可以直接改变内部计数器的值。
+module1._count = 5; 三、立即执行函数写法
+使用&rdquo;立即执行函数&quot;（Immediately-Invoked Function Expression，IIFE），可以达到不暴露私有成员的目的。
+var module1 = (function(){ var _count = 0; var m1 = function(){ //.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Javascript模块化编程（一）：模块的写法" />
+<meta property="og:description" content="作者： 阮一峰
+日期： 2012年10月26日
+随着网站逐渐变成&rdquo;互联网应用程序&quot;，嵌入网页的Javascript代码越来越庞大，越来越复杂。
+
+网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试等等&hellip;&hellip;开发者不得不使用软件工程的方法，管理网页的业务逻辑。
+Javascript模块化编程，已经成为一个迫切的需求。理想情况下，开发者只需要实现核心的业务逻辑，其他都可以加载别人已经写好的模块。
+但是，Javascript不是一种模块化编程语言，它不支持&rdquo;类&quot;（class），更遑论&quot;模块&rdquo;（module）了。（正在制定中的ECMAScript标准第六版，将正式支持&quot;类&quot;和&quot;模块&rdquo;，但还需要很长时间才能投入实用。）
+Javascript社区做了很多努力，在现有的运行环境中，实现&quot;模块&quot;的效果。本文总结了当前＂Javascript模块化编程＂的最佳实践，说明如何投入实用。虽然这不是初级教程，但是只要稍稍了解Javascript的基本语法，就能看懂。
+一、原始写法
+模块就是实现特定功能的一组方法。
+只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。
+function m1(){ //... } function m2(){ //... } 上面的函数m1()和m2()，组成一个模块。使用的时候，直接调用就行了。
+这种做法的缺点很明显：&ldquo;污染&quot;了全局变量，无法保证不与其他模块发生变量名冲突，而且模块成员之间看不出直接关系。
+二、对象写法
+为了解决上面的缺点，可以把模块写成一个对象，所有的模块成员都放到这个对象里面。
+var module1 = new Object({ _count : 0, m1 : function (){ //...  }, m2 : function (){ //...  } }); 上面的函数m1()和m2(），都封装在module1对象里。使用的时候，就是调用这个对象的属性。
+module1.m1(); 但是，这样的写法会暴露所有模块成员，内部状态可以被外部改写。比如，外部代码可以直接改变内部计数器的值。
+module1._count = 5; 三、立即执行函数写法
+使用&rdquo;立即执行函数&quot;（Immediately-Invoked Function Expression，IIFE），可以达到不暴露私有成员的目的。
+var module1 = (function(){ var _count = 0; var m1 = function(){ //." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%80%E6%A8%A1%E5%9D%97%E7%9A%84%E5%86%99%E6%B3%95/" />
+
+<title>Javascript模块化编程（一）：模块的写法 | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%80%E6%A8%A1%E5%9D%97%E7%9A%84%E5%86%99%E6%B3%95/" class="active">Javascript模块化编程（一）：模块的写法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%BA%8Camd%E8%A7%84%E8%8C%83/" class="">Javascript模块化编程（二）：AMD规范</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%89require.js%E7%9A%84%E7%94%A8%E6%B3%95/" class="">Javascript模块化编程（三）：require.js的用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/generator%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E4%B8%8E%E7%94%A8%E6%B3%95/" class="">Generator 函数的含义与用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%E7%9A%844%E7%A7%8D%E6%96%B9%E6%B3%95/" class="">Javascript异步编程的4种方法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/thunk%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" class="">Thunk 函数的含义和用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/co%E5%87%BD%E6%95%B0%E5%BA%93%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" class="">co 函数库的含义和用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/async%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" class="">async 函数的含义和用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-06-04-vuex-use/" class="">快速理解 Vuex 的方法（转载）</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/7bcd3815/" class="">科班 与 培训 的区别</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-04-22-2020-interview-outline/" class="">2020年前端面试提纲</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-04-18-guanyuzhihu-naxiezhishi/" class="">关于知乎 &#34;哪些知识越了解越觉得『对这个世界很绝望』？&#34;</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/" class="">Git用法总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80%E6%95%99%E7%A8%8B/" class="">CSS Grid 网格布局教程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/es6-%E6%96%B0%E7%89%B9%E6%80%A7%E5%88%97%E8%A1%A8/" class="">ES 6 新特性列表</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/unicode%E4%B8%8Ejavascript%E8%AF%A6%E8%A7%A3/" class="">Unicode与JavaScript详解</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97-%E6%96%87%E7%AB%A0%E7%B2%BE%E9%80%89/" class="">《前端学习指南》文章精选</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E5%A6%82%E4%BD%95%E5%9C%A8-js-%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%B6%88%E7%81%AD-for-%E5%BE%AA%E7%8E%AF/" class="">如何在 JS 代码中消灭 for 循环</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E5%B9%B3%E6%97%B6%E4%BD%A0%E4%BB%8E%E5%93%AA%E9%87%8C%E8%8E%B7%E5%8F%96%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" class="">平时你从哪里获取前端知识？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-04-18-%E6%88%91%E7%94%A8%E4%BA%86%E4%B8%A4%E4%B8%AA%E6%9C%88%E7%9A%84%E6%97%B6%E9%97%B4%E6%89%8D%E7%90%86%E8%A7%A3-let/" class="">我用了两个月的时间才理解 let</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-02-08-%E7%9F%A5%E8%AF%86%E7%9A%84%E8%AF%85%E5%92%92/" class="">知识的诅咒</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Javascript模块化编程（一）：模块的写法</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#文档信息">文档信息</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><p>作者： <a href="http://www.ruanyifeng.com/">阮一峰</a></p>
+<p>日期： <a href="http://www.ruanyifeng.com/blog/2012/10/">2012年10月26日</a></p>
+<p>随着网站逐渐变成&rdquo;<a href="http://en.wikipedia.org/wiki/Web_application">互联网应用程序</a>&quot;，嵌入网页的Javascript代码越来越庞大，越来越复杂。</p>
+<p><a href="https://imgchr.com/i/GRIagH"><img src="https://s1.ax1x.com/2020/04/08/GRIagH.jpg" alt="GRIagH.jpg" /></a></p>
+<p>网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试等等&hellip;&hellip;开发者不得不使用软件工程的方法，管理网页的业务逻辑。</p>
+<p>Javascript模块化编程，已经成为一个迫切的需求。理想情况下，开发者只需要实现核心的业务逻辑，其他都可以加载别人已经写好的模块。</p>
+<p>但是，Javascript不是一种模块化编程语言，它不支持&rdquo;<a href="http://www.ruanyifeng.com/blog/2012/07/three_ways_to_define_a_javascript_class.html">类</a>&quot;（class），更遑论&quot;模块&rdquo;（module）了。（正在制定中的<a href="http://en.wikipedia.org/wiki/ECMAScript">ECMAScript标准</a>第六版，将正式支持&quot;类&quot;和&quot;模块&rdquo;，但还需要很长时间才能投入实用。）</p>
+<p>Javascript社区做了很多努力，在现有的运行环境中，实现&quot;模块&quot;的效果。本文总结了当前＂Javascript模块化编程＂的最佳实践，说明如何投入实用。虽然这不是初级教程，但是只要稍稍了解Javascript的基本语法，就能看懂。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/201210/bg2012102602.jpg" alt="img" /></p>
+<p><strong>一、原始写法</strong></p>
+<p>模块就是实现特定功能的一组方法。</p>
+<p>只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> m1(){
+    <span style="color:#586e75">//...
+</span><span style="color:#586e75"></span>}
+
+<span style="color:#268bd2">function</span> m2(){
+    <span style="color:#586e75">//...
+</span><span style="color:#586e75"></span>}
+</code></pre></div><p>上面的函数m1()和m2()，组成一个模块。使用的时候，直接调用就行了。</p>
+<p>这种做法的缺点很明显：&ldquo;污染&quot;了全局变量，无法保证不与其他模块发生变量名冲突，而且模块成员之间看不出直接关系。</p>
+<p><strong>二、对象写法</strong></p>
+<p>为了解决上面的缺点，可以把模块写成一个对象，所有的模块成员都放到这个对象里面。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">var</span> module1 <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> <span style="color:#b58900">Object</span>({
+    _count <span style="color:#719e07">:</span> <span style="color:#2aa198">0</span>,
+    m1 <span style="color:#719e07">:</span> <span style="color:#268bd2">function</span> (){
+        <span style="color:#586e75">//...
+</span><span style="color:#586e75"></span>    },
+    m2 <span style="color:#719e07">:</span> <span style="color:#268bd2">function</span> (){
+        <span style="color:#586e75">//...
+</span><span style="color:#586e75"></span>    }
+});
+</code></pre></div><p>上面的函数m1()和m2(），都封装在module1对象里。使用的时候，就是调用这个对象的属性。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">module1.m1();
+</code></pre></div><p>但是，这样的写法会暴露所有模块成员，内部状态可以被外部改写。比如，外部代码可以直接改变内部计数器的值。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">module1._count <span style="color:#719e07">=</span> <span style="color:#2aa198">5</span>;
+</code></pre></div><p><strong>三、立即执行函数写法</strong></p>
+<p>使用&rdquo;<a href="http://benalman.com/news/2010/11/immediately-invoked-function-expression/">立即执行函数</a>&quot;（Immediately-Invoked Function Expression，IIFE），可以达到不暴露私有成员的目的。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">var</span> module1 <span style="color:#719e07">=</span> (<span style="color:#268bd2">function</span>(){
+    <span style="color:#268bd2">var</span> _count <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>;
+    <span style="color:#268bd2">var</span> m1 <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(){
+        <span style="color:#586e75">//...
+</span><span style="color:#586e75"></span>    };
+    <span style="color:#268bd2">var</span> m2 <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(){
+        <span style="color:#586e75">//...
+</span><span style="color:#586e75"></span>    };
+    <span style="color:#719e07">return</span> {
+        m1 <span style="color:#719e07">:</span> m1,
+        m2 <span style="color:#719e07">:</span> m2
+    };
+})();
+</code></pre></div><p>使用上面的写法，外部代码无法读取内部的_count变量。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">console.info(module1._count); <span style="color:#586e75">//undefined
+</span></code></pre></div><p>module1 就是 Javascript 模块的基本写法。下面，再对这种写法进行加工。</p>
+<p><strong>四、放大模式</strong></p>
+<p>如果一个模块很大，必须分成几个部分，或者一个模块需要继承另一个模块，这时就有必要采用&quot;放大模式&rdquo;（augmentation）。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">var</span> module1 <span style="color:#719e07">=</span> (<span style="color:#268bd2">function</span> (mod){
+    mod.m3 <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span> () {
+        <span style="color:#586e75">//...
+</span><span style="color:#586e75"></span>    };
+    <span style="color:#719e07">return</span> mod;
+})(module1);
+</code></pre></div><p>上面的代码为module1模块添加了一个新方法m3()，然后返回新的module1模块。</p>
+<p><strong>五、宽放大模式（Loose augmentation）</strong></p>
+<p>在浏览器环境中，模块的各个部分通常都是从网上获取的，有时无法知道哪个部分会先加载。如果采用上一节的写法，第一个执行的部分有可能加载一个不存在空对象，这时就要采用&quot;宽放大模式&rdquo;。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">var</span> module1 <span style="color:#719e07">=</span> ( <span style="color:#268bd2">function</span> (mod){
+    <span style="color:#586e75">//...
+</span><span style="color:#586e75"></span>    <span style="color:#719e07">return</span> mod;
+})(<span style="color:#b58900">window</span>.module1 <span style="color:#719e07">||</span> {});
+</code></pre></div><p>与&quot;放大模式&quot;相比，＂宽放大模式＂就是&quot;立即执行函数&quot;的参数可以是空对象。</p>
+<p><strong>六、输入全局变量</strong></p>
+<p>独立性是模块的重要特点，模块内部最好不与程序的其他部分直接交互。</p>
+<p>为了在模块内部调用全局变量，必须显式地将其他变量输入模块。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">var</span> module1 <span style="color:#719e07">=</span> (<span style="color:#268bd2">function</span> ($, YAHOO) {
+<span style="color:#586e75">//...
+</span><span style="color:#586e75"></span>})(jQuery, YAHOO);
+</code></pre></div><p>上面的module1模块需要使用jQuery库和YUI库，就把这两个库（其实是两个模块）当作参数输入module1。这样做除了保证模块的独立性，还使得模块之间的依赖关系变得明显。这方面更多的讨论，参见Ben Cherry的著名文章<a href="http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth">《JavaScript Module Pattern: In-Depth》</a>。</p>
+<p>这个系列的第二部分，将讨论如何在浏览器环境组织不同的模块、管理模块之间的依赖性。</p>
+<p>（完）</p>
+<h3 id="文档信息">
+  文档信息
+  <a class="anchor" href="#%e6%96%87%e6%a1%a3%e4%bf%a1%e6%81%af">#</a>
+</h3>
+<blockquote>
+<p>版权声明：自由转载-非商用-非衍生-保持署名（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>）</p>
+<p>发表日期： 2012年10月26日</p>
+</blockquote>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#文档信息">文档信息</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

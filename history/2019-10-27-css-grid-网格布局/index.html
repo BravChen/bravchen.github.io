@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="案例 #  基础布局案例 #  语法
+div { display: grid; } 代码
+html &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta charset=&#34;utf-8&#34;&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width&#34;&gt; &lt;title&gt;JS Bin&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;span&gt;foo&lt;/span&gt; &lt;div id=&#34;container&#34;&gt; &lt;div class=&#34;item item-1&#34;&gt;1&lt;/div&gt; &lt;div class=&#34;item item-2&#34;&gt;2&lt;/div&gt; &lt;div class=&#34;item item-3&#34;&gt;3&lt;/div&gt; &lt;div class=&#34;item item-4&#34;&gt;4&lt;/div&gt; &lt;div class=&#34;item item-5&#34;&gt;5&lt;/div&gt; &lt;div class=&#34;item item-6&#34;&gt;6&lt;/div&gt; &lt;div class=&#34;item item-7&#34;&gt;7&lt;/div&gt; &lt;div class=&#34;item item-8&#34;&gt;8&lt;/div&gt; &lt;div class=&#34;item item-9&#34;&gt;9&lt;/div&gt; &lt;/div&gt; &lt;span&gt;bar&lt;/span&gt; &lt;/body&gt; &lt;/html&gt; CSS span { font-size: 2em; } #container{ display: grid; grid-template-columns: 50px 50px 50px; grid-template-rows: 50px 50px 50px; } .">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="CSS Grid 网格布局" />
+<meta property="og:description" content="案例 #  基础布局案例 #  语法
+div { display: grid; } 代码
+html &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta charset=&#34;utf-8&#34;&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width&#34;&gt; &lt;title&gt;JS Bin&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;span&gt;foo&lt;/span&gt; &lt;div id=&#34;container&#34;&gt; &lt;div class=&#34;item item-1&#34;&gt;1&lt;/div&gt; &lt;div class=&#34;item item-2&#34;&gt;2&lt;/div&gt; &lt;div class=&#34;item item-3&#34;&gt;3&lt;/div&gt; &lt;div class=&#34;item item-4&#34;&gt;4&lt;/div&gt; &lt;div class=&#34;item item-5&#34;&gt;5&lt;/div&gt; &lt;div class=&#34;item item-6&#34;&gt;6&lt;/div&gt; &lt;div class=&#34;item item-7&#34;&gt;7&lt;/div&gt; &lt;div class=&#34;item item-8&#34;&gt;8&lt;/div&gt; &lt;div class=&#34;item item-9&#34;&gt;9&lt;/div&gt; &lt;/div&gt; &lt;span&gt;bar&lt;/span&gt; &lt;/body&gt; &lt;/html&gt; CSS span { font-size: 2em; } #container{ display: grid; grid-template-columns: 50px 50px 50px; grid-template-rows: 50px 50px 50px; } ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/history/2019-10-27-css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80/" />
+<meta property="article:published_time" content="2019-10-27T21:32:16+00:00" />
+<meta property="article:modified_time" content="2019-10-27T21:32:16+00:00" />
+<title>CSS Grid 网格布局 | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-10-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E7%AE%80%E8%AE%B0/" class="">多人博客项目(简记)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-15-keyboard-nav/" class="">键盘导航</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-canvas/" class="">Canvas画板</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-%E5%AE%89%E5%8D%93%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E6%A1%88%E4%BE%8B/" class="">安卓音乐播放器案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-12-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E8%AF%AD%E6%B3%95%E7%B3%96%E7%AE%80%E7%89%88/" class="">函数与对象的语法糖(索引)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-function-object-sugar/" class="">函数与对象的语法糖一</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-%E5%87%BD%E6%95%B0%E4%B8%8E%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96%E4%BA%8C/" class="">函数与对象的语法糖二</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/0cd88b5c/" class="">模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-07-vue%E5%A4%9A%E4%BA%BA%E5%85%B1%E4%BA%AB%E5%8D%9A%E5%AE%A2/" class="">[项目] Vue 多人共享博客</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-03-31-jsonp/" class="">[高级] 35 - JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-25-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E8%AF%A6%E7%BB%86/" class="">多人博客项目(详细)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-vue-plugin-int/" class="">Vue插件安装</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-css-selector/" class="">CSS选择器总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/dd3e7bbd/" class="">常用的HTML5标签</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-25-%E7%AE%80%E5%8E%86%E6%80%8E%E4%B9%88%E5%86%99/" class="">简历怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-12-lx%E4%B8%BB%E9%A2%98%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/" class="">lx主题中文文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-27-css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80/" class="active">CSS Grid 网格布局</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-jquery%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">jQuery常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-js%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">JS 常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-yarn%E5%85%A5%E9%97%A8/" class="">yarn 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-npm%E5%85%A5%E9%97%A8/" class="">npm 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-04-es6%E6%96%B0%E7%89%B9%E6%80%A7/" class="">ES6新特性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="">面向对象</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-jquery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/jquery%E8%BD%AE%E6%92%AD%E6%A1%88%E4%BE%8B/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E8%87%AA%E5%88%B6jquery/" class="">自制jQuery</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-01-mvvm/" class="">MVVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-28-this%E6%98%AF%E4%BB%80%E4%B9%88/" class="">this是什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-27-new%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/" class="">New做了什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-21-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9D%97%E5%8C%96/" class="">代码模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-20-mvc%E6%80%9D%E6%83%B3/" class="">MVC思想</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-18-%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0-ajax/" class="">自己实现 AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-17-ajax/" class="">AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-16-jsonp/" class="">JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim-get-started/" class="">vim 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim%E7%9A%84%E4%BD%BF%E7%94%A8/" class="">vim 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-10-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="">命令行常用技巧</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" class="">浏览器缓存</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-css%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/" class="">CSS 常用属性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-01-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2-%E5%93%8D%E5%BA%94%E5%BC%8F/" class="">移动端页面(响应式)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/element-ui/" class="">Element UI</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B/" class="">Vue 入门案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E6%B5%8B%E8%AF%95%E9%A1%B5/" class="">测试页</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-webpack-use/" class="">webpack 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E5%9F%BA%E7%A1%80%E5%B8%B8%E8%AF%86/" class="">JS基础常识</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/action/" class="">Action 官方文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/axios%E5%85%A5%E9%97%A8/" class="">Axios 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E4%B8%AD%E7%9A%84symbol%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JS 中的 Symbol 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/json%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JSON 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-11-12-module%E8%AF%AD%E6%B3%95/" class="">Module语法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-%E7%82%B9%E5%87%BB%E7%A9%BA%E7%99%BD%E5%85%B3%E9%97%AD%E6%B5%AE%E5%B1%82/" class="">Vue 点击空白关闭浮层</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-cli%E4%BD%BF%E7%94%A8/" class="">Vue-cli 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vuex%E4%BD%BF%E7%94%A8/" class="">Vuex 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-02-03-%E5%8E%9F%E5%9E%8B%E9%93%BE%E8%A1%A5%E5%85%85/" class="">原型链补充</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-05-07-%E6%95%B0%E7%BB%84/" class="">数组</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-27-%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E7%AE%80%E5%8E%86%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="">简历该怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BE%A6%E5%90%AC%E5%99%A8/" class="">计算属性和监听器</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>CSS Grid 网格布局</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#案例">案例</a>
+      <ul>
+        <li><a href="#基础布局案例">基础布局案例</a></li>
+        <li><a href="#布局宽高">布局宽高</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="案例">
+  案例
+  <a class="anchor" href="#%e6%a1%88%e4%be%8b">#</a>
+</h2>
+<h3 id="基础布局案例">
+  基础布局案例
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80%e5%b8%83%e5%b1%80%e6%a1%88%e4%be%8b">#</a>
+</h3>
+<p>语法</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#268bd2">div</span> {
+  <span style="color:#719e07">display</span>: <span style="color:#719e07">grid</span>;
+}
+</code></pre></div><p>代码</p>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="hidden" name="tabs-uniqueid-CSS-Grid" id="tabs-uniqueid-CSS-Grid-0" checked="checked" />
+  <label for="tabs-uniqueid-CSS-Grid-0">html</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#719e07">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#268bd2">html</span>&gt;
+&lt;<span style="color:#268bd2">head</span>&gt;
+  &lt;<span style="color:#268bd2">meta</span> charset<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;utf-8&#34;</span>&gt;
+  &lt;<span style="color:#268bd2">meta</span> name<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;viewport&#34;</span> content<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;width=device-width&#34;</span>&gt;
+  &lt;<span style="color:#268bd2">title</span>&gt;JS Bin&lt;/<span style="color:#268bd2">title</span>&gt;
+&lt;/<span style="color:#268bd2">head</span>&gt;
+&lt;<span style="color:#268bd2">body</span>&gt;
+  &lt;<span style="color:#268bd2">span</span>&gt;foo&lt;/<span style="color:#268bd2">span</span>&gt;
+&lt;<span style="color:#268bd2">div</span> id<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;container&#34;</span>&gt;
+  &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;item item-1&#34;</span>&gt;1&lt;/<span style="color:#268bd2">div</span>&gt;
+  &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;item item-2&#34;</span>&gt;2&lt;/<span style="color:#268bd2">div</span>&gt;
+  &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;item item-3&#34;</span>&gt;3&lt;/<span style="color:#268bd2">div</span>&gt;
+  &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;item item-4&#34;</span>&gt;4&lt;/<span style="color:#268bd2">div</span>&gt;
+  &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;item item-5&#34;</span>&gt;5&lt;/<span style="color:#268bd2">div</span>&gt;
+  &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;item item-6&#34;</span>&gt;6&lt;/<span style="color:#268bd2">div</span>&gt;
+  &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;item item-7&#34;</span>&gt;7&lt;/<span style="color:#268bd2">div</span>&gt;
+  &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;item item-8&#34;</span>&gt;8&lt;/<span style="color:#268bd2">div</span>&gt;
+  &lt;<span style="color:#268bd2">div</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;item item-9&#34;</span>&gt;9&lt;/<span style="color:#268bd2">div</span>&gt;
+&lt;/<span style="color:#268bd2">div</span>&gt;
+&lt;<span style="color:#268bd2">span</span>&gt;bar&lt;/<span style="color:#268bd2">span</span>&gt;
+&lt;/<span style="color:#268bd2">body</span>&gt;
+&lt;/<span style="color:#268bd2">html</span>&gt;
+</code></pre></div></div><input type="radio" class="hidden" name="tabs-uniqueid-CSS-Grid" id="tabs-uniqueid-CSS-Grid-1"  />
+  <label for="tabs-uniqueid-CSS-Grid-1">CSS</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#268bd2">span</span> {
+  <span style="color:#719e07">font-size</span>: <span style="color:#2aa198">2</span><span style="color:#dc322f">em</span>;
+}
+
+#container{
+  <span style="color:#719e07">display</span>: <span style="color:#719e07">grid</span>;
+  <span style="color:#719e07">grid-template-columns</span>: <span style="color:#2aa198">50</span><span style="color:#dc322f">px</span> <span style="color:#2aa198">50</span><span style="color:#dc322f">px</span> <span style="color:#2aa198">50</span><span style="color:#dc322f">px</span>;
+  <span style="color:#719e07">grid-template-rows</span>: <span style="color:#2aa198">50</span><span style="color:#dc322f">px</span> <span style="color:#2aa198">50</span><span style="color:#dc322f">px</span> <span style="color:#2aa198">50</span><span style="color:#dc322f">px</span>;
+}
+
+.<span style="color:#268bd2">item</span> {
+  <span style="color:#719e07">font-size</span>: <span style="color:#2aa198">2</span><span style="color:#dc322f">em</span>;
+  <span style="color:#719e07">text-align</span>: <span style="color:#cb4b16">center</span>;
+  <span style="color:#719e07">border</span>: <span style="color:#2aa198">1</span><span style="color:#dc322f">px</span> <span style="color:#cb4b16">solid</span> <span style="color:#2aa198">#e5e4e9</span>;
+}
+
+.<span style="color:#268bd2">item-1</span> { <span style="color:#719e07">background-color</span>: <span style="color:#2aa198">#ef342a</span>; }
+.<span style="color:#268bd2">item-2</span> { <span style="color:#719e07">background-color</span>: <span style="color:#2aa198">#f68f26</span>; }
+.<span style="color:#268bd2">item-3</span> { <span style="color:#719e07">background-color</span>: <span style="color:#2aa198">#4ba946</span>; }
+.<span style="color:#268bd2">item-4</span> { <span style="color:#719e07">background-color</span>: <span style="color:#2aa198">#0376c2</span>; }
+.<span style="color:#268bd2">item-5</span> { <span style="color:#719e07">background-color</span>: <span style="color:#2aa198">#c077af</span>; }
+.<span style="color:#268bd2">item-6</span> { <span style="color:#719e07">background-color</span>: <span style="color:#2aa198">#f8d29d</span>; }
+.<span style="color:#268bd2">item-7</span> { <span style="color:#719e07">background-color</span>: <span style="color:#2aa198">#b5a87f</span>; }
+.<span style="color:#268bd2">item-8</span> { <span style="color:#719e07">background-color</span>: <span style="color:#2aa198">#d0e4a9</span>; }
+.<span style="color:#268bd2">item-9</span> { <span style="color:#719e07">background-color</span>: <span style="color:#2aa198">#4dc7ec</span>; }
+</code></pre></div></div></div>
+
+<p>效果：<a href="https://jsbin.com/guvivum/edit?html,css,output">案例预览</a></p>
+<p>默认情况下，容器元素都是块级元素，但也可以设成行内元素。如下</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#268bd2">div</span> {
+  <span style="color:#719e07">display</span>: <span style="color:#cb4b16">inline</span><span style="color:#719e07">-</span><span style="color:#719e07">grid</span>;
+}
+</code></pre></div><p>上面代码指定 <code>div</code> 是一个行内元素，该元素内部采用网格布局。效果：<a href="https://jsbin.com/qatitav/edit?html,css,output">案例预览</a></p>
+<blockquote>
+<p>注意，设为网格布局以后，容器子元素（项目）的 float、display: inline-block、display: table-cell、vertical-align 和 column-* 等设置都将失效。</p>
+</blockquote>
+<h3 id="布局宽高">
+  布局宽高
+  <a class="anchor" href="#%e5%b8%83%e5%b1%80%e5%ae%bd%e9%ab%98">#</a>
+</h3>
+<p>容器指定了网格布局以后，接着就要划分行和列</p>
+<ul>
+<li><code>grid-template-columns</code> 属性定义每一列的列宽。</li>
+<li><code>grid-template-rows</code> 属性定义每一行的行高。</li>
+</ul>
+<p>案例</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#268bd2">container</span> {
+  <span style="color:#719e07">display</span>: <span style="color:#719e07">grid</span>;
+  <span style="color:#719e07">grid-template-columns</span>: <span style="color:#2aa198">100</span><span style="color:#dc322f">px</span> <span style="color:#2aa198">100</span><span style="color:#dc322f">px</span> <span style="color:#2aa198">100</span><span style="color:#dc322f">px</span>;
+  <span style="color:#719e07">grid-template-rows</span>: <span style="color:#2aa198">100</span><span style="color:#dc322f">px</span> <span style="color:#2aa198">100</span><span style="color:#dc322f">px</span> <span style="color:#2aa198">100</span><span style="color:#dc322f">px</span>;
+}
+</code></pre></div><p>效果：<a href="https://jsbin.com/qiginur/edit?css,output">案例预览</a></p>
+<p>也可以使用百分比单位</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#268bd2">container</span> {
+  <span style="color:#719e07">display</span>: <span style="color:#719e07">grid</span>;
+  <span style="color:#719e07">grid-template-columns</span>: <span style="color:#2aa198">33.33</span><span style="color:#dc322f">%</span> <span style="color:#2aa198">33.33</span><span style="color:#dc322f">%</span> <span style="color:#2aa198">33.33</span><span style="color:#dc322f">%</span>;
+  <span style="color:#719e07">grid-template-rows</span>: <span style="color:#2aa198">33.33</span><span style="color:#dc322f">%</span> <span style="color:#2aa198">33.33</span><span style="color:#dc322f">%</span> <span style="color:#2aa198">33.33</span><span style="color:#dc322f">%</span>;
+}
+</code></pre></div><p><strong><code>repeat()</code></strong></p>
+<p>有时候，重复写同样的值非常麻烦，尤其网格很多时。这时，可以使用 <code>repeat()</code> 函数，简化重复的值。上面的代码用 <code>repeat()</code> 改写如下。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#268bd2">container</span> {
+  <span style="color:#719e07">display</span>: <span style="color:#719e07">grid</span>;
+  <span style="color:#719e07">grid-template-columns</span>: <span style="color:#268bd2">repeat</span>(<span style="color:#2aa198">3</span>, <span style="color:#2aa198">33.33</span><span style="color:#dc322f">%</span>);
+  <span style="color:#719e07">grid-template-rows</span>: <span style="color:#268bd2">repeat</span>(<span style="color:#2aa198">3</span>, <span style="color:#2aa198">33.33</span><span style="color:#dc322f">%</span>);
+}
+</code></pre></div><p>使用说明</p>
+<ul>
+<li><code>repeat()</code> 接受两个参数，第一个参数是重复的次数（上例是3），第二个参数是所要重复的值。</li>
+<li><code>repeat()</code> 重复某种模式也是可以的。</li>
+</ul>
+<p>案例</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#268bd2">grid-template-columns</span><span style="color:#719e07">:</span> <span style="color:#268bd2">repeat</span><span style="color:#719e07">(</span><span style="color:#268bd2">2</span><span style="color:#719e07">,</span> <span style="color:#268bd2">100px</span> <span style="color:#268bd2">20px</span> <span style="color:#268bd2">80px</span><span style="color:#719e07">);</span>
+</code></pre></div><p>这段代码定义了 6 列，第一列和第四列的宽度为 <code>100px</code>，第二列和第五列为 <code>20px</code>，第三列和第六列为 <code>80px</code>。</p>
+<p>预览：<a href="https://jsbin.com/cokohu/edit?css,output">案例效果</a></p>
+<hr>
+<blockquote class="book-hint info">
+  本文部分内容摘自：<a href="http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html">CSS Grid 网格布局教程 - 阮一峰</a>
+</blockquote>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#案例">案例</a>
+      <ul>
+        <li><a href="#基础布局案例">基础布局案例</a></li>
+        <li><a href="#布局宽高">布局宽高</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

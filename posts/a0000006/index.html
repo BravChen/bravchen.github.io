@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="字面量的含义 #  它写出来就代表它所展示的意思，例如：1, 2, 3, true, false, {}，很直观的量。
+相反的，像构造函数，或者复杂的对象，就不是字面量。
+新版进制区分 #  如之前的写法
+二进制
+1010101 // 85 八进制
+0777 // 511 ES6 的写法
+二进制
+0b1010101 // 85 八进制
+0o777 // 511 字符串支持 Unicode #  获取字符编码
+以获取16进制的 &quot;你&quot; 的字符串编码为例：
+&#34;你&#34;.charCodeAt().toString(16) // &#34;4f60&#34; &quot;你&quot; 使用的字节：
+这里的 &quot;你&quot; 只需要 1 个字符表示，如下
+&#34;你&#34;.length // 1 而 &quot;𝌆&quot; 的则需要两个字符表示
+&#34;𝌆&#34;.length // 2 也就是，&quot;𝌆&quot; === &quot;\uD834\uDF06&quot; 如下：
+&#34;𝌆&#34;.charCodeAt(0).toString(16) // &#34;d834&#34; &#34;𝌆&#34;.charCodeAt(1).toString(16) // &#34;df06&#34; &quot;𝌆&quot; 使用的字节：">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="字面量增强" />
+<meta property="og:description" content="字面量的含义 #  它写出来就代表它所展示的意思，例如：1, 2, 3, true, false, {}，很直观的量。
+相反的，像构造函数，或者复杂的对象，就不是字面量。
+新版进制区分 #  如之前的写法
+二进制
+1010101 // 85 八进制
+0777 // 511 ES6 的写法
+二进制
+0b1010101 // 85 八进制
+0o777 // 511 字符串支持 Unicode #  获取字符编码
+以获取16进制的 &quot;你&quot; 的字符串编码为例：
+&#34;你&#34;.charCodeAt().toString(16) // &#34;4f60&#34; &quot;你&quot; 使用的字节：
+这里的 &quot;你&quot; 只需要 1 个字符表示，如下
+&#34;你&#34;.length // 1 而 &quot;𝌆&quot; 的则需要两个字符表示
+&#34;𝌆&#34;.length // 2 也就是，&quot;𝌆&quot; === &quot;\uD834\uDF06&quot; 如下：
+&#34;𝌆&#34;.charCodeAt(0).toString(16) // &#34;d834&#34; &#34;𝌆&#34;.charCodeAt(1).toString(16) // &#34;df06&#34; &quot;𝌆&quot; 使用的字节：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/posts/a0000006/" />
+<meta property="article:published_time" content="2020-05-12T12:12:32+00:00" />
+<meta property="article:modified_time" content="2020-05-12T12:12:32+00:00" />
+<title>字面量增强 | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/flex0001/" class="">Flex 布局教程：语法篇</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/flex0002/" class="">Flex 布局教程：实例篇</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-02-08-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87and%E6%96%B9%E6%B3%95/" class="">学习目标and方法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000003/" class="">互联网的基石</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-09-window-json-use/" class="">window.JSON的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-09-html5-label/" class="">HTML5标签总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-07-async-use/" class="">async 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-04-wlfjscywv/" class="">JavaScript达到什么水平，可以写类似Vue的框架？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-01-js-mouse-event/" class="">JS 拖曳事件总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-05-29-ajax-use/" class="">AJAX 的封装</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000001/" class="">Document API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000007/" class="">字符串</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000006/" class="active">字面量增强</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000002/" class="">新版变量声明：let 和 const</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>字面量增强</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#字面量的含义">字面量的含义</a></li>
+    <li><a href="#新版进制区分">新版进制区分</a></li>
+    <li><a href="#字符串支持-unicode">字符串支持 Unicode</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/a0000006/">字面量增强</a>
+  </h1>
+  
+  <h5>2020-05-12 12:12</h5>
+
+
+
+  
+
+  
+
+
+  <p><h2 id="字面量的含义">
+  字面量的含义
+  <a class="anchor" href="#%e5%ad%97%e9%9d%a2%e9%87%8f%e7%9a%84%e5%90%ab%e4%b9%89">#</a>
+</h2>
+<p>它写出来就代表它所展示的意思，例如：<code>1, 2, 3, true, false, {}</code>，很直观的量。</p>
+<p>相反的，像构造函数，或者复杂的对象，就不是字面量。</p>
+<h2 id="新版进制区分">
+  新版进制区分
+  <a class="anchor" href="#%e6%96%b0%e7%89%88%e8%bf%9b%e5%88%b6%e5%8c%ba%e5%88%86">#</a>
+</h2>
+<p>如之前的写法</p>
+<p>二进制</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#2aa198">1010101</span>
+<span style="color:#586e75">// 85
+</span></code></pre></div><p>八进制</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#2aa198">0777</span>
+<span style="color:#586e75">// 511
+</span></code></pre></div><p>ES6 的写法</p>
+<p>二进制</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#2aa198">0b1010101</span>
+<span style="color:#586e75">// 85
+</span></code></pre></div><p>八进制</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#2aa198">0o777</span>
+<span style="color:#586e75">// 511
+</span></code></pre></div><h2 id="字符串支持-unicode">
+  字符串支持 Unicode
+  <a class="anchor" href="#%e5%ad%97%e7%ac%a6%e4%b8%b2%e6%94%af%e6%8c%81-unicode">#</a>
+</h2>
+<p>获取字符编码</p>
+<p>以获取16进制的 <code>&quot;你&quot;</code> 的字符串编码为例：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#2aa198">&#34;你&#34;</span>.charCodeAt().toString(<span style="color:#2aa198">16</span>) <span style="color:#586e75">// &#34;4f60&#34;
+</span></code></pre></div><p><code>&quot;你&quot;</code> 使用的字节：</p>
+<!-- raw HTML omitted -->
+<p>这里的 <code>&quot;你&quot;</code> 只需要 1 个字符表示，如下</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#2aa198">&#34;你&#34;</span>.length <span style="color:#586e75">// 1
+</span></code></pre></div><p>而 <code>&quot;𝌆&quot;</code> 的则需要两个字符表示</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#2aa198">&#34;𝌆&#34;</span>.length <span style="color:#586e75">// 2
+</span></code></pre></div><p>也就是，<code>&quot;𝌆&quot; === &quot;\uD834\uDF06&quot;</code> 如下：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#2aa198">&#34;𝌆&#34;</span>.charCodeAt(<span style="color:#2aa198">0</span>).toString(<span style="color:#2aa198">16</span>) <span style="color:#586e75">// &#34;d834&#34;
+</span><span style="color:#586e75"></span><span style="color:#2aa198">&#34;𝌆&#34;</span>.charCodeAt(<span style="color:#2aa198">1</span>).toString(<span style="color:#2aa198">16</span>) <span style="color:#586e75">// &#34;df06&#34;
+</span></code></pre></div><p><code>&quot;𝌆&quot;</code> 使用的字节：</p>
+<p><code>&quot;d834&quot;</code></p>
+<!-- raw HTML omitted -->
+<p><code>&quot;df06&quot;</code></p>
+<!-- raw HTML omitted -->
+<p>可以看到，之前只能用两个字符表示这类字节。而在ES6新添加了对 Unicode 编码的全面支持，可以通过一个字符编码来表示该字节了</p>
+<p>例如，表示日文的你</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#b58900">String</span>.fromCodePoint(<span style="color:#2aa198">0x2F804</span>) <span style="color:#586e75">// &#34;你&#34;
+</span><span style="color:#586e75"></span><span style="color:#2aa198">&#34;你&#34;</span>.length <span style="color:#586e75">// 2
+</span><span style="color:#586e75"></span><span style="color:#2aa198">&#34;你&#34;</span>.codePointAt(<span style="color:#2aa198">0</span>) <span style="color:#586e75">// 194564
+</span><span style="color:#586e75"></span><span style="color:#2aa198">&#34;你&#34;</span>.codePointAt(<span style="color:#2aa198">0</span>).toString(<span style="color:#2aa198">16</span>) <span style="color:#586e75">// &#34;2f804&#34;
+</span></code></pre></div><p>MDN 文档：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint"><code>String.fromCodePoint()</code></a></p>
+</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#字面量的含义">字面量的含义</a></li>
+    <li><a href="#新版进制区分">新版进制区分</a></li>
+    <li><a href="#字符串支持-unicode">字符串支持 Unicode</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

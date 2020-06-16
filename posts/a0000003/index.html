@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="WWW 的历史 #  1990年 万维网（World Wide Web）出生的年份。这一年 Tim Berners-Lee 发明了用网址就能访问网页的办法，他发明了第一个网页、第一个浏览器和第一个服务器。
+curl 命令 #  发请求，同时接收响应
+Markdown #  Markdown 不是一个被发明的东西，是被人们总结的语法，所以 MarkDown 的语法形式有很多。
+WWW 的发明 #  Tim Berners-Lee（下文中称为李爵士）在 1989 年至 1992 年间，发明了 WWW（World Wide Web），一种适用于全世界的网络。主要包含三个概念
+ URI，俗称网址 HTTP，两个电脑之间传输内容的协议 HTML，超级文本，主要用来做页面跳转  URL 的作用是能让你访问一个页面，HTTP 的作用是让你能下载这个页面，HTML 的作用是让你能看懂这个页面。这是一个简单而完美的系统。李爵士除了发明了这些概念，还付诸了行动：
+ 发明了第一个服务器 发明了第一个浏览器 写出了第一个网页，地址：info.cern.ch ，注：网站与网页是不同的，网站是有很多网页的，网页只是一个页面。  URI是什么 #  U(统一)R(资源)I(标识符)
+URI 分为 URL 和 URN 两种
+URN #  URN(统一资源名称)
+ISBN: 9787115275790 就是一个 URN，通过 URN 你可以确定一个「唯一的」资源，ISBN: 9787115275790 对应的资源的是《JavaScript 高级程序设计（第三版）》这本书。你去是介绍任何一个图书馆、书店，他们都知道是这本书。">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="互联网的基石" />
+<meta property="og:description" content="WWW 的历史 #  1990年 万维网（World Wide Web）出生的年份。这一年 Tim Berners-Lee 发明了用网址就能访问网页的办法，他发明了第一个网页、第一个浏览器和第一个服务器。
+curl 命令 #  发请求，同时接收响应
+Markdown #  Markdown 不是一个被发明的东西，是被人们总结的语法，所以 MarkDown 的语法形式有很多。
+WWW 的发明 #  Tim Berners-Lee（下文中称为李爵士）在 1989 年至 1992 年间，发明了 WWW（World Wide Web），一种适用于全世界的网络。主要包含三个概念
+ URI，俗称网址 HTTP，两个电脑之间传输内容的协议 HTML，超级文本，主要用来做页面跳转  URL 的作用是能让你访问一个页面，HTTP 的作用是让你能下载这个页面，HTML 的作用是让你能看懂这个页面。这是一个简单而完美的系统。李爵士除了发明了这些概念，还付诸了行动：
+ 发明了第一个服务器 发明了第一个浏览器 写出了第一个网页，地址：info.cern.ch ，注：网站与网页是不同的，网站是有很多网页的，网页只是一个页面。  URI是什么 #  U(统一)R(资源)I(标识符)
+URI 分为 URL 和 URN 两种
+URN #  URN(统一资源名称)
+ISBN: 9787115275790 就是一个 URN，通过 URN 你可以确定一个「唯一的」资源，ISBN: 9787115275790 对应的资源的是《JavaScript 高级程序设计（第三版）》这本书。你去是介绍任何一个图书馆、书店，他们都知道是这本书。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/posts/a0000003/" />
+<meta property="article:published_time" content="2020-04-15T07:11:52+00:00" />
+<meta property="article:modified_time" content="2020-04-15T07:11:52+00:00" />
+<title>互联网的基石 | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/flex0001/" class="">Flex 布局教程：语法篇</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/flex0002/" class="">Flex 布局教程：实例篇</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-02-08-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87and%E6%96%B9%E6%B3%95/" class="">学习目标and方法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000003/" class="active">互联网的基石</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-09-window-json-use/" class="">window.JSON的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-09-html5-label/" class="">HTML5标签总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-07-async-use/" class="">async 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-04-wlfjscywv/" class="">JavaScript达到什么水平，可以写类似Vue的框架？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-01-js-mouse-event/" class="">JS 拖曳事件总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-05-29-ajax-use/" class="">AJAX 的封装</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000001/" class="">Document API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000007/" class="">字符串</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000006/" class="">字面量增强</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000002/" class="">新版变量声明：let 和 const</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>互联网的基石</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#www-的历史">WWW 的历史</a></li>
+    <li><a href="#curl-命令"><code>curl</code> 命令</a></li>
+    <li><a href="#markdown">Markdown</a></li>
+    <li><a href="#www-的发明">WWW 的发明</a></li>
+    <li><a href="#uri是什么">URI是什么</a>
+      <ul>
+        <li><a href="#urn">URN</a></li>
+        <li><a href="#url">URL</a></li>
+      </ul>
+    </li>
+    <li><a href="#dns">DNS</a>
+      <ul>
+        <li><a href="#指定ip">指定IP</a></li>
+      </ul>
+    </li>
+    <li><a href="#server--client--http">Server + Client + HTTP</a>
+      <ul>
+        <li><a href="#常用端口">常用端口</a></li>
+        <li><a href="#http">HTTP</a></li>
+      </ul>
+    </li>
+    <li><a href="#explainshellcom">explainshell.com</a></li>
+    <li><a href="#请求">请求</a>
+      <ul>
+        <li><a href="#post请求">POST请求</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/a0000003/">互联网的基石</a>
+  </h1>
+  
+  <h5>2020-04-15 07:11</h5>
+
+
+
+  
+
+  
+
+
+  <p><h2 id="www-的历史">
+  WWW 的历史
+  <a class="anchor" href="#www-%e7%9a%84%e5%8e%86%e5%8f%b2">#</a>
+</h2>
+<p>1990年 万维网（World Wide Web）出生的年份。这一年 Tim Berners-Lee 发明了用网址就能访问网页的办法，他发明了第一个网页、第一个浏览器和第一个服务器。</p>
+<h2 id="curl-命令">
+  <code>curl</code> 命令
+  <a class="anchor" href="#curl-%e5%91%bd%e4%bb%a4">#</a>
+</h2>
+<p>发请求，同时接收响应</p>
+<h2 id="markdown">
+  Markdown
+  <a class="anchor" href="#markdown">#</a>
+</h2>
+<p>Markdown 不是一个被发明的东西，是被人们总结的语法，所以 MarkDown 的语法形式有很多。</p>
+<h2 id="www-的发明">
+  WWW 的发明
+  <a class="anchor" href="#www-%e7%9a%84%e5%8f%91%e6%98%8e">#</a>
+</h2>
+<p>Tim Berners-Lee（下文中称为李爵士）在 1989 年至 1992 年间，发明了 WWW（World Wide Web），一种适用于全世界的网络。主要包含三个概念</p>
+<ul>
+<li>URI，俗称网址</li>
+<li>HTTP，两个电脑之间传输内容的协议</li>
+<li>HTML，超级文本，主要用来做页面跳转</li>
+</ul>
+<p>URL 的作用是能让你访问一个页面，HTTP 的作用是让你能下载这个页面，HTML 的作用是让你能看懂这个页面。这是一个简单而完美的系统。李爵士除了发明了这些概念，还付诸了行动：</p>
+<ul>
+<li>发明了第一个服务器</li>
+<li>发明了第一个浏览器</li>
+<li>写出了第一个网页，地址：<code>info.cern.ch</code> ，注：网站与网页是不同的，网站是有很多网页的，网页只是一个页面。</li>
+</ul>
+<h2 id="uri是什么">
+  URI是什么
+  <a class="anchor" href="#uri%e6%98%af%e4%bb%80%e4%b9%88">#</a>
+</h2>
+<p>U(统一)R(资源)I(标识符)</p>
+<p>URI 分为 URL 和 URN 两种</p>
+<h3 id="urn">
+  URN
+  <a class="anchor" href="#urn">#</a>
+</h3>
+<p>URN(统一资源名称)</p>
+<p>ISBN: 9787115275790 就是一个 URN，通过 URN 你可以确定一个「唯一的」资源，ISBN: 9787115275790 对应的资源的是《JavaScript 高级程序设计（第三版）》这本书。你去是介绍任何一个图书馆、书店，他们都知道是这本书。</p>
+<h3 id="url">
+  URL
+  <a class="anchor" href="#url">#</a>
+</h3>
+<p>URL(统一资源定位符)</p>
+<p><img src="https://chenning02.github.io/Document/blog-img/blog-06-1.jpg" alt="URL图示" /></p>
+<p><code>baidu.com</code> (二级域名) 与  <code>www.baidu.com</code> (三级域名) 共有一个二级域名</p>
+<p>以 <code>www.baidu.com</code> 为例</p>
+<ul>
+<li><code>.com</code> 为顶级域名</li>
+<li><code>baidu</code> 为二级域名</li>
+<li><code>www</code> 为三级域名</li>
+</ul>
+<h2 id="dns">
+  DNS
+  <a class="anchor" href="#dns">#</a>
+</h2>
+<p>D(域)N(名)S(系统): 域名系统</p>
+<p>功能</p>
+<ul>
+<li>输入域名</li>
+<li>输出IP</li>
+</ul>
+<p>查询域名对应的IP命令</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">nslookup baidu.com
+ping baidu.com
+</code></pre></div><p>通过DNS服务器解析域名，得到网址</p>
+<h3 id="指定ip">
+  指定IP
+  <a class="anchor" href="#%e6%8c%87%e5%ae%9aip">#</a>
+</h3>
+<p>可以给域名一个指定的IP(绕过DNS自己指定一个IP),例:</p>
+<p>在hosts文件中给百度添加指定域名</p>
+<pre><code>127.0.0.1 baidu.com
+</code></pre><blockquote>
+<p>特殊情况下，可以通过在 hosts 中给谷歌设置指定IP来达到科学的效果(由于设定原因，服务器[电信等网络]可能给你返回一个假的IP)</p>
+<p>本方法不够稳定，因为谷歌的IP会不定时改变</p>
+</blockquote>
+<h2 id="server--client--http">
+  Server + Client + HTTP
+  <a class="anchor" href="#server--client--http">#</a>
+</h2>
+<p>Server(服务器) Client(客户端) HTTP(协议)</p>
+<p>图示</p>
+<p><img src="https://chenning02.github.io/Document/blog-img/blog-06-2.jpg" alt="服务器与浏览器的交互" /></p>
+<h3 id="常用端口">
+  常用端口
+  <a class="anchor" href="#%e5%b8%b8%e7%94%a8%e7%ab%af%e5%8f%a3">#</a>
+</h3>
+<ul>
+<li>
+<p>21 端口：FTP服务</p>
+</li>
+<li>
+<p>443 端口：HTTPS</p>
+</li>
+<li>
+<p>1080 端口：代理服务器端口</p>
+</li>
+<li>
+<p>3306 端口：MySQI服务器</p>
+</li>
+<li>
+<p>80 端口：HTTP协议</p>
+</li>
+</ul>
+<h3 id="http">
+  HTTP
+  <a class="anchor" href="#http">#</a>
+</h3>
+<p>HTTP的作用就是指导浏览器和服务器如何进行沟通，例如</p>
+<p>请求的网址错误：返回404</p>
+<p>请求的服务器不在线(或服务器正在重启)：返回502</p>
+<h2 id="explainshellcom">
+  explainshell.com
+  <a class="anchor" href="#explainshellcom">#</a>
+</h2>
+<p>用于解释每个命令的含义</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">curl -s -v -H <span style="color:#2aa198">&#34;Sun: xxx&#34;</span> -- <span style="color:#2aa198">&#34;https://www.baidu.com&#34;</span>
+</code></pre></div><p><code>-s</code> 不要显示进度条</p>
+<p><code>-v</code> 显示请求和响应，如果没有这个就只会显示响应</p>
+<p><code>-H &quot;Sun: xxx&quot;</code> 添加一个响应头</p>
+<p><code>-- &quot;https://www.baidu.com&quot;</code> 把你要请求的网址写在两个横线后</p>
+<h2 id="请求">
+  请求
+  <a class="anchor" href="#%e8%af%b7%e6%b1%82">#</a>
+</h2>
+<p>命令</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">curl -s -v -H <span style="color:#2aa198">&#34;Sun: xxx&#34;</span> -- <span style="color:#2aa198">&#34;https://www.baidu.com&#34;</span>
+</code></pre></div><p>请求案例：</p>
+<p><img src="https://chenning02.github.io/Document/blog-img/blog-06-curl.jpg" alt="curl 命令请求示例" /></p>
+<p>其中 <code>&gt;</code> 后的内容是请求的内容 <code>&lt;</code> 后的内容是响应的内容 <code>*</code> 后的内容是注释，可不看</p>
+<p>请求内容中</p>
+<pre><code>GET / HTTP/1.1
+GET 请求方式
+/ 请求路径
+HTTP　请求协议
+1.1 版本号
+
+Host: www.baidu.com
+告诉服务器我访问的域名
+
+User-Agent: curl/7.64.0
+请求/响应使用的工具(软件)以及版本
+
+Accept: */*
+表示接收请求返回的任何内容
+</code></pre><h3 id="post请求">
+  POST请求
+  <a class="anchor" href="#post%e8%af%b7%e6%b1%82">#</a>
+</h3>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">curl -X POST -s -v -H <span style="color:#2aa198">&#34;Sun: xxx&#34;</span> -- <span style="color:#2aa198">&#34;https://www.baidu.com&#34;</span>
+</code></pre></div><p>请求案例：</p>
+<p>其中 <code>-X POST</code> 表示请求方式为POST</p>
+<p>POST请求传值</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">curl -X POST -d <span style="color:#2aa198">&#34;123456789&#34;</span> -s -v -H <span style="color:#2aa198">&#34;Sun: xxx&#34;</span> -- <span style="color:#2aa198">&#34;https://www.baidu.com&#34;</span>
+</code></pre></div><p>请求案例：</p>
+<p>其中</p>
+<pre><code>Content-Length: 9
+请求传入的内容长度
+Content-Type: application/x-www-form-urlencoded
+请求的类型
+# upload completely sent off: 9 out of 9 bytes
+完整的上传了9个字节的数据
+</code></pre></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#www-的历史">WWW 的历史</a></li>
+    <li><a href="#curl-命令"><code>curl</code> 命令</a></li>
+    <li><a href="#markdown">Markdown</a></li>
+    <li><a href="#www-的发明">WWW 的发明</a></li>
+    <li><a href="#uri是什么">URI是什么</a>
+      <ul>
+        <li><a href="#urn">URN</a></li>
+        <li><a href="#url">URL</a></li>
+      </ul>
+    </li>
+    <li><a href="#dns">DNS</a>
+      <ul>
+        <li><a href="#指定ip">指定IP</a></li>
+      </ul>
+    </li>
+    <li><a href="#server--client--http">Server + Client + HTTP</a>
+      <ul>
+        <li><a href="#常用端口">常用端口</a></li>
+        <li><a href="#http">HTTP</a></li>
+      </ul>
+    </li>
+    <li><a href="#explainshellcom">explainshell.com</a></li>
+    <li><a href="#请求">请求</a>
+      <ul>
+        <li><a href="#post请求">POST请求</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

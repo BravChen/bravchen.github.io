@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="复习 MVC 以及使用 MVVM
+axios #  cdn
+bootcdn: https://www.bootcdn.cn/
+引入axios #  &lt;script src=&#34;https://cdn.bootcss.com/axios/0.19.0/axios.min.js&#34;&gt;&lt;/script&gt;  在 bootcdn 中搜索 axios
+ 使用axios #  基本用法可以查看文档
+axios 项目地址 https://github.com/axios/axios
+发送请求案例
+axios.get(&#39;/books/1&#39;).then(function ({data}) { let originalHtml = $(&#39;#app&#39;).html() let newHtml = originalHtml.replace(&#39;__name__&#39;,data.name) .replace(&#39;__number__&#39;,data.number) $(&#39;#app&#39;).html(newHtml) }) axios.put(&#39;/books/1&#39;).then(function(){ $(&#39;#number&#39;).text(result) }) ES6 新语法 #  声明 #  之前
+let response = { config:{ method:&#39;methodxxx&#39;, url:&#39;urlxxx&#39;, data:&#39;dataxxx&#39; } } let config = response.config let method = config.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="MVVM" />
+<meta property="og:description" content="复习 MVC 以及使用 MVVM
+axios #  cdn
+bootcdn: https://www.bootcdn.cn/
+引入axios #  &lt;script src=&#34;https://cdn.bootcss.com/axios/0.19.0/axios.min.js&#34;&gt;&lt;/script&gt;  在 bootcdn 中搜索 axios
+ 使用axios #  基本用法可以查看文档
+axios 项目地址 https://github.com/axios/axios
+发送请求案例
+axios.get(&#39;/books/1&#39;).then(function ({data}) { let originalHtml = $(&#39;#app&#39;).html() let newHtml = originalHtml.replace(&#39;__name__&#39;,data.name) .replace(&#39;__number__&#39;,data.number) $(&#39;#app&#39;).html(newHtml) }) axios.put(&#39;/books/1&#39;).then(function(){ $(&#39;#number&#39;).text(result) }) ES6 新语法 #  声明 #  之前
+let response = { config:{ method:&#39;methodxxx&#39;, url:&#39;urlxxx&#39;, data:&#39;dataxxx&#39; } } let config = response.config let method = config." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/history/2019-10-01-mvvm/" />
+<meta property="article:published_time" content="2019-10-01T22:36:23+00:00" />
+<meta property="article:modified_time" content="2019-10-01T22:36:23+00:00" />
+<title>MVVM | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-10-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E7%AE%80%E8%AE%B0/" class="">多人博客项目(简记)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-15-keyboard-nav/" class="">键盘导航</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-canvas/" class="">Canvas画板</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-%E5%AE%89%E5%8D%93%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E6%A1%88%E4%BE%8B/" class="">安卓音乐播放器案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-12-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E8%AF%AD%E6%B3%95%E7%B3%96%E7%AE%80%E7%89%88/" class="">函数与对象的语法糖(索引)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-function-object-sugar/" class="">函数与对象的语法糖一</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-%E5%87%BD%E6%95%B0%E4%B8%8E%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96%E4%BA%8C/" class="">函数与对象的语法糖二</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/0cd88b5c/" class="">模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-07-vue%E5%A4%9A%E4%BA%BA%E5%85%B1%E4%BA%AB%E5%8D%9A%E5%AE%A2/" class="">[项目] Vue 多人共享博客</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-03-31-jsonp/" class="">[高级] 35 - JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-25-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E8%AF%A6%E7%BB%86/" class="">多人博客项目(详细)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-vue-plugin-int/" class="">Vue插件安装</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-css-selector/" class="">CSS选择器总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/dd3e7bbd/" class="">常用的HTML5标签</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-25-%E7%AE%80%E5%8E%86%E6%80%8E%E4%B9%88%E5%86%99/" class="">简历怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-12-lx%E4%B8%BB%E9%A2%98%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/" class="">lx主题中文文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-27-css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80/" class="">CSS Grid 网格布局</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-jquery%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">jQuery常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-js%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">JS 常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-yarn%E5%85%A5%E9%97%A8/" class="">yarn 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-npm%E5%85%A5%E9%97%A8/" class="">npm 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-04-es6%E6%96%B0%E7%89%B9%E6%80%A7/" class="">ES6新特性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="">面向对象</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-jquery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/jquery%E8%BD%AE%E6%92%AD%E6%A1%88%E4%BE%8B/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E8%87%AA%E5%88%B6jquery/" class="">自制jQuery</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-01-mvvm/" class="active">MVVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-28-this%E6%98%AF%E4%BB%80%E4%B9%88/" class="">this是什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-27-new%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/" class="">New做了什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-21-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9D%97%E5%8C%96/" class="">代码模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-20-mvc%E6%80%9D%E6%83%B3/" class="">MVC思想</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-18-%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0-ajax/" class="">自己实现 AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-17-ajax/" class="">AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-16-jsonp/" class="">JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim-get-started/" class="">vim 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim%E7%9A%84%E4%BD%BF%E7%94%A8/" class="">vim 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-10-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="">命令行常用技巧</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" class="">浏览器缓存</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-css%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/" class="">CSS 常用属性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-01-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2-%E5%93%8D%E5%BA%94%E5%BC%8F/" class="">移动端页面(响应式)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/element-ui/" class="">Element UI</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B/" class="">Vue 入门案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E6%B5%8B%E8%AF%95%E9%A1%B5/" class="">测试页</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-webpack-use/" class="">webpack 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E5%9F%BA%E7%A1%80%E5%B8%B8%E8%AF%86/" class="">JS基础常识</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/action/" class="">Action 官方文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/axios%E5%85%A5%E9%97%A8/" class="">Axios 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E4%B8%AD%E7%9A%84symbol%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JS 中的 Symbol 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/json%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JSON 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-11-12-module%E8%AF%AD%E6%B3%95/" class="">Module语法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-%E7%82%B9%E5%87%BB%E7%A9%BA%E7%99%BD%E5%85%B3%E9%97%AD%E6%B5%AE%E5%B1%82/" class="">Vue 点击空白关闭浮层</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-cli%E4%BD%BF%E7%94%A8/" class="">Vue-cli 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vuex%E4%BD%BF%E7%94%A8/" class="">Vuex 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-02-03-%E5%8E%9F%E5%9E%8B%E9%93%BE%E8%A1%A5%E5%85%85/" class="">原型链补充</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-05-07-%E6%95%B0%E7%BB%84/" class="">数组</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-27-%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E7%AE%80%E5%8E%86%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="">简历该怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BE%A6%E5%90%AC%E5%99%A8/" class="">计算属性和监听器</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>MVVM</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#axios">axios</a>
+      <ul>
+        <li><a href="#引入axios">引入axios</a></li>
+        <li><a href="#使用axios">使用axios</a></li>
+      </ul>
+    </li>
+    <li><a href="#es6-新语法">ES6 新语法</a>
+      <ul>
+        <li><a href="#声明">声明</a></li>
+      </ul>
+    </li>
+    <li><a href="#jquery">jQuery</a></li>
+    <li><a href="#复习mvc">复习MVC</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#vue-使用">Vue 使用</a>
+      <ul>
+        <li><a href="#引入vue">引入Vue</a></li>
+        <li><a href="#vue-相对mvc的变化">Vue 相对MVC的变化</a></li>
+        <li><a href="#语法">语法</a></li>
+        <li><a href="#案例">案例</a></li>
+      </ul>
+    </li>
+    <li><a href="#课后题">课后题</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><p>复习 MVC 以及使用 MVVM</p>
+<!-- raw HTML omitted -->
+<h2 id="axios">
+  axios
+  <a class="anchor" href="#axios">#</a>
+</h2>
+<p><strong>cdn</strong></p>
+<p>bootcdn: <a href="https://www.bootcdn.cn/">https://www.bootcdn.cn/</a></p>
+<h3 id="引入axios">
+  引入axios
+  <a class="anchor" href="#%e5%bc%95%e5%85%a5axios">#</a>
+</h3>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#268bd2">script</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;https://cdn.bootcss.com/axios/0.19.0/axios.min.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+</code></pre></div><blockquote>
+<p>在 bootcdn 中搜索 axios</p>
+</blockquote>
+<h3 id="使用axios">
+  使用axios
+  <a class="anchor" href="#%e4%bd%bf%e7%94%a8axios">#</a>
+</h3>
+<p>基本用法可以查看文档</p>
+<p>axios 项目地址 <a href="https://github.com/axios/axios">https://github.com/axios/axios</a></p>
+<p>发送请求案例</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">axios.get(<span style="color:#2aa198">&#39;/books/1&#39;</span>).then(<span style="color:#268bd2">function</span> ({data}) {
+    <span style="color:#268bd2">let</span> originalHtml <span style="color:#719e07">=</span> $(<span style="color:#2aa198">&#39;#app&#39;</span>).html()
+    <span style="color:#268bd2">let</span> newHtml <span style="color:#719e07">=</span> originalHtml.replace(<span style="color:#2aa198">&#39;__name__&#39;</span>,data.name)
+        .replace(<span style="color:#2aa198">&#39;__number__&#39;</span>,data.number)
+    $(<span style="color:#2aa198">&#39;#app&#39;</span>).html(newHtml)
+})
+axios.put(<span style="color:#2aa198">&#39;/books/1&#39;</span>).then(<span style="color:#268bd2">function</span>(){
+    $(<span style="color:#2aa198">&#39;#number&#39;</span>).text(result)
+})
+</code></pre></div><h2 id="es6-新语法">
+  ES6 新语法
+  <a class="anchor" href="#es6-%e6%96%b0%e8%af%ad%e6%b3%95">#</a>
+</h2>
+<h3 id="声明">
+  声明
+  <a class="anchor" href="#%e5%a3%b0%e6%98%8e">#</a>
+</h3>
+<p>之前</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">let</span> response <span style="color:#719e07">=</span> {
+    config<span style="color:#719e07">:</span>{
+    	method<span style="color:#719e07">:</span><span style="color:#2aa198">&#39;methodxxx&#39;</span>,
+    	url<span style="color:#719e07">:</span><span style="color:#2aa198">&#39;urlxxx&#39;</span>,
+    	data<span style="color:#719e07">:</span><span style="color:#2aa198">&#39;dataxxx&#39;</span>
+	}
+}
+<span style="color:#268bd2">let</span> config <span style="color:#719e07">=</span> response.config
+<span style="color:#268bd2">let</span> method <span style="color:#719e07">=</span> config.method
+<span style="color:#268bd2">let</span> url <span style="color:#719e07">=</span> config.url
+<span style="color:#268bd2">let</span> data <span style="color:#719e07">=</span> config.data
+console.log(config)
+console.log(method)
+console.log(url)
+console.log(data)
+</code></pre></div><p>简化</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">let</span> response <span style="color:#719e07">=</span> {
+    config<span style="color:#719e07">:</span>{
+    	method<span style="color:#719e07">:</span><span style="color:#2aa198">&#39;methodxxx&#39;</span>,
+    	url<span style="color:#719e07">:</span><span style="color:#2aa198">&#39;urlxxx&#39;</span>,
+    	data<span style="color:#719e07">:</span><span style="color:#2aa198">&#39;dataxxx&#39;</span>
+	}
+}
+<span style="color:#268bd2">let</span> config <span style="color:#719e07">=</span> response.config
+<span style="color:#268bd2">let</span> {method, url, data} <span style="color:#719e07">=</span> config
+console.log(config)
+console.log(method)
+console.log(url)
+console.log(data)
+</code></pre></div><p>再简化</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">let</span> response <span style="color:#719e07">=</span> {
+    config<span style="color:#719e07">:</span>{
+    	method<span style="color:#719e07">:</span><span style="color:#2aa198">&#39;methodxxx&#39;</span>,
+    	url<span style="color:#719e07">:</span><span style="color:#2aa198">&#39;urlxxx&#39;</span>,
+    	data<span style="color:#719e07">:</span><span style="color:#2aa198">&#39;dataxxx&#39;</span>
+	}
+}
+<span style="color:#268bd2">function</span> fn(response){
+   <span style="color:#268bd2">let</span> {config<span style="color:#719e07">:</span>{method, url, data}} <span style="color:#719e07">=</span> response
+    console.log(method)
+    console.log(url)
+    console.log(data) 
+}
+fn(response)
+</code></pre></div><h2 id="jquery">
+  jQuery
+  <a class="anchor" href="#jquery">#</a>
+</h2>
+<p>事件委托</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">$(<span style="color:#2aa198">&#39;#app&#39;</span>).on(<span style="color:#2aa198">&#39;click&#39;</span>,<span style="color:#2aa198">&#39;#addOne&#39;</span>,<span style="color:#268bd2">function</span>(){
+    <span style="color:#268bd2">let</span> text <span style="color:#719e07">=</span> $(<span style="color:#2aa198">&#39;#number&#39;</span>).text()
+    <span style="color:#268bd2">let</span> result <span style="color:#719e07">=</span> text <span style="color:#719e07">-</span> <span style="color:#2aa198">0</span> <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>
+    $(<span style="color:#2aa198">&#39;#number&#39;</span>).text(result)
+})
+</code></pre></div><blockquote>
+<p>表示在点击#app中的元素时，只要有符合 #addOne 的元素被点击，则执行下面的事件</p>
+</blockquote>
+<p>给元素添加 html 内容</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">$(element).html(content)
+</code></pre></div><p>给元素绑定this</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">addOne.bind(<span style="color:#719e07">this</span>)
+</code></pre></div><h2 id="复习mvc">
+  复习MVC
+  <a class="anchor" href="#%e5%a4%8d%e4%b9%a0mvc">#</a>
+</h2>
+<h4 id="代码链接">
+  代码链接
+  <a class="anchor" href="#%e4%bb%a3%e7%a0%81%e9%93%be%e6%8e%a5">#</a>
+</h4>
+<p>未封装代码：https://github.com/ChenNing02/git-hunger/tree/master/MVVM/1_books</p>
+<p>MVC封装：https://github.com/ChenNing02/git-hunger/tree/master/MVVM/2_MVC-a</p>
+<p>MVC封装添加MVC函数：https://github.com/ChenNing02/git-hunger/tree/master/MVVM/3_MVC-b</p>
+<h2 id="vue-使用">
+  Vue 使用
+  <a class="anchor" href="#vue-%e4%bd%bf%e7%94%a8">#</a>
+</h2>
+<h3 id="引入vue">
+  引入Vue
+  <a class="anchor" href="#%e5%bc%95%e5%85%a5vue">#</a>
+</h3>
+<p>在bootcdn 搜索 Vue：https://www.bootcdn.cn/</p>
+<p>选择压缩版，例：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#268bd2">script</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;https://cdn.bootcss.com/vue/2.6.10/vue.min.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+</code></pre></div><h3 id="vue-相对mvc的变化">
+  Vue 相对MVC的变化
+  <a class="anchor" href="#vue-%e7%9b%b8%e5%af%b9mvc%e7%9a%84%e5%8f%98%e5%8c%96">#</a>
+</h3>
+<ol>
+<li>在 Vue 中标记要用 <code>{{name}}</code> 而不是 <code>__name__</code></li>
+<li>Vue 需要使用 data ，所以要将 data 放在 Vue 中</li>
+<li>template 必须只有一个根元素，如果存在多个，Vue 只会作用第一个</li>
+<li>Vue 中 element 变量简写为 el</li>
+<li>有了 Vue 就可以不再 render 数据，Vue 会帮你 render 你只需要将对应的数据传入</li>
+</ol>
+<h3 id="语法">
+  语法
+  <a class="anchor" href="#%e8%af%ad%e6%b3%95">#</a>
+</h3>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">绑定点击事件
+&lt;<span style="color:#268bd2">button</span> v-on:click<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;id&#34;</span>&gt;点击&lt;/<span style="color:#268bd2">button</span>&gt;
+点击 button 会使 selected = 1
+&lt;<span style="color:#268bd2">button</span> v-on:click<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;selected = 1&#34;</span>&gt;
+如果 selected === 0 的结果为 true 就显示 div
+&lt;<span style="color:#268bd2">div</span> v-show<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;selected === 0&#34;</span>&gt;&lt;/<span style="color:#268bd2">div</span>&gt;
+如果 selected === 0 的结果为 true 就给 div 添加 class=active 
+&lt;<span style="color:#268bd2">div</span> v-bind:class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;{ active:selected === 0}&#34;</span>&gt;
+</code></pre></div><h3 id="案例">
+  案例
+  <a class="anchor" href="#%e6%a1%88%e4%be%8b">#</a>
+</h3>
+<h4 id="图书管理">
+  图书管理
+  <a class="anchor" href="#%e5%9b%be%e4%b9%a6%e7%ae%a1%e7%90%86">#</a>
+</h4>
+<p><strong>获取数据</strong></p>
+<p>有了 Vue 就可以不再 render 数据，Vue 会帮你 render 你只需要将对应的数据传入，如下：</p>
+<p>注意：Vue 中的 data 会 自动将 data 中的属性升级 Vue 的属性 ，也就是 <code>this.view.data.name = this.view.name</code></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#586e75">/* --------------- Vue --------------- */</span>
+<span style="color:#268bd2">let</span> view <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Vue({
+    el<span style="color:#719e07">:</span><span style="color:#2aa198">&#39;#app&#39;</span>,
+    data<span style="color:#719e07">:</span>{ name<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;&#39;</span>,number<span style="color:#719e07">:</span> <span style="color:#2aa198">0</span>,id<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;&#39;</span> },
+    template<span style="color:#719e07">:</span> <span style="color:#586e75">`xxx`</span>
+})
+<span style="color:#586e75">/* --------- template ---------
+</span><span style="color:#586e75">&lt;div&gt;
+</span><span style="color:#586e75">	名称：{{name}}
+</span><span style="color:#586e75">	数量：&lt;span id=&#34;number&#34;&gt;{{number}}&lt;/span&gt;
+</span><span style="color:#586e75">&lt;/div&gt;
+</span><span style="color:#586e75"> --------- template-end --------- */</span>
+<span style="color:#586e75">/* --------------- controller.init --------------- */</span>
+<span style="color:#719e07">this</span>.bindEvents()
+<span style="color:#719e07">this</span>.model.fetch(<span style="color:#2aa198">1</span>).then(()=&gt;{
+	<span style="color:#719e07">this</span>.view.name <span style="color:#719e07">=</span> <span style="color:#719e07">this</span>.model.data.name
+    <span style="color:#719e07">this</span>.view.number <span style="color:#719e07">=</span> <span style="color:#719e07">this</span>.model.data.number
+    <span style="color:#719e07">this</span>.view.id <span style="color:#719e07">=</span> <span style="color:#719e07">this</span>.model.data.id
+})
+</code></pre></div><p>优化：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#586e75">/* --------------- Vue --------------- */</span>
+<span style="color:#268bd2">let</span> view <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Vue({
+    el<span style="color:#719e07">:</span><span style="color:#2aa198">&#39;#app&#39;</span>,
+    data<span style="color:#719e07">:</span>{ book<span style="color:#719e07">:</span>{name<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;&#39;</span>,number<span style="color:#719e07">:</span> <span style="color:#2aa198">0</span>,id<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;&#39;</span>} },
+    template<span style="color:#719e07">:</span> <span style="color:#586e75">`xxx`</span>
+})
+<span style="color:#586e75">/* --------- template ---------
+</span><span style="color:#586e75">&lt;div&gt;
+</span><span style="color:#586e75">	名称：{{book.name}}
+</span><span style="color:#586e75">	数量：&lt;span id=&#34;number&#34;&gt;{{book.number}}&lt;/span&gt;
+</span><span style="color:#586e75">&lt;/div&gt;
+</span><span style="color:#586e75"> --------- template-end --------- */</span>
+<span style="color:#586e75">/* --------------- controller.init --------------- */</span>
+<span style="color:#719e07">this</span>.bindEvents()
+<span style="color:#719e07">this</span>.model.fetch(<span style="color:#2aa198">1</span>).then(()=&gt;{
+	<span style="color:#719e07">this</span>.view.book <span style="color:#719e07">=</span> <span style="color:#719e07">this</span>.model.data
+})
+</code></pre></div><p><strong>初始化事件</strong></p>
+<p>将所有初始化事件放到 Vue 的 methods 属性中</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#586e75">/* --------- template ---------
+</span><span style="color:#586e75">&lt;div&gt;
+</span><span style="color:#586e75">    &lt;div&gt;
+</span><span style="color:#586e75">        名称：{{book.name}}
+</span><span style="color:#586e75">        数量：&lt;span id=&#34;number&#34;&gt;{{book.number}}&lt;/span&gt;
+</span><span style="color:#586e75">    &lt;/div&gt;
+</span><span style="color:#586e75">    &lt;div&gt;
+</span><span style="color:#586e75">        &lt;button v-on:click=&#34;addOne&#34;&gt;加一&lt;/button&gt;
+</span><span style="color:#586e75">        &lt;button v-on:click=&#34;minusOne&#34;&gt;减一&lt;/button&gt;
+</span><span style="color:#586e75">        &lt;button v-on:click=&#34;reset&#34;&gt;归零&lt;/button&gt;
+</span><span style="color:#586e75">    &lt;/div&gt;
+</span><span style="color:#586e75">&lt;/div&gt;
+</span><span style="color:#586e75">--------- template-end --------- */</span>
+
+<span style="color:#586e75">/* new Vue 中添加属性: */</span>
+methods<span style="color:#719e07">:</span>{
+        addOne(){
+            <span style="color:#268bd2">let</span> text <span style="color:#719e07">=</span> <span style="color:#719e07">this</span>.model.data.number
+            <span style="color:#268bd2">let</span> result <span style="color:#719e07">=</span> text <span style="color:#719e07">-</span> <span style="color:#2aa198">0</span> <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>
+            <span style="color:#719e07">this</span>.model.update(<span style="color:#2aa198">&#39;1+&#39;</span>,<span style="color:#719e07">this</span>.model.data).then(<span style="color:#268bd2">function</span>(){
+                $(<span style="color:#2aa198">&#39;#number&#39;</span>).text(result)
+            })
+        },
+        minusOne(){
+            <span style="color:#268bd2">let</span> text <span style="color:#719e07">=</span> <span style="color:#719e07">this</span>.model.data.number
+            <span style="color:#268bd2">let</span> result <span style="color:#719e07">=</span> text <span style="color:#719e07">-</span> <span style="color:#2aa198">0</span> <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>
+            <span style="color:#719e07">this</span>.model.update(<span style="color:#2aa198">&#39;1-&#39;</span>,<span style="color:#719e07">this</span>.model.data).then(<span style="color:#268bd2">function</span>(){
+                $(<span style="color:#2aa198">&#39;#number&#39;</span>).text(result)
+            })
+        },
+        reset(){
+            <span style="color:#719e07">this</span>.model.update(<span style="color:#2aa198">&#39;1x&#39;</span>,<span style="color:#719e07">this</span>.model.data).then(<span style="color:#268bd2">function</span>(){
+                $(<span style="color:#2aa198">&#39;#number&#39;</span>).text(<span style="color:#2aa198">0</span>)
+            })
+        }
+    }
+</code></pre></div><p>Vue 中初始化数据</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#586e75">/* new Vue 中添加属性: */</span>
+created(){
+	<span style="color:#719e07">this</span>.book <span style="color:#719e07">=</span> model.data
+}
+</code></pre></div><h4 id="点击显示关闭浮层">
+  点击显示/关闭浮层
+  <a class="anchor" href="#%e7%82%b9%e5%87%bb%e6%98%be%e7%a4%ba%e5%85%b3%e9%97%ad%e6%b5%ae%e5%b1%82">#</a>
+</h4>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#719e07">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#268bd2">html</span> lang<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#268bd2">head</span>&gt;
+    &lt;<span style="color:#268bd2">meta</span> charset<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#268bd2">meta</span> name<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;viewport&#34;</span> content<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+    &lt;<span style="color:#268bd2">meta</span> http-equiv<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;X-UA-Compatible&#34;</span> content<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;ie=edge&#34;</span>&gt;
+    &lt;<span style="color:#268bd2">title</span>&gt;Document&lt;/<span style="color:#268bd2">title</span>&gt;
+    &lt;<span style="color:#268bd2">script</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;https://cdn.bootcss.com/axios/0.19.0/axios.min.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+    &lt;<span style="color:#268bd2">script</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;https://cdn.bootcss.com/vue/2.6.10/vue.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+    &lt;<span style="color:#268bd2">style</span>&gt;
+        .<span style="color:#268bd2">demo</span>{ <span style="color:#719e07">width</span>:<span style="color:#2aa198">200</span><span style="color:#dc322f">px</span>; <span style="color:#719e07">height</span>:<span style="color:#2aa198">100</span><span style="color:#dc322f">px</span>; <span style="color:#719e07">background-color</span>: <span style="color:#2aa198">#ccc</span>; }
+    &lt;/<span style="color:#268bd2">style</span>&gt;
+&lt;/<span style="color:#268bd2">head</span>&gt;
+&lt;<span style="color:#268bd2">body</span>&gt;
+    &lt;<span style="color:#268bd2">div</span> id<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;app&#34;</span>&gt;&lt;/<span style="color:#268bd2">div</span>&gt;
+    &lt;<span style="color:#268bd2">script</span>&gt;
+        <span style="color:#268bd2">let</span> view <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Vue({
+            el<span style="color:#719e07">:</span><span style="color:#2aa198">&#39;#app&#39;</span>,
+            data<span style="color:#719e07">:</span>{ open<span style="color:#719e07">:</span> <span style="color:#cb4b16">false</span> },
+            template<span style="color:#719e07">:</span><span style="color:#586e75">`
+</span><span style="color:#586e75">            &lt;div&gt;
+</span><span style="color:#586e75">                &lt;button v-on:click=&#34;toggle&#34;&gt;点我&lt;/button&gt;
+</span><span style="color:#586e75">                &lt;div class=&#34;demo&#34; v-if=&#34;open&#34;&gt;你好&lt;/div&gt;
+</span><span style="color:#586e75">            &lt;/div&gt;
+</span><span style="color:#586e75">            `</span>,
+            methods<span style="color:#719e07">:</span>{
+                toggle(){ <span style="color:#719e07">this</span>.open <span style="color:#719e07">=</span> <span style="color:#719e07">!</span><span style="color:#719e07">this</span>.open }
+            }
+        })
+    &lt;/<span style="color:#268bd2">script</span>&gt;
+&lt;/<span style="color:#268bd2">body</span>&gt;
+&lt;/<span style="color:#268bd2">html</span>&gt;
+</code></pre></div><p>JSbin预览：https://jsbin.com/yajucerojo/1/edit?html,output</p>
+<h4 id="简单的轮播">
+  简单的轮播
+  <a class="anchor" href="#%e7%ae%80%e5%8d%95%e7%9a%84%e8%bd%ae%e6%92%ad">#</a>
+</h4>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#719e07">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#268bd2">html</span> lang<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#268bd2">head</span>&gt;
+    &lt;<span style="color:#268bd2">meta</span> charset<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#268bd2">meta</span> name<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;viewport&#34;</span> content<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+    &lt;<span style="color:#268bd2">meta</span> http-equiv<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;X-UA-Compatible&#34;</span> content<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;ie=edge&#34;</span>&gt;
+    &lt;<span style="color:#268bd2">title</span>&gt;简单的轮播&lt;/<span style="color:#268bd2">title</span>&gt;
+    &lt;<span style="color:#268bd2">script</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;https://cdn.bootcss.com/axios/0.19.0/axios.min.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+    &lt;<span style="color:#268bd2">script</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;https://cdn.bootcss.com/vue/2.6.10/vue.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+    &lt;<span style="color:#268bd2">style</span>&gt;
+    .<span style="color:#268bd2">main</span> { <span style="color:#719e07">margin</span>: <span style="color:#2aa198">50</span><span style="color:#dc322f">px</span> <span style="color:#2aa198">200</span><span style="color:#dc322f">px</span>; }
+    .<span style="color:#268bd2">slides</span> { <span style="color:#719e07">width</span>: <span style="color:#2aa198">300</span><span style="color:#dc322f">px</span>; <span style="color:#719e07">background</span>: <span style="color:#b58900">rgba</span>(<span style="color:#2aa198">0</span>, <span style="color:#2aa198">0</span>, <span style="color:#2aa198">255</span>, <span style="color:#2aa198">0.4</span>); <span style="color:#719e07">height</span>: <span style="color:#2aa198">100</span><span style="color:#dc322f">px</span>; <span style="color:#719e07">transition</span>: <span style="color:#cb4b16">all</span> <span style="color:#2aa198">1</span><span style="color:#dc322f">s</span>; }
+    .<span style="color:#268bd2">window</span> { <span style="color:#719e07">width</span>: <span style="color:#2aa198">100</span><span style="color:#dc322f">px</span>; <span style="color:#719e07">height</span>: <span style="color:#2aa198">100</span><span style="color:#dc322f">px</span>; <span style="color:#719e07">border</span>: <span style="color:#2aa198">2</span><span style="color:#dc322f">px</span> <span style="color:#cb4b16">solid</span> <span style="color:#2aa198">#333</span>; }
+    &lt;/<span style="color:#268bd2">style</span>&gt;
+&lt;/<span style="color:#268bd2">head</span>&gt;
+&lt;<span style="color:#268bd2">body</span>&gt;
+    &lt;<span style="color:#268bd2">div</span> id<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;app&#34;</span>&gt;&lt;/<span style="color:#268bd2">div</span>&gt;
+    
+    &lt;<span style="color:#268bd2">script</span>&gt;
+        <span style="color:#268bd2">let</span> view <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Vue({
+            el<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;#app&#39;</span>,
+            data<span style="color:#719e07">:</span>{ transformValue<span style="color:#719e07">:</span><span style="color:#2aa198">&#39;&#39;</span> },
+            template<span style="color:#719e07">:</span><span style="color:#586e75">`
+</span><span style="color:#586e75">            &lt;div class=&#34;main&#34;&gt;
+</span><span style="color:#586e75">                &lt;div class=&#34;window&#34;&gt;
+</span><span style="color:#586e75">                    &lt;div class=&#34;slides&#34; v-bind:style=&#34;{ transform: transformValue }&#34;&gt;&lt;/div&gt;
+</span><span style="color:#586e75">                &lt;/div&gt;
+</span><span style="color:#586e75">                &lt;button v-on:click=&#34;go(0)&#34;&gt;1&lt;/button&gt;
+</span><span style="color:#586e75">                &lt;button v-on:click=&#34;go(1)&#34;&gt;2&lt;/button&gt;
+</span><span style="color:#586e75">                &lt;button v-on:click=&#34;go(2)&#34;&gt;3&lt;/button&gt;
+</span><span style="color:#586e75">            &lt;/div&gt;
+</span><span style="color:#586e75">            `</span>,
+            methods<span style="color:#719e07">:</span> {
+                go(index){ 
+                    <span style="color:#719e07">this</span>.transformValue <span style="color:#719e07">=</span> <span style="color:#586e75">`translateX(</span><span style="color:#2aa198">${</span><span style="color:#719e07">-</span><span style="color:#2aa198">100</span><span style="color:#719e07">*</span>index<span style="color:#2aa198">}</span><span style="color:#586e75">px)`</span>
+                }
+            }
+        })
+    &lt;/<span style="color:#268bd2">script</span>&gt;
+&lt;/<span style="color:#268bd2">body</span>&gt;
+&lt;/<span style="color:#268bd2">html</span>&gt;
+</code></pre></div><p>JSbin预览：https://jsbin.com/likawuseke/edit?html,output</p>
+<h4 id="排他列表">
+  排他列表
+  <a class="anchor" href="#%e6%8e%92%e4%bb%96%e5%88%97%e8%a1%a8">#</a>
+</h4>
+<p><strong>普通方式</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#719e07">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#268bd2">html</span> lang<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#268bd2">head</span>&gt;
+    &lt;<span style="color:#268bd2">meta</span> charset<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#268bd2">meta</span> name<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;viewport&#34;</span> content<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+    &lt;<span style="color:#268bd2">meta</span> http-equiv<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;X-UA-Compatible&#34;</span> content<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;ie=edge&#34;</span>&gt;
+    &lt;<span style="color:#268bd2">title</span>&gt;简单的轮播&lt;/<span style="color:#268bd2">title</span>&gt;
+    &lt;<span style="color:#268bd2">script</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;https://cdn.bootcss.com/axios/0.19.0/axios.min.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+    &lt;<span style="color:#268bd2">script</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;https://cdn.bootcss.com/vue/2.6.10/vue.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+    &lt;<span style="color:#268bd2">style</span>&gt;
+        <span style="color:#268bd2">ol</span> { <span style="color:#719e07">list-style</span>: <span style="color:#cb4b16">none</span>; <span style="color:#719e07">margin</span>: <span style="color:#2aa198">0</span>;}
+        <span style="color:#268bd2">ol</span> <span style="color:#268bd2">li</span> { 
+            <span style="color:#719e07">display</span>: <span style="color:#cb4b16">inline</span><span style="color:#719e07">-</span><span style="color:#cb4b16">block</span>;
+            <span style="color:#719e07">margin</span>: <span style="color:#2aa198">2</span><span style="color:#dc322f">px</span>; 
+            <span style="color:#719e07">padding</span>: <span style="color:#2aa198">5</span><span style="color:#dc322f">px</span> <span style="color:#2aa198">10</span><span style="color:#dc322f">px</span>;
+            <span style="color:#719e07">width</span>: <span style="color:#2aa198">100</span><span style="color:#dc322f">px</span>; 
+            <span style="color:#719e07">height</span>: <span style="color:#2aa198">30</span><span style="color:#dc322f">px</span>; 
+            <span style="color:#719e07">border</span>: <span style="color:#2aa198">1</span><span style="color:#dc322f">px</span> <span style="color:#cb4b16">solid</span> <span style="color:#cb4b16">blue</span>; 
+            <span style="color:#719e07">cursor</span>: <span style="color:#cb4b16">pointer</span>; }
+        .<span style="color:#268bd2">main</span> { <span style="color:#719e07">margin</span>: <span style="color:#2aa198">50</span><span style="color:#dc322f">px</span> <span style="color:#2aa198">0</span> <span style="color:#2aa198">0</span> <span style="color:#2aa198">0</span>; <span style="color:#719e07">text-align</span>: <span style="color:#cb4b16">center</span>; }
+        .<span style="color:#268bd2">content</span> <span style="color:#268bd2">li</span> { <span style="color:#719e07">width</span>: <span style="color:#2aa198">322</span><span style="color:#dc322f">px</span>; }
+        .<span style="color:#268bd2">main</span> <span style="color:#268bd2">li</span>.<span style="color:#268bd2">active</span> { <span style="color:#719e07">background-color</span>: <span style="color:#2aa198">#ccc</span>; }
+    &lt;/<span style="color:#268bd2">style</span>&gt;
+&lt;/<span style="color:#268bd2">head</span>&gt;
+&lt;<span style="color:#268bd2">body</span>&gt;
+    &lt;<span style="color:#268bd2">div</span> id<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;app&#34;</span>&gt;&lt;/<span style="color:#268bd2">div</span>&gt;
+    &lt;<span style="color:#268bd2">script</span>&gt;
+        <span style="color:#268bd2">let</span> view <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Vue({
+            el<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;#app&#39;</span>,
+            data<span style="color:#719e07">:</span>{ selected<span style="color:#719e07">:</span><span style="color:#2aa198">0</span> },
+            template<span style="color:#719e07">:</span><span style="color:#586e75">`
+</span><span style="color:#586e75">            &lt;div class=&#34;main&#34;&gt;
+</span><span style="color:#586e75">                &lt;ol&gt;
+</span><span style="color:#586e75">                    &lt;li v-on:click=&#34;selected = 0&#34;
+</span><span style="color:#586e75">                        v-bind:class=&#34;{active:selected === 0}&#34;&gt;1&lt;/li&gt;
+</span><span style="color:#586e75">                    &lt;li v-on:click=&#34;selected = 1&#34;
+</span><span style="color:#586e75">                        v-bind:class=&#34;{active:selected === 1}&#34;&gt;2&lt;/li&gt;
+</span><span style="color:#586e75">                    &lt;li v-on:click=&#34;selected = 2&#34;
+</span><span style="color:#586e75">                        v-bind:class=&#34;{active:selected === 2}&#34;&gt;3&lt;/li&gt;
+</span><span style="color:#586e75">                &lt;/ol&gt;
+</span><span style="color:#586e75">                &lt;ol class=&#39;content&#39;&gt;
+</span><span style="color:#586e75">                    &lt;li v-show=&#34;selected === 0&#34;&gt;内容1&lt;/li&gt;
+</span><span style="color:#586e75">                    &lt;li v-show=&#34;selected === 1&#34;&gt;内容2&lt;/li&gt;
+</span><span style="color:#586e75">                    &lt;li v-show=&#34;selected === 2&#34;&gt;内容3&lt;/li&gt;
+</span><span style="color:#586e75">                &lt;/ol&gt;
+</span><span style="color:#586e75">            &lt;/div&gt;
+</span><span style="color:#586e75">            `</span>
+        })
+    &lt;/<span style="color:#268bd2">script</span>&gt;
+&lt;/<span style="color:#268bd2">body</span>&gt;
+&lt;/<span style="color:#268bd2">html</span>&gt;
+</code></pre></div><p>JSbin 预览：https://jsbin.com/tubeposawi/1/edit?html,output</p>
+<p><strong>for循环列表添加自定义数据</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#719e07">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#268bd2">html</span> lang<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#268bd2">head</span>&gt;
+    &lt;<span style="color:#268bd2">meta</span> charset<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#268bd2">meta</span> name<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;viewport&#34;</span> content<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+    &lt;<span style="color:#268bd2">meta</span> http-equiv<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;X-UA-Compatible&#34;</span> content<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;ie=edge&#34;</span>&gt;
+    &lt;<span style="color:#268bd2">title</span>&gt;简单的轮播&lt;/<span style="color:#268bd2">title</span>&gt;
+    &lt;<span style="color:#268bd2">script</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;https://cdn.bootcss.com/axios/0.19.0/axios.min.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+    &lt;<span style="color:#268bd2">script</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;https://cdn.bootcss.com/vue/2.6.10/vue.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+    &lt;<span style="color:#268bd2">style</span>&gt;
+        <span style="color:#268bd2">ol</span> { <span style="color:#719e07">list-style</span>: <span style="color:#cb4b16">none</span>; <span style="color:#719e07">margin</span>: <span style="color:#2aa198">0</span>;}
+        <span style="color:#268bd2">ol</span> <span style="color:#268bd2">li</span> {
+            <span style="color:#719e07">display</span>: <span style="color:#cb4b16">inline</span><span style="color:#719e07">-</span><span style="color:#cb4b16">block</span>;
+            <span style="color:#719e07">margin</span>: <span style="color:#2aa198">2</span><span style="color:#dc322f">px</span>; 
+            <span style="color:#719e07">padding</span>: <span style="color:#2aa198">5</span><span style="color:#dc322f">px</span> <span style="color:#2aa198">10</span><span style="color:#dc322f">px</span>;
+            <span style="color:#719e07">border</span>: <span style="color:#2aa198">1</span><span style="color:#dc322f">px</span> <span style="color:#cb4b16">solid</span> <span style="color:#cb4b16">blue</span>; 
+            <span style="color:#719e07">cursor</span>: <span style="color:#cb4b16">pointer</span>; }
+        .<span style="color:#268bd2">main</span> { <span style="color:#719e07">margin</span>: <span style="color:#2aa198">50</span><span style="color:#dc322f">px</span> <span style="color:#2aa198">200</span><span style="color:#dc322f">px</span>; }
+        .<span style="color:#268bd2">content</span> <span style="color:#268bd2">li</span> { <span style="color:#719e07">width</span>: <span style="color:#2aa198">118</span><span style="color:#dc322f">px</span>; <span style="color:#719e07">text-align</span>: <span style="color:#cb4b16">center</span>; }
+        .<span style="color:#268bd2">main</span> <span style="color:#268bd2">li</span>.<span style="color:#268bd2">active</span> { <span style="color:#719e07">background-color</span>: <span style="color:#2aa198">#ccc</span>; }
+    &lt;/<span style="color:#268bd2">style</span>&gt;
+&lt;/<span style="color:#268bd2">head</span>&gt;
+&lt;<span style="color:#268bd2">body</span>&gt;
+    &lt;<span style="color:#268bd2">div</span> id<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;app&#34;</span>&gt;&lt;/<span style="color:#268bd2">div</span>&gt;
+    &lt;<span style="color:#268bd2">script</span>&gt;
+        <span style="color:#268bd2">let</span> view <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Vue({
+            el<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;#app&#39;</span>,
+            data<span style="color:#719e07">:</span>{ 
+                selected<span style="color:#719e07">:</span><span style="color:#2aa198">&#39;a&#39;</span>,
+                tabs<span style="color:#719e07">:</span> [
+                    {name<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;a&#39;</span>, content<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;aaa&#39;</span>},
+                    {name<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;b&#39;</span>, content<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;bbb&#39;</span>},
+                    {name<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;c&#39;</span>, content<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;ccc&#39;</span>},
+                ]
+            },
+            template<span style="color:#719e07">:</span><span style="color:#586e75">`
+</span><span style="color:#586e75">            &lt;div class=&#34;main&#34;&gt;
+</span><span style="color:#586e75">                &lt;ol&gt;
+</span><span style="color:#586e75">                    &lt;li v-for=&#34;tab in tabs&#34;
+</span><span style="color:#586e75">                        v-on:click=&#34;selected = tab.name&#34;
+</span><span style="color:#586e75">                        v-bind:class=&#34;{active: tab.name === selected}&#34;
+</span><span style="color:#586e75">                    &gt;{{ tab.name }}&lt;/li&gt;
+</span><span style="color:#586e75">                &lt;/ol&gt;
+</span><span style="color:#586e75">                &lt;ol class=&#39;content&#39;&gt;
+</span><span style="color:#586e75">                    &lt;li v-for=&#34;tab in tabs&#34;
+</span><span style="color:#586e75">                        v-show=&#34;selected === tab.name&#34;
+</span><span style="color:#586e75">                    &gt;{{ tab.content }}&lt;/li&gt;
+</span><span style="color:#586e75">                &lt;/ol&gt;
+</span><span style="color:#586e75">            &lt;/div&gt;
+</span><span style="color:#586e75">            `</span>
+        })
+    &lt;/<span style="color:#268bd2">script</span>&gt;
+&lt;/<span style="color:#268bd2">body</span>&gt;
+&lt;/<span style="color:#268bd2">html</span>&gt;
+</code></pre></div><p>JSbin预览：https://jsbin.com/baqasuqehu/1/edit?html,output</p>
+<h2 id="课后题">
+  课后题
+  <a class="anchor" href="#%e8%af%be%e5%90%8e%e9%a2%98">#</a>
+</h2>
+<p><strong>Vue 自测题</strong></p>
+<p><strong>第 5 题</strong></p>
+<p>正确答案 4 个：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"> v<span style="color:#719e07">-</span>bind<span style="color:#719e07">:</span>title<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;message&#34;</span>
+ v<span style="color:#719e07">-</span>bind<span style="color:#719e07">:</span>title<span style="color:#719e07">=</span><span style="color:#2aa198">&#39;message&#39;</span>
+ v<span style="color:#719e07">-</span>bind<span style="color:#719e07">:</span>title<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;this.message&#34;</span>
+ v<span style="color:#719e07">-</span>bind<span style="color:#719e07">:</span>title<span style="color:#719e07">=</span>message
+</code></pre></div><p>代码</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#719e07">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#268bd2">html</span> lang<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#268bd2">head</span>&gt;
+    &lt;<span style="color:#268bd2">meta</span> charset<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#268bd2">meta</span> name<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;viewport&#34;</span> content<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+    &lt;<span style="color:#268bd2">meta</span> http-equiv<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;X-UA-Compatible&#34;</span> content<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;ie=edge&#34;</span>&gt;
+    &lt;<span style="color:#268bd2">title</span>&gt;demo&lt;/<span style="color:#268bd2">title</span>&gt;
+    &lt;<span style="color:#268bd2">script</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;https://cdn.bootcss.com/axios/0.19.0/axios.min.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+    &lt;<span style="color:#268bd2">script</span> src<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;https://cdn.bootcss.com/vue/2.6.10/vue.js&#34;</span>&gt;&lt;/<span style="color:#268bd2">script</span>&gt;
+    &lt;<span style="color:#268bd2">style</span>&gt;
+    &lt;/<span style="color:#268bd2">style</span>&gt;
+&lt;/<span style="color:#268bd2">head</span>&gt;
+&lt;<span style="color:#268bd2">body</span>&gt;
+    &lt;<span style="color:#268bd2">div</span> id<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;app-2&#34;</span>&gt;
+        &lt;<span style="color:#268bd2">span</span> v-bind:title<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;this.message&#34;</span>&gt;
+            鼠标悬停几秒钟查看此处动态绑定的提示信息！
+        &lt;/<span style="color:#268bd2">span</span>&gt;
+    &lt;/<span style="color:#268bd2">div</span>&gt;
+    &lt;<span style="color:#268bd2">script</span>&gt;
+        <span style="color:#268bd2">var</span> app2 <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Vue({
+            el<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;#app-2&#39;</span>,
+            data<span style="color:#719e07">:</span> {
+                message<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;悬浮提示&#39;</span>
+            }
+        })
+    &lt;/<span style="color:#268bd2">script</span>&gt;
+&lt;/<span style="color:#268bd2">body</span>&gt;
+&lt;/<span style="color:#268bd2">html</span>&gt;
+</code></pre></div><p><strong>第6题</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#268bd2">body</span>&gt;
+    &lt;<span style="color:#268bd2">div</span> id<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;app-2&#34;</span>&gt;
+        &lt;<span style="color:#268bd2">p</span> v-if<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;seen&#34;</span>&gt;现在你看到我了&lt;/<span style="color:#268bd2">p</span>&gt;
+    &lt;/<span style="color:#268bd2">div</span>&gt;
+    &lt;<span style="color:#268bd2">script</span>&gt;
+        <span style="color:#268bd2">var</span> app2 <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Vue({
+            el<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;#app-2&#39;</span>,
+            data<span style="color:#719e07">:</span> {
+                seen<span style="color:#719e07">:</span><span style="color:#cb4b16">true</span>
+            }
+        })
+    &lt;/<span style="color:#268bd2">script</span>&gt;
+&lt;/<span style="color:#268bd2">body</span>&gt;
+</code></pre></div><p><strong>第7题</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#268bd2">body</span>&gt;
+    &lt;<span style="color:#268bd2">div</span> id<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;app&#34;</span>&gt;&lt;/<span style="color:#268bd2">div</span>&gt;
+    &lt;<span style="color:#268bd2">script</span>&gt;
+        <span style="color:#268bd2">var</span> app <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Vue({
+            el<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;#app&#39;</span>,
+            data<span style="color:#719e07">:</span> {
+                tabs<span style="color:#719e07">:</span> [<span style="color:#2aa198">1</span>,<span style="color:#2aa198">2</span>,<span style="color:#2aa198">3</span>,<span style="color:#2aa198">4</span>,<span style="color:#2aa198">5</span>]
+            },
+            template<span style="color:#719e07">:</span><span style="color:#586e75">`
+</span><span style="color:#586e75">            &lt;ol&gt;
+</span><span style="color:#586e75">                &lt;li v-for=&#34;tab in tabs&#34;&gt;hi&lt;/li&gt;
+</span><span style="color:#586e75">            &lt;/ol&gt;
+</span><span style="color:#586e75">            `</span>
+        })
+    &lt;/<span style="color:#268bd2">script</span>&gt;
+&lt;/<span style="color:#268bd2">body</span>&gt;
+</code></pre></div><p><strong>第8题</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#268bd2">body</span>&gt;
+    &lt;<span style="color:#268bd2">div</span> id<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;app&#34;</span>&gt;&lt;/<span style="color:#268bd2">div</span>&gt;
+    &lt;<span style="color:#268bd2">script</span>&gt;
+        <span style="color:#268bd2">var</span> app <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> Vue({
+            el<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;#app&#39;</span>,
+            data<span style="color:#719e07">:</span> {x<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;frank&#39;</span>},
+            template<span style="color:#719e07">:</span><span style="color:#586e75">`
+</span><span style="color:#586e75">                &lt;div&gt;&lt;input v-model=&#34;x&#34;/&gt;{{x}}&lt;/div&gt;
+</span><span style="color:#586e75">            `</span>
+        })
+    &lt;/<span style="color:#268bd2">script</span>&gt;
+&lt;/<span style="color:#268bd2">body</span>&gt;
+</code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#axios">axios</a>
+      <ul>
+        <li><a href="#引入axios">引入axios</a></li>
+        <li><a href="#使用axios">使用axios</a></li>
+      </ul>
+    </li>
+    <li><a href="#es6-新语法">ES6 新语法</a>
+      <ul>
+        <li><a href="#声明">声明</a></li>
+      </ul>
+    </li>
+    <li><a href="#jquery">jQuery</a></li>
+    <li><a href="#复习mvc">复习MVC</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#vue-使用">Vue 使用</a>
+      <ul>
+        <li><a href="#引入vue">引入Vue</a></li>
+        <li><a href="#vue-相对mvc的变化">Vue 相对MVC的变化</a></li>
+        <li><a href="#语法">语法</a></li>
+        <li><a href="#案例">案例</a></li>
+      </ul>
+    </li>
+    <li><a href="#课后题">课后题</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

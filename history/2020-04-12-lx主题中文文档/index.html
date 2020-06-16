@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Hexo-Theme-Lx
+  #
+
+
+如果你喜欢本主题，请点击star收藏
+
+
+Live Demo:https://lx.js.org
+该子域名由 JS.ORG 提供。
+作者的博客:https://freezing.cool
+Telegram频道-hexo-theme-lx:https://t.me/themelx
+有任何疑问和建议请提交issue
+
+  最近更新
+  #
+
+
+  V0.3.9
+  #
+
+
+改善评论框
+改善段间距
+
+
+  使用：
+  #
+
+
+  获取最稳定的版本：
+  #
+
+https://github.com/blleng/hexo-theme-lx/releases
+解压后将文件夹命名为lx放在themes文件夹中。
+
+推荐使用稳定版本(请勿使用V0.3.3和V0.3.5！！)
+
+
+  获取具有最新特性的版本：
+  #
+
+在博客根目录:
+$ git clone https://github.com/blleng/hexo-theme-lx themes/lx
+
+不推荐这种方式。虽然我尽量保证没有bug后再推送至GitHub仓库，但正在开发中的版本仍可能有bug。
+
+
+  启用本主题：
+  #
+
+更改站点设置文件_config.yml:
+theme: lx
+主题的配置将在themes/lx/_config.yml中进行。
+
+  功能配置
+  #
+
+
+这里的说明并不完整，请参考themes/lx/_config.yml中的注释信息。
+
+
+  统计
+  #
+
+引入了百度统计和谷歌统计。
+启用：在themes/lx/_config.yml填写:
+google_analytics: ... ##谷歌统计ID
+baidu_analytics: ... ##百度统计ID
+
+  本地搜索
+  #
+
+先下载插件hexo-generator-searchdb:
+$ npm install hexo-generator-searchdb -s
+在themes/lx/_config.yml中配置:
+local_search:
+  enable: true
+更多配置详见themes/lx/_config.yml。
+
+  评论
+  #
+
+评论使用valine，官网：https://valine.js.org
+启用：在themes/lx/_config.yml填写:
+comment:
+  enable: true # true:启用 | false:停用
+  appid: ... #leancloud appid
+  appkey: ... #leancloud appkey
+  notify: false
+  verify: false
+  placeholder: 此处留言 #评论框文字
+  avatar: identicon #游客默认头像
+  guest_info: nick,mail,link #评论时需填写的内容（均为选填）
+  pageSize: 10 #一次性展示的评论数
+  language: zh-cn
+在文章头填入comment: true即可在该页面启用评论:
+---
+date: ...
+title: ...
+categories: ...
+tags: ...
+comment: true //启用评论
+mathjax: ...
+---
+appid和appkey在leancloud创建应用后即可获取。
+
+  Social Links
+  #
+
+社交媒体链接，在themes/lx/_config.yml配置:
+social:
+  enable: true
+  links:
+    Github:
+      icon: gihub //font-awesmome图标名称
+      link: ... //链接地址
+
+  Mathjax
+  #
+
+支持数学公式和化学方程式。
+启用：在themes/lx/_config.yml填写:
+mathjax:
+  enable: true  ##true:启用 | false:停用
+  cdn: //cdn.bootcss.com/mathjax/2.7.5/latest.js?config=TeX-MML-AM_SVG
+在文章头填入mathjax: true即可在该页面启用评论:
+---
+date: ...
+title: ...
+categories: ...
+tags: ...
+comment: ...
+mathjax: true //启用Mathjax
+---
+
+  字体设置
+  #
+
+font:
+  enable: true
+  host: //fonts.googleapis.com
+  codes: ##代码字体
+    enable: true
+    family: Fira Code
+  else: ##文字字体
+    enable: false
+    family: 
+
+  文章写作样式
+  #
+
+
+  文章摘要
+  #
+
+在`">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="lx主题中文文档" />
+<meta property="og:description" content="
+  Hexo-Theme-Lx
+  #
+
+
+如果你喜欢本主题，请点击star收藏
+
+
+Live Demo:https://lx.js.org
+该子域名由 JS.ORG 提供。
+作者的博客:https://freezing.cool
+Telegram频道-hexo-theme-lx:https://t.me/themelx
+有任何疑问和建议请提交issue
+
+  最近更新
+  #
+
+
+  V0.3.9
+  #
+
+
+改善评论框
+改善段间距
+
+
+  使用：
+  #
+
+
+  获取最稳定的版本：
+  #
+
+https://github.com/blleng/hexo-theme-lx/releases
+解压后将文件夹命名为lx放在themes文件夹中。
+
+推荐使用稳定版本(请勿使用V0.3.3和V0.3.5！！)
+
+
+  获取具有最新特性的版本：
+  #
+
+在博客根目录:
+$ git clone https://github.com/blleng/hexo-theme-lx themes/lx
+
+不推荐这种方式。虽然我尽量保证没有bug后再推送至GitHub仓库，但正在开发中的版本仍可能有bug。
+
+
+  启用本主题：
+  #
+
+更改站点设置文件_config.yml:
+theme: lx
+主题的配置将在themes/lx/_config.yml中进行。
+
+  功能配置
+  #
+
+
+这里的说明并不完整，请参考themes/lx/_config.yml中的注释信息。
+
+
+  统计
+  #
+
+引入了百度统计和谷歌统计。
+启用：在themes/lx/_config.yml填写:
+google_analytics: ... ##谷歌统计ID
+baidu_analytics: ... ##百度统计ID
+
+  本地搜索
+  #
+
+先下载插件hexo-generator-searchdb:
+$ npm install hexo-generator-searchdb -s
+在themes/lx/_config.yml中配置:
+local_search:
+  enable: true
+更多配置详见themes/lx/_config.yml。
+
+  评论
+  #
+
+评论使用valine，官网：https://valine.js.org
+启用：在themes/lx/_config.yml填写:
+comment:
+  enable: true # true:启用 | false:停用
+  appid: ... #leancloud appid
+  appkey: ... #leancloud appkey
+  notify: false
+  verify: false
+  placeholder: 此处留言 #评论框文字
+  avatar: identicon #游客默认头像
+  guest_info: nick,mail,link #评论时需填写的内容（均为选填）
+  pageSize: 10 #一次性展示的评论数
+  language: zh-cn
+在文章头填入comment: true即可在该页面启用评论:
+---
+date: ...
+title: ...
+categories: ...
+tags: ...
+comment: true //启用评论
+mathjax: ...
+---
+appid和appkey在leancloud创建应用后即可获取。
+
+  Social Links
+  #
+
+社交媒体链接，在themes/lx/_config.yml配置:
+social:
+  enable: true
+  links:
+    Github:
+      icon: gihub //font-awesmome图标名称
+      link: ... //链接地址
+
+  Mathjax
+  #
+
+支持数学公式和化学方程式。
+启用：在themes/lx/_config.yml填写:
+mathjax:
+  enable: true  ##true:启用 | false:停用
+  cdn: //cdn.bootcss.com/mathjax/2.7.5/latest.js?config=TeX-MML-AM_SVG
+在文章头填入mathjax: true即可在该页面启用评论:
+---
+date: ...
+title: ...
+categories: ...
+tags: ...
+comment: ...
+mathjax: true //启用Mathjax
+---
+
+  字体设置
+  #
+
+font:
+  enable: true
+  host: //fonts.googleapis.com
+  codes: ##代码字体
+    enable: true
+    family: Fira Code
+  else: ##文字字体
+    enable: false
+    family: 
+
+  文章写作样式
+  #
+
+
+  文章摘要
+  #
+
+在`" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/history/2020-04-12-lx%E4%B8%BB%E9%A2%98%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/" />
+<meta property="article:published_time" content="2020-04-12T18:13:08+00:00" />
+<meta property="article:modified_time" content="2020-04-12T18:13:08+00:00" />
+<title>lx主题中文文档 | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-10-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E7%AE%80%E8%AE%B0/" class="">多人博客项目(简记)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-15-keyboard-nav/" class="">键盘导航</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-canvas/" class="">Canvas画板</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-%E5%AE%89%E5%8D%93%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E6%A1%88%E4%BE%8B/" class="">安卓音乐播放器案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-12-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E8%AF%AD%E6%B3%95%E7%B3%96%E7%AE%80%E7%89%88/" class="">函数与对象的语法糖(索引)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-function-object-sugar/" class="">函数与对象的语法糖一</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-%E5%87%BD%E6%95%B0%E4%B8%8E%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96%E4%BA%8C/" class="">函数与对象的语法糖二</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/0cd88b5c/" class="">模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-07-vue%E5%A4%9A%E4%BA%BA%E5%85%B1%E4%BA%AB%E5%8D%9A%E5%AE%A2/" class="">[项目] Vue 多人共享博客</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-03-31-jsonp/" class="">[高级] 35 - JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-25-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E8%AF%A6%E7%BB%86/" class="">多人博客项目(详细)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-vue-plugin-int/" class="">Vue插件安装</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-css-selector/" class="">CSS选择器总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/dd3e7bbd/" class="">常用的HTML5标签</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-25-%E7%AE%80%E5%8E%86%E6%80%8E%E4%B9%88%E5%86%99/" class="">简历怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-12-lx%E4%B8%BB%E9%A2%98%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/" class="active">lx主题中文文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-27-css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80/" class="">CSS Grid 网格布局</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-jquery%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">jQuery常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-js%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">JS 常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-yarn%E5%85%A5%E9%97%A8/" class="">yarn 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-npm%E5%85%A5%E9%97%A8/" class="">npm 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-04-es6%E6%96%B0%E7%89%B9%E6%80%A7/" class="">ES6新特性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="">面向对象</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-jquery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/jquery%E8%BD%AE%E6%92%AD%E6%A1%88%E4%BE%8B/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E8%87%AA%E5%88%B6jquery/" class="">自制jQuery</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-01-mvvm/" class="">MVVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-28-this%E6%98%AF%E4%BB%80%E4%B9%88/" class="">this是什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-27-new%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/" class="">New做了什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-21-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9D%97%E5%8C%96/" class="">代码模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-20-mvc%E6%80%9D%E6%83%B3/" class="">MVC思想</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-18-%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0-ajax/" class="">自己实现 AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-17-ajax/" class="">AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-16-jsonp/" class="">JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim-get-started/" class="">vim 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim%E7%9A%84%E4%BD%BF%E7%94%A8/" class="">vim 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-10-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="">命令行常用技巧</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" class="">浏览器缓存</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-css%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/" class="">CSS 常用属性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-01-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2-%E5%93%8D%E5%BA%94%E5%BC%8F/" class="">移动端页面(响应式)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/element-ui/" class="">Element UI</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B/" class="">Vue 入门案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E6%B5%8B%E8%AF%95%E9%A1%B5/" class="">测试页</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-webpack-use/" class="">webpack 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E5%9F%BA%E7%A1%80%E5%B8%B8%E8%AF%86/" class="">JS基础常识</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/action/" class="">Action 官方文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/axios%E5%85%A5%E9%97%A8/" class="">Axios 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E4%B8%AD%E7%9A%84symbol%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JS 中的 Symbol 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/json%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JSON 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-11-12-module%E8%AF%AD%E6%B3%95/" class="">Module语法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-%E7%82%B9%E5%87%BB%E7%A9%BA%E7%99%BD%E5%85%B3%E9%97%AD%E6%B5%AE%E5%B1%82/" class="">Vue 点击空白关闭浮层</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-cli%E4%BD%BF%E7%94%A8/" class="">Vue-cli 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vuex%E4%BD%BF%E7%94%A8/" class="">Vuex 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-02-03-%E5%8E%9F%E5%9E%8B%E9%93%BE%E8%A1%A5%E5%85%85/" class="">原型链补充</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-05-07-%E6%95%B0%E7%BB%84/" class="">数组</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-27-%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E7%AE%80%E5%8E%86%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="">简历该怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BE%A6%E5%90%AC%E5%99%A8/" class="">计算属性和监听器</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>lx主题中文文档</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#hexo-theme-lx">Hexo-Theme-Lx</a></li>
+    <li><a href="#最近更新">最近更新</a>
+      <ul>
+        <li><a href="#v039">V0.3.9</a></li>
+      </ul>
+    </li>
+    <li><a href="#使用">使用：</a>
+      <ul>
+        <li><a href="#获取最稳定的版本">获取最稳定的版本：</a></li>
+        <li><a href="#获取具有最新特性的版本">获取具有最新特性的版本：</a></li>
+        <li><a href="#启用本主题">启用本主题：</a></li>
+      </ul>
+    </li>
+    <li><a href="#功能配置">功能配置</a>
+      <ul>
+        <li><a href="#统计">统计</a></li>
+        <li><a href="#本地搜索">本地搜索</a></li>
+        <li><a href="#评论">评论</a></li>
+        <li><a href="#social-links">Social Links</a></li>
+        <li><a href="#mathjax">Mathjax</a></li>
+        <li><a href="#字体设置">字体设置</a></li>
+      </ul>
+    </li>
+    <li><a href="#文章写作样式">文章写作样式</a>
+      <ul>
+        <li><a href="#文章摘要">文章摘要</a></li>
+        <li><a href="#note-tag">Note tag</a></li>
+        <li><a href="#label-tag">Label tag</a></li>
+        <li><a href="#button-tag">Button tag</a></li>
+        <li><a href="#center-quote-tag">center-quote tag</a></li>
+        <li><a href="#video-tag">video tag</a></li>
+        <li><a href="#文章截断">文章截断</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="hexo-theme-lx">
+  Hexo-Theme-Lx
+  <a class="anchor" href="#hexo-theme-lx">#</a>
+</h2>
+<blockquote>
+<p>如果你喜欢本主题，请点击<code>star</code>收藏</p>
+</blockquote>
+<!-- raw HTML omitted -->
+<p>Live Demo:<a href="https://lx.js.org">https://lx.js.org</a></p>
+<p><em>该子域名由 <a href="https://github.com/js-org/js.org">JS.ORG</a> 提供。</em></p>
+<p>作者的博客:<a href="https://freezing.cool">https://freezing.cool</a></p>
+<p>Telegram频道-hexo-theme-lx:<a href="https://t.me/themelx">https://t.me/themelx</a></p>
+<p>有任何疑问和建议请提交<a href="https://github.com/blleng/hexo-theme-lx/issues">issue</a></p>
+<h2 id="最近更新">
+  最近更新
+  <a class="anchor" href="#%e6%9c%80%e8%bf%91%e6%9b%b4%e6%96%b0">#</a>
+</h2>
+<h3 id="v039">
+  V0.3.9
+  <a class="anchor" href="#v039">#</a>
+</h3>
+<ul>
+<li>改善评论框</li>
+<li>改善段间距</li>
+</ul>
+<h2 id="使用">
+  使用：
+  <a class="anchor" href="#%e4%bd%bf%e7%94%a8">#</a>
+</h2>
+<h3 id="获取最稳定的版本">
+  获取最稳定的版本：
+  <a class="anchor" href="#%e8%8e%b7%e5%8f%96%e6%9c%80%e7%a8%b3%e5%ae%9a%e7%9a%84%e7%89%88%e6%9c%ac">#</a>
+</h3>
+<p><a href="https://github.com/blleng/hexo-theme-lx/releases">https://github.com/blleng/hexo-theme-lx/releases</a></p>
+<p>解压后将文件夹命名为<code>lx</code>放在<code>themes</code>文件夹中。</p>
+<blockquote>
+<p>推荐使用稳定版本(请勿使用V0.3.3和V0.3.5！！)</p>
+</blockquote>
+<h3 id="获取具有最新特性的版本">
+  获取具有最新特性的版本：
+  <a class="anchor" href="#%e8%8e%b7%e5%8f%96%e5%85%b7%e6%9c%89%e6%9c%80%e6%96%b0%e7%89%b9%e6%80%a7%e7%9a%84%e7%89%88%e6%9c%ac">#</a>
+</h3>
+<p>在博客根目录:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://github.com/blleng/hexo-theme-lx themes/lx
+</code></pre></div><blockquote>
+<p>不推荐这种方式。虽然我尽量保证没有bug后再推送至GitHub仓库，但正在开发中的版本仍可能有bug。</p>
+</blockquote>
+<h3 id="启用本主题">
+  启用本主题：
+  <a class="anchor" href="#%e5%90%af%e7%94%a8%e6%9c%ac%e4%b8%bb%e9%a2%98">#</a>
+</h3>
+<p>更改站点设置文件<code>_config.yml</code>:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#719e07">theme</span>: lx
+</code></pre></div><p>主题的配置将在<code>themes/lx/_config.yml</code>中进行。</p>
+<h2 id="功能配置">
+  功能配置
+  <a class="anchor" href="#%e5%8a%9f%e8%83%bd%e9%85%8d%e7%bd%ae">#</a>
+</h2>
+<blockquote>
+<p>这里的说明并不完整，请参考<code>themes/lx/_config.yml</code>中的注释信息。</p>
+</blockquote>
+<h3 id="统计">
+  统计
+  <a class="anchor" href="#%e7%bb%9f%e8%ae%a1">#</a>
+</h3>
+<p>引入了百度统计和谷歌统计。</p>
+<p>启用：在<code>themes/lx/_config.yml</code>填写:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#719e07">google_analytics</span>: ... <span style="color:#586e75">##谷歌统计ID</span>
+<span style="color:#719e07">baidu_analytics</span>: ... <span style="color:#586e75">##百度统计ID</span>
+</code></pre></div><h3 id="本地搜索">
+  本地搜索
+  <a class="anchor" href="#%e6%9c%ac%e5%9c%b0%e6%90%9c%e7%b4%a2">#</a>
+</h3>
+<p>先下载插件<code>hexo-generator-searchdb</code>:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ npm install hexo-generator-searchdb -s
+</code></pre></div><p>在<code>themes/lx/_config.yml</code>中配置:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#719e07">local_search</span>:
+  <span style="color:#719e07">enable</span>: <span style="color:#cb4b16">true</span>
+</code></pre></div><p>更多配置详见<code>themes/lx/_config.yml</code>。</p>
+<h3 id="评论">
+  评论
+  <a class="anchor" href="#%e8%af%84%e8%ae%ba">#</a>
+</h3>
+<p>评论使用valine，官网：<a href="https://valine.js.org">https://valine.js.org</a></p>
+<p>启用：在<code>themes/lx/_config.yml</code>填写:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#719e07">comment</span>:
+  <span style="color:#719e07">enable</span>: <span style="color:#cb4b16">true</span> <span style="color:#586e75"># true:启用 | false:停用</span>
+  <span style="color:#719e07">appid</span>: ... <span style="color:#586e75">#leancloud appid</span>
+  <span style="color:#719e07">appkey</span>: ... <span style="color:#586e75">#leancloud appkey</span>
+  <span style="color:#719e07">notify</span>: <span style="color:#cb4b16">false</span>
+  <span style="color:#719e07">verify</span>: <span style="color:#cb4b16">false</span>
+  <span style="color:#719e07">placeholder</span>: 此处留言 <span style="color:#586e75">#评论框文字</span>
+  <span style="color:#719e07">avatar</span>: identicon <span style="color:#586e75">#游客默认头像</span>
+  <span style="color:#719e07">guest_info</span>: nick,mail,link <span style="color:#586e75">#评论时需填写的内容（均为选填）</span>
+  <span style="color:#719e07">pageSize</span>: <span style="color:#2aa198">10</span> <span style="color:#586e75">#一次性展示的评论数</span>
+  <span style="color:#719e07">language</span>: zh-cn
+</code></pre></div><p>在文章头填入<code>comment: true</code>即可在该页面启用评论:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
+date: ...
+title: ...
+categories: ...
+tags: ...
+comment: true //启用评论
+mathjax: ...
+---
+</code></pre></div><p><code>appid</code>和<code>appkey</code>在leancloud创建应用后即可获取。</p>
+<h3 id="social-links">
+  Social Links
+  <a class="anchor" href="#social-links">#</a>
+</h3>
+<p>社交媒体链接，在<code>themes/lx/_config.yml</code>配置:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#719e07">social</span>:
+  <span style="color:#719e07">enable</span>: <span style="color:#cb4b16">true</span>
+  <span style="color:#719e07">links</span>:
+    <span style="color:#719e07">Github</span>:
+      <span style="color:#719e07">icon</span>: gihub //font-awesmome图标名称
+      <span style="color:#719e07">link</span>: ... //链接地址
+</code></pre></div><h3 id="mathjax">
+  Mathjax
+  <a class="anchor" href="#mathjax">#</a>
+</h3>
+<p>支持数学公式和化学方程式。</p>
+<p>启用：在<code>themes/lx/_config.yml</code>填写:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#719e07">mathjax</span>:
+  <span style="color:#719e07">enable</span>: <span style="color:#cb4b16">true</span>  <span style="color:#586e75">##true:启用 | false:停用</span>
+  <span style="color:#719e07">cdn</span>: //cdn.bootcss.com/mathjax/<span style="color:#2aa198">2.7.5</span>/latest.js?config=TeX-MML-AM_SVG
+</code></pre></div><p>在文章头填入<code>mathjax: true</code>即可在该页面启用评论:</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
+date: ...
+title: ...
+categories: ...
+tags: ...
+comment: ...
+mathjax: true //启用Mathjax
+---
+</code></pre></div><h3 id="字体设置">
+  字体设置
+  <a class="anchor" href="#%e5%ad%97%e4%bd%93%e8%ae%be%e7%bd%ae">#</a>
+</h3>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#719e07">font</span>:
+  <span style="color:#719e07">enable</span>: <span style="color:#cb4b16">true</span>
+  <span style="color:#719e07">host</span>: //fonts.googleapis.com
+  <span style="color:#719e07">codes</span>: <span style="color:#586e75">##代码字体</span>
+    <span style="color:#719e07">enable</span>: <span style="color:#cb4b16">true</span>
+    <span style="color:#719e07">family</span>: Fira Code
+  <span style="color:#719e07">else</span>: <span style="color:#586e75">##文字字体</span>
+    <span style="color:#719e07">enable</span>: <span style="color:#cb4b16">false</span>
+    <span style="color:#719e07">family</span>: 
+</code></pre></div><h2 id="文章写作样式">
+  文章写作样式
+  <a class="anchor" href="#%e6%96%87%e7%ab%a0%e5%86%99%e4%bd%9c%e6%a0%b7%e5%bc%8f">#</a>
+</h2>
+<h3 id="文章摘要">
+  文章摘要
+  <a class="anchor" href="#%e6%96%87%e7%ab%a0%e6%91%98%e8%a6%81">#</a>
+</h3>
+<p>在`</p>
+<p>`标签之前的内容将作为文章摘要在首页展示。</p>
+<h3 id="note-tag">
+  Note tag
+  <a class="anchor" href="#note-tag">#</a>
+</h3>
+<p>可选用<code>default</code>、<code>info</code>、<code>primary</code>、<code>success</code>、<code>warning</code>、<code>danger</code>。</p>
+<p>示例：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">{%note default%}
+<span style="color:#268bd2">### title
+</span><span style="color:#268bd2"></span>content
+{%endnote%}
+</code></pre></div><h3 id="label-tag">
+  Label tag
+  <a class="anchor" href="#label-tag">#</a>
+</h3>
+<p>可选用<code>default</code>、<code>info</code>、<code>primary</code>、<code>success</code>、<code>warning</code>、<code>danger</code>。</p>
+<p>示例：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">{%label default@content%}
+</code></pre></div><h3 id="button-tag">
+  Button tag
+  <a class="anchor" href="#button-tag">#</a>
+</h3>
+<p>标准样式：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">{%btn url,content,hand-o-right fa-fw,title%}
+</code></pre></div><p>说明：</p>
+<p><code>url</code>：指向的链接</p>
+<p><code>content</code>：内容</p>
+<p><code>hand-o-right fa-fw</code>：图标，可换成其他图标。<code>fa-fw</code>：fix width</p>
+<p><code>title</code>：title</p>
+<h3 id="center-quote-tag">
+  center-quote tag
+  <a class="anchor" href="#center-quote-tag">#</a>
+</h3>
+<p>示例：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">{%cq%}
+人类的悲欢并不相通，我只觉得他们吵闹。&lt;<span style="color:#268bd2">br</span>&gt;&lt;<span style="color:#268bd2">strong</span>&gt;——鲁迅&lt;/<span style="color:#268bd2">strong</span>&gt;
+{%endcq%}
+</code></pre></div><h3 id="video-tag">
+  video tag
+  <a class="anchor" href="#video-tag">#</a>
+</h3>
+<p>示例：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">{% video url %}
+</code></pre></div><p>说明：</p>
+<p><code>url</code>：视频链接</p>
+<h3 id="文章截断">
+  文章截断
+  <a class="anchor" href="#%e6%96%87%e7%ab%a0%e6%88%aa%e6%96%ad">#</a>
+</h3>
+<p>在文章中添加<code>&lt;!-- more --&gt;</code>即可在首页不显示该标签后的内容</p></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#hexo-theme-lx">Hexo-Theme-Lx</a></li>
+    <li><a href="#最近更新">最近更新</a>
+      <ul>
+        <li><a href="#v039">V0.3.9</a></li>
+      </ul>
+    </li>
+    <li><a href="#使用">使用：</a>
+      <ul>
+        <li><a href="#获取最稳定的版本">获取最稳定的版本：</a></li>
+        <li><a href="#获取具有最新特性的版本">获取具有最新特性的版本：</a></li>
+        <li><a href="#启用本主题">启用本主题：</a></li>
+      </ul>
+    </li>
+    <li><a href="#功能配置">功能配置</a>
+      <ul>
+        <li><a href="#统计">统计</a></li>
+        <li><a href="#本地搜索">本地搜索</a></li>
+        <li><a href="#评论">评论</a></li>
+        <li><a href="#social-links">Social Links</a></li>
+        <li><a href="#mathjax">Mathjax</a></li>
+        <li><a href="#字体设置">字体设置</a></li>
+      </ul>
+    </li>
+    <li><a href="#文章写作样式">文章写作样式</a>
+      <ul>
+        <li><a href="#文章摘要">文章摘要</a></li>
+        <li><a href="#note-tag">Note tag</a></li>
+        <li><a href="#label-tag">Label tag</a></li>
+        <li><a href="#button-tag">Button tag</a></li>
+        <li><a href="#center-quote-tag">center-quote tag</a></li>
+        <li><a href="#video-tag">video tag</a></li>
+        <li><a href="#文章截断">文章截断</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

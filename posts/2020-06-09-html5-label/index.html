@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="目录 #  脚本 &lt;template&gt; 通过 JavaScript 在运行时实例化内容的容器。 章节 &lt;section&gt; 文档中的一个章节。 &lt;nav&gt; 只包含导航链接的章节。 &lt;article&gt; 可以独立于内容其余部分的完整独立内容块。 &lt;aside&gt; 和页面内容关联度较低的内容——如果被删除，剩下的内容仍然很合理。 &lt;header&gt; 页面或章节的头部。 &lt;footer&gt; 页面或章节的尾部 &lt;main&gt; 文档中主要或重要的内容。 组织内容 &lt;figure&gt; 图片示例 &lt;figcaption&gt; 图片说明 文字形式 &lt;time&gt; 用于表示时间，兼容性较低 &lt;mark&gt; 高亮文字 &lt;ruby&gt; 注释文本，用于包裹rt，rp，用于显示如中文汉字和它的拼音等 &lt;rt&gt; ruby注释，如中文拼音 &lt;rp&gt; 不支持 ruby 注释显示的浏览器中提供友好的注释显示。 &lt;bdi&gt; 代表需要脱离 父元素文本方向的一段文本。它允许嵌入一段不同或未知文本方向格式的文本。 &lt;wbr&gt; 代表建议换行 (Word Break Opportunity) ，当文本太长需要换行时将会在此处添加换行符。 嵌入内容 &lt;embed&gt; 代表一个嵌入 的外部资源，如应用程序或交互内容。 &lt;video&gt; 代表一段视频 及其视频文件和字幕，并提供了播放视频的用户界面。 &lt;audio&gt; 代表一段声音 ，或音频流 。 &lt;source&gt; 为 &lt;video&gt; 或 &lt;audio&gt; 这类媒体元素指定媒体源 。 &lt;track&gt; 为 &lt;video&gt; 或 &lt;audio&gt; 这类媒体元素指定文本轨道（字幕） 。 &lt;canvas&gt; 代表位图区域 ，可以通过脚本在它上面实时呈现图形，如图表、游戏绘图等。 &lt;svg&gt; 定义一个嵌入式矢量图 。 &lt;math&gt; 定义一段数学公式 。 表单 &lt;datalist&gt; 代表提供给其他控件的一组预定义选项 。 &lt;keygen&gt; 代表一个密钥对生成器 控件。 &lt;output&gt; 代表计算值 。 &lt;progress&gt; 代表进度条 。 &lt;meter&gt; 代表滑动条 。 交互元素 &lt;details&gt; 代表一个用户可以(点击)获取额外信息或控件的小部件 。 &lt;summary&gt; 代表 &lt;details&gt; 元素的综述 或标题 。 &lt;menuitem&gt; 代表一个用户可以点击的菜单项。 &lt;menu&gt; 代表菜单。 ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="HTML5标签总结" />
+<meta property="og:description" content="目录 #  脚本 &lt;template&gt; 通过 JavaScript 在运行时实例化内容的容器。 章节 &lt;section&gt; 文档中的一个章节。 &lt;nav&gt; 只包含导航链接的章节。 &lt;article&gt; 可以独立于内容其余部分的完整独立内容块。 &lt;aside&gt; 和页面内容关联度较低的内容——如果被删除，剩下的内容仍然很合理。 &lt;header&gt; 页面或章节的头部。 &lt;footer&gt; 页面或章节的尾部 &lt;main&gt; 文档中主要或重要的内容。 组织内容 &lt;figure&gt; 图片示例 &lt;figcaption&gt; 图片说明 文字形式 &lt;time&gt; 用于表示时间，兼容性较低 &lt;mark&gt; 高亮文字 &lt;ruby&gt; 注释文本，用于包裹rt，rp，用于显示如中文汉字和它的拼音等 &lt;rt&gt; ruby注释，如中文拼音 &lt;rp&gt; 不支持 ruby 注释显示的浏览器中提供友好的注释显示。 &lt;bdi&gt; 代表需要脱离 父元素文本方向的一段文本。它允许嵌入一段不同或未知文本方向格式的文本。 &lt;wbr&gt; 代表建议换行 (Word Break Opportunity) ，当文本太长需要换行时将会在此处添加换行符。 嵌入内容 &lt;embed&gt; 代表一个嵌入 的外部资源，如应用程序或交互内容。 &lt;video&gt; 代表一段视频 及其视频文件和字幕，并提供了播放视频的用户界面。 &lt;audio&gt; 代表一段声音 ，或音频流 。 &lt;source&gt; 为 &lt;video&gt; 或 &lt;audio&gt; 这类媒体元素指定媒体源 。 &lt;track&gt; 为 &lt;video&gt; 或 &lt;audio&gt; 这类媒体元素指定文本轨道（字幕） 。 &lt;canvas&gt; 代表位图区域 ，可以通过脚本在它上面实时呈现图形，如图表、游戏绘图等。 &lt;svg&gt; 定义一个嵌入式矢量图 。 &lt;math&gt; 定义一段数学公式 。 表单 &lt;datalist&gt; 代表提供给其他控件的一组预定义选项 。 &lt;keygen&gt; 代表一个密钥对生成器 控件。 &lt;output&gt; 代表计算值 。 &lt;progress&gt; 代表进度条 。 &lt;meter&gt; 代表滑动条 。 交互元素 &lt;details&gt; 代表一个用户可以(点击)获取额外信息或控件的小部件 。 &lt;summary&gt; 代表 &lt;details&gt; 元素的综述 或标题 。 &lt;menuitem&gt; 代表一个用户可以点击的菜单项。 &lt;menu&gt; 代表菜单。 " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/posts/2020-06-09-html5-label/" />
+<meta property="article:published_time" content="2020-06-09T09:59:42+08:00" />
+<meta property="article:modified_time" content="2020-06-09T09:59:42+08:00" />
+<title>HTML5标签总结 | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/flex0001/" class="">Flex 布局教程：语法篇</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/flex0002/" class="">Flex 布局教程：实例篇</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-02-08-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87and%E6%96%B9%E6%B3%95/" class="">学习目标and方法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000003/" class="">互联网的基石</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-09-window-json-use/" class="">window.JSON的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-09-html5-label/" class="active">HTML5标签总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-07-async-use/" class="">async 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-04-wlfjscywv/" class="">JavaScript达到什么水平，可以写类似Vue的框架？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-06-01-js-mouse-event/" class="">JS 拖曳事件总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/2020-05-29-ajax-use/" class="">AJAX 的封装</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000001/" class="">Document API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000007/" class="">字符串</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000006/" class="">字面量增强</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/posts/a0000002/" class="">新版变量声明：let 和 const</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>HTML5标签总结</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#目录">目录</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/2020-06-09-html5-label/">HTML5标签总结</a>
+  </h1>
+  
+  <h5>2020-06-09 09:59</h5>
+
+
+
+  
+
+  
+
+
+  <p><h2 id="目录">
+  目录
+  <a class="anchor" href="#%e7%9b%ae%e5%bd%95">#</a>
+</h2>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">脚本
+&lt;<span style="color:#268bd2">template</span>&gt;      通过 JavaScript 在运行时实例化内容的容器。
+
+章节
+&lt;<span style="color:#268bd2">section</span>&gt;       文档中的一个章节。
+&lt;<span style="color:#268bd2">nav</span>&gt;           只包含导航链接的章节。
+&lt;<span style="color:#268bd2">article</span>&gt;       可以独立于内容其余部分的完整独立内容块。
+&lt;<span style="color:#268bd2">aside</span>&gt;         和页面内容关联度较低的内容——如果被删除，剩下的内容仍然很合理。
+&lt;<span style="color:#268bd2">header</span>&gt;        页面或章节的头部。
+&lt;<span style="color:#268bd2">footer</span>&gt;        页面或章节的尾部
+&lt;<span style="color:#268bd2">main</span>&gt;          文档中主要或重要的内容。
+
+组织内容
+&lt;<span style="color:#268bd2">figure</span>&gt;        图片示例
+&lt;<span style="color:#268bd2">figcaption</span>&gt;    图片说明
+
+文字形式
+&lt;<span style="color:#268bd2">time</span>&gt;          用于表示时间，兼容性较低
+&lt;<span style="color:#268bd2">mark</span>&gt;          高亮文字
+&lt;<span style="color:#268bd2">ruby</span>&gt;          注释文本，用于包裹rt，rp，用于显示如中文汉字和它的拼音等
+&lt;<span style="color:#268bd2">rt</span>&gt;            ruby注释，如中文拼音 
+&lt;<span style="color:#268bd2">rp</span>&gt;            不支持 ruby 注释显示的浏览器中提供友好的注释显示。
+&lt;<span style="color:#268bd2">bdi</span>&gt;           代表需要脱离 父元素文本方向的一段文本。它允许嵌入一段不同或未知文本方向格式的文本。
+&lt;<span style="color:#268bd2">wbr</span>&gt;           代表建议换行 (Word Break Opportunity) ，当文本太长需要换行时将会在此处添加换行符。 
+
+嵌入内容
+&lt;<span style="color:#268bd2">embed</span>&gt;         代表一个嵌入 的外部资源，如应用程序或交互内容。
+&lt;<span style="color:#268bd2">video</span>&gt;         代表一段视频 及其视频文件和字幕，并提供了播放视频的用户界面。
+&lt;<span style="color:#268bd2">audio</span>&gt;         代表一段声音 ，或音频流 。 
+&lt;<span style="color:#268bd2">source</span>&gt;        为 &lt;<span style="color:#268bd2">video</span>&gt; 或 &lt;<span style="color:#268bd2">audio</span>&gt; 这类媒体元素指定媒体源 。
+&lt;<span style="color:#268bd2">track</span>&gt;         为 &lt;<span style="color:#268bd2">video</span>&gt; 或 &lt;<span style="color:#268bd2">audio</span>&gt; 这类媒体元素指定文本轨道（字幕） 。
+&lt;<span style="color:#268bd2">canvas</span>&gt;        代表位图区域 ，可以通过脚本在它上面实时呈现图形，如图表、游戏绘图等。
+&lt;<span style="color:#268bd2">svg</span>&gt;           定义一个嵌入式矢量图 。
+&lt;<span style="color:#268bd2">math</span>&gt;          定义一段数学公式 。
+
+表单
+&lt;<span style="color:#268bd2">datalist</span>&gt;      代表提供给其他控件的一组预定义选项 。
+&lt;<span style="color:#268bd2">keygen</span>&gt;        代表一个密钥对生成器 控件。
+&lt;<span style="color:#268bd2">output</span>&gt;        代表计算值 。
+&lt;<span style="color:#268bd2">progress</span>&gt;      代表进度条 。
+&lt;<span style="color:#268bd2">meter</span>&gt;         代表滑动条 。
+
+交互元素
+&lt;<span style="color:#268bd2">details</span>&gt;       代表一个用户可以(点击)获取额外信息或控件的小部件 。
+&lt;<span style="color:#268bd2">summary</span>&gt;       代表 &lt;<span style="color:#268bd2">details</span>&gt; 元素的综述 或标题 。
+&lt;<span style="color:#268bd2">menuitem</span>&gt;      代表一个用户可以点击的菜单项。
+&lt;<span style="color:#268bd2">menu</span>&gt;          代表菜单。
+</code></pre></div></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#目录">目录</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

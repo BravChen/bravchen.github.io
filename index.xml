@@ -1,0 +1,1715 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Introduction on MrChen</title>
+    <link>https://bravchen.github.io/</link>
+    <description>Recent content in Introduction on MrChen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 Jun 2020 18:31:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://bravchen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Flex 布局教程：语法篇</title>
+      <link>https://bravchen.github.io/posts/flex0001/</link>
+      <pubDate>Tue, 19 May 2020 21:38:35 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/flex0001/</guid>
+      <description>作者： 阮一峰
+日期： 2015年7月10日
+ 网页布局（layout）是 CSS 的一个重点应用。
+布局的传统解决方案，基于盒状模型，依赖 display 属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。
+2009年，W3C 提出了一种新的方案&amp;mdash;-Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。
+Flex 布局将成为未来布局的首选方案。本文介绍它的语法，下一篇文章给出常见布局的 Flex 写法。网友 JailBreak 为本文的所有示例制作了 Demo，也可以参考。
+以下内容主要参考了下面两篇文章：A Complete Guide to Flexbox 和 A Visual Guide to CSS3 Flexbox Properties。
+一、Flex 布局是什么？ #  Flex 是 Flexible Box 的缩写，意为&amp;quot;弹性布局&amp;rdquo;，用来为盒状模型提供最大的灵活性。
+任何一个容器都可以指定为 Flex 布局。
+.box{ display: flex; } 行内元素也可以使用 Flex 布局。
+.box{ display: inline-flex; } Webkit 内核的浏览器，必须加上-webkit前缀。
+.box{ display: -webkit-flex; /* Safari */ display: flex; } 注意，设为 Flex 布局以后，子元素的float、clear和vertical-align属性将失效。</description>
+    </item>
+    
+    <item>
+      <title>多人博客项目(简记)</title>
+      <link>https://bravchen.github.io/history/2019-10-10-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E7%AE%80%E8%AE%B0/</link>
+      <pubDate>Thu, 10 Oct 2019 22:53:55 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-10-10-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E7%AE%80%E8%AE%B0/</guid>
+      <description>Vue-Cli #  安装 #  可以使用下列任一命令安装这个新的包
+npm install -g @vue/cli # OR yarn global add @vue/cli 安装后使用，以下命令查看版本
+vue --version  官方文档：Vue-Cli 安装
+ 使用 Vue-2.x 模板 #  作用：使用旧版的 Vue 功能
+Vue CLI &amp;gt;= 3 和旧版使用了相同的 vue 命令，所以 Vue CLI 2 (vue-cli) 被覆盖了。如果你仍然需要使用旧版本的 vue init 功能，你可以全局安装一个桥接工具：
+npm install -g @vue/cli-init # `vue init` 的运行效果将会跟 `vue-cli@2.x` 相同 vue init webpack my-project 当前目录创建项目 #  执行以下命令，在当前目录下创建
+vue init webpack .  官方文档：拉取-2-x-模板-旧版本</description>
+    </item>
+    
+    <item>
+      <title>键盘导航</title>
+      <link>https://bravchen.github.io/history/2019-09-15-keyboard-nav/</link>
+      <pubDate>Sun, 15 Sep 2019 22:53:55 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-09-15-keyboard-nav/</guid>
+      <description>键盘导航 #  案例预览：xxx
+代码链接：xxx
+使用的API #  Element #  创建标签
+element = document.createElement(&amp;#39;div&amp;#39;) 追加到布局中
+element.appendChild(divs) 在元素中追加文本
+element.textContent = &amp;#34;Hi&amp;#34; 给元素设置class样式
+element.className = &amp;#39;demo&amp;#39; 监听整个文档的键盘事件
+element.onkeypress = event handling code // 实例 document.onkeypress = function(x){ console.log(x) } 获取当前事件的元素
+element.onclick = function(e){ console.log(e.target) // e.target 即当前元素 } 获取上一个兄弟节点
+element.previousSibling浏览器地址 #  修改浏览器当前地址栏的地址
+location.href = &amp;#39;http://xxx.com&amp;#39; 在新窗口打开地址
+window.open(&amp;#39;http://xxx.com&amp;#39;, &amp;#39;_blank&amp;#39;) 语法
+window.open(地址, 打开方式) LocalStorage #  在 localStorage 中存储一个哈希
+let keyValue = JSON.</description>
+    </item>
+    
+    <item>
+      <title>Canvas画板</title>
+      <link>https://bravchen.github.io/history/2019-09-14-canvas/</link>
+      <pubDate>Sat, 14 Sep 2019 21:39:52 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-09-14-canvas/</guid>
+      <description>画板案例 #  使用的单词 #   dot ——— n.点，小圆点； drawLine ——— n. 画直线； circle ——— n. 圆, 圆周; 圈, 环状物；  Canvas 大小自适应 #  设置自适应窗口的 Canvas 画板大小
+首先获取浏览器窗口当前最大化时的宽高
+let pageWidth = window.screen.availWidth let pageHeight = window.screen.availHeight 使用 window 窗口改变事件处理函数，每次窗口改变都执行一次 将当前画布记录下来放到一个变量中，然后重置画布大小为窗口最大化的大小，再将当前画布的放回去，这样即时调整画布也不会重置 canvas 的内容，并且调整窗口不会显示滚动条。
+代码如下：
+let canvas = document.querySelector(&amp;#39;#draw&amp;#39;) let context = canvas.getContext(&amp;#39;2d&amp;#39;) autoSetCanvasSize() /* 设置画板大小自适应 */ function autoSetCanvasSize(){ let pageWidth = window.screen.availWidth let pageHeight = window.screen.availHeight canvas.width = pageWidth canvas.</description>
+    </item>
+    
+    <item>
+      <title>安卓音乐播放器案例</title>
+      <link>https://bravchen.github.io/history/2019-08-28-%E5%AE%89%E5%8D%93%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E6%A1%88%E4%BE%8B/</link>
+      <pubDate>Wed, 28 Aug 2019 22:59:36 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-08-28-%E5%AE%89%E5%8D%93%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E6%A1%88%E4%BE%8B/</guid>
+      <description>搭建环境 #  首先新建一个git仓库，然后初始化
+git init 然后再初始化一个配置文件，用于打包工具
+npm init -y 安装需要的组件：
+npm install --save-dev parcel-bundler 创建需要的目录文件：
+  dist
+  src
+ js scss svg    index.html
+  在 src 中创建一个 js 文件和 scss 文件并在主页引入：
+scss文件写法：
+$color1: #ececec; $color2: #ff0000; body { background-color: color1; h2 { color: color2; } } 然后开一个测试服务器，命令：
+npx parcel index.html 将代码自动编译到待发布的 dist 文件夹：
+npx parcel build index.html 如果运行上面的命令有这样的报错：
+xxx: Error in parsing SVG: Unbound namespa ce prefix: &amp;#34;xlink&amp;#34; 那就给 html 页面的 svg 标签加上一个xmlns:xlink=&amp;quot;http://www.</description>
+    </item>
+    
+    <item>
+      <title>Flex 布局教程：实例篇</title>
+      <link>https://bravchen.github.io/posts/flex0002/</link>
+      <pubDate>Tue, 19 May 2020 22:31:32 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/flex0002/</guid>
+      <description>作者： 阮一峰
+日期： 2015年7月14日
+ 上一篇文章介绍了Flex布局的语法，今天介绍常见布局的Flex写法。
+你会看到，不管是什么布局，Flex往往都可以几行命令搞定。
+我只列出代码，详细的语法解释请查阅《Flex布局教程：语法篇》。我的主要参考资料是Landon Schropp的文章和Solved by Flexbox。
+一、骰子的布局 #  骰子的一面，最多可以放置9个点。
+下面，就来看看Flex如何实现，从1个点到9个点的布局。你可以到codepen查看Demo。
+如果不加说明，本节的HTML模板一律如下。
+&amp;lt;div class=&amp;#34;box&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;item&amp;#34;&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt; 上面代码中，div元素（代表骰子的一个面）是Flex容器，span元素（代表一个点）是Flex项目。如果有多个项目，就要添加多个span元素，以此类推。
+1.1 单项目 #  首先，只有左上角1个点的情况。Flex布局默认就是首行左对齐，所以一行代码就够了。
+.box { display: flex; } 设置项目的对齐方式，就能实现居中对齐和右对齐。
+.box { display: flex; justify-content: center; } .box { display: flex; justify-content: flex-end; } 设置交叉轴对齐方式，可以垂直移动主轴。
+.box { display: flex; align-items: center; } .box { display: flex; justify-content: center; align-items: center; } .box { display: flex; justify-content: center; align-items: flex-end; } .</description>
+    </item>
+    
+    <item>
+      <title>学习目标and方法</title>
+      <link>https://bravchen.github.io/posts/2020-02-08-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87and%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/2020-02-08-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87and%E6%96%B9%E6%B3%95/</guid>
+      <description>学习的内因，外因 #  外因 #    关注前端的人比 Java Python 少多了
+  学习前端的人少，但是公司的需求并不少
+  前端工资高
+  内因 #    对前端有兴趣
+  希望自己的工作是可积累的
+  希望自己的工作是有挑战性的
+  三个忠告 #  忠告一 #  遗忘曲线：学习任何东西你都会忘掉，所以你需要记笔记和回顾
+ 总结：每次学习新知识后不间断的复习3-4天
+ 忠告二 #  你不可能一年就学会写文章
+多抄一些优秀的代码
+多使用 百度、Google 搜索
+看到三遍以上看不懂的内容，说明遇到了知识的诅咒
+ 总结：编程就像写文章，你需要临摹很多人的代码，才能原创一小段自己的代码
+ 忠告三 #  Done is better than Perfect
+做出来优于做到完美，不要在一开始就追求完美。
+ 总结：先做出来，再追求完美去完善
+ </description>
+    </item>
+    
+    <item>
+      <title>函数与对象的语法糖(索引)</title>
+      <link>https://bravchen.github.io/history/2019-12-12-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E8%AF%AD%E6%B3%95%E7%B3%96%E7%AE%80%E7%89%88/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-12-12-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E8%AF%AD%E6%B3%95%E7%B3%96%E7%AE%80%E7%89%88/</guid>
+      <description>函数与对象的语法糖 #   函数默认参数  与 Python 的区别 http://effbot.org/zone/default-values.htm   剩余参数  Array.prototype.slice.call(arguments,2) Array.from(arguments).slice(2) function fn (a,b, &amp;hellip;c){}   展开操作  [&amp;hellip;iterableObj] = [1, 3, 5, 7, 9]; [0, 2, &amp;hellip;iterableObj, 4, 6, 8];   解构赋值  [a, b] = [b, a] [a, b, &amp;hellip;rest] = [10, 20, 30, 40, 50] let {name, age} = frank [a=5, b=7] = [1]; [a, b] = f() [a, , b] = f(); {p: foo, q: bar} = o let {a = 10, b = 5} = {a: 3}; let {a:aa = 10, b:bb = 5} = {a: 3}; 对象浅拷贝 对象合并 MDN 上更多的例子   对象属性加强  obj = { x, y } obj = {[&amp;ldquo;baz&amp;rdquo; + quux() ]: 42} 函数属性可以缩写    新的字符串 #    多行字符串</description>
+    </item>
+    
+    <item>
+      <title>函数与对象的语法糖一</title>
+      <link>https://bravchen.github.io/history/2019-12-01-function-object-sugar/</link>
+      <pubDate>Sun, 01 Dec 2019 18:32:01 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-12-01-function-object-sugar/</guid>
+      <description>或语法(||) #  传参案例 #  function sum(a, b){ console.log(b) return a+b } console.log(&amp;#39;返回值：&amp;#39;+sum(1)) 此时 b 的值是 undefined ，所以结果是 NaN 无法相加，打出的 b 为 undefined
+为了避免这种情况，可以使用以下写法：
+ES6写法 #  如果 a 或 b === undefined，则等于 0 。相当于未传值时的默认值为 0
+function sum(a=0, b=0){ return a+b }  其中 a=0 相当于 if(a===undefined){ a=0 }，b 同理
+ ES6之前的写法 #  如果 b 为真，则 b = b 否则 b = 0 ，a 同理
+function sum(a, b){ a = a || 0 b = b || 0 return a+b }  其中 b = b || 0 相当于 if(b){ b = b }else{ b = 0 }</description>
+    </item>
+    
+    <item>
+      <title>函数与对象的语法糖二</title>
+      <link>https://bravchen.github.io/history/2019-12-01-%E5%87%BD%E6%95%B0%E4%B8%8E%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96%E4%BA%8C/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-12-01-%E5%87%BD%E6%95%B0%E4%B8%8E%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96%E4%BA%8C/</guid>
+      <description>解构赋值 #  a b 值转换 #  let a = 1 let b = 2; [a, b] = [b, a] console.log(a, b)  注：使用这个方法在方括号，或括号前没有内容需要在前面添加一个分号，否则会合并为一行
+ 拓展：ES6之前的转换
+let a = 1 let b = 2 let temp = a a = b b = temp console.log(a, b) 变量批量声明 #  使用数组批量声明变量，a、b表示前两个值 rest 表示后面所有值组成的数组
+let [a, b, ...rest] = [10, 20, 30, 40, 50] console.log(a, b) console.log(rest) // 输出 // 10 20 // [30, 40, 50]  注：剩余参数(.</description>
+    </item>
+    
+    <item>
+      <title>互联网的基石</title>
+      <link>https://bravchen.github.io/posts/a0000003/</link>
+      <pubDate>Wed, 15 Apr 2020 07:11:52 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/a0000003/</guid>
+      <description>WWW 的历史 #  1990年 万维网（World Wide Web）出生的年份。这一年 Tim Berners-Lee 发明了用网址就能访问网页的办法，他发明了第一个网页、第一个浏览器和第一个服务器。
+curl 命令 #  发请求，同时接收响应
+Markdown #  Markdown 不是一个被发明的东西，是被人们总结的语法，所以 MarkDown 的语法形式有很多。
+WWW 的发明 #  Tim Berners-Lee（下文中称为李爵士）在 1989 年至 1992 年间，发明了 WWW（World Wide Web），一种适用于全世界的网络。主要包含三个概念
+ URI，俗称网址 HTTP，两个电脑之间传输内容的协议 HTML，超级文本，主要用来做页面跳转  URL 的作用是能让你访问一个页面，HTTP 的作用是让你能下载这个页面，HTML 的作用是让你能看懂这个页面。这是一个简单而完美的系统。李爵士除了发明了这些概念，还付诸了行动：
+ 发明了第一个服务器 发明了第一个浏览器 写出了第一个网页，地址：info.cern.ch ，注：网站与网页是不同的，网站是有很多网页的，网页只是一个页面。  URI是什么 #  U(统一)R(资源)I(标识符)
+URI 分为 URL 和 URN 两种
+URN #  URN(统一资源名称)
+ISBN: 9787115275790 就是一个 URN，通过 URN 你可以确定一个「唯一的」资源，ISBN: 9787115275790 对应的资源的是《JavaScript 高级程序设计（第三版）》这本书。你去是介绍任何一个图书馆、书店，他们都知道是这本书。</description>
+    </item>
+    
+    <item>
+      <title>模块化</title>
+      <link>https://bravchen.github.io/history/0cd88b5c/</link>
+      <pubDate>Mon, 25 May 2020 14:46:09 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/history/0cd88b5c/</guid>
+      <description>MDN 文档
+引入 import：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/import
+导出 export：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/export
+模块化概念 #  模块：豆腐块
+依赖：用到了
+导出：给别人用
+ES6导出模块
+let data2 = {a: 1, b: 2, c: 3} export default data2 ES6引入模块
+JS中引入（在JS中引入时，必须以 ./data.js 的格式）
+import data2 from &amp;#39;./data.js&amp;#39; html中引入（在html中引入时，必须添加 type=&amp;quot;module&amp;quot;）
+&amp;lt;script type=&amp;#34;module&amp;#34; src=&amp;#34;./main.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 导出指定变量
+let num = 10 let string = &amp;#39;xxx&amp;#39; let data2 = {a: 1, b: 2, c: 3} export {num, string, data2} JS中引入指定变量
+import {num, string, data2} from &amp;#39;./data.js&amp;#39; 引入的简写：
+import * as name from &amp;#39;.</description>
+    </item>
+    
+    <item>
+      <title>[项目] Vue 多人共享博客</title>
+      <link>https://bravchen.github.io/history/2020-04-07-vue%E5%A4%9A%E4%BA%BA%E5%85%B1%E4%BA%AB%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2020-04-07-vue%E5%A4%9A%E4%BA%BA%E5%85%B1%E4%BA%AB%E5%8D%9A%E5%AE%A2/</guid>
+      <description>curl 命令 #  curl -d &amp;#34;请求的参数&amp;#34; -X &amp;#34;请求类型&amp;#34; -i &amp;#34;显示响应头，以及响应体&amp;#34; -b &amp;#34;传入Cookie&amp;#34; curl -d &amp;#34;username=chenning&amp;amp;password=123&amp;#34; -X &amp;#34;http://blog-server.com/auth/register&amp;#34; -i 敏感操作，如创建博客，需要携带用户Cookie</description>
+    </item>
+    
+    <item>
+      <title>Javascript模块化编程（一）：模块的写法</title>
+      <link>https://bravchen.github.io/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%80%E6%A8%A1%E5%9D%97%E7%9A%84%E5%86%99%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%80%E6%A8%A1%E5%9D%97%E7%9A%84%E5%86%99%E6%B3%95/</guid>
+      <description>作者： 阮一峰
+日期： 2012年10月26日
+随着网站逐渐变成&amp;rdquo;互联网应用程序&amp;quot;，嵌入网页的Javascript代码越来越庞大，越来越复杂。
+
+网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试等等&amp;hellip;&amp;hellip;开发者不得不使用软件工程的方法，管理网页的业务逻辑。
+Javascript模块化编程，已经成为一个迫切的需求。理想情况下，开发者只需要实现核心的业务逻辑，其他都可以加载别人已经写好的模块。
+但是，Javascript不是一种模块化编程语言，它不支持&amp;rdquo;类&amp;quot;（class），更遑论&amp;quot;模块&amp;rdquo;（module）了。（正在制定中的ECMAScript标准第六版，将正式支持&amp;quot;类&amp;quot;和&amp;quot;模块&amp;rdquo;，但还需要很长时间才能投入实用。）
+Javascript社区做了很多努力，在现有的运行环境中，实现&amp;quot;模块&amp;quot;的效果。本文总结了当前＂Javascript模块化编程＂的最佳实践，说明如何投入实用。虽然这不是初级教程，但是只要稍稍了解Javascript的基本语法，就能看懂。
+一、原始写法
+模块就是实现特定功能的一组方法。
+只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。
+function m1(){ //... } function m2(){ //... } 上面的函数m1()和m2()，组成一个模块。使用的时候，直接调用就行了。
+这种做法的缺点很明显：&amp;ldquo;污染&amp;quot;了全局变量，无法保证不与其他模块发生变量名冲突，而且模块成员之间看不出直接关系。
+二、对象写法
+为了解决上面的缺点，可以把模块写成一个对象，所有的模块成员都放到这个对象里面。
+var module1 = new Object({ _count : 0, m1 : function (){ //...  }, m2 : function (){ //...  } }); 上面的函数m1()和m2(），都封装在module1对象里。使用的时候，就是调用这个对象的属性。
+module1.m1(); 但是，这样的写法会暴露所有模块成员，内部状态可以被外部改写。比如，外部代码可以直接改变内部计数器的值。
+module1._count = 5; 三、立即执行函数写法
+使用&amp;rdquo;立即执行函数&amp;quot;（Immediately-Invoked Function Expression，IIFE），可以达到不暴露私有成员的目的。
+var module1 = (function(){ var _count = 0; var m1 = function(){ //.</description>
+    </item>
+    
+    <item>
+      <title>Javascript模块化编程（二）：AMD规范</title>
+      <link>https://bravchen.github.io/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%BA%8Camd%E8%A7%84%E8%8C%83/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%BA%8Camd%E8%A7%84%E8%8C%83/</guid>
+      <description>作者： 阮一峰
+日期： 2012年10月30日
+这个系列的第一部分介绍了Javascript模块的基本写法，今天介绍如何规范地使用模块。
+（接上文）
+七、模块的规范
+先想一想，为什么模块很重要？
+因为有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。
+但是，这样做有一个前提，那就是大家必须以同样的方式编写模块，否则你有你的写法，我有我的写法，岂不是乱了套！考虑到Javascript模块现在还没有官方规范，这一点就更重要了。
+目前，通行的Javascript模块规范共有两种：CommonJS和AMD。我主要介绍AMD，但是要先从CommonJS讲起。
+八、CommonJS
+2009年，美国程序员Ryan Dahl创造了node.js项目，将javascript语言用于服务器端编程。
+这标志&amp;quot;Javascript模块化编程&amp;quot;正式诞生。因为老实说，在浏览器环境下，没有模块也不是特别大的问题，毕竟网页程序的复杂性有限；但是在服务器端，一定要有模块，与操作系统和其他应用程序互动，否则根本没法编程。
+node.js的模块系统，就是参照CommonJS规范实现的。在CommonJS中，有一个全局性方法require()，用于加载模块。假定有一个数学模块math.js，就可以像下面这样加载。
+ 　var math = require(&amp;lsquo;math&amp;rsquo;);
+ 然后，就可以调用模块提供的方法：
+ 　var math = require(&amp;lsquo;math&amp;rsquo;);
+　math.add(2,3); // 5
+ 因为这个系列主要针对浏览器编程，不涉及node.js，所以对CommonJS就不多做介绍了。我们在这里只要知道，require()用于加载模块就行了。
+九、浏览器环境
+有了服务器端模块以后，很自然地，大家就想要客户端模块。而且最好两者能够兼容，一个模块不用修改，在服务器和浏览器都可以运行。
+但是，由于一个重大的局限，使得CommonJS规范不适用于浏览器环境。还是上一节的代码，如果在浏览器中运行，会有一个很大的问题，你能看出来吗？
+ 　var math = require(&amp;lsquo;math&amp;rsquo;);
+　math.add(2, 3);
+ 第二行math.add(2, 3)，在第一行require(&amp;lsquo;math&amp;rsquo;)之后运行，因此必须等math.js加载完成。也就是说，如果加载时间很长，整个应用就会停在那里等。
+这对服务器端不是一个问题，因为所有的模块都存放在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间。但是，对于浏览器，这却是一个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等很长时间，浏览器处于&amp;quot;假死&amp;quot;状态。
+因此，浏览器端的模块，不能采用&amp;quot;同步加载&amp;rdquo;（synchronous），只能采用&amp;quot;异步加载&amp;rdquo;（asynchronous）。这就是AMD规范诞生的背景。
+十、AMD
+AMD是&amp;quot;Asynchronous Module Definition&amp;quot;的缩写，意思就是&amp;quot;异步模块定义&amp;rdquo;。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。
+AMD也采用require()语句加载模块，但是不同于CommonJS，它要求两个参数：
+ 　require([module], callback);
+ 第一个参数[module]，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。如果将前面的代码改写成AMD形式，就是下面这样：
+ 　require([&amp;lsquo;math&amp;rsquo;], function (math) {</description>
+    </item>
+    
+    <item>
+      <title>Javascript模块化编程（三）：require.js的用法</title>
+      <link>https://bravchen.github.io/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%89require.js%E7%9A%84%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%89require.js%E7%9A%84%E7%94%A8%E6%B3%95/</guid>
+      <description>作者： 阮一峰
+日期： 2012年11月 7日
+这个系列的第一部分和第二部分，介绍了Javascript模块原型和理论概念，今天介绍如何将它们用于实战。
+我采用的是一个非常流行的库require.js。
+一、为什么要用require.js？
+最早的时候，所有Javascript代码都写在一个文件里面，只要加载这一个文件就够了。后来，代码越来越多，一个文件不够了，必须分成多个文件，依次加载。下面的网页代码，相信很多人都见过。
+&amp;lt;script src=&amp;#34;1.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;2.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;3.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;4.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;5.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;6.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 这段代码依次加载多个js文件。
+这样的写法有很大的缺点。首先，加载的时候，浏览器会停止网页渲染，加载文件越多，网页失去响应的时间就会越长；其次，由于js文件之间存在依赖关系，因此必须严格保证加载顺序（比如上例的1.js要在2.js的前面），依赖性最大的模块一定要放到最后加载，当依赖关系很复杂的时候，代码的编写和维护都会变得困难。
+require.js的诞生，就是为了解决这两个问题：
+　　（1）实现js文件的异步加载，避免网页失去响应；
+　（2）管理模块之间的依赖性，便于代码的编写和维护。
+二、require.js的加载
+使用require.js的第一步，是先去官方网站下载最新版本。
+下载后，假定把它放在js子目录下面，就可以加载了。
+&amp;lt;script src=&amp;#34;js/require.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 有人可能会想到，加载这个文件，也可能造成网页失去响应。解决办法有两个，一个是把它放在网页底部加载，另一个是写成下面这样：
+&amp;lt;script src=&amp;#34;js/require.js&amp;#34; defer async=&amp;#34;true&amp;#34; &amp;gt;&amp;lt;/script&amp;gt; async 属性表明这个文件需要异步加载，避免网页失去响应。IE不支持这个属性，只支持defer，所以把defer也写上。
+加载require.js以后，下一步就要加载我们自己的代码了。假定我们自己的代码文件是main.js，也放在js目录下面。那么，只需要写成下面这样就行了：
+&amp;lt;script src=&amp;#34;js/require.js&amp;#34; data-main=&amp;#34;js/main&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; data-main 属性的作用是，指定网页程序的主模块。在上例中，就是js目录下面的main.js，这个文件会第一个被require.js加载。由于require.js默认的文件后缀名是js，所以可以把main.js简写成main。
+三、主模块的写法
+上一节的main.js，我把它称为&amp;quot;主模块&amp;rdquo;，意思是整个网页的入口代码。它有点像C语言的main()函数，所有代码都从这儿开始运行。
+下面就来看，怎么写main.js。
+如果我们的代码不依赖任何其他模块，那么可以直接写入javascript代码。
+// main.js alert(&amp;#34;加载成功！&amp;#34;); 但这样的话，就没必要使用require.js了。真正常见的情况是，主模块依赖于其他模块，这时就要使用AMD规范定义的的require()函数。
+// main.js require([&amp;#39;moduleA&amp;#39;, &amp;#39;moduleB&amp;#39;, &amp;#39;moduleC&amp;#39;], function (moduleA, moduleB, moduleC){ // some code here }); require()函数接受两个参数。第一个参数是一个数组，表示所依赖的模块，上例就是[&amp;lsquo;moduleA&amp;rsquo;, &amp;lsquo;moduleB&amp;rsquo;, &amp;lsquo;moduleC&amp;rsquo;]，即主模块依赖这三个模块；第二个参数是一个回调函数，当前面指定的模块都加载成功后，它将被调用。加载的模块会以参数形式传入该函数，从而在回调函数内部就可以使用这些模块。</description>
+    </item>
+    
+    <item>
+      <title>[高级] 35 - JSONP</title>
+      <link>https://bravchen.github.io/history/2020-03-31-jsonp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2020-03-31-jsonp/</guid>
+      <description>数据库 #  只要能够长久的存放数据，就是数据库
+  文件系统是一种数据库 (例: window文件资源管理器)
+  MySQL是一种数据库
+  MySQL的由来 #  My 是作者女儿名字的缩写，SQL 是一种查询语言
+使用到的JS功能 #  字符串转数字 #  let n = &amp;#39;1&amp;#39; let number /* 三种字符串转数字方法 */ number = n - 0 number = +n number = parseInt(n, 10) 伪随机数 Math.random #  Math.random() 返回 0-1 之间的一个小数
+Math.random() 函数返回一个浮点, 伪随机数在范围从0到小于1
+最早的前后端交互案例 #  GitHub 地址: https://github.com/ChenNing02/nodejs-payment
+img发请求案例 #  GitHub 地址: https://github.com/ChenNing02/nodejs-post-demo-img</description>
+    </item>
+    
+    <item>
+      <title>Generator 函数的含义与用法</title>
+      <link>https://bravchen.github.io/docs/generator%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E4%B8%8E%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/generator%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E4%B8%8E%E7%94%A8%E6%B3%95/</guid>
+      <description>作者： 阮一峰
+日期： 2015年4月24日
+ 本文是《深入掌握 ECMAScript 6 异步编程》系列文章的第一篇。
+  Generator函数的含义与用法 Thunk函数的含义与用法 co函数库的含义与用法 async函数的含义与用法   异步编程对 JavaScript 语言太重要。JavaScript 只有一根线程，如果没有异步编程，根本没法用，非卡死不可。
+以前，异步编程的方法，大概有下面四种。
+  回调函数 事件监听 发布/订阅 Promise 对象   ECMAScript 6 （简称 ES6 ）作为下一代 JavaScript 语言，将 JavaScript 异步编程带入了一个全新的阶段。这组系列文章的主题，就是介绍更强大、更完善的 ES6 异步编程方法。
+新方法比较抽象，初学时，我常常感到费解，直到很久以后才想通，**异步编程的语法目标，就是怎样让它更像同步编程。**这组系列文章，将帮助你深入理解 JavaScript 异步编程的本质。所有将要讲到的内容，都已经实现了。也就是说，马上就能用，套用一句广告语，就是&amp;quot;未来已来&amp;rdquo;。
+一、什么是异步？ #  所谓&amp;quot;异步&amp;rdquo;，简单说就是一个任务分成两段，先执行第一段，然后转而执行其他任务，等做好了准备，再回过头执行第二段。比如，有一个任务是读取文件进行处理，异步的执行过程就是下面这样。
+上图中，任务的第一段是向操作系统发出请求，要求读取文件。然后，程序执行其他任务，等到操作系统返回文件，再接着执行任务的第二段（处理文件）。
+**这种不连续的执行，就叫做异步。**相应地，连续的执行，就叫做同步。
+上图就是同步的执行方式。由于是连续执行，不能插入其他任务，所以操作系统从硬盘读取文件的这段时间，程序只能干等着。
+二、回调函数的概念 #  JavaScript 语言对异步编程的实现，就是回调函数。**所谓回调函数，就是把任务的第二段单独写在一个函数里面，等到重新执行这个任务的时候，就直接调用这个函数。**它的英语名字 callback，直译过来就是&amp;quot;重新调用&amp;rdquo;。
+读取文件进行处理，是这样写的。
+fs.readFile(&amp;#39;/etc/passwd&amp;#39;, function (err, data) { if (err) throw err; console.log(data); }); 上面代码中，readFile 函数的第二个参数，就是回调函数，也就是任务的第二段。等到操作系统返回了 /etc/passwd 这个文件以后，回调函数才会执行。</description>
+    </item>
+    
+    <item>
+      <title>Javascript异步编程的4种方法</title>
+      <link>https://bravchen.github.io/docs/javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%E7%9A%844%E7%A7%8D%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%E7%9A%844%E7%A7%8D%E6%96%B9%E6%B3%95/</guid>
+      <description>作者： 阮一峰
+日期： 2012年12月21日
+ 你可能知道，Javascript语言的执行环境是&amp;quot;单线程&amp;rdquo;（single thread）。
+所谓&amp;quot;单线程&amp;rdquo;，就是指一次只能完成一件任务。如果有多个任务，就必须排队，前面一个任务完成，再执行后面一个任务，以此类推。
+这种模式的好处是实现起来比较简单，执行环境相对单纯；坏处是只要有一个任务耗时很长，后面的任务都必须排队等着，会拖延整个程序的执行。常见的浏览器无响应（假死），往往就是因为某一段Javascript代码长时间运行（比如死循环），导致整个页面卡在这个地方，其他任务无法执行。
+为了解决这个问题，Javascript语言将任务的执行模式分成两种：同步（Synchronous）和异步（Asynchronous）。
+&amp;ldquo;同步模式&amp;quot;就是上一段的模式，后一个任务等待前一个任务结束，然后再执行，程序的执行顺序与任务的排列顺序是一致的、同步的；&amp;ldquo;异步模式&amp;quot;则完全不同，每一个任务有一个或多个回调函数（callback），前一个任务结束后，不是执行后一个任务，而是执行回调函数，后一个任务则是不等前一个任务结束就执行，所以程序的执行顺序与任务的排列顺序是不一致的、异步的。
+&amp;ldquo;异步模式&amp;quot;非常重要。在浏览器端，耗时很长的操作都应该异步执行，避免浏览器失去响应，最好的例子就是Ajax操作。在服务器端，&amp;ldquo;异步模式&amp;quot;甚至是唯一的模式，因为执行环境是单线程的，如果允许同步执行所有http请求，服务器性能会急剧下降，很快就会失去响应。
+本文总结了&amp;quot;异步模式&amp;quot;编程的4种方法，理解它们可以让你写出结构更合理、性能更出色、维护更方便的Javascript程序。
+一、回调函数 #  这是异步编程最基本的方法。
+假定有两个函数f1和f2，后者等待前者的执行结果。
+f1(); f2(); 如果f1是一个很耗时的任务，可以考虑改写f1，把f2写成f1的回调函数。
+function f1(callback){ setTimeout(function () { // f1的任务代码 　callback(); }, 1000); } 执行代码就变成下面这样：
+f1(f2); 采用这种方式，我们把同步操作变成了异步操作，f1不会堵塞程序运行，相当于先执行程序的主要逻辑，将耗时的操作推迟执行。
+回调函数的优点是简单、容易理解和部署，缺点是不利于代码的阅读和维护，各个部分之间高度耦合（Coupling），流程会很混乱，而且每个任务只能指定一个回调函数。
+二、事件监听 #  另一种思路是采用事件驱动模式。任务的执行不取决于代码的顺序，而取决于某个事件是否发生。
+还是以f1和f2为例。首先，为f1绑定一个事件（这里采用的jQuery的写法）。
+f1.on(&amp;#39;done&amp;#39;, f2); 上面这行代码的意思是，当f1发生done事件，就执行f2。然后，对f1进行改写：
+function f1(){ setTimeout(function () { // f1的任务代码 　f1.trigger(&amp;#39;done&amp;#39;); }, 1000); } f1.trigger(&#39;done&#39;) 表示，执行完成后，立即触发done事件，从而开始执行f2。
+这种方法的优点是比较容易理解，可以绑定多个事件，每个事件可以指定多个回调函数，而且可以&amp;ldquo;去耦合&amp;rdquo;（Decoupling），有利于实现模块化。缺点是整个程序都要变成事件驱动型，运行流程会变得很不清晰。
+三、发布/订阅 #  上一节的&amp;quot;事件&amp;rdquo;，完全可以理解成&amp;quot;信号&amp;rdquo;。
+我们假定，存在一个&amp;quot;信号中心&amp;rdquo;，某个任务执行完成，就向信号中心&amp;quot;发布&amp;rdquo;（publish）一个信号，其他任务可以向信号中心&amp;quot;订阅&amp;rdquo;（subscribe）这个信号，从而知道什么时候自己可以开始执行。这就叫做&amp;ldquo;发布/订阅模式&amp;rdquo;（publish-subscribe pattern），又称&amp;ldquo;观察者模式&amp;rdquo;（observer pattern）。
+这个模式有多种实现，下面采用的是Ben Alman的Tiny Pub/Sub，这是jQuery的一个插件。</description>
+    </item>
+    
+    <item>
+      <title>Thunk 函数的含义和用法</title>
+      <link>https://bravchen.github.io/docs/thunk%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/thunk%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/</guid>
+      <description>作者： 阮一峰
+日期： 2015年5月 1日
+ 本文是《深入掌握 ECMAScript 6 异步编程》系列文章的第二篇。
+  Generator函数的含义与用法 Thunk函数的含义与用法 co函数库的含义与用法 async函数的含义与用法   一、参数的求值策略 #  Thunk函数早在上个世纪60年代就诞生了。
+那时，编程语言刚刚起步，计算机学家还在研究，编译器怎么写比较好。一个争论的焦点是&amp;ldquo;求值策略&amp;rdquo;，即函数的参数到底应该何时求值。
+var x = 1; function f(m){ return m * 2; } f(x + 5) 上面代码先定义函数 f，然后向它传入表达式 x + 5 。请问，这个表达式应该何时求值？
+一种意见是&amp;ldquo;传值调用&amp;rdquo;（call by value），即在进入函数体之前，就计算 x + 5 的值（等于6），再将这个值传入函数 f 。C语言就采用这种策略。
+f(x + 5) // 传值调用时，等同于 f(6) 另一种意见是&amp;ldquo;传名调用&amp;rdquo;（call by name），即直接将表达式 x + 5 传入函数体，只在用到它的时候求值。Hskell语言采用这种策略。
+f(x + 5) // 传名调用时，等同于 (x + 5) * 2 **传值调用和传名调用，哪一种比较好？回答是各有利弊。**传值调用比较简单，但是对参数求值的时候，实际上还没用到这个参数，有可能造成性能损失。</description>
+    </item>
+    
+    <item>
+      <title>co 函数库的含义和用法</title>
+      <link>https://bravchen.github.io/docs/co%E5%87%BD%E6%95%B0%E5%BA%93%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/co%E5%87%BD%E6%95%B0%E5%BA%93%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/</guid>
+      <description>作者： 阮一峰
+日期： 2015年5月 6日
+ 以下是《深入掌握 ECMAScript 6 异步编程》系列文章的第三篇。
+  Generator函数的含义与用法 Thunk函数的含义与用法 co函数库的含义与用法 async函数的含义与用法   一、什么是 co 函数库？ #  co 函数库是著名程序员 TJ Holowaychuk 于2013年6月发布的一个小工具，用于 Generator 函数的自动执行。
+比如，有一个 Generator 函数，用于依次读取两个文件。
+var gen = function* (){ var f1 = yield readFile(&amp;#39;/etc/fstab&amp;#39;); var f2 = yield readFile(&amp;#39;/etc/shells&amp;#39;); console.log(f1.toString()); console.log(f2.toString()); }; co 函数库可以让你不用编写 Generator 函数的执行器。
+var co = require(&amp;#39;co&amp;#39;); co(gen); 上面代码中，Generator 函数只要传入 co 函数，就会自动执行。
+co 函数返回一个 Promise 对象，因此可以用 then 方法添加回调函数。</description>
+    </item>
+    
+    <item>
+      <title>async 函数的含义和用法</title>
+      <link>https://bravchen.github.io/docs/async%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/async%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/</guid>
+      <description>作者： 阮一峰
+日期： 2015年5月11日
+ 本文是《深入掌握 ECMAScript 6 异步编程》系列文章的最后一篇。
+  Generator函数的含义与用法 Thunk函数的含义与用法 co函数库的含义与用法 async函数的含义与用法   一、终极解决 #  异步操作是 JavaScript 编程的麻烦事，麻烦到一直有人提出各种各样的方案，试图解决这个问题。
+从最早的回调函数，到 Promise 对象，再到 Generator 函数，每次都有所改进，但又让人觉得不彻底。它们都有额外的复杂性，都需要理解抽象的底层运行机制。
+异步I/O不就是读取一个文件吗，干嘛要搞得这么复杂？异步编程的最高境界，就是根本不用关心它是不是异步。
+async 函数就是隧道尽头的亮光，很多人认为它是异步操作的终极解决方案。
+二、async 函数是什么？ #  一句话，async 函数就是 Generator 函数的语法糖。
+前文有一个 Generator 函数，依次读取两个文件。
+var fs = require(&amp;#39;fs&amp;#39;); var readFile = function (fileName){ return new Promise(function (resolve, reject){ fs.readFile(fileName, function(error, data){ if (error) reject(error); resolve(data); }); }); }; var gen = function* (){ var f1 = yield readFile(&amp;#39;/etc/fstab&amp;#39;); var f2 = yield readFile(&amp;#39;/etc/shells&amp;#39;); console.</description>
+    </item>
+    
+    <item>
+      <title>多人博客项目(详细)</title>
+      <link>https://bravchen.github.io/history/2019-10-25-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E8%AF%A6%E7%BB%86/</link>
+      <pubDate>Fri, 25 Oct 2019 22:53:55 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-10-25-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E8%AF%A6%E7%BB%86/</guid>
+      <description>Vue-Cli #  安装 #  可以使用下列任一命令安装这个新的包
+npm install -g @vue/cli # OR yarn global add @vue/cli 安装后使用，以下命令查看版本
+vue --version  官方文档：Vue-Cli 安装
+ 使用 Vue-2.x 模板 #  作用：使用旧版的 Vue 功能
+Vue CLI &amp;gt;= 3 和旧版使用了相同的 vue 命令，所以 Vue CLI 2 (vue-cli) 被覆盖了。如果你仍然需要使用旧版本的 vue init 功能，你可以全局安装一个桥接工具：
+npm install -g @vue/cli-init # `vue init` 的运行效果将会跟 `vue-cli@2.x` 相同 vue init webpack my-project 当前目录创建项目 #  执行以下命令，在当前目录下创建
+vue init webpack .  官方文档：拉取-2-x-模板-旧版本</description>
+    </item>
+    
+    <item>
+      <title>window.JSON的使用</title>
+      <link>https://bravchen.github.io/posts/2020-06-09-window-json-use/</link>
+      <pubDate>Tue, 09 Jun 2020 18:31:00 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/2020-06-09-window-json-use/</guid>
+      <description>JSON.parse #  作用：将符合JSON语法的字符串转换成JS对应的数据类型
+JSON字符串 =&amp;gt; JS 数据
+注意事项：由于JSON只有6种类型，所以转成的数据也只有6种，如果不符合JSON的语法，则直接抛出一个Error对象，大部分时候我们用try catch捕获这个错误，如下：
+let object try { object = JSON.parse(`{&amp;#39;name&amp;#39;:&amp;#39;frank&amp;#39;}`) }catch(error){ console.log(&amp;#39;出错了，错误详情是&amp;#39;) console.log(error) object = {&amp;#39;name&amp;#39;: &amp;#39;no name&amp;#39;} } 语法
+JSON.parse(value) JSON.stringify #  作用：JSON.parse的逆运算
+JS 数据 =&amp;gt; JSON字符串
+由于JS数据类型比JSON多，所以未必会转换成功，假如你在要转换的数据中加入了函数，那么很可能会报错，或者被浏览器忽略掉
+语法
+JSON.stringify(value) </description>
+    </item>
+    
+    <item>
+      <title>HTML5标签总结</title>
+      <link>https://bravchen.github.io/posts/2020-06-09-html5-label/</link>
+      <pubDate>Tue, 09 Jun 2020 09:59:42 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/2020-06-09-html5-label/</guid>
+      <description>目录 #  脚本 &amp;lt;template&amp;gt; 通过 JavaScript 在运行时实例化内容的容器。 章节 &amp;lt;section&amp;gt; 文档中的一个章节。 &amp;lt;nav&amp;gt; 只包含导航链接的章节。 &amp;lt;article&amp;gt; 可以独立于内容其余部分的完整独立内容块。 &amp;lt;aside&amp;gt; 和页面内容关联度较低的内容——如果被删除，剩下的内容仍然很合理。 &amp;lt;header&amp;gt; 页面或章节的头部。 &amp;lt;footer&amp;gt; 页面或章节的尾部 &amp;lt;main&amp;gt; 文档中主要或重要的内容。 组织内容 &amp;lt;figure&amp;gt; 图片示例 &amp;lt;figcaption&amp;gt; 图片说明 文字形式 &amp;lt;time&amp;gt; 用于表示时间，兼容性较低 &amp;lt;mark&amp;gt; 高亮文字 &amp;lt;ruby&amp;gt; 注释文本，用于包裹rt，rp，用于显示如中文汉字和它的拼音等 &amp;lt;rt&amp;gt; ruby注释，如中文拼音 &amp;lt;rp&amp;gt; 不支持 ruby 注释显示的浏览器中提供友好的注释显示。 &amp;lt;bdi&amp;gt; 代表需要脱离 父元素文本方向的一段文本。它允许嵌入一段不同或未知文本方向格式的文本。 &amp;lt;wbr&amp;gt; 代表建议换行 (Word Break Opportunity) ，当文本太长需要换行时将会在此处添加换行符。 嵌入内容 &amp;lt;embed&amp;gt; 代表一个嵌入 的外部资源，如应用程序或交互内容。 &amp;lt;video&amp;gt; 代表一段视频 及其视频文件和字幕，并提供了播放视频的用户界面。 &amp;lt;audio&amp;gt; 代表一段声音 ，或音频流 。 &amp;lt;source&amp;gt; 为 &amp;lt;video&amp;gt; 或 &amp;lt;audio&amp;gt; 这类媒体元素指定媒体源 。 &amp;lt;track&amp;gt; 为 &amp;lt;video&amp;gt; 或 &amp;lt;audio&amp;gt; 这类媒体元素指定文本轨道（字幕） 。 &amp;lt;canvas&amp;gt; 代表位图区域 ，可以通过脚本在它上面实时呈现图形，如图表、游戏绘图等。 &amp;lt;svg&amp;gt; 定义一个嵌入式矢量图 。 &amp;lt;math&amp;gt; 定义一段数学公式 。 表单 &amp;lt;datalist&amp;gt; 代表提供给其他控件的一组预定义选项 。 &amp;lt;keygen&amp;gt; 代表一个密钥对生成器 控件。 &amp;lt;output&amp;gt; 代表计算值 。 &amp;lt;progress&amp;gt; 代表进度条 。 &amp;lt;meter&amp;gt; 代表滑动条 。 交互元素 &amp;lt;details&amp;gt; 代表一个用户可以(点击)获取额外信息或控件的小部件 。 &amp;lt;summary&amp;gt; 代表 &amp;lt;details&amp;gt; 元素的综述 或标题 。 &amp;lt;menuitem&amp;gt; 代表一个用户可以点击的菜单项。 &amp;lt;menu&amp;gt; 代表菜单。 </description>
+    </item>
+    
+    <item>
+      <title>async 的使用</title>
+      <link>https://bravchen.github.io/posts/2020-06-07-async-use/</link>
+      <pubDate>Sun, 07 Jun 2020 23:23:57 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/2020-06-07-async-use/</guid>
+      <description>async 的特点
+ 它可以和 Promise 结合使用。 它能使异步函数更像是同步函数。 它的语法和结构会更像是标准的同步函数。  Promise 的使用 #  以一个摇色子案例为例：
+首先使用一个 Promise 函数封装一个三秒后返回 1 - 6 之间的随机数的函数，然后在调用时使用 .then() 方法获取返回的结果，如下：
+function fn(){ return new Promise((resolve, reject)=&amp;gt;{ setTimeout(()=&amp;gt;{ /* 产生一个 1-6之间的随机数 */ let n = parseInt(Math.random() * 6 + 1, 10) resolve(n) }) }) } fn().then( (data)=&amp;gt;{ console.log(&amp;#39;色子的点数是：&amp;#39;+data) }, ()=&amp;gt;{ console.log(&amp;#39;摇色子失败~&amp;#39;) } )  Math.random() 函数返回一个浮点, 从0到1，包含 0 但不包含 1
+ 案例链接：https://codesandbox.io/s/icy-wildflower-29wpi?file=/src/index.js
+async await 的使用 #  语法首先，await 只能在 async 中使用（强制规定），比如用以下两种方式调用上面的 fn 函数：</description>
+    </item>
+    
+    <item>
+      <title>快速理解 Vuex 的方法（转载）</title>
+      <link>https://bravchen.github.io/docs/2020-06-04-vuex-use/</link>
+      <pubDate>Thu, 04 Jun 2020 22:22:36 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/2020-06-04-vuex-use/</guid>
+      <description>对于初学者，学 vue 简单，但是当第一次遇到 Vuex 概念的时候，理解难度往往骤然陡峭，会让人感到挫败感，挫败感来自于大多数教程文章用了大量篇幅来介绍Vuex较为复杂，却看完感觉没什么作用（不知道如何运用）的实现模式，本文就是要简而化之，让你秒懂。
+本质 #  Vuex 术语定义叫做『全局状态管理』，其实质就是一个全局变量，可以供不同组件间调用，更新，自动通知。 当然在具体实现的时候，这个全局变量其实是一个全局对象：this.$store,
+所以记住这个 store 对象，它就是 vuex。
+来龙去脉 #  facebook 以前在搞他的那个网页app的时候，尤其是在做消息模块的时候，各种全局通知和聊天信息，组件间互相通信非常混乱，老出bug，于是他们就发明了一种解决这个问题的设计模式，叫做 FLUX。
+这个设计模式是按照怎样的原则来解决通信混乱的问题呢？
+1. 单一数据源（Single Source of Truth） #  也就是说，store 是一个唯一全局变量（对象），不能搞多个，搞多个就乱了。
+2. 数据只读（Data is Read-Only） #  这个只读不是说完全不让读，而是不能让 store 外部直接操作数据，必须通过 store 内部方法（mutations）来操作数据。
+3. 数据更新必须是同步的（Mutations Are Synchronous） #  异步数据会很混乱，必须是同步操作模式。
+为什么是这3个原则，你不用管，反正 facebook 反复实验，按照这三个原则设计，问题就搞定了。
+facebook 按照 FLUX 设计模式，开发了大名鼎鼎的 Redux库，React 必备搭配。Vue 看见此需求群众呼声很高，也配套了一个,也就是Vuex。
+所以，Redux 和 Vuex 都是对 Flux 这种设计模式的实现，别混为一谈。
+store的内部 #  store 这个对象，肯定是挂载Vue上面的，就是按照下面这种方式挂：</description>
+    </item>
+    
+    <item>
+      <title>JavaScript达到什么水平，可以写类似Vue的框架？</title>
+      <link>https://bravchen.github.io/posts/2020-06-04-wlfjscywv/</link>
+      <pubDate>Thu, 04 Jun 2020 19:05:43 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/2020-06-04-wlfjscywv/</guid>
+      <description>今天在看方方老师的课程时，看到一个很赞的回答，顺便记录下来鼓励一下自己。
+提问：JavaScript达到什么水平，可以写类似Vue的框架？ #  答：
+在编程界没有什么水平的定义，而是你先定一个目标，去实现它。要么实现了，要么实现不了。
+学习方式不是达到什么水平才去写什么，而是你写了什么才能达到什么水平。
+你要先去做，才能达到那个水平，而不是达到那个水平再去做，因为你没有做过是永远达不到那个水平的。
+先做在达到，做的时候去搜各种知识，不停的去迭代它，完善它。</description>
+    </item>
+    
+    <item>
+      <title>Vue插件安装</title>
+      <link>https://bravchen.github.io/history/2020-06-04-vue-plugin-int/</link>
+      <pubDate>Thu, 04 Jun 2020 13:36:42 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2020-06-04-vue-plugin-int/</guid>
+      <description>创建项目 #  # 指定目录下创建 vue create demo # 当前目录下创建 vue create . 分析
+? Please pick a preset: Manually select features ? Check the features needed for your project: (*) Babel ( ) TypeScript ( ) Progressive Web App (PWA) Support (*) Router (*) Vuex (*) CSS Pre-processors (*) Linter / Formatter &amp;gt;( ) Unit Testing ( ) E2E Testing ? Use history mode for router? (Requires proper server setup for index fallback in production) (Y/n) ?</description>
+    </item>
+    
+    <item>
+      <title>CSS选择器总结</title>
+      <link>https://bravchen.github.io/history/2020-06-04-css-selector/</link>
+      <pubDate>Thu, 04 Jun 2020 09:00:30 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2020-06-04-css-selector/</guid>
+      <description>文章 #    思否：https://segmentfault.com/a/1190000009887677
+  知乎：https://zhuanlan.zhihu.com/p/89314067
+  </description>
+    </item>
+    
+    <item>
+      <title>JS 拖曳事件总结</title>
+      <link>https://bravchen.github.io/posts/2020-06-01-js-mouse-event/</link>
+      <pubDate>Mon, 01 Jun 2020 19:17:59 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/2020-06-01-js-mouse-event/</guid>
+      <description>常用的三个事件 #  mousedown #  当指针(鼠标)在元素上按下时触发
+mousemove #  当指针(鼠标)在元素上移动时触发
+mouseup #  当指针(鼠标)在元素上抬起时触发
+使用案例 #  demo.onmousedown = function(){ console.log(&amp;#39;鼠标已按下&amp;#39;) } demo.addEventListener(&amp;#39;mousedown&amp;#39;, function(e){ console.log(&amp;#39;鼠标已按下&amp;#39;) }) </description>
+    </item>
+    
+    <item>
+      <title>AJAX 的封装</title>
+      <link>https://bravchen.github.io/posts/2020-05-29-ajax-use/</link>
+      <pubDate>Fri, 29 May 2020 21:19:30 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/2020-05-29-ajax-use/</guid>
+      <description>原生 JS 实现 AJAX #  let request = new XMLHttpRequest() request.open(&amp;#39;get&amp;#39;, &amp;#39;http://jack.com:8002/xxx&amp;#39;) request.send() request.onreadystatechange = ()=&amp;gt;{ if(request.readyState === 4){ if(request.status &amp;gt;= 200 &amp;amp;&amp;amp; request.status &amp;lt; 300){ let string = request.responseText let object = window.JSON.parse(string) console.log(&amp;#39;请求成功!&amp;#39;) }else if(request.status &amp;gt;= 400){ console.log(&amp;#39;请求失败!&amp;#39;) } } } 封装一个 jQuery.ajax #  window.jQuery.ajax = function(url, method, body, successFn, failFn){ let request = new XMLHttpRequest() request.open(method, url) request.onreadystatechange = ()=&amp;gt;{ if(request.readyState === 4){ if(request.status &amp;gt;= 200 &amp;amp;&amp;amp; request.</description>
+    </item>
+    
+    <item>
+      <title>常用的HTML5标签</title>
+      <link>https://bravchen.github.io/history/dd3e7bbd/</link>
+      <pubDate>Wed, 27 May 2020 08:33:39 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/history/dd3e7bbd/</guid>
+      <description>&amp;lt;canvas&amp;gt; 画布绘制长方形 #  Html
+&amp;lt;canvas id=&amp;#34;canvas&amp;#34;&amp;gt;&amp;lt;/canvas&amp;gt; JavaScript
+Document.getElementById() 方法获取HTML &amp;lt;canvas&amp;gt; 元素的引用。接着，HTMLCanvasElement.getContext() 方法获取这个元素的context——图像稍后将在此被渲染。
+由 CanvasRenderingContext2D 接口完成实际的绘制。fillStyle 属性让长方形变成绿色。fillRect() 方法将它的左上角放在(10, 10)，把它的大小设置成宽150高100。
+const canvas = document.getElementById(&amp;#39;canvas&amp;#39;); // 获取 canvas 的 2d 上下文 const ctx = canvas.getContext(&amp;#39;2d&amp;#39;); ctx.fillStyle = &amp;#39;green&amp;#39;; ctx.fillRect(10, 10, 150, 100); &amp;lt;video&amp;gt; 的常用属性 #  src：视频的地址
+autoplay：设置自动播放（默认值为false）
+poster：视频的封面
+&amp;lt;!-- Simple video example --&amp;gt; &amp;lt;video src=&amp;#34;videofile.ogg&amp;#34; autoplay poster=&amp;#34;posterimage.jpg&amp;#34;&amp;gt; 抱歉，您的浏览器不支持内嵌视频，不过不用担心，你可以 &amp;lt;a href=&amp;#34;videofile.ogg&amp;#34;&amp;gt;下载&amp;lt;/a&amp;gt; 并用你喜欢的播放器观看! &amp;lt;/video&amp;gt; &amp;lt;!-- Video with subtitles --&amp;gt; &amp;lt;video src=&amp;#34;foo.ogg&amp;#34;&amp;gt; &amp;lt;!-- 设置视频字幕 --&amp;gt; &amp;lt;track kind=&amp;#34;subtitles&amp;#34; src=&amp;#34;foo.</description>
+    </item>
+    
+    <item>
+      <title>科班 与 培训 的区别</title>
+      <link>https://bravchen.github.io/docs/7bcd3815/</link>
+      <pubDate>Mon, 18 May 2020 17:27:06 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/7bcd3815/</guid>
+      <description>科班生（术） #  科班生：一个本科生四年，学习计算机专业或软件专业
+学习路线
+ 大一： 高数、线性代数、离散数学、概率论 大二：C语言/VB(二选一)、数据结构、算法 大三：面向对象、操作系统、网络  将计算机领域未来10到20年的知识入门
+培训生（技） #  培训生：通过培训学习专业知识
+技能：HTML、CSS、JavaScript、Vue
+只学技能只能保证你 5 年成长。
+推荐学习：数据结构、算法（算法读解）
+你永远都没有不那么有压力的时间，需要学习的技能太多</description>
+    </item>
+    
+    <item>
+      <title>Document API</title>
+      <link>https://bravchen.github.io/posts/a0000001/</link>
+      <pubDate>Sat, 16 May 2020 22:22:05 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/a0000001/</guid>
+      <description>Class 类名添加与删除 #  当点击 id 为 xxx 的元素时，如果 id 为 yyy 元素存在 active 的 class 样式就删除该 class 名，不存在就添加该 class 名
+xxx.onclick = function(){ yyy.classList.toggle(&amp;#39;active&amp;#39;) } 案例链接：https://jsbin.com/xoxelaj/1/edit?html,css,js,output
+String #  获取某一个索引对应的字符 (String.prototype.charAt()) #  var str = &amp;#39;wobuzaiyi&amp;#39; // 获取某一个索引对应的字符 str.charAt(0) // &amp;#34;w&amp;#34; // 获取某一个索引对应的字符的编码 -- String.prototype.charCodeAt() str.charCodeAt(0) // 119 -- &amp;#34;w&amp;#34;对应的字符编码 去掉字符串两边的空格 (String.prototype.trim()) #  &amp;#39; username &amp;#39;.trim() // &amp;#34;username&amp;#34; 字符串拼接 (Array.prototype.concat()) #  var s1 = &amp;#39;Hello&amp;#39; var s2 = &amp;#39;World&amp;#39; s1.</description>
+    </item>
+    
+    <item>
+      <title>字符串</title>
+      <link>https://bravchen.github.io/posts/a0000007/</link>
+      <pubDate>Tue, 12 May 2020 15:07:06 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/a0000007/</guid>
+      <description>.charCodeAt() #  charCodeAt() 方法返回0到65535之间的整数，表示给定索引处的UTF-16代码单元 (在 Unicode 编码单元表示一个单一的 UTF-16 编码单元的情况下，UTF-16 编码单元匹配 Unicode 编码单元。但在——例如 Unicode 编码单元 &amp;gt; 0x10000 的这种——不能被一个 UTF-16 编码单元单独表示的情况下，只能匹配 Unicode 代理对的第一个编码单元) 。如果你想要整个代码点的值，使用 codePointAt()。</description>
+    </item>
+    
+    <item>
+      <title>字面量增强</title>
+      <link>https://bravchen.github.io/posts/a0000006/</link>
+      <pubDate>Tue, 12 May 2020 12:12:32 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/a0000006/</guid>
+      <description>字面量的含义 #  它写出来就代表它所展示的意思，例如：1, 2, 3, true, false, {}，很直观的量。
+相反的，像构造函数，或者复杂的对象，就不是字面量。
+新版进制区分 #  如之前的写法
+二进制
+1010101 // 85 八进制
+0777 // 511 ES6 的写法
+二进制
+0b1010101 // 85 八进制
+0o777 // 511 字符串支持 Unicode #  获取字符编码
+以获取16进制的 &amp;quot;你&amp;quot; 的字符串编码为例：
+&amp;#34;你&amp;#34;.charCodeAt().toString(16) // &amp;#34;4f60&amp;#34; &amp;quot;你&amp;quot; 使用的字节：
+这里的 &amp;quot;你&amp;quot; 只需要 1 个字符表示，如下
+&amp;#34;你&amp;#34;.length // 1 而 &amp;quot;𝌆&amp;quot; 的则需要两个字符表示
+&amp;#34;𝌆&amp;#34;.length // 2 也就是，&amp;quot;𝌆&amp;quot; === &amp;quot;\uD834\uDF06&amp;quot; 如下：
+&amp;#34;𝌆&amp;#34;.charCodeAt(0).toString(16) // &amp;#34;d834&amp;#34; &amp;#34;𝌆&amp;#34;.charCodeAt(1).toString(16) // &amp;#34;df06&amp;#34; &amp;quot;𝌆&amp;quot; 使用的字节：</description>
+    </item>
+    
+    <item>
+      <title>新版变量声明：let 和 const</title>
+      <link>https://bravchen.github.io/posts/a0000002/</link>
+      <pubDate>Thu, 30 Apr 2020 17:55:32 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/a0000002/</guid>
+      <description>ES 6 新特性一览：https://frankfang.github.io/es-6-tutorials/
+教程：es6.ruanyifeng.com
+先学 ES 5 还是 ES 6 #  无聊的问题，ES 6 包含 ES 5，你无论如何都必须先学 ES 5，才能看懂 ES 6
+ES 6 如何学 #   快速通览，然后使用 边使用边加深印象  自学的问题 #  你不知道一个语法为什么要存在
+ 触类旁通，去看看其他语言有没有这个语法，怎么用的 反证法，如果不用这个语法，该怎么实现需求  let &amp;amp; const #  我用了两个月的时间才理解 let
+ let 和 var 的区别 const 和 let 的区别 相关面试题  </description>
+    </item>
+    
+    <item>
+      <title>简历怎么写</title>
+      <link>https://bravchen.github.io/history/2020-04-25-%E7%AE%80%E5%8E%86%E6%80%8E%E4%B9%88%E5%86%99/</link>
+      <pubDate>Sat, 25 Apr 2020 16:14:51 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2020-04-25-%E7%AE%80%E5%8E%86%E6%80%8E%E4%B9%88%E5%86%99/</guid>
+      <description>xxx
+目的 #  展示自己的优点，长处
+内容 #  基本信息 #  年龄、姓名、性别、目标职位（文件名格式：方方-应聘前端工程师.pdf）、学校
+联系方式（PDF可以写手机，网页版不要写手机，搜索引擎会搜到）：手机、邮箱、QQ、微信
+技能描述
+小程序制作：可以独立进行小程序开发，熟悉AAA，BBB，CCC相关API
+教育经历
+工作经历
+项目展示
+链接：博客链接、GitHub链接
+其他</description>
+    </item>
+    
+    <item>
+      <title>2020年前端面试提纲</title>
+      <link>https://bravchen.github.io/docs/2020-04-22-2020-interview-outline/</link>
+      <pubDate>Wed, 22 Apr 2020 11:21:35 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/2020-04-22-2020-interview-outline/</guid>
+      <description>押题内容来自：https://xiedaimala.com/tasks/e67878e4-ef45-4545-9cad-a1946c6e21f1
+说明：
+  代码：答案直接展示相关代码
+  举例：举一个实际使用的案例
+  阐述：阐述问题的概念
+  HTML #    必考：你是如何理解 HTML 语义化的？
+举例
+  meta viewport 是做什么用的，怎么写？
+举例
+  你用过哪些 HTML 5 标签？
+举例
+  H5 是什么？
+阐述
+  CSS #    必考：两种盒模型分别说一下。
+举例
+  必考：如何垂直居中？
+分情况讨论
+  必考：flex 怎么用，常用属性有哪些？
+举例
+  必考：BFC 是什么？
+举例
+  CSS 选择器优先级
+举例
+  清除浮动说一下</description>
+    </item>
+    
+    <item>
+      <title>关于知乎 &#34;哪些知识越了解越觉得『对这个世界很绝望』？&#34;</title>
+      <link>https://bravchen.github.io/docs/2020-04-18-guanyuzhihu-naxiezhishi/</link>
+      <pubDate>Sat, 18 Apr 2020 11:53:40 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/2020-04-18-guanyuzhihu-naxiezhishi/</guid>
+      <description>今天偶然在知乎上看到的一篇回答，刷新了我对90后现状的认识，以及资本主义的含义。
+引用文中的一张图，90后新名词：
+原文链接：哪些知识越了解越觉得『对这个世界很绝望』？ - Mushroobby的回答 - 知乎</description>
+    </item>
+    
+    <item>
+      <title>lx主题中文文档</title>
+      <link>https://bravchen.github.io/history/2020-04-12-lx%E4%B8%BB%E9%A2%98%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/</link>
+      <pubDate>Sun, 12 Apr 2020 18:13:08 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2020-04-12-lx%E4%B8%BB%E9%A2%98%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/</guid>
+      <description>&lt;h2 id=&#34;hexo-theme-lx&#34;&gt;
+  Hexo-Theme-Lx
+  &lt;a class=&#34;anchor&#34; href=&#34;#hexo-theme-lx&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你喜欢本主题，请点击&lt;code&gt;star&lt;/code&gt;收藏&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Live Demo:&lt;a href=&#34;https://lx.js.org&#34;&gt;https://lx.js.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;该子域名由 &lt;a href=&#34;https://github.com/js-org/js.org&#34;&gt;JS.ORG&lt;/a&gt; 提供。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;作者的博客:&lt;a href=&#34;https://freezing.cool&#34;&gt;https://freezing.cool&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Telegram频道-hexo-theme-lx:&lt;a href=&#34;https://t.me/themelx&#34;&gt;https://t.me/themelx&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;有任何疑问和建议请提交&lt;a href=&#34;https://github.com/blleng/hexo-theme-lx/issues&#34;&gt;issue&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;最近更新&#34;&gt;
+  最近更新
+  &lt;a class=&#34;anchor&#34; href=&#34;#%e6%9c%80%e8%bf%91%e6%9b%b4%e6%96%b0&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;h3 id=&#34;v039&#34;&gt;
+  V0.3.9
+  &lt;a class=&#34;anchor&#34; href=&#34;#v039&#34;&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;改善评论框&lt;/li&gt;
+&lt;li&gt;改善段间距&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;使用&#34;&gt;
+  使用：
+  &lt;a class=&#34;anchor&#34; href=&#34;#%e4%bd%bf%e7%94%a8&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;h3 id=&#34;获取最稳定的版本&#34;&gt;
+  获取最稳定的版本：
+  &lt;a class=&#34;anchor&#34; href=&#34;#%e8%8e%b7%e5%8f%96%e6%9c%80%e7%a8%b3%e5%ae%9a%e7%9a%84%e7%89%88%e6%9c%ac&#34;&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/blleng/hexo-theme-lx/releases&#34;&gt;https://github.com/blleng/hexo-theme-lx/releases&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;解压后将文件夹命名为&lt;code&gt;lx&lt;/code&gt;放在&lt;code&gt;themes&lt;/code&gt;文件夹中。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;推荐使用稳定版本(请勿使用V0.3.3和V0.3.5！！)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;获取具有最新特性的版本&#34;&gt;
+  获取具有最新特性的版本：
+  &lt;a class=&#34;anchor&#34; href=&#34;#%e8%8e%b7%e5%8f%96%e5%85%b7%e6%9c%89%e6%9c%80%e6%96%b0%e7%89%b9%e6%80%a7%e7%9a%84%e7%89%88%e6%9c%ac&#34;&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;在博客根目录:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ git clone https://github.com/blleng/hexo-theme-lx themes/lx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;不推荐这种方式。虽然我尽量保证没有bug后再推送至GitHub仓库，但正在开发中的版本仍可能有bug。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;启用本主题&#34;&gt;
+  启用本主题：
+  &lt;a class=&#34;anchor&#34; href=&#34;#%e5%90%af%e7%94%a8%e6%9c%ac%e4%b8%bb%e9%a2%98&#34;&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;更改站点设置文件&lt;code&gt;_config.yml&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;color:#719e07&#34;&gt;theme&lt;/span&gt;: lx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;主题的配置将在&lt;code&gt;themes/lx/_config.yml&lt;/code&gt;中进行。&lt;/p&gt;
+&lt;h2 id=&#34;功能配置&#34;&gt;
+  功能配置
+  &lt;a class=&#34;anchor&#34; href=&#34;#%e5%8a%9f%e8%83%bd%e9%85%8d%e7%bd%ae&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里的说明并不完整，请参考&lt;code&gt;themes/lx/_config.yml&lt;/code&gt;中的注释信息。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;统计&#34;&gt;
+  统计
+  &lt;a class=&#34;anchor&#34; href=&#34;#%e7%bb%9f%e8%ae%a1&#34;&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;引入了百度统计和谷歌统计。&lt;/p&gt;
+&lt;p&gt;启用：在&lt;code&gt;themes/lx/_config.yml&lt;/code&gt;填写:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;color:#719e07&#34;&gt;google_analytics&lt;/span&gt;: ... &lt;span style=&#34;color:#586e75&#34;&gt;##谷歌统计ID&lt;/span&gt;
+&lt;span style=&#34;color:#719e07&#34;&gt;baidu_analytics&lt;/span&gt;: ... &lt;span style=&#34;color:#586e75&#34;&gt;##百度统计ID&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;本地搜索&#34;&gt;
+  本地搜索
+  &lt;a class=&#34;anchor&#34; href=&#34;#%e6%9c%ac%e5%9c%b0%e6%90%9c%e7%b4%a2&#34;&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;先下载插件&lt;code&gt;hexo-generator-searchdb&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ npm install hexo-generator-searchdb -s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在&lt;code&gt;themes/lx/_config.yml&lt;/code&gt;中配置:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;color:#719e07&#34;&gt;local_search&lt;/span&gt;:
+  &lt;span style=&#34;color:#719e07&#34;&gt;enable&lt;/span&gt;: &lt;span style=&#34;color:#cb4b16&#34;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;更多配置详见&lt;code&gt;themes/lx/_config.yml&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;评论&#34;&gt;
+  评论
+  &lt;a class=&#34;anchor&#34; href=&#34;#%e8%af%84%e8%ae%ba&#34;&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;评论使用valine，官网：&lt;a href=&#34;https://valine.js.org&#34;&gt;https://valine.js.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;启用：在&lt;code&gt;themes/lx/_config.yml&lt;/code&gt;填写:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;color:#719e07&#34;&gt;comment&lt;/span&gt;:
+  &lt;span style=&#34;color:#719e07&#34;&gt;enable&lt;/span&gt;: &lt;span style=&#34;color:#cb4b16&#34;&gt;true&lt;/span&gt; &lt;span style=&#34;color:#586e75&#34;&gt;# true:启用 | false:停用&lt;/span&gt;
+  &lt;span style=&#34;color:#719e07&#34;&gt;appid&lt;/span&gt;: ... &lt;span style=&#34;color:#586e75&#34;&gt;#leancloud appid&lt;/span&gt;
+  &lt;span style=&#34;color:#719e07&#34;&gt;appkey&lt;/span&gt;: ... &lt;span style=&#34;color:#586e75&#34;&gt;#leancloud appkey&lt;/span&gt;
+  &lt;span style=&#34;color:#719e07&#34;&gt;notify&lt;/span&gt;: &lt;span style=&#34;color:#cb4b16&#34;&gt;false&lt;/span&gt;
+  &lt;span style=&#34;color:#719e07&#34;&gt;verify&lt;/span&gt;: &lt;span style=&#34;color:#cb4b16&#34;&gt;false&lt;/span&gt;
+  &lt;span style=&#34;color:#719e07&#34;&gt;placeholder&lt;/span&gt;: 此处留言 &lt;span style=&#34;color:#586e75&#34;&gt;#评论框文字&lt;/span&gt;
+  &lt;span style=&#34;color:#719e07&#34;&gt;avatar&lt;/span&gt;: identicon &lt;span style=&#34;color:#586e75&#34;&gt;#游客默认头像&lt;/span&gt;
+  &lt;span style=&#34;color:#719e07&#34;&gt;guest_info&lt;/span&gt;: nick,mail,link &lt;span style=&#34;color:#586e75&#34;&gt;#评论时需填写的内容（均为选填）&lt;/span&gt;
+  &lt;span style=&#34;color:#719e07&#34;&gt;pageSize&lt;/span&gt;: &lt;span style=&#34;color:#2aa198&#34;&gt;10&lt;/span&gt; &lt;span style=&#34;color:#586e75&#34;&gt;#一次性展示的评论数&lt;/span&gt;
+  &lt;span style=&#34;color:#719e07&#34;&gt;language&lt;/span&gt;: zh-cn
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在文章头填入&lt;code&gt;comment: true&lt;/code&gt;即可在该页面启用评论:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;---
+date: ...
+title: ...
+categories: ...
+tags: ...
+comment: true //启用评论
+mathjax: ...
+---
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;appid&lt;/code&gt;和&lt;code&gt;appkey&lt;/code&gt;在leancloud创建应用后即可获取。&lt;/p&gt;
+&lt;h3 id=&#34;social-links&#34;&gt;
+  Social Links
+  &lt;a class=&#34;anchor&#34; href=&#34;#social-links&#34;&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;社交媒体链接，在&lt;code&gt;themes/lx/_config.yml&lt;/code&gt;配置:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;color:#719e07&#34;&gt;social&lt;/span&gt;:
+  &lt;span style=&#34;color:#719e07&#34;&gt;enable&lt;/span&gt;: &lt;span style=&#34;color:#cb4b16&#34;&gt;true&lt;/span&gt;
+  &lt;span style=&#34;color:#719e07&#34;&gt;links&lt;/span&gt;:
+    &lt;span style=&#34;color:#719e07&#34;&gt;Github&lt;/span&gt;:
+      &lt;span style=&#34;color:#719e07&#34;&gt;icon&lt;/span&gt;: gihub //font-awesmome图标名称
+      &lt;span style=&#34;color:#719e07&#34;&gt;link&lt;/span&gt;: ... //链接地址
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;mathjax&#34;&gt;
+  Mathjax
+  &lt;a class=&#34;anchor&#34; href=&#34;#mathjax&#34;&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;支持数学公式和化学方程式。&lt;/p&gt;
+&lt;p&gt;启用：在&lt;code&gt;themes/lx/_config.yml&lt;/code&gt;填写:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;color:#719e07&#34;&gt;mathjax&lt;/span&gt;:
+  &lt;span style=&#34;color:#719e07&#34;&gt;enable&lt;/span&gt;: &lt;span style=&#34;color:#cb4b16&#34;&gt;true&lt;/span&gt;  &lt;span style=&#34;color:#586e75&#34;&gt;##true:启用 | false:停用&lt;/span&gt;
+  &lt;span style=&#34;color:#719e07&#34;&gt;cdn&lt;/span&gt;: //cdn.bootcss.com/mathjax/&lt;span style=&#34;color:#2aa198&#34;&gt;2.7.5&lt;/span&gt;/latest.js?config=TeX-MML-AM_SVG
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在文章头填入&lt;code&gt;mathjax: true&lt;/code&gt;即可在该页面启用评论:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;---
+date: ...
+title: ...
+categories: ...
+tags: ...
+comment: ...
+mathjax: true //启用Mathjax
+---
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;字体设置&#34;&gt;
+  字体设置
+  &lt;a class=&#34;anchor&#34; href=&#34;#%e5%ad%97%e4%bd%93%e8%ae%be%e7%bd%ae&#34;&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;color:#719e07&#34;&gt;font&lt;/span&gt;:
+  &lt;span style=&#34;color:#719e07&#34;&gt;enable&lt;/span&gt;: &lt;span style=&#34;color:#cb4b16&#34;&gt;true&lt;/span&gt;
+  &lt;span style=&#34;color:#719e07&#34;&gt;host&lt;/span&gt;: //fonts.googleapis.com
+  &lt;span style=&#34;color:#719e07&#34;&gt;codes&lt;/span&gt;: &lt;span style=&#34;color:#586e75&#34;&gt;##代码字体&lt;/span&gt;
+    &lt;span style=&#34;color:#719e07&#34;&gt;enable&lt;/span&gt;: &lt;span style=&#34;color:#cb4b16&#34;&gt;true&lt;/span&gt;
+    &lt;span style=&#34;color:#719e07&#34;&gt;family&lt;/span&gt;: Fira Code
+  &lt;span style=&#34;color:#719e07&#34;&gt;else&lt;/span&gt;: &lt;span style=&#34;color:#586e75&#34;&gt;##文字字体&lt;/span&gt;
+    &lt;span style=&#34;color:#719e07&#34;&gt;enable&lt;/span&gt;: &lt;span style=&#34;color:#cb4b16&#34;&gt;false&lt;/span&gt;
+    &lt;span style=&#34;color:#719e07&#34;&gt;family&lt;/span&gt;: 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;文章写作样式&#34;&gt;
+  文章写作样式
+  &lt;a class=&#34;anchor&#34; href=&#34;#%e6%96%87%e7%ab%a0%e5%86%99%e4%bd%9c%e6%a0%b7%e5%bc%8f&#34;&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;h3 id=&#34;文章摘要&#34;&gt;
+  文章摘要
+  &lt;a class=&#34;anchor&#34; href=&#34;#%e6%96%87%e7%ab%a0%e6%91%98%e8%a6%81&#34;&gt;#&lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;在`&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CSS Grid 网格布局</title>
+      <link>https://bravchen.github.io/history/2019-10-27-css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80/</link>
+      <pubDate>Sun, 27 Oct 2019 21:32:16 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-10-27-css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80/</guid>
+      <description>案例 #  基础布局案例 #  语法
+div { display: grid; } 代码
+html &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width&amp;#34;&amp;gt; &amp;lt;title&amp;gt;JS Bin&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;span&amp;gt;foo&amp;lt;/span&amp;gt; &amp;lt;div id=&amp;#34;container&amp;#34;&amp;gt; &amp;lt;div class=&amp;#34;item item-1&amp;#34;&amp;gt;1&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;item item-2&amp;#34;&amp;gt;2&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;item item-3&amp;#34;&amp;gt;3&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;item item-4&amp;#34;&amp;gt;4&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;item item-5&amp;#34;&amp;gt;5&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;item item-6&amp;#34;&amp;gt;6&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;item item-7&amp;#34;&amp;gt;7&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;item item-8&amp;#34;&amp;gt;8&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;item item-9&amp;#34;&amp;gt;9&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;span&amp;gt;bar&amp;lt;/span&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; CSS span { font-size: 2em; } #container{ display: grid; grid-template-columns: 50px 50px 50px; grid-template-rows: 50px 50px 50px; } .</description>
+    </item>
+    
+    <item>
+      <title>jQuery常用API总结</title>
+      <link>https://bravchen.github.io/history/2019-10-17-jquery%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Thu, 17 Oct 2019 21:19:58 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-10-17-jquery%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/</guid>
+      <description>.CSS
+获取指定CSS属性值
+$(element).css(&amp;#34;background-color&amp;#34;); 修改指定CSS属性值
+$(element).css(&amp;#34;color&amp;#34;,&amp;#34;red&amp;#34;) 修改多个属性值
+$(element).css({&amp;#39;background-color&amp;#39;:&amp;#39;red&amp;#39;,&amp;#39;color&amp;#39;:&amp;#39;blue&amp;#39;}) jQuery 中两个不合理的 API
+ .hide() .show()  当你给一个本来就 display: none 的元素添加 .hide() 然后再 .show() 的时候，会发现它的 display 变成了 block
+这说明 jQuery 无法真正还原你原本的 display 属性，它只是猜测你的 display 属性
+获取父元素的子元素
+$(element).children() 克隆当前元素
+.clone(true) // 默认 false 添加 true 表示克隆当前元素所有内容，包含它的子元素， 添加，删除 class 样式
+$(element).addClass(&amp;#39;active&amp;#39;) $(element).removeClass(&amp;#39;active&amp;#39;) 动画执行完毕后执行事件
+.one(&amp;#39;transitionend&amp;#39;, (e)=&amp;gt;{ console.log(&amp;#39;当前动画执行完毕&amp;#39;) }) 返回当前元素在父元素的第 n 个位置的索引
+let index = $(element).index() 获取存放元素的伪数组中索引为 index 的元素
+$(elements).eq(index) 给当前元素绑定执行指定事件
+.trigger(&amp;#39;click&amp;#39;) 获取当前兄弟元素中的所有除了当前元素以外 指定选择器 的元素
+.siblings(&amp;#39;.blue&amp;#39;) 鼠标进入元素事件</description>
+    </item>
+    
+    <item>
+      <title>JS 常用API总结</title>
+      <link>https://bravchen.github.io/history/2019-10-17-js%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Thu, 17 Oct 2019 21:19:32 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-10-17-js%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/</guid>
+      <description>获取元素 #  根据 id 或 class 获取元素
+document.querySelector(&amp;#39;#demo&amp;#39;) 文档对象模型Document引用的querySelector()方法返回文档中与指定选择器或选择器组匹配的第一个 html元素Element。 如果找不到匹配项，则返回null。
+根据 id 或 class 获取元素列表
+与上面的区别是返回的是多个元素组成的伪数组
+document.querySelectorAll(&amp;#39;#demo&amp;#39;) 判断类型 #  instanceof #  instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。
+语法
+object instanceof constructor MDN 文档 instanceof
+toString #  toString() 方法返回一个表示该对象的字符串。例如：
+判断当前变量是元素还是数组
+var obj = { } var arr = []; console.log(Object.prototype.toString.call(arr)); 创建元素 #  创建标签并添加到元素中
+// 创建一个新的段落p元素,然后添加到body的最尾部 var p = document.createElement(&amp;#34;p&amp;#34;); document.body.appendChild(p); 给元素设置 class 名
+element.className = &amp;#39;demo&amp;#39; 处理事件 #  请求成功处理函数</description>
+    </item>
+    
+    <item>
+      <title>yarn 入门</title>
+      <link>https://bravchen.github.io/history/2019-10-17-yarn%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Thu, 17 Oct 2019 17:54:06 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-10-17-yarn%E5%85%A5%E9%97%A8/</guid>
+      <description>yran 命令使用
+初始化
+yarn init 添加依赖
+yarn add [package] yarn add [package]@[version] yarn add [package]@[tag] 将依赖添加到不同类别的依赖项中
+添加到 devDependencies, peerDependencies, 或 optionalDependencies 的方法：
+yarn add [package] --dev yarn add [package] --peer yarn add [package] --optional 升级依赖
+yarn upgrade [package] yarn upgrade [package]@[version] yarn upgrade [package]@[tag] 删除依赖
+yarn remove [package] 安装项目的所有依赖项
+yarn 或
+yarn install </description>
+    </item>
+    
+    <item>
+      <title>npm 入门</title>
+      <link>https://bravchen.github.io/history/2019-10-17-npm%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Thu, 17 Oct 2019 16:03:54 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-10-17-npm%E5%85%A5%E9%97%A8/</guid>
+      <description>npm常用命令 #  npm更新 #  npm install npm@latest -g # 最新稳定版全局安装 npm install npm@4.2.1 -g # 指定版本全局安装 包安装 #  首先初始化，在需要安装的目录下输入
+npm init -y # 默认配置 安装
+npm install xxx # 安装 npm i xxx # 简写 # 安装一些常用库: npm i jquery npm i vue npm i bootstrap # 安装指定版本 npm i jquery@3.1.0 在根目录下的 package.json 中有每个库的版本号，如
+&amp;#34;dependencies&amp;#34;: { &amp;#34;bootstrap&amp;#34;: &amp;#34;^4.3.1&amp;#34;, &amp;#34;jquery&amp;#34;: &amp;#34;^3.4.1&amp;#34;, &amp;#34;vue&amp;#34;: &amp;#34;^2.6.10&amp;#34; } 当移动当前根目录的项目时，即时删除掉 node_modules 文件夹，只要在当前目录下执行：
+npm i # 注意命令后不要加任何其他的东西 即可恢复之前所有的库，版本也是之前对应的。</description>
+    </item>
+    
+    <item>
+      <title>ES6新特性</title>
+      <link>https://bravchen.github.io/history/2019-10-04-es6%E6%96%B0%E7%89%B9%E6%80%A7/</link>
+      <pubDate>Fri, 04 Oct 2019 09:58:46 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-10-04-es6%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
+      <description>记录学习 ES6 语法的过程
+本文部分内容摘自：http://es6.ruanyifeng.com/
+var 的缺陷 #  变量会提升，很难控制变量的作用域
+案例1
+function fn(){ if(true){ console.log(a) }else{ var a console.log(2) } } fn()  会打出 undefined，理论上应该报错，但因为变量声明在 if 语句前，所以值变成了 undefine
+ 案例2
+{ var a = 2 } console.log(a)  依然会打出 2
+ let #  let 的优点 #   let 的作用域只在最近的 {} 内 let 无法在声明之前使用该变量 let 已经声明的变量无法再次声明  作用域 #  for 循环还有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。
+for (let i = 0; i &amp;lt; 3; i++) { let i = &amp;#39;abc&amp;#39;; console.</description>
+    </item>
+    
+    <item>
+      <title>面向对象</title>
+      <link>https://bravchen.github.io/history/2019-10-03-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
+      <pubDate>Thu, 03 Oct 2019 21:02:57 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-10-03-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid>
+      <description>面向对象以及命名空间
+面向对象 #  OO 编程 全称 Object Oriented 编程 &amp;mdash; 也就是面向对象编程
+命名空间 #  // 全局命名空间 var MYAPP = MYAPP || {}; 式子的原理
+或 a || b 与 且 a &amp;amp;&amp;amp; b ，的值基本上不可能是 true 或 false 本身，他们的值只能从一个为 true 或者为 false 的值中选一个
+复习知识
+五个 false 值：0, NaN, &#39;&#39;, null, undefined
+且 a &amp;amp;&amp;amp; b
+案例`：
+1 &amp;amp;&amp;amp; 0 // 返回值是 0 1 &amp;amp;&amp;amp; 0 &amp;amp;&amp;amp; 2 // 返回值是 0 1 &amp;amp;&amp;amp; 0 &amp;amp;&amp;amp; 2 &amp;amp;&amp;amp; 3 &amp;amp;&amp;amp; 4 // 返回值是 0 结论：在 &amp;amp;&amp;amp; 中，只要第一 false 值出现，那就返回这个 false 对应的值。不会再查看后面对应的值为真或为假，因为只要出现一个false值就说明整个式子都是假</description>
+    </item>
+    
+    <item>
+      <title>jQuery制作轮播</title>
+      <link>https://bravchen.github.io/history/2019-10-03-jquery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD/</link>
+      <pubDate>Thu, 03 Oct 2019 07:05:13 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-10-03-jquery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD/</guid>
+      <description>jQuery 中两个不合理的 API
+ .hide() .show()  当你给一个本来就 display: none 的元素添加 .hide() 然后再 .show() 的时候，会发现它的 display 变成了 block
+这说明 jQuery 无法真正还原你原本的 display 属性，它只是猜测你的 display 属性
+使用的 API #  添加，删除 class 样式
+$(element).addClass(&amp;#39;active&amp;#39;) $(element).removeClass(&amp;#39;active&amp;#39;) 返回当前元素在父元素的第几个位置的索引
+let index = $(element).index() 获取存放元素的伪数组中索引为 index 的元素
+$(elements).eq(index) 给当前元素执行指定绑定事件
+.trigger(&amp;#39;click&amp;#39;) 获取当前兄弟元素中的所有 指定选择器 的元素
+.siblings(&amp;#39;.blue&amp;#39;) 鼠标进入元素事件
+$(element).on(&amp;#39;mouseenter&amp;#39;, function(){ }) 鼠标离开元素事件
+$(element).on(&amp;#39;mouseleave&amp;#39;, function(){ }) 定时器
+每秒打出 一个 n
+setInterval(()=&amp;gt;{ n += 1; console.log(n) }, 1000) 清除定时器
+window.clearInterval(time) 轮播自动播放原理 #  利用余数，不断循环的打出 0 1 2</description>
+    </item>
+    
+    <item>
+      <title>jQuery制作轮播</title>
+      <link>https://bravchen.github.io/history/jquery%E8%BD%AE%E6%92%AD%E6%A1%88%E4%BE%8B/</link>
+      <pubDate>Thu, 03 Oct 2019 07:05:13 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/jquery%E8%BD%AE%E6%92%AD%E6%A1%88%E4%BE%8B/</guid>
+      <description>使用 jQuery 写轮播
+写代码要讲究 内容，样式，行为的分离
+  html - 内容
+  css - 样式
+  js - 行为
+  </description>
+    </item>
+    
+    <item>
+      <title>自制jQuery</title>
+      <link>https://bravchen.github.io/history/2019-10-03-%E8%87%AA%E5%88%B6jquery/</link>
+      <pubDate>Thu, 03 Oct 2019 06:56:28 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-10-03-%E8%87%AA%E5%88%B6jquery/</guid>
+      <description>原生 JS 实现 jQuery
+jQuery 官网的三个下载文件
+ 压缩的 未压缩的 搜索 阮一峰 source map  用到的API #  arr.forEach #  forEach() 方法对数组的每个元素执行一次提供的函数。
+语法
+arr.forEach(callback[, thisArg]); MDN 文档 arr.forEach
+arr.push #  push() 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。
+语法
+arr.push(element1, ..., elementN) MDN 文档 arr.push
+instanceof #  instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。
+语法
+object instanceof constructor MDN 文档 instanceof
+封装两个函数 #  首先在 html 中添加一个无序列表
+&amp;lt;body&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li id=&amp;#34;item1&amp;#34;&amp;gt;选项1&amp;lt;/li&amp;gt; &amp;lt;li id=&amp;#34;item2&amp;#34;&amp;gt;选项2&amp;lt;/li&amp;gt; &amp;lt;li id=&amp;#34;item3&amp;#34;&amp;gt;选项3&amp;lt;/li&amp;gt; &amp;lt;li id=&amp;#34;item4&amp;#34;&amp;gt;选项4&amp;lt;/li&amp;gt; &amp;lt;li id=&amp;#34;item5&amp;#34;&amp;gt;选项5&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/body&amp;gt; 排他方式获取子元素 #  获取除了当前元素以外的所有兄弟姐妹元素</description>
+    </item>
+    
+    <item>
+      <title>MVVM</title>
+      <link>https://bravchen.github.io/history/2019-10-01-mvvm/</link>
+      <pubDate>Tue, 01 Oct 2019 22:36:23 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-10-01-mvvm/</guid>
+      <description>复习 MVC 以及使用 MVVM
+axios #  cdn
+bootcdn: https://www.bootcdn.cn/
+引入axios #  &amp;lt;script src=&amp;#34;https://cdn.bootcss.com/axios/0.19.0/axios.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;  在 bootcdn 中搜索 axios
+ 使用axios #  基本用法可以查看文档
+axios 项目地址 https://github.com/axios/axios
+发送请求案例
+axios.get(&amp;#39;/books/1&amp;#39;).then(function ({data}) { let originalHtml = $(&amp;#39;#app&amp;#39;).html() let newHtml = originalHtml.replace(&amp;#39;__name__&amp;#39;,data.name) .replace(&amp;#39;__number__&amp;#39;,data.number) $(&amp;#39;#app&amp;#39;).html(newHtml) }) axios.put(&amp;#39;/books/1&amp;#39;).then(function(){ $(&amp;#39;#number&amp;#39;).text(result) }) ES6 新语法 #  声明 #  之前
+let response = { config:{ method:&amp;#39;methodxxx&amp;#39;, url:&amp;#39;urlxxx&amp;#39;, data:&amp;#39;dataxxx&amp;#39; } } let config = response.config let method = config.</description>
+    </item>
+    
+    <item>
+      <title>this是什么</title>
+      <link>https://bravchen.github.io/history/2019-09-28-this%E6%98%AF%E4%BB%80%E4%B9%88/</link>
+      <pubDate>Sat, 28 Sep 2019 00:01:46 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-09-28-this%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
+      <description>this 只是一个参数，并不是什么特殊的东西
+附方方老师的原文链接
+知乎：https://zhuanlan.zhihu.com/p/23804247
+this 是什么 #  this 就是 call() 的第一个参数，如果想要知道 this 是什么，就要去查看源代码的文档，如 MDN、jQuery 等
+例如：
+onclick 的 this
+  在MDN搜索 onclick 或者 直接搜索 MDN onclick
+  MDN链接：https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/onclick#%E8%AF%AD%E6%B3%95
+  addEventListener 的 this
+  在 MDN 搜索 addEventListener 或者 直接搜索 MDN addEventListener
+  MDN链接：https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener#The_value_of_this_within_the_handler
+  jQuery 中 .on(&#39;click&#39;) 的 this
+  搜索 jQuery 文档中的 .on()
+  jQuery 链接：https://www.jquery123.com/on/
+  练习题 #     function X(){ return object = { name: &amp;#39;object&amp;#39;, f1(x){ x.</description>
+    </item>
+    
+    <item>
+      <title>New做了什么</title>
+      <link>https://bravchen.github.io/history/2019-09-27-new%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/</link>
+      <pubDate>Fri, 27 Sep 2019 23:15:26 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-09-27-new%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/</guid>
+      <description>New 一个函数或对象时会添加哪些默认属性
+new 做了什么 #  案例代码
+function 士兵(id){ /* let temp = {} */ /* this = temp */ /* this.__proto__ = 士兵.prototype */ this.ID = id, this.生命值 = 42 /* 自有属性 */ /* return this */ } 士兵.prototype = { /* 共有属性 */ 兵种:&amp;#34;美国大兵&amp;#34;, 攻击力: a, 行走:function(){/* 行走的代码 */} 奔跑:function(){/* 奔跑的代码 */} 死亡:function(){/* 死亡的代码 */} } 总结 new 一个函数时做了什么
+ 创建一个临时对象 让 this 指向这个临时对象 让 this.__proto__ = create士兵.prototype 返回 return this   这些行为，俗称语法糖 ( 语法糖，就是很贴心的意思 )</description>
+    </item>
+    
+    <item>
+      <title>代码模块化</title>
+      <link>https://bravchen.github.io/history/2019-09-21-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9D%97%E5%8C%96/</link>
+      <pubDate>Sat, 21 Sep 2019 10:21:19 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-09-21-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9D%97%E5%8C%96/</guid>
+      <description>代码模块化以及闭包的使用
+模块化 #  每个功能都单独存放在一个文件中并给文件起一个合适的名字，
+然后每个文件的所有代码都用一个自调用的匿名函数包起来 function(){}.call() 但是这个方法浏览器会报错
+经过前人不断尝试，可以给函数前加一个 ! 表示取反，虽然会改变这个函数的 return 结果，但我们不需要结果，只需要执行这个函数就可以，所以这是最佳的方案
+!function(){ let xxx = &amp;#39;xxxx&amp;#39; let aaa = &amp;#39;xwww&amp;#39; }.call() 闭包 #  在不同文件下调用 #  html
+&amp;lt;body&amp;gt; &amp;lt;script src=&amp;#34;m1.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;m2.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; m1.js
+!function(){ let person = { name: &amp;#39;chen&amp;#39;, age: 20 } window.fn = function(){ person.age +=1 return person.age } }.call() m2.js
+!function(){ let a = window.fn() console.log(a) }.call() 在同一个文件下调用 #  var accessor = function(){ var person = { name: &amp;#39;chen&amp;#39;, age: 20 } return function(){ person.</description>
+    </item>
+    
+    <item>
+      <title>MVC思想</title>
+      <link>https://bravchen.github.io/history/2019-09-20-mvc%E6%80%9D%E6%83%B3/</link>
+      <pubDate>Fri, 20 Sep 2019 17:56:46 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-09-20-mvc%E6%80%9D%E6%83%B3/</guid>
+      <description>MVC 封装一个简单的个人简历
+预览链接：https://chenning02.github.io/git-hunger/course-demo/bio/bio-d-MVC/index.html
+MVC 封装之 VC #  第一步
+创建两个变量，分别来存储 View 和 Controller
+!function(){ // 导航栏根据滚轮改变  let view = document.getElementById(&amp;#39;topNavBar&amp;#39;) let controller = { view: null, init: function(view){ window.addEventListener(&amp;#39;scroll&amp;#39;, function(x){ if(window.scrollY &amp;gt; 0){ view.classList.add(&amp;#39;sticky&amp;#39;) }else { view.classList.remove(&amp;#39;sticky&amp;#39;) } }) } } controller.init(view) }.call() 第二步
+添加一个 bindEvents 方法 用来绑定执行所用事件
+!function(){ // 导航栏根据滚轮改变  let view = document.getElementById(&amp;#39;topNavBar&amp;#39;) let controller = { view: null, init: function(view){ // 这里是将 传入的外部 view 的值赋给 controller 对象的 view  this.</description>
+    </item>
+    
+    <item>
+      <title>自己实现 AJAX</title>
+      <link>https://bravchen.github.io/history/2019-09-18-%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0-ajax/</link>
+      <pubDate>Wed, 18 Sep 2019 21:40:15 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-09-18-%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0-ajax/</guid>
+      <description>设置请求 #  案例
+request.open(&amp;#39;POST&amp;#39;, &amp;#39;/xxx&amp;#39;) // 第一部分 配置 request request.setRequestHeader(&amp;#39;chen&amp;#39;,&amp;#39;16&amp;#39;) // 第二部分 属性配置 request.setRequestHeader(&amp;#39;Content-Type&amp;#39;, &amp;#39;x-www-form-urlencoded&amp;#39;) // 第二部分 属性配置 request.send(&amp;#39;a=1&amp;amp;b=2&amp;#39;) // 第四部分 请求第二部分
+XMLHttpRequest.setRequestHeader() 是设置HTTP请求头部的方法。此方法必须在 open() 方法和 send() 之间调用。如果多次对同一个请求头赋值，只会生成一个合并了多个值的请求头。
+request.setRequestHeader(header, value); 效果图
+设置响应 #  if(path === &amp;#39;/&amp;#39;){ let string = fs.readFileSync(&amp;#39;./index.html&amp;#39;,&amp;#39;utf8&amp;#39;) // 响应第四部分内容格式  response.statusCode = 200 // 设置响应第一部分响应码  response.setHeader(&amp;#39;Content-Type&amp;#39;, &amp;#39;text/html;charset=utf-8&amp;#39;) // 设置响应第二部分属性  response.write(string) // 设置响应第四部分  response.end() // 响应结束 } 获取响应 #  获取响应的状态
+response.statusText; 获取响应的第二部分</description>
+    </item>
+    
+    <item>
+      <title>AJAX</title>
+      <link>https://bravchen.github.io/history/2019-09-17-ajax/</link>
+      <pubDate>Tue, 17 Sep 2019 14:31:34 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-09-17-ajax/</guid>
+      <description>案例源代码地址：https://github.com/ChenNing02/git-hunger/tree/master/AJAX
+各种请求方式 #  form 表单
+&amp;lt;form action=&amp;#34;/xxx&amp;#34; method=&amp;#34;GET&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;password&amp;#34; name=&amp;#34;password&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;submit&amp;#34; value=&amp;#34;提交&amp;#34;&amp;gt; &amp;lt;/form&amp;gt; link
+var link = document.createElement(&amp;#39;link&amp;#39;) link.rel = &amp;#39;stylesheet&amp;#39; link.href = &amp;#39;/xxx&amp;#39; document.head.appendChild(link) a 标签
+&amp;lt;a id=x href=&amp;#34;/xxx&amp;#34;&amp;gt;click&amp;lt;/a&amp;gt; &amp;lt;script&amp;gt; x.click() &amp;lt;/script&amp;gt; script
+var script = document.createElement(&amp;#39;script&amp;#39;) script.src = &amp;#39;/yyy&amp;#39; document.head.appendChild(script) img
+var image = document.createElement(&amp;#39;img&amp;#39;) image.src = &amp;#39;/xxx&amp;#39; image.onload = function(){ console.log(&amp;#39;success&amp;#39;) } image.onerror = function(){ console.log(&amp;#39;fail&amp;#39;) } 自制的AJAX请求 #  首先设置 server.js 的判断条件
+if (path === &amp;#39;/xxx&amp;#39;) { response.</description>
+    </item>
+    
+    <item>
+      <title>JSONP</title>
+      <link>https://bravchen.github.io/history/2019-09-16-jsonp/</link>
+      <pubDate>Mon, 16 Sep 2019 14:35:47 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-09-16-jsonp/</guid>
+      <description>所有案例源代码链接 https://github.com/ChenNing02/git-hunger/tree/master/course-demo/JSONP
+请求方式 #  使用 iframe 提交 #  代码：
+index.html
+&amp;lt;p&amp;gt;你的账户余额为&amp;lt;span id=&amp;#34;amount&amp;#34;&amp;gt;&amp;amp;&amp;amp;&amp;amp;amount&amp;amp;&amp;amp;&amp;amp;&amp;lt;/span&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;form action=&amp;#34;/pay&amp;#34; method=&amp;#34;POST&amp;#34; target=&amp;#34;result&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;submit&amp;#34; value=&amp;#34;付款&amp;#34;&amp;gt; &amp;lt;/form&amp;gt; &amp;lt;iframe name=&amp;#34;result&amp;#34; src=&amp;#34;about:blank&amp;#34; frameborder=&amp;#34;0&amp;#34; height=&amp;#34;50&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; server.js
+if (path === &amp;#39;/pay&amp;#39; &amp;amp;&amp;amp; method.toUpperCase() === &amp;#39;POST&amp;#39;) { let amount = fs.readFileSync(&amp;#39;./db&amp;#39;, &amp;#39;utf8&amp;#39;) let newAmount = amount - 1 // 随机成功或失败，这样可以查看成功或失败的效果  if (Math.random() &amp;gt; 0.5) { // 修改存储数据的文件  fs.writeFileSync(&amp;#39;./db&amp;#39;, newAmount) response.write(&amp;#39;success&amp;#39;) } else { response.write(&amp;#39;fail&amp;#39;) } response.end() }  使用iframe代替打开新窗口，这样就可以不打开新窗口来显示成功或失败</description>
+    </item>
+    
+    <item>
+      <title>vim 入门</title>
+      <link>https://bravchen.github.io/history/2019-09-14-vim-get-started/</link>
+      <pubDate>Sat, 14 Sep 2019 20:39:55 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-09-14-vim-get-started/</guid>
+      <description>退出vim #    不保存强制退出：:q!
+  强制退出：:qa!
+  区别：使用 :q! 会退出并且抛出一个错误，而使用 :qa! 会直接退出不抛出错误
+查看官方文档 vimtutor
+使用到的单词
+quit 退出 write/read 写入/读取 copy(yank) 拷贝(把...拽到) paste 粘贴 delete 删除 change 改变 line 行 find 查找文字 word 查找单词 forward/backward 向前/向后 up/down 向上/向下 insert/append 插入/ insert 模式(编辑模式) 普通模式(normal模式) do/undo/redo 做/撤销/还原 默认模式 (普通模式)
+按 x 删除光标所在字母
+按 u 撤销
+按 ctrl + r 重做
+按 i 在光标前插入
+按 a 在光标后插入
+按 Shift + i 移至当前行尾</description>
+    </item>
+    
+    <item>
+      <title>vim 的使用</title>
+      <link>https://bravchen.github.io/history/2019-09-14-vim%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 14 Sep 2019 20:39:55 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-09-14-vim%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>退出vim #    不保存强制退出：:q!
+  强制退出：:qa!
+  区别：使用 :q! 会退出并且抛出一个错误，而使用 :qa! 会直接退出不抛出错误
+查看官方文档 vimtutor
+使用到的单词
+quit 退出 write/read 写入/读取 copy(yank) 拷贝(把...拽到) paste 粘贴 delete 删除 change 改变 line 行 find 查找文字 word 查找单词 forward/backward 向前/向后 up/down 向上/向下 insert/append 插入/ insert 模式(编辑模式) 普通模式(normal模式) do/undo/redo 做/撤销/还原 默认模式 (普通模式)
+按 x 删除光标所在字母
+按 u 撤销
+按 ctrl + r 重做
+按 i 在光标前插入
+按 a 在光标后插入
+按 Shift + i 移至当前行尾</description>
+    </item>
+    
+    <item>
+      <title>命令行常用技巧</title>
+      <link>https://bravchen.github.io/history/2019-09-10-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Tue, 10 Sep 2019 21:31:23 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-09-10-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/</guid>
+      <description>目录跳转 #  跳转至用户目录 cd ~/
+查看当前目录 pwd
+打开指定文件 start 路径
+快速跳转 #  安装
+ 注：如果觉得文字过多步骤繁琐，下面有简化版
+ 在用户目录下创建一个文件夹进入这个目录
+mkdir ~/GitHub/rupa cd ~/GitHub/rupa 下载 z 命令的文件：
+git clone https://github.com/rupa/z.git 进入 z 目录 cd z
+使用 pwd 查看当前目录路径，复制 pwd 显示的路径并在路径后添加 /z.sh
+/c/Users/xxx/GitHub/rupa/z/z.sh 可以用 ~ 代替用户目录，如下：
+~/GitHub/rupa/z/z.sh 用 VSCode (其他编辑器也可以，但是不要使用记事本等打开) 打开 用户目录下的 .bashrc 文件
+然后把上面的路径复制添加在用户目录 ( cd ~/ ) 下的 .bashrc 文件中：
+在前面加一个 . 并用空格隔开
+. ~/GitHub/rupa/z/z.sh  . 是 source 的缩写 所以也可以写作 source</description>
+    </item>
+    
+    <item>
+      <title>浏览器缓存</title>
+      <link>https://bravchen.github.io/history/2019-09-09-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/</link>
+      <pubDate>Mon, 09 Sep 2019 13:16:13 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-09-09-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/</guid>
+      <description>Cookie #   服务器通过 Set-Cookie 头给客户端一串字符串 客户端每次访问相同域名的网页时，必须带上这段字符串 客户端要在一段时间内保存这个Cookie Cookie 默认在用户关闭页面后就会失效 (后台代码可以任意设置 Cookie 的过期时间) Cookie 存储的大小一般在 4kb 以内 Cookie存在的问题：用户可以随意篡改 Cookie 的内容  请求优化
+response.setHeader(&amp;#39;Cache-Control&amp;#39;, &amp;#39;max-age=30&amp;#39;) // 意思是30秒内同样的URL不在重复访问，直接从本地缓存获取  注：首页无法设置，因为浏览器不允许。
+ 更新缓存：
+可以通过更改主页引入的URL地址来更新缓存：
+&amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;./css/default.css?v=2&amp;#34;&amp;gt; &amp;lt;script src=&amp;#34;./js/main.js?v=2&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;  更多API搜索： http set cookie
+ Expire #    作用与Cache-Control 类似，但计算时间的方法不一样，Expire 是通过类似闹钟的设置，到了某个固定的时间点更新请求 (固定时间指的是本地时间)
+  但是这种方法有个缺点就是用户的系统时间错乱了容易误判时间 (比如用户将时间设定在未来的时间点，那这种方法的时间就会缩短或无效)。
+  两种方法同时存在时优先使用 Cache-Control
+  Cache-Control 与 Expire 的区别
+一个是多久过期，一个是什么时间过期
+Session #   将 SessionID (随机数) 通过 Cookie 发给客户端 客户端访问服务器时，服务器读取 SessionID 服务器有一块内存 (哈希表) 保存了所有 session 通过 SessionID 我们可以得到对应用户的隐私信息，如 id、email 这块内存 (哈希表) 就是服务器上的所有 session   概况：Session 就是给每个用户一个随机数组成的ID，每个ID对应一个用户名，用户第一次登陆后下次每次登录只需要通过用户的ID查找用户名即可，即使有人篡改ID，由于ID是由随机数组成，所以很难破解。</description>
+    </item>
+    
+    <item>
+      <title>CSS 常用属性</title>
+      <link>https://bravchen.github.io/history/2019-09-09-css%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/</link>
+      <pubDate>Mon, 09 Sep 2019 12:45:06 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-09-09-css%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/</guid>
+      <description>清除浮动 #  最简便的写法
+.clearfix::after { content: &amp;#39;&amp;#39;; display: block; clear: both; } /* IE 兼容 */ .clearfix{ zoom: 1; } 默认属性去除 #  去掉默认的轮廓线
+outline: none; 去掉列表前面的序列号或点
+list-style: none; textarea 去除
+textarea { width: 200px; height: 200px; overflow: hidden; resize: none; /* 设置大小不可拖动 */ } 图片 #  图片文字中线对齐
+vertical-align: middle; 背景 #  透明背景 #  div { background-color: none; background-color: transparent; }  两个样式效果一样
+ 背景图片 #  背景图片居中等比例缩放</description>
+    </item>
+    
+    <item>
+      <title>移动端页面(响应式)</title>
+      <link>https://bravchen.github.io/history/2019-09-01-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2-%E5%93%8D%E5%BA%94%E5%BC%8F/</link>
+      <pubDate>Sun, 01 Sep 2019 19:07:24 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-09-01-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2-%E5%93%8D%E5%BA%94%E5%BC%8F/</guid>
+      <description>大纲 #    学会 media query (媒体查询)
+  学会要设计图（没图不做）
+ 实在要做，也要提前画好草稿给应用看，提前达成共识。    学会隐藏元素
+  手机端要加一个 meta:vp 标签，示例：
+&amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&amp;#34;&amp;gt;   手机端的交互方式不一样
+ 没有 hover (没有鼠标经过) 有 touch 事件 (触摸事件) 没有 resize 没有滚动条    media query(媒体查询) #  根据设备显示宽度判断设备
+使用最大值来区分，如果某个媒体满足宽度是0-800之间就使得它的body变红
+@media (max-width: 800px) { body{ background: red; } } 也可以使用最小值判断，表示只在大于 800px 的设备上有该效果
+@media (min-width: 800px) { body{ background: red; } } 或者两个一起使用，表示大于 320px 小于 800px 宽度的设备显示</description>
+    </item>
+    
+    <item>
+      <title>Element UI</title>
+      <link>https://bravchen.github.io/history/element-ui/</link>
+      <pubDate>Sun, 01 Sep 2019 18:29:26 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/element-ui/</guid>
+      <description>分页组件 #  常用属性 #     名称 作用 类型 可选值 默认值     small 使用小型分页样式 boolean  false   background 为分页按钮添加背景色 boolean  false   page-size 每页显示数据个数 (支持 .sync 修饰符) number  10   total 数据总个数 (总条目数) number     current-page 当前页数 (支持 .sync 修饰符)   1    事件 #     名称 说明 回调参数     current-change 当前页 (currentPage) 改变时会触发 当前页    常用带跳转案例</description>
+    </item>
+    
+    <item>
+      <title>Vue 入门案例</title>
+      <link>https://bravchen.github.io/history/vue%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B/</link>
+      <pubDate>Sun, 01 Sep 2019 18:29:26 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/vue%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B/</guid>
+      <description>几个 Vue 入门的小案例
+在使用 Vue 前注意引入一个 Vue 库，当前案例使用的是 script 标签引入如下版本
+&amp;lt;script src=&amp;#34;https://cdn.bootcss.com/vue/2.6.10/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 按钮开/关提示 #  代码 html &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;button v-on:click=&amp;#34;go&amp;#34;&amp;gt;开/关&amp;lt;/button&amp;gt; &amp;lt;p v-if=&amp;#34;open&amp;#34;&amp;gt;我是文字内容&amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; JavaScript let app = new Vue({ el: &amp;#39;#app&amp;#39;, data: { open: false }, methods: { go(){ this.open = !this.open } } }) CSS p { border: 1px solid #ccc; padding: 10px; width: 200px; }  鼠标悬浮提示 #  代码
+html &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;p v-bind:title=&amp;#34;xxx&amp;#34;&amp;gt;鼠标悬浮当前文字显示提示&amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; JavaScript let app = new Vue({ el: &amp;#39;#app&amp;#39;, data: { xxx: &amp;#39;我是文字提示&amp;#39; } }) CSS p { border: 1px solid #ccc; padding: 10px; width: 200px; }  简单的轮播 #  代码 html &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;div&amp;gt; &amp;lt;div class=&amp;#34;window&amp;#34;&amp;gt; &amp;lt;div class=&amp;#34;demo&amp;#34; v-bind:style=&amp;#34;{transform: transformValue}&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;button v-on:click=&amp;#34;go(0)&amp;#34;&amp;gt;1&amp;lt;/button&amp;gt; &amp;lt;button v-on:click=&amp;#34;go(1)&amp;#34;&amp;gt;2&amp;lt;/button&amp;gt; &amp;lt;button v-on:click=&amp;#34;go(2)&amp;#34;&amp;gt;3&amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; JavaScript let app = new Vue({ el: &amp;#39;#app&amp;#39;, data: { transformValue: &amp;#39;&amp;#39; }, ​ methods:{ ​ go(index){ this.</description>
+    </item>
+    
+    <item>
+      <title>测试页</title>
+      <link>https://bravchen.github.io/history/%E6%B5%8B%E8%AF%95%E9%A1%B5/</link>
+      <pubDate>Sun, 01 Sep 2019 18:29:26 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/%E6%B5%8B%E8%AF%95%E9%A1%B5/</guid>
+      <description>主题添加CSS样式 #  h2 { font-size: 28px; padding-bottom: 10px; border-bottom: 1px solid #ccc; /* 所有标题样式 */ font-family: roboto, sans-serif; font-weight: bold; color: #34495e; font-size: 1.75rem; line-height: 1.225; margin: 35px 0 15px; padding-bottom: 0.5em; border-bottom: 1px solid #ddd; } html { font-size: 16px; letter-spacing: .33px; scroll-behavior: smooth; min-width: 20rem; overflow-x: hidden; } body { font-family: roboto,sans-serif; } 我是h1标题 #  我是文字内容
+我是h2标题 #  我是文字内容
+我是h3标题 #  我是文字内容
+我是h4标题 #  我是文字内容</description>
+    </item>
+    
+    <item>
+      <title>webpack 的使用</title>
+      <link>https://bravchen.github.io/history/2019-08-28-webpack-use/</link>
+      <pubDate>Wed, 28 Aug 2019 23:02:51 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-08-28-webpack-use/</guid>
+      <description>部分命令可能会有些过时，所以要多看官方文档
+安装 node-sass #  搜索：node sass github
+github官网：https://github.com/sass/node-sass
+命令行输入：
+npm install node-sass -g  -g 表示全局安装
+ 全局安装与局部安装的区别
+  全局安装的命令会将插件安装在全局目录中 (包含在$PATH中)，不论在哪个目录下都可以调用
+  局部安装只能在当前路径使用该命令
+  使用 #  查看版本号
+node-sass -v sass 的用法
+  更改CSS文件后缀为： scss
+命令行中的写法：mv style.css style.scss
+  使用 sass 编译：node-sass style.scss style.css
+  也可以使用 scss 语法书写代码：
+div { color: red; &amp;gt; ul { font-size: 16px; &amp;gt; li { border: 1px solid #000; &amp;gt; a { font-weight: bold; } } } } 再运行 node-sass style.</description>
+    </item>
+    
+    <item>
+      <title>JS基础常识</title>
+      <link>https://bravchen.github.io/history/js%E5%9F%BA%E7%A1%80%E5%B8%B8%E8%AF%86/</link>
+      <pubDate>Tue, 27 Aug 2019 23:00:41 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/js%E5%9F%BA%E7%A1%80%E5%B8%B8%E8%AF%86/</guid>
+      <description>七种数据类型 #   number string boolean symbol null undefined object  五个 false 值 #   null undefined 0 NaN &#39;&amp;rsquo; ( 空字符串 )  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://bravchen.github.io/docs/git%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/git%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
+      <description>Git用法总结 #   老师谈经验：新人无法理解 git 的原理，你只能背命令。等你用 git 用一个月，再谈原理。 用 git 三个月，你就自然理解 git 了。不要试图一开始就理解 git！ Git 课外资料（可不看）：http://www.runoob.com/git/git-tutorial.html  配置 GitHub #    进入 https://github.com/settings/keys
+  如果页面里已经有一些 key，就点「delete」按钮把这些 key 全删掉。如果没有，就往下看
+  点击 New SSH key，你需要输入 Title 和 Key，但是你现在没有 key，往下看
+  打开 Git Bash
+  复制并运行 rm -rf ~/.ssh/* 把现有的 ssh key 都删掉，这句命令行如果你多打一个空格，可能就要重装系统了，建议复制运行。
+  运行 ssh-keygen -t rsa -b 4096 -C &amp;quot;你的邮箱&amp;quot;，注意填写你的邮箱！
+  按回车三次</description>
+    </item>
+    
+    <item>
+      <title>Action 官方文档</title>
+      <link>https://bravchen.github.io/history/action/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/action/</guid>
+      <description>Action 官方文档 #  Action 类似于 mutation，不同在于：
+ Action 提交的是 mutation，而不是直接变更状态。 Action 可以包含任意异步操作。  让我们来注册一个简单的 action：
+const store = new Vuex.Store({ state: { count: 0 }, mutations: { increment (state) { state.count++ } }, actions: { increment (context) { context.commit(&amp;#39;increment&amp;#39;) } } }) Action 函数接受一个与 store 实例具有相同方法和属性的 context 对象，因此你可以调用 context.commit 提交一个 mutation，或者通过 context.state 和 context.getters 来获取 state 和 getters。当我们在之后介绍到 Modules 时，你就知道 context 对象为什么不是 store 实例本身了。
+实践中，我们会经常用到 ES2015 的 参数解构 来简化代码（特别是我们需要调用 commit 很多次的时候）：</description>
+    </item>
+    
+    <item>
+      <title>Axios 入门</title>
+      <link>https://bravchen.github.io/history/axios%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/axios%E5%85%A5%E9%97%A8/</guid>
+      <description>安装 #  npm 安装 #  npm install axios yran 安装 #  yarn add axios CDN 引入 #  &amp;lt;script src=&amp;#34;https://unpkg.com/axios/dist/axios.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;  官方文档：GitHub-axios
+ 使用 #  get请求
+axios.get(&amp;#39;/user?ID=12345&amp;#39;).then((response)=&amp;gt;{ console.log(response) }).catch((error)=&amp;gt;{ console.log(error) }) 拦截器 #  案例
+在返回 response 之前执行 .use() 中的函数
+axios.interceptors.response.use(function(response){ response.data = { &amp;#39;name&amp;#39;: &amp;#39;frank&amp;#39; } return response }) axios.get(&amp;#39;/books/1&amp;#39;).then((response)=&amp;gt;{ console.log(response) }) 根据请求路由判断
+当请求为 get 请求并且请求的 url 是 &#39;/books/1&#39; 才会返回数据 data 的值
+axios.interceptors.response.use(function(response){ let config = response.</description>
+    </item>
+    
+    <item>
+      <title>CSS Grid 网格布局教程</title>
+      <link>https://bravchen.github.io/docs/css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80%E6%95%99%E7%A8%8B/</guid>
+      <description>CSS Grid 网格布局教程 #  作者： 阮一峰
+日期： 2019年3月25日
+ 一、概述 #  网格布局（Grid）是最强大的 CSS 布局方案。
+它将网页划分成一个个网格，可以任意组合不同的网格，做出各种各样的布局。以前，只能通过复杂的 CSS 框架达到的效果，现在浏览器内置了。
+上图这样的布局，就是 Grid 布局的拿手好戏。
+Grid 布局与 Flex 布局有一定的相似性，都可以指定容器内部多个项目的位置。但是，它们也存在重大区别。
+Flex 布局是轴线布局，只能指定&amp;quot;项目&amp;quot;针对轴线的位置，可以看作是一维布局。Grid 布局则是将容器划分成&amp;quot;行&amp;quot;和&amp;quot;列&amp;rdquo;，产生单元格，然后指定&amp;quot;项目所在&amp;quot;的单元格，可以看作是二维布局。Grid 布局远比 Flex 布局强大。
+二、基本概念 #  学习 Grid 布局之前，需要了解一些基本概念。
+2.1 容器和项目 #  采用网格布局的区域，称为&amp;quot;容器&amp;rdquo;（container）。容器内部采用网格定位的子元素，称为&amp;quot;项目&amp;rdquo;（item）。
+&amp;lt;div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;p&amp;gt;1&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;p&amp;gt;2&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;p&amp;gt;3&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; 上面代码中，最外层的元素就是容器，内层的三个元素就是项目。
+注意：项目只能是容器的顶层子元素，不包含项目的子元素，比如上面代码的``元素就不是项目。Grid 布局只对项目生效。
+2.2 行和列 #  容器里面的水平区域称为&amp;quot;行&amp;rdquo;（row），垂直区域称为&amp;quot;列&amp;rdquo;（column）。
+上图中，水平的深色区域就是&amp;quot;行&amp;rdquo;，垂直的深色区域就是&amp;quot;列&amp;rdquo;。
+2.3 单元格 #  行和列的交叉区域，称为&amp;quot;单元格&amp;rdquo;（cell）。
+正常情况下，n行和m列会产生n x m个单元格。比如，3行3列会产生9个单元格。
+2.4 网格线 #  划分网格的线，称为&amp;quot;网格线&amp;rdquo;（grid line）。水平网格线划分出行，垂直网格线划分出列。</description>
+    </item>
+    
+    <item>
+      <title>ES 6 新特性列表</title>
+      <link>https://bravchen.github.io/docs/es6-%E6%96%B0%E7%89%B9%E6%80%A7%E5%88%97%E8%A1%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/es6-%E6%96%B0%E7%89%B9%E6%80%A7%E5%88%97%E8%A1%A8/</guid>
+      <description>ES 6 新特性列表 #  由 饥人谷 搜集整理。点击链接，查看中文学习资料。
+ 作用域  块级作用域 块级变量 let 块级常量 const   箭头函数  sum = (a, b) =&amp;gt; a + b nums.forEach( v =&amp;gt; { console.log(v) }) 词法 this   参数处理  默认参数值 剩余参数 展开运算符   模板字面量  多行字符串 字符串插值 带标签的模板字面量 原始字符串   原有字面量加强  更安全的二进制字面量（0b1111101） 更安全的八进制字面量（0o767） 字符串支持 Unicode  String.fromCodePoint String.prototype.codePointAt   正则表达式字面量添加 Unicode 支持（u 标记） 正则表达式添加 y 标记，支持粘滞匹配   对象属性加强  属性定义支持短语法 obj = { x, y } 属性名支持表达式 obj = {[&amp;quot;baz&amp;quot; + quux() ]: 42} 添加 __proto__ 属性，但不建议使用   解构赋值  数组匹配 [ b, a ] = [ a, b ] 对象匹配 let { a, b, c } = objABC 参数匹配 function g ({ name: n, val: v }) {}   模块  导入（import） 导出（export） 默认导出（export default）   类  使用 extends 实现继承 重写构造器 super 关键字   迭代  迭代器 for of   生成器 Promise 元编程  代理（Proxy） 反射（Reflect）   新增数据类型  Symbol 类型 Set 类型 Map 类型 WeakSet 类型 WeakMap 类型 TypedArray 类型   原有内置对象 API 增强  Object.</description>
+    </item>
+    
+    <item>
+      <title>JS 中的 Symbol 是什么？</title>
+      <link>https://bravchen.github.io/history/js%E4%B8%AD%E7%9A%84symbol%E6%98%AF%E4%BB%80%E4%B9%88/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/js%E4%B8%AD%E7%9A%84symbol%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
+      <description>JS 中的 Symbol 是什么？ #  ES 6 引入了一个新的数据类型 Symbol，它是用来做什么的呢？
+为了说明 Symbol 的作用，我们先来描述一个使用场景。
+我们在做一个游戏程序，用户需要选择角色的种族。
+var race = { protoss: &amp;#39;protoss&amp;#39;, // 神族  terran: &amp;#39;terran&amp;#39;, // 人族  zerg: &amp;#39;zerg&amp;#39; // 虫族 } function createRole(type){ if(type === race.protoss){创建神族角色} else if(type === race.terran){创建人族角色} else if(type === race.zerg){创建虫族角色} } 那么用户选择种族后，就需要调用 createRole 来创建角色：
+// 传入字符串 createRole(&amp;#39;zerg&amp;#39;) // 或者传入变量 createRole(race.zerg) 一般传入字符串被认为是不好的做法，所以使用 createRole(race.zerg) 的更多。
+如果使用 createRole(race.zerg)，那么聪明的读者会发现一个问题：race.protoss、race.terran、race.zerg 的值为多少并不重要。
+改为如下写法，对 createRole(race.zerg) 毫无影响：
+var race = { protoss: &amp;#39;askdjaslkfjas;lfkjas;flkj&amp;#39;, // 神族  terran: &amp;#39;;lkfalksjfl;askjfsfal;skfj&amp;#39;, // 人族  zerg: &amp;#39;qwieqwoirqwoiruoiwqoisrqwroiu&amp;#39; // 虫族 } 也就是说：</description>
+    </item>
+    
+    <item>
+      <title>JSON 是什么？</title>
+      <link>https://bravchen.github.io/history/json%E6%98%AF%E4%BB%80%E4%B9%88/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/json%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
+      <description>JSON 是什么？ #  （本文精髓在最后一节）
+JSON 绝对不是对象，请问
+ JSON 是什么？ &amp;ldquo;null&amp;rdquo; 是 JSON 吗？&amp;ldquo;1&amp;rdquo; 是 JSON 吗？ JSON 与 JS 对象的区别是什么？  JSON 是什么？ #  如果你在 Google 搜索 JSON，那么一眼就会看到 JSON 的官网 http://json.org。
+官网会明明白白的告诉你，JSON 是一种数据格式。
+什么是格式？你可以理解为语法。JSON 的格式灵感来自于 JS 对象字面量的语法，但是两者没有任何关联。
+这种格式可以描述三种数据。
+1. object（无序的「键-值」集合）。
+语法如下：
+这个图叫做语法图，你可以讲其想象成铁轨，有一列火车从左往右行驶。
+这列火车遇到的第一个符号是 { ，所以对象语法的第一个符号也必须是 { 。
+如果继续直行，会分别遇到 string、冒号和 value，所以对应的文本内容是 { string: value 。
+然后你可以选择直行或者往下拐，最后到达终点。
+把旅途中遇到的所有符号连起来，就是完整的语法。
+比如下面三种写法都可以表示 object
+{} {&amp;#34;key1&amp;#34;: &amp;#34;value1&amp;#34;} // string 对应 &amp;#34;key1&amp;#34;，value 对应 &amp;#34;value1&amp;#34;，后面会讲 {&amp;#34;key1&amp;#34;: &amp;#34;value1&amp;#34;, &amp;#34;key2&amp;#34;: &amp;#34;value2&amp;#34;} 2.</description>
+    </item>
+    
+    <item>
+      <title>Module语法</title>
+      <link>https://bravchen.github.io/history/2019-11-12-module%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2019-11-12-module%E8%AF%AD%E6%B3%95/</guid>
+      <description>历史 #  由于 JavaScript 一直没有模块(module)体系，无法将一个文件拆分成一个相互依赖的多个小文件，再用简单的方法拼装在一起。其他语言都有这样的功能。 在 ES6 之前，社区制定了一些模块加载方案，最主要的有 CommonJS 和 AMD 两种。前者用于服务器，后者用于浏览器。ES6 在语言标准的层面上实现了模块功能，并且相当简单，取代了之前的方案。
+静态加载 #   运行时加载：只有在运行时才会加载，缺点：无法在编译时做“静态优化” 静态加载(ES6)：也称“编译时加载”，在编译时就加载模块，缺点：无法引用模块本身  案例 #  运行时加载 整体加载 fs 模块(即加载 fs 的所有方法)，生成一个对象，然后再从这个对象上面读取 3 个方法。这种加载就是 “运行时加载”，因为只有在运行时才能得到这个对象，导致无法在编译时做“静态优化”
+// CommonJS模块 let { stat, exists, readFile } = require(&amp;#39;fs&amp;#39;); // 相当于 let _fs = require(&amp;#39;fs&amp;#39;) let stat = _fs.stat; let exists = _fs.exists; let readfile = _fs.readfile; 静态加载 ES6语法可以从 fs 模块加载 3 个方法，其他方法不加载。这种方法就叫做静态加载，
+import { stat, exists, readFile } from &amp;#39;fs&amp;#39;; 严格模式 #  ES6 的模块自动采用严格模式</description>
+    </item>
+    
+    <item>
+      <title>Unicode与JavaScript详解</title>
+      <link>https://bravchen.github.io/docs/unicode%E4%B8%8Ejavascript%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/unicode%E4%B8%8Ejavascript%E8%AF%A6%E8%A7%A3/</guid>
+      <description>分享按钮
+作者： 阮一峰
+日期： 2014年12月11日
+ 上个月，我做了一次分享，详细介绍了Unicode字符集，以及JavaScript语言对它的支持。下面就是这次分享的讲稿。
+一、Unicode是什么？ #  Unicode源于一个很简单的想法：将全世界所有的字符包含在一个集合里，计算机只要支持这一个字符集，就能显示所有的字符，再也不会有乱码了。
+**它从0开始，为每个符号指定一个编号，这叫做&amp;quot;码点&amp;rdquo;（code point）。**比如，码点0的符号就是null（表示所有二进制位都是0）。
+U+0000 = null 上式中，U+表示紧跟在后面的十六进制数是Unicode的码点。
+目前，Unicode的最新版本是7.0版，一共收入了109449个符号，其中的中日韩文字为74500个。可以近似认为，全世界现有的符号当中，三分之二以上来自东亚文字。比如，中文&amp;quot;好&amp;quot;的码点是十六进制的597D。
+U+597D = 好 这么多符号，Unicode不是一次性定义的，而是分区定义。每个区可以存放65536个（216）字符，称为一个平面（plane）。目前，一共有17个（25）平面，也就是说，整个Unicode字符集的大小现在是221。
+最前面的65536个字符位，称为基本平面（缩写BMP），它的码点范围是从0一直到216-1，写成16进制就是从U+0000到U+FFFF。所有最常见的字符都放在这个平面，这是Unicode最先定义和公布的一个平面。
+剩下的字符都放在辅助平面（缩写SMP），码点范围从U+010000一直到U+10FFFF。
+二、UTF-32与UTF-8 #  Unicode只规定了每个字符的码点，到底用什么样的字节序表示这个码点，就涉及到编码方法。
+**最直观的编码方法是，每个码点使用四个字节表示，字节内容一一对应码点。这种编码方法就叫做UTF-32。**比如，码点0就用四个字节的0表示，码点597D就在前面加两个字节的0。
+U+0000 = 0x0000 0000 U+597D = 0x0000 597D UTF-32的优点在于，转换规则简单直观，查找效率高。缺点在于浪费空间，同样内容的英语文本，它会比ASCII编码大四倍。这个缺点很致命，导致实际上没有人使用这种编码方法，HTML 5标准就明文规定，网页不得编码成UTF-32。
+人们真正需要的是一种节省空间的编码方法，这导致了UTF-8的诞生。**UTF-8是一种变长的编码方法，字符长度从1个字节到4个字节不等。**越是常用的字符，字节越短，最前面的128个字符，只使用1个字节表示，与ASCII码完全相同。
+   编号范围 字节     0x0000 - 0x007F 1   0x0080 - 0x07FF 2   0x0800 - 0xFFFF 3   0x010000 - 0x10FFFF 4    由于UTF-8这种节省空间的特性，导致它成为互联网上最常见的网页编码。不过，它跟今天的主题关系不大，我就不深入了，具体的转码方法，可以参考我多年前写的《字符编码笔记》。</description>
+    </item>
+    
+    <item>
+      <title>Vue 点击空白关闭浮层</title>
+      <link>https://bravchen.github.io/history/vue-%E7%82%B9%E5%87%BB%E7%A9%BA%E7%99%BD%E5%85%B3%E9%97%AD%E6%B5%AE%E5%B1%82/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/vue-%E7%82%B9%E5%87%BB%E7%A9%BA%E7%99%BD%E5%85%B3%E9%97%AD%E6%B5%AE%E5%B1%82/</guid>
+      <description>案例
+&amp;lt;template&amp;gt; &amp;lt;div&amp;gt; &amp;lt;p v-if=&amp;#34;open&amp;#34; @click.stop&amp;gt; 显示的浮层 &amp;lt;/p&amp;gt; &amp;lt;button @click.stop=&amp;#34;autoFloat&amp;#34;&amp;gt;开/关&amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; export default { data () { return { open: false } }, methods: { autoFloat () { this.open = !this.open }, closeFloat () { this.open = false } }, mounted () { document.addEventListener(&amp;#39;click&amp;#39;, this.closeFloat) }, destroyed () { document.removeEventListener(&amp;#39;click&amp;#39;, this.closeFloat) } } &amp;lt;/script&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>Vue-cli 使用</title>
+      <link>https://bravchen.github.io/history/vue-cli%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/vue-cli%E4%BD%BF%E7%94%A8/</guid>
+      <description>Vue 命令行入门项目之 - 井字棋
+创建 #  首先打开命令行工具，安装 Vue
+可以使用下列任一命令安装这个新的包 ( 推荐使用 yarn 安装 )：
+npm install -g @vue/cli # 或 yarn global add @vue/cli 更新 yarn 的 vue-cli
+yarn global add @vue/cli 安装后，可以用这个命令来检查其版本是否正确：
+vue --version 创建一个当前项目的目录，进入这个目录
+运行以下命令来创建一个新项目：
+vue create . # 表示在当前目录下创建 vue create hello-world # 表示创建在一个指定目录下 运行后会出现以下问题
+Vue CLI v4.0.4 # 是否要在当前目录创建这个项目，输入 y/n 选择，此次选择默认Y ? Generate project in current directory? (Y/n) # 选择使用的默认配置，此处选择第二个，方向键上下切换，回车选择 ? Please pick a preset: (Use arrow keys) &amp;gt; default (babel, eslint) Manually select features # 自定义选择所需要的功能，空格选中/取消，方向键切换，回车确认,此次只选中 Babel 即可 ?</description>
+    </item>
+    
+    <item>
+      <title>Vuex 使用</title>
+      <link>https://bravchen.github.io/history/vuex%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/vuex%E4%BD%BF%E7%94%A8/</guid>
+      <description>安装 #  官方文档：Vuex 安装
+直接下载 #  https://unpkg.com/vuex
+引用 #  Unpkg.com 提供了基于 NPM 的 CDN 链接。以上的链接会一直指向 NPM 上发布的最新版本。您也可以通过 https://unpkg.com/vuex@2.0.0 这样的方式指定特定的版本。
+使用 Unpkg 引入最新版，( Vuex引入后会自动初始化 )：
+&amp;lt;script src=&amp;#34;https://unpkg.com/vue&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;https://unpkg.com/vuex&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; NPM #  npm install vuex --save 使用 #  官方文档：Vuex 使用
+最简单的 Store #   提示： 我们将在后续的文档示例代码中使用 ES2015 语法。如果你还没能掌握 ES2015，你得抓紧了！
+ 安装 Vuex 之后，让我们来创建一个 store。创建过程直截了当——仅需要提供一个初始 state 对象和一些 mutation：
+const store = new Vuex.Store({ state: { count: 10 }, mutations: { increment (state) { state.</description>
+    </item>
+    
+    <item>
+      <title>《前端学习指南》文章精选</title>
+      <link>https://bravchen.github.io/docs/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97-%E6%96%87%E7%AB%A0%E7%B2%BE%E9%80%89/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97-%E6%96%87%E7%AB%A0%E7%B2%BE%E9%80%89/</guid>
+      <description>《前端学习指南》文章精选 #  不知不觉，我和若愚的知乎专栏《前端学习指南》已经开通三个月了。
+这个专栏一开始是饥人谷给学员的福利，将平时教学中，学生经常问的问题总结成文字，方便查阅。
+写着写着，发现大家很喜欢我们这种「接地气」的文章，有些同学从第一篇到现在，每篇都看。
+如果你是最近才关注我们，下面是过去三个月的精选文章，可以看看，都很不错，业界良心。
+如果你最近要面试前端岗位，那你看完这些文章，就抱到佛脚了。
+ this 的值到底是什么？一次说清楚 JS 中的闭包是什么？ 独家前端书籍推荐 简述浏览器缓存是如何控制的 前端新手如何做简历 平时你从哪里获取前端知识？ 什么是立即执行函数 为什么 className 不要以 ad 开头？ JS 中的 Symbol 是什么？ cookie、session、localStorage分别是什么？有什么作用？ JSON 是什么？ AJAX 是什么？ CSRF 是什么？ 为什么不建议将 font-size 设置为 12px 以下？  如果觉得有用，请不要分享（这是个梗：有一次我写的是「请分享」，居然被人举报，说我诱导分享；后来知乎还真就把文章给封了。此后，我就只说「请不要分享」了，你说知乎气人不气人）。
+如果你看到不错的文章，欢迎投稿给我们。如果是英文，我们来翻译。
+欢迎进群与我探讨技术，暗号：前端/Java交流（附二维码）http://qr.jirengu.com/api/taskUrl?tid=56
+编辑于 2019-07-17
+  本文转自：https://zhuanlan.zhihu.com/p/23991042
+ </description>
+    </item>
+    
+    <item>
+      <title>原型链补充</title>
+      <link>https://bravchen.github.io/history/2020-02-03-%E5%8E%9F%E5%9E%8B%E9%93%BE%E8%A1%A5%E5%85%85/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2020-02-03-%E5%8E%9F%E5%9E%8B%E9%93%BE%E8%A1%A5%E5%85%85/</guid>
+      <description>原型链原理补充
+var obj = {} obj.toString() // 当obj.toString()时做了什么: window.Object.prototype.toString.call(obj) </description>
+    </item>
+    
+    <item>
+      <title>如何在 JS 代码中消灭 for 循环</title>
+      <link>https://bravchen.github.io/docs/%E5%A6%82%E4%BD%95%E5%9C%A8-js-%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%B6%88%E7%81%AD-for-%E5%BE%AA%E7%8E%AF/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/%E5%A6%82%E4%BD%95%E5%9C%A8-js-%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%B6%88%E7%81%AD-for-%E5%BE%AA%E7%8E%AF/</guid>
+      <description>如何在 JS 代码中消灭 for 循环 #  一，用好 filter，map，和其它 ES6 新增的高阶遍历函数 #  **问题一：**将数组中的 false值去除
+const arrContainsEmptyVal = [3, 4, 5, 2, 3, undefined, null, 0, &amp;#34;&amp;#34;]; 答案：
+const compact = arr =&amp;gt; arr.filter(Boolean); 问题二： 将数组中的 VIP 用户余额加 10
+const users = [ { username: &amp;#34;Kelly&amp;#34;, isVIP: true, balance: 20 }, { username: &amp;#34;Tom&amp;#34;, isVIP: false, balance: 19 }, { username: &amp;#34;Stephanie&amp;#34;, isVIP: true, balance: 30 } ]; 答案：
+users.map( user =&amp;gt;(user.</description>
+    </item>
+    
+    <item>
+      <title>平时你从哪里获取前端知识？</title>
+      <link>https://bravchen.github.io/docs/%E5%B9%B3%E6%97%B6%E4%BD%A0%E4%BB%8E%E5%93%AA%E9%87%8C%E8%8E%B7%E5%8F%96%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/%E5%B9%B3%E6%97%B6%E4%BD%A0%E4%BB%8E%E5%93%AA%E9%87%8C%E8%8E%B7%E5%8F%96%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/</guid>
+      <description>平时你从哪里获取前端知识？ #  由于之前本文被和谐了，所以重发一篇。
+以下是我获取前端知识的网站：
+  用 MDN 查 JavaScript 和 CSS 基础知识
+  用维基百科查编程概念
+  用 Stackoverflow 查疑难杂症
+  用 http://Caniuse.com 查兼容性
+  用 Google 搜索
+   用「site:http://github.com 关键词」搜索好用的库 用「关键词 MDN」来搜索 MDN    用 http://jsfeeds.com 获取前端最新资讯（英文）
+  遇到牛人，我就会收藏到我的 GitHub
+  用 HackerNews 知道编程界最新动态
+  用知乎、微博了解国内前端界的动态
+  去 http://v2ex.com 水技术
+  尽量避开百度搜索
+  发布于 2016-10-09</description>
+    </item>
+    
+    <item>
+      <title>我用了两个月的时间才理解 let</title>
+      <link>https://bravchen.github.io/docs/2020-04-18-%E6%88%91%E7%94%A8%E4%BA%86%E4%B8%A4%E4%B8%AA%E6%9C%88%E7%9A%84%E6%97%B6%E9%97%B4%E6%89%8D%E7%90%86%E8%A7%A3-let/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/2020-04-18-%E6%88%91%E7%94%A8%E4%BA%86%E4%B8%A4%E4%B8%AA%E6%9C%88%E7%9A%84%E6%97%B6%E9%97%B4%E6%89%8D%E7%90%86%E8%A7%A3-let/</guid>
+      <description>我用了两个月的时间才理解 let #  当然不是说用完整的两个月时间来理解 let，而是零零碎碎地理解，同时我还要想着怎么写出一篇文章把这个事情说清楚。
+在 let 刚出来的时候，我就「以为」我理解了 let。然鹅在过去的两个月里，我对 let 的理解发生了一波三折的变化。
+我写这篇文章，是希望我的学习过程，能对你自学有帮助。
+初识 let #  跟很多人一样，我第一次了解 let 的特性是从 MDN 的文档：
+我得到的信息有这么几条：
+ let 声明的变量的作用域是块级的； let 不能重复声明已存在的变量； let 有暂时死区，不会被提升。  大部分人应该都是这么认为的，我也是这么理解的。
+这个理解「没有问题」，但是不够「全面和深刻」。
+第一次质疑 #  我第一次质疑我的理解是在遇到 for 循环的时候，代码如下。
+// 代码段1 var liList = document.querySelectorAll(&amp;#39;li&amp;#39;) // 共5个li for( var i=0; i&amp;lt;liList.length; i++){ liList[i].onclick = function(){ console.log(i) } } 大家都知道依次点击 li 会打印出 5 个 5。如果把 var i 改成 let i，就会分别打印出 0、1、2、3、4：</description>
+    </item>
+    
+    <item>
+      <title>数组</title>
+      <link>https://bravchen.github.io/history/2020-05-07-%E6%95%B0%E7%BB%84/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2020-05-07-%E6%95%B0%E7%BB%84/</guid>
+      <description>Array.prototype
+.slice() #  数组浅拷贝
+.slice() 方法返回一个新的数组对象，这一对象是一个由 begin 和 end 决定的原数组的浅拷贝（包括 begin，不包括end）。原始数组不会被改变。
+语法
+arr.slice([begin[, end]])  传入两个参数，第一个是数组起始序号，第二个是数组结束序号，返回的数组中包括起始序号，不包括结束序号
+ 案例
+const animals = [&amp;#39;ant&amp;#39;, &amp;#39;bison&amp;#39;, &amp;#39;camel&amp;#39;, &amp;#39;duck&amp;#39;, &amp;#39;elephant&amp;#39;]; console.log(animals.slice(2)); // expected output: Array [&amp;#34;camel&amp;#34;, &amp;#34;duck&amp;#34;, &amp;#34;elephant&amp;#34;]  console.log(animals.slice(2, 4)); // expected output: Array [&amp;#34;camel&amp;#34;, &amp;#34;duck&amp;#34;]  console.log(animals.slice(1, 5)); // expected output: Array [&amp;#34;bison&amp;#34;, &amp;#34;camel&amp;#34;, &amp;#34;duck&amp;#34;, &amp;#34;elephant&amp;#34;] 伪数组 #  只有数组的样子，但没有数组的方法(如：.push等)。原型链直接指向对象
+伪数组转化为数组 #  例如，将函数中的 arguments 伪数组转化为数组：
+ES5写法
+let args = Array.prototype.slice.call(arguments) ES6写法</description>
+    </item>
+    
+    <item>
+      <title>知识的诅咒</title>
+      <link>https://bravchen.github.io/docs/2020-02-08-%E7%9F%A5%E8%AF%86%E7%9A%84%E8%AF%85%E5%92%92/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/2020-02-08-%E7%9F%A5%E8%AF%86%E7%9A%84%E8%AF%85%E5%92%92/</guid>
+      <description>知识的诅咒 #    含义：一种认知偏差，形容专家常以术语交谈，但丧失与非专业人士的沟通的能力
+  如何破除
+尽量不使用专业术语来解释专业术语
+多让旁人指出他不懂的地方
+  </description>
+    </item>
+    
+    <item>
+      <title>简历该怎么写</title>
+      <link>https://bravchen.github.io/history/2020-04-27-%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E7%AE%80%E5%8E%86%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/2020-04-27-%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E7%AE%80%E5%8E%86%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/</guid>
+      <description>就业：简历该怎么写
+一个完整的简历制作过程 #  《在线简历制作》
+饥人谷优秀简历展示 #  进了今日头条的简历 https://kylewh.github.io/Resume/index.html 另一个简历 https://adashuai5.github.io/resume/ 虽然很多人条件没有他的好，但是这个简历的态度非常认真，各方面细节都打磨得非常好，值得学习。
+简历应该怎么写？ #  参考文章
+ 从培训班出来之后找工作的经历，教会了我这五件事 一个炫酷的简历模板 互联网公司招聘启事的正确阅读方式 面试词典：什么叫精通？什么叫熟悉？什么叫了解？ 平时你从哪里获取前端知识？ 如果中国前端已经一半海水了，那么 Java、iOS 和安卓就…… 更多文章请看我的知乎问答  目的 #  展示自己的优点。
+内容 #    基本信息
+ 年龄、姓名、性别、目标职位（文件名里写，方方-应聘前端工程师.pdf）、学校 联系方式（PDF可以写手机，网页版不要写手机，搜索引擎会搜到）：手机、邮箱、QQ、微信    技能描述
+ 小程序制作 ★★ 可以独立进行小程序开发，熟悉AAAA、BBB、CCCC相关API或组件的使用。 Vue ★★★★★ 熟悉 Vue 常用功能，如组件、Vue-Router、双向绑定等。 jQuery ★★★★★ 熟悉 jQuery 的常用 API，能使用 jQuery 制作网站、轮播、Tab 组件等。 HTML 5 &amp;amp; CSS 3 ★★★★★ 能独立制作精美网页，掌握 CSS 3 动画、过渡效果、响应式等常用技术。 移动端页面 ★★★★ 会使用 REM、vw/vh、FastClick 等技术制作适配手机设备的页面。 前端框架 ★★★ 理解 MVC、MVVM 等思想，可以熟练使用相关的库，如 Vue、React    教育经历 必须写</description>
+    </item>
+    
+    <item>
+      <title>计算属性和监听器</title>
+      <link>https://bravchen.github.io/history/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BE%A6%E5%90%AC%E5%99%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/history/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BE%A6%E5%90%AC%E5%99%A8/</guid>
+      <description>基础例子 #  &amp;lt;div id=&amp;#34;example&amp;#34;&amp;gt; &amp;lt;p&amp;gt;Original message: &amp;#34;{{ message }}&amp;#34;&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;Computed reversed message: &amp;#34;{{ reversedMessage }}&amp;#34;&amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; JS
+var vm = new Vue({ el: &amp;#39;#example&amp;#39;, data: { message: &amp;#39;Hello&amp;#39; }, computed: { // 计算属性的 getter  reversedMessage: function () { // `this` 指向 vm 实例  return this.message.split(&amp;#39;&amp;#39;).reverse().join(&amp;#39;&amp;#39;) } } }) </description>
+    </item>
+    
+  </channel>
+</rss>

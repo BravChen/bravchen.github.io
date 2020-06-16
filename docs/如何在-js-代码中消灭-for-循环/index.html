@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="如何在 JS 代码中消灭 for 循环 #  一，用好 filter，map，和其它 ES6 新增的高阶遍历函数 #  **问题一：**将数组中的 false值去除
+const arrContainsEmptyVal = [3, 4, 5, 2, 3, undefined, null, 0, &#34;&#34;]; 答案：
+const compact = arr =&gt; arr.filter(Boolean); 问题二： 将数组中的 VIP 用户余额加 10
+const users = [ { username: &#34;Kelly&#34;, isVIP: true, balance: 20 }, { username: &#34;Tom&#34;, isVIP: false, balance: 19 }, { username: &#34;Stephanie&#34;, isVIP: true, balance: 30 } ]; 答案：
+users.map( user =&gt;(user.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="如何在 JS 代码中消灭 for 循环" />
+<meta property="og:description" content="如何在 JS 代码中消灭 for 循环 #  一，用好 filter，map，和其它 ES6 新增的高阶遍历函数 #  **问题一：**将数组中的 false值去除
+const arrContainsEmptyVal = [3, 4, 5, 2, 3, undefined, null, 0, &#34;&#34;]; 答案：
+const compact = arr =&gt; arr.filter(Boolean); 问题二： 将数组中的 VIP 用户余额加 10
+const users = [ { username: &#34;Kelly&#34;, isVIP: true, balance: 20 }, { username: &#34;Tom&#34;, isVIP: false, balance: 19 }, { username: &#34;Stephanie&#34;, isVIP: true, balance: 30 } ]; 答案：
+users.map( user =&gt;(user." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/docs/%E5%A6%82%E4%BD%95%E5%9C%A8-js-%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%B6%88%E7%81%AD-for-%E5%BE%AA%E7%8E%AF/" />
+
+<title>如何在 JS 代码中消灭 for 循环 | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%80%E6%A8%A1%E5%9D%97%E7%9A%84%E5%86%99%E6%B3%95/" class="">Javascript模块化编程（一）：模块的写法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%BA%8Camd%E8%A7%84%E8%8C%83/" class="">Javascript模块化编程（二）：AMD规范</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%89require.js%E7%9A%84%E7%94%A8%E6%B3%95/" class="">Javascript模块化编程（三）：require.js的用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/generator%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E4%B8%8E%E7%94%A8%E6%B3%95/" class="">Generator 函数的含义与用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%E7%9A%844%E7%A7%8D%E6%96%B9%E6%B3%95/" class="">Javascript异步编程的4种方法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/thunk%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" class="">Thunk 函数的含义和用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/co%E5%87%BD%E6%95%B0%E5%BA%93%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" class="">co 函数库的含义和用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/async%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/" class="">async 函数的含义和用法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-06-04-vuex-use/" class="">快速理解 Vuex 的方法（转载）</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/7bcd3815/" class="">科班 与 培训 的区别</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-04-22-2020-interview-outline/" class="">2020年前端面试提纲</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-04-18-guanyuzhihu-naxiezhishi/" class="">关于知乎 &#34;哪些知识越了解越觉得『对这个世界很绝望』？&#34;</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/git%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/" class="">Git用法总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80%E6%95%99%E7%A8%8B/" class="">CSS Grid 网格布局教程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/es6-%E6%96%B0%E7%89%B9%E6%80%A7%E5%88%97%E8%A1%A8/" class="">ES 6 新特性列表</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/unicode%E4%B8%8Ejavascript%E8%AF%A6%E8%A7%A3/" class="">Unicode与JavaScript详解</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97-%E6%96%87%E7%AB%A0%E7%B2%BE%E9%80%89/" class="">《前端学习指南》文章精选</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E5%A6%82%E4%BD%95%E5%9C%A8-js-%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%B6%88%E7%81%AD-for-%E5%BE%AA%E7%8E%AF/" class="active">如何在 JS 代码中消灭 for 循环</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/%E5%B9%B3%E6%97%B6%E4%BD%A0%E4%BB%8E%E5%93%AA%E9%87%8C%E8%8E%B7%E5%8F%96%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/" class="">平时你从哪里获取前端知识？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-04-18-%E6%88%91%E7%94%A8%E4%BA%86%E4%B8%A4%E4%B8%AA%E6%9C%88%E7%9A%84%E6%97%B6%E9%97%B4%E6%89%8D%E7%90%86%E8%A7%A3-let/" class="">我用了两个月的时间才理解 let</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/2020-02-08-%E7%9F%A5%E8%AF%86%E7%9A%84%E8%AF%85%E5%92%92/" class="">知识的诅咒</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>如何在 JS 代码中消灭 for 循环</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一用好-filtermap和其它-es6-新增的高阶遍历函数">一，用好 filter，map，和其它 ES6 新增的高阶遍历函数</a></li>
+    <li><a href="#二理解和熟练使用-reduce">二，理解和熟练使用 reduce</a></li>
+    <li><a href="#三用递归代替循环可以break">三，用递归代替循环（可以break！）</a></li>
+    <li><a href="#四使用高阶函数遍历数组时可能遇到的陷阱">四，使用高阶函数遍历数组时可能遇到的陷阱</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="如何在-js-代码中消灭-for-循环">
+  如何在 JS 代码中消灭 for 循环
+  <a class="anchor" href="#%e5%a6%82%e4%bd%95%e5%9c%a8-js-%e4%bb%a3%e7%a0%81%e4%b8%ad%e6%b6%88%e7%81%ad-for-%e5%be%aa%e7%8e%af">#</a>
+</h1>
+<h2 id="一用好-filtermap和其它-es6-新增的高阶遍历函数">
+  一，用好 filter，map，和其它 ES6 新增的高阶遍历函数
+  <a class="anchor" href="#%e4%b8%80%e7%94%a8%e5%a5%bd-filtermap%e5%92%8c%e5%85%b6%e5%ae%83-es6-%e6%96%b0%e5%a2%9e%e7%9a%84%e9%ab%98%e9%98%b6%e9%81%8d%e5%8e%86%e5%87%bd%e6%95%b0">#</a>
+</h2>
+<p>**问题一：**将数组中的 false值去除</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> arrContainsEmptyVal <span style="color:#719e07">=</span> [<span style="color:#2aa198">3</span>, <span style="color:#2aa198">4</span>, <span style="color:#2aa198">5</span>, <span style="color:#2aa198">2</span>, <span style="color:#2aa198">3</span>, <span style="color:#cb4b16">undefined</span>, <span style="color:#cb4b16">null</span>, <span style="color:#2aa198">0</span>, <span style="color:#2aa198">&#34;&#34;</span>];
+</code></pre></div><p><strong>答案：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> compact <span style="color:#719e07">=</span> arr =&gt; arr.filter(<span style="color:#b58900">Boolean</span>); 
+</code></pre></div><p><strong>问题二：</strong> 将数组中的 VIP 用户余额加 10</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"> <span style="color:#268bd2">const</span> users <span style="color:#719e07">=</span> [   
+      { username<span style="color:#719e07">:</span> <span style="color:#2aa198">&#34;Kelly&#34;</span>, isVIP<span style="color:#719e07">:</span> <span style="color:#cb4b16">true</span>, balance<span style="color:#719e07">:</span> <span style="color:#2aa198">20</span> },   
+      { username<span style="color:#719e07">:</span> <span style="color:#2aa198">&#34;Tom&#34;</span>, isVIP<span style="color:#719e07">:</span> <span style="color:#cb4b16">false</span>, balance<span style="color:#719e07">:</span> <span style="color:#2aa198">19</span> },   
+      { username<span style="color:#719e07">:</span> <span style="color:#2aa198">&#34;Stephanie&#34;</span>, isVIP<span style="color:#719e07">:</span> <span style="color:#cb4b16">true</span>, balance<span style="color:#719e07">:</span> <span style="color:#2aa198">30</span> } 
+ ];
+</code></pre></div><p><strong>答案：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"> users.map(   user =&gt;(user.isVIP <span style="color:#719e07">?</span>{...user, balance<span style="color:#719e07">:</span> user.balance <span style="color:#719e07">+</span><span style="color:#2aa198">10</span>}<span style="color:#719e07">:</span> user));
+</code></pre></div><p>补充：经网友提醒，这个答案存在浅拷贝的问题。操作引用型数据确实是一个麻烦的问题。下面提供两个方案：</p>
+<p><strong>1. 用 Ramda：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">import</span> R from <span style="color:#2aa198">&#34;ramda&#34;</span>;
+
+<span style="color:#268bd2">const</span> add10IfVIP <span style="color:#719e07">=</span> R.ifElse(
+    R.propEq(<span style="color:#2aa198">&#34;isVIP&#34;</span>, <span style="color:#cb4b16">true</span>),
+    R.evolve({ balance<span style="color:#719e07">:</span> R.add(<span style="color:#2aa198">10</span>) }),
+    R.identity
+);
+
+<span style="color:#268bd2">const</span> updateUsers <span style="color:#719e07">=</span> R.map(add10IfVIP);
+updateUsers(users);
+</code></pre></div><p><strong>2. 用 Immer</strong></p>
+<p>如果你习惯写 mutable 的代码，可以试下 Immer，用 mutable 的风格写 immutable 的代码。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">import</span> produce from <span style="color:#2aa198">&#34;immer&#34;</span>;
+
+<span style="color:#268bd2">const</span> updatedUsers <span style="color:#719e07">=</span> produce(users, nextState =&gt; {
+    nextState.forEach(user =&gt; {
+    <span style="color:#719e07">if</span> (user.isVIP) {
+        user.balance <span style="color:#719e07">+=</span> <span style="color:#2aa198">10</span>;
+        }
+    });
+});
+</code></pre></div><p>**问题三：**判断字符串中是否含有元音字母</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> randomStr <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;hdjrwqpi&#34;</span>;
+</code></pre></div><p><strong>答案：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> isVowel <span style="color:#719e07">=</span> <span style="color:#268bd2">char</span> =&gt; [<span style="color:#2aa198">&#34;a&#34;</span>, <span style="color:#2aa198">&#34;e&#34;</span>, <span style="color:#2aa198">&#34;o&#34;</span>, <span style="color:#2aa198">&#34;i&#34;</span>, <span style="color:#2aa198">&#34;u&#34;</span>].includes(<span style="color:#268bd2">char</span>);
+<span style="color:#268bd2">const</span> containsVowel <span style="color:#719e07">=</span> str =&gt; [...str].some(isVowel);
+
+containsVowel(randomStr);
+</code></pre></div><p>**问题四：**判断用户是否全部是成年人</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> users <span style="color:#719e07">=</span> [
+  { name<span style="color:#719e07">:</span> <span style="color:#2aa198">&#34;Jim&#34;</span>, age<span style="color:#719e07">:</span> <span style="color:#2aa198">23</span> },
+  { name<span style="color:#719e07">:</span> <span style="color:#2aa198">&#34;Lily&#34;</span>, age<span style="color:#719e07">:</span> <span style="color:#2aa198">17</span> },
+  { name<span style="color:#719e07">:</span> <span style="color:#2aa198">&#34;Will&#34;</span>, age<span style="color:#719e07">:</span> <span style="color:#2aa198">25</span> }
+];
+</code></pre></div><p><strong>答案：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">users.every(user =&gt; user.age <span style="color:#719e07">&gt;=</span> <span style="color:#2aa198">18</span>);
+</code></pre></div><p><strong>问题五：</strong> 找出上面用户中的第一个未成年人</p>
+<p><strong>答案：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> findTeen <span style="color:#719e07">=</span> users =&gt; users.find(user =&gt; user.age <span style="color:#719e07">&lt;</span> <span style="color:#2aa198">18</span>);
+
+findTeen(users);
+</code></pre></div><p>**问题六：**将数组中重复项清除</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> dupArr <span style="color:#719e07">=</span> [<span style="color:#2aa198">1</span>, <span style="color:#2aa198">2</span>, <span style="color:#2aa198">3</span>, <span style="color:#2aa198">3</span>, <span style="color:#2aa198">3</span>, <span style="color:#2aa198">3</span>, <span style="color:#2aa198">6</span>, <span style="color:#2aa198">7</span>];
+</code></pre></div><p><strong>答案：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> uniq <span style="color:#719e07">=</span> arr =&gt; [...<span style="color:#719e07">new</span> Set(arr)];
+
+uniq(dupArr);
+</code></pre></div><p><strong>问题七：</strong> 生成由随机整数组成的数组，数组长度和元素大小可自定义</p>
+<p><strong>答案：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> genNumArr <span style="color:#719e07">=</span> (length, limit) =&gt;
+  <span style="color:#b58900">Array</span>.from({ length }, _ =&gt; <span style="color:#b58900">Math</span>.floor(<span style="color:#b58900">Math</span>.random() <span style="color:#719e07">*</span> limit));
+
+genNumArr(<span style="color:#2aa198">10</span>, <span style="color:#2aa198">100</span>);
+</code></pre></div><h2 id="二理解和熟练使用-reduce">
+  二，理解和熟练使用 reduce
+  <a class="anchor" href="#%e4%ba%8c%e7%90%86%e8%a7%a3%e5%92%8c%e7%86%9f%e7%bb%83%e4%bd%bf%e7%94%a8-reduce">#</a>
+</h2>
+<p><strong>问题八：</strong> 不借助原生高阶函数，定义 reduce</p>
+<p><strong>答案：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> reduce <span style="color:#719e07">=</span> (f, acc, arr) =&gt; {
+  <span style="color:#719e07">if</span> (arr.length <span style="color:#719e07">===</span> <span style="color:#2aa198">0</span>) <span style="color:#719e07">return</span> acc;
+  <span style="color:#268bd2">const</span> [head, ...tail] <span style="color:#719e07">=</span> arr;
+  <span style="color:#719e07">return</span> reduce(f, f(head, acc), tail);
+};
+</code></pre></div><p>**问题九：**将多层数组转换成一层数组</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> nestedArr <span style="color:#719e07">=</span> [<span style="color:#2aa198">1</span>, <span style="color:#2aa198">2</span>, [<span style="color:#2aa198">3</span>, <span style="color:#2aa198">4</span>, [<span style="color:#2aa198">5</span>, <span style="color:#2aa198">6</span>]]];
+</code></pre></div><p><strong>答案：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> flatten <span style="color:#719e07">=</span> arr =&gt;
+  arr.reduce(
+    (flat, next) =&gt; flat.concat(<span style="color:#b58900">Array</span>.isArray(next) <span style="color:#719e07">?</span> flatten(next) <span style="color:#719e07">:</span> next),
+    []
+  );
+</code></pre></div><p>**问题十：**将下面数组转成对象，key/value 对应里层数组的两个值</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> objLikeArr <span style="color:#719e07">=</span> [[<span style="color:#2aa198">&#34;name&#34;</span>, <span style="color:#2aa198">&#34;Jim&#34;</span>], [<span style="color:#2aa198">&#34;age&#34;</span>, <span style="color:#2aa198">18</span>], [<span style="color:#2aa198">&#34;single&#34;</span>, <span style="color:#cb4b16">true</span>]];
+</code></pre></div><p><strong>答案：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> fromPairs <span style="color:#719e07">=</span> pairs =&gt;
+  pairs.reduce((res, pair) =&gt; ((res[pair[<span style="color:#2aa198">0</span>]] <span style="color:#719e07">=</span> pair[<span style="color:#2aa198">1</span>]), res), {});
+
+fromPairs(objLikeArr);
+</code></pre></div><p>**问题十一：**取出对象中的深层属性</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> deepAttr <span style="color:#719e07">=</span> { a<span style="color:#719e07">:</span> { b<span style="color:#719e07">:</span> { c<span style="color:#719e07">:</span> <span style="color:#2aa198">15</span> } } };
+</code></pre></div><p><strong>答案：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> pluckDeep <span style="color:#719e07">=</span> path =&gt; obj =&gt;
+  path.split(<span style="color:#2aa198">&#34;.&#34;</span>).reduce((val, attr) =&gt; val[attr], obj);
+
+pluckDeep(<span style="color:#2aa198">&#34;a.b.c&#34;</span>)(deepAttr);
+</code></pre></div><p>**问题十二：**将用户中的男性和女性分别放到不同的数组里：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> users <span style="color:#719e07">=</span> [
+  { name<span style="color:#719e07">:</span> <span style="color:#2aa198">&#34;Adam&#34;</span>, age<span style="color:#719e07">:</span> <span style="color:#2aa198">30</span>, sex<span style="color:#719e07">:</span> <span style="color:#2aa198">&#34;male&#34;</span> },
+  { name<span style="color:#719e07">:</span> <span style="color:#2aa198">&#34;Helen&#34;</span>, age<span style="color:#719e07">:</span> <span style="color:#2aa198">27</span>, sex<span style="color:#719e07">:</span> <span style="color:#2aa198">&#34;female&#34;</span> },
+  { name<span style="color:#719e07">:</span> <span style="color:#2aa198">&#34;Amy&#34;</span>, age<span style="color:#719e07">:</span> <span style="color:#2aa198">25</span>, sex<span style="color:#719e07">:</span> <span style="color:#2aa198">&#34;female&#34;</span> },
+  { name<span style="color:#719e07">:</span> <span style="color:#2aa198">&#34;Anthony&#34;</span>, age<span style="color:#719e07">:</span> <span style="color:#2aa198">23</span>, sex<span style="color:#719e07">:</span> <span style="color:#2aa198">&#34;male&#34;</span> },
+];
+</code></pre></div><p><strong>答案：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> partition <span style="color:#719e07">=</span> (arr, isValid) =&gt;
+  arr.reduce(
+    ([pass, fail], elem) =&gt;
+      isValid(elem) <span style="color:#719e07">?</span> [[...pass, elem], fail] <span style="color:#719e07">:</span> [pass, [...fail, elem]],
+    [[], []],
+  );
+  
+<span style="color:#268bd2">const</span> isMale <span style="color:#719e07">=</span> person =&gt; person.sex <span style="color:#719e07">===</span> <span style="color:#2aa198">&#34;male&#34;</span>;
+
+<span style="color:#268bd2">const</span> [maleUser, femaleUser] <span style="color:#719e07">=</span> partition(users, isMale);
+</code></pre></div><p><strong>问题十三：</strong> reduce 的计算过程，在范畴论里面叫 catamorphism，即一种连接的变形。和它相反的变形叫 anamorphism。现在我们定义一个和 reduce 计算过程相反的函数 unfold（注：reduce 在 Haskell 里面叫 fold，对应 unfold）</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> unfold <span style="color:#719e07">=</span> (f, seed) =&gt; {
+  <span style="color:#268bd2">const</span> go <span style="color:#719e07">=</span> (f, seed, acc) =&gt; {
+    <span style="color:#268bd2">const</span> res <span style="color:#719e07">=</span> f(seed);
+    <span style="color:#719e07">return</span> res <span style="color:#719e07">?</span> go(f, res[<span style="color:#2aa198">1</span>], acc.concat(res[<span style="color:#2aa198">0</span>])) <span style="color:#719e07">:</span> acc;
+  };
+  <span style="color:#719e07">return</span> go(f, seed, []);
+};
+</code></pre></div><p>根据这个 unfold 函数，定义一个 Python 里面的 range 函数。</p>
+<p><strong>答案：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> range <span style="color:#719e07">=</span> (min, max, step <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>) =&gt;
+  unfold(x =&gt; x <span style="color:#719e07">&lt;</span> max <span style="color:#719e07">&amp;&amp;</span> [x, x <span style="color:#719e07">+</span> step], min);
+</code></pre></div><h2 id="三用递归代替循环可以break">
+  三，用递归代替循环（可以break！）
+  <a class="anchor" href="#%e4%b8%89%e7%94%a8%e9%80%92%e5%bd%92%e4%bb%a3%e6%9b%bf%e5%be%aa%e7%8e%af%e5%8f%af%e4%bb%a5break">#</a>
+</h2>
+<blockquote>
+<p>Edit: 虽然递归爆栈的问题可以用代码解决，但递归确实性能赶不上循环。这部分内容纯粹当做递归函数案例了。如何解决递归爆栈，可以参考我的另一篇文章<a href="https://link.zhihu.com/?target=https%3A//link.juejin.im/%3Ftarget%3Dhttps%3A%2F%2Fjuejin.im%2Fpost%2F5b5bce21f265da0f6b7710fb">不懂递归？读完这篇保证你懂</a></p>
+</blockquote>
+<p><strong>问题十四：</strong> 将两个数组每个元素一一对应相加。注意，第二个数组比第一个多出两个，不要把第二个数组遍历完。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> num1 <span style="color:#719e07">=</span> [<span style="color:#2aa198">3</span>, <span style="color:#2aa198">4</span>, <span style="color:#2aa198">5</span>, <span style="color:#2aa198">6</span>, <span style="color:#2aa198">7</span>];
+<span style="color:#268bd2">const</span> num2 <span style="color:#719e07">=</span> [<span style="color:#2aa198">43</span>, <span style="color:#2aa198">23</span>, <span style="color:#2aa198">5</span>, <span style="color:#2aa198">67</span>, <span style="color:#2aa198">87</span>, <span style="color:#2aa198">3</span>, <span style="color:#2aa198">6</span>];
+</code></pre></div><p><strong>答案：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> zipWith <span style="color:#719e07">=</span> f =&gt; xs =&gt; ys =&gt; {
+  <span style="color:#719e07">if</span> (xs.length <span style="color:#719e07">===</span> <span style="color:#2aa198">0</span> <span style="color:#719e07">||</span> ys.length <span style="color:#719e07">===</span> <span style="color:#2aa198">0</span>) <span style="color:#719e07">return</span> [];
+  <span style="color:#268bd2">const</span> [xHead, ...xTail] <span style="color:#719e07">=</span> xs;
+  <span style="color:#268bd2">const</span> [yHead, ...yTail] <span style="color:#719e07">=</span> ys;
+  <span style="color:#719e07">return</span> [f(xHead)(yHead), ...zipWith(f)(xTail)(yTail)];
+};
+
+<span style="color:#268bd2">const</span> add <span style="color:#719e07">=</span> x =&gt; y =&gt; x <span style="color:#719e07">+</span> y;
+
+zipWith(add)(num1)(num2);
+</code></pre></div><p>**问题十五：**将 Stark 家族成员提取出来。注意，目标数据在数组前面，使用 filter 方法遍历整个数组是浪费。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> houses <span style="color:#719e07">=</span> [
+  <span style="color:#2aa198">&#34;Eddard Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Catelyn Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Rickard Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Brandon Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Rob Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Sansa Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Arya Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Bran Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Rickon Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Lyanna Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Tywin Lannister&#34;</span>,
+  <span style="color:#2aa198">&#34;Cersei Lannister&#34;</span>,
+  <span style="color:#2aa198">&#34;Jaime Lannister&#34;</span>,
+  <span style="color:#2aa198">&#34;Tyrion Lannister&#34;</span>,
+  <span style="color:#2aa198">&#34;Joffrey Baratheon&#34;</span>
+];
+</code></pre></div><p><strong>答案：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> takeWhile <span style="color:#719e07">=</span> f =&gt; ([head, ...tail]) =&gt;
+  f(head) <span style="color:#719e07">?</span> [head, ...takeWhile(f)(tail)] <span style="color:#719e07">:</span> [];
+
+<span style="color:#268bd2">const</span> isStark <span style="color:#719e07">=</span> name =&gt; name.toLowerCase().includes(<span style="color:#2aa198">&#34;stark&#34;</span>);
+
+takeWhile(isStark)(houses);
+</code></pre></div><p>**问题十六：**找出数组中的奇数，然后取出前4个：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> numList <span style="color:#719e07">=</span> [<span style="color:#2aa198">1</span>, <span style="color:#2aa198">3</span>, <span style="color:#2aa198">11</span>, <span style="color:#2aa198">4</span>, <span style="color:#2aa198">2</span>, <span style="color:#2aa198">5</span>, <span style="color:#2aa198">6</span>, <span style="color:#2aa198">7</span>];
+</code></pre></div><p><strong>答案：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> takeFirst <span style="color:#719e07">=</span> (limit, f, arr) =&gt; {
+  <span style="color:#719e07">if</span> (limit <span style="color:#719e07">===</span> <span style="color:#2aa198">0</span> <span style="color:#719e07">||</span> arr.length <span style="color:#719e07">===</span> <span style="color:#2aa198">0</span>) <span style="color:#719e07">return</span> [];
+  <span style="color:#268bd2">const</span> [head, ...tail] <span style="color:#719e07">=</span> arr;
+  <span style="color:#719e07">return</span> f(head)
+    <span style="color:#719e07">?</span> [head, ...takeFirst(limit <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>, f, tail)]
+    <span style="color:#719e07">:</span> takeFirst(limit, f, tail);
+};
+
+<span style="color:#268bd2">const</span> isOdd <span style="color:#719e07">=</span> n =&gt; n <span style="color:#719e07">%</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">===</span> <span style="color:#2aa198">1</span>;
+
+takeFirst(<span style="color:#2aa198">4</span>, isOdd, numList);
+</code></pre></div><h2 id="四使用高阶函数遍历数组时可能遇到的陷阱">
+  四，使用高阶函数遍历数组时可能遇到的陷阱
+  <a class="anchor" href="#%e5%9b%9b%e4%bd%bf%e7%94%a8%e9%ab%98%e9%98%b6%e5%87%bd%e6%95%b0%e9%81%8d%e5%8e%86%e6%95%b0%e7%bb%84%e6%97%b6%e5%8f%af%e8%83%bd%e9%81%87%e5%88%b0%e7%9a%84%e9%99%b7%e9%98%b1">#</a>
+</h2>
+<p><strong>问题十七：</strong> 从长度为 100 万的随机整数组成的数组中取出偶数，再把所有数字乘以 3</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#586e75">// 用我们刚刚定义的辅助函数来生成符合要求的数组
+</span><span style="color:#586e75"></span><span style="color:#268bd2">const</span> bigArr <span style="color:#719e07">=</span> genNumArr(<span style="color:#2aa198">1</span>e6, <span style="color:#2aa198">100</span>);
+</code></pre></div><p><strong>能运行的答案：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> isEven <span style="color:#719e07">=</span> num =&gt; num <span style="color:#719e07">%</span> <span style="color:#2aa198">2</span> <span style="color:#719e07">===</span> <span style="color:#2aa198">0</span>;
+<span style="color:#268bd2">const</span> triple <span style="color:#719e07">=</span> num =&gt; num <span style="color:#719e07">*</span> <span style="color:#2aa198">3</span>;
+
+bigArr.filter(isEven).map(triple);
+</code></pre></div><p>注意，上面的解决方案将数组遍历了两次，无疑是浪费。如果写 for 循环，只用遍历一次：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> results <span style="color:#719e07">=</span> [];
+<span style="color:#719e07">for</span> (<span style="color:#268bd2">let</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;</span> bigArr.length; i<span style="color:#719e07">++</span>) {
+  <span style="color:#719e07">if</span> (isEven(bigArr[i])) {
+    results.push(triple(bigArr[i]));
+  }
+}
+</code></pre></div><p>在我的电脑上测试，先 filter 再 map 的方法耗时 105.024 ms，而采用 for 循环的方法耗时仅 25.598 ms！那是否说明遇到此类情况必须用 for 循环解决呢? No！</p>
+<p><strong>五，死磕到底，Transduce！</strong></p>
+<p>我们先用 reduce 来定义 filter 和 map，至于为什么这样做等下再解释。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> filter <span style="color:#719e07">=</span> (f, arr) =&gt;
+  arr.reduce((acc, val) =&gt; (f(val) <span style="color:#719e07">&amp;&amp;</span> acc.push(val), acc), []);
+
+<span style="color:#268bd2">const</span> map <span style="color:#719e07">=</span> (f, arr) =&gt; arr.reduce((acc, val) =&gt; (acc.push(f(val)), acc), []);
+</code></pre></div><p>重新定义的 filter 和 map 有共有的逻辑。我们把这部分共有的逻辑叫做 reducer。有了共有的逻辑后，我们可以进一步地抽象，把 reducer 抽离出来，然后传入 filter 和 map：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> filter <span style="color:#719e07">=</span> f =&gt; reducer =&gt; (acc, value) =&gt; {
+  <span style="color:#719e07">if</span> (f(value)) <span style="color:#719e07">return</span> reducer(acc, value);
+  <span style="color:#719e07">return</span> acc;
+};
+
+<span style="color:#268bd2">const</span> map <span style="color:#719e07">=</span> f =&gt; reducer =&gt; (acc, value) =&gt; reducer(acc, f(value));
+</code></pre></div><p>现在 filter 和 map 的函数 signature 一样，我们就可以进行函数组合（function composition）了。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> pushReducer <span style="color:#719e07">=</span> (acc, value) =&gt; (acc.push(value), acc);
+
+bigNum.reduce(map(triple)(filter(isEven)(pushReducer)), []);
+</code></pre></div><p>但是这样嵌套写法易读性太差，很容易出错。我们可以写一个工具函数来辅助函数组合：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> pipe <span style="color:#719e07">=</span> (...fns) =&gt; (...args) =&gt; fns.reduce((fx, fy) =&gt; fy(fx), ...args);
+</code></pre></div><p>然后我们就可以优雅地组合函数了：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">bigNum.reduce(
+  pipe(
+    filter(isEven),
+    map(triple)
+  )(pushReducer),
+  []
+);
+</code></pre></div><p>经过测试（用 <code>console.time()/console.timeEnd()</code>）,上面的写法耗时 33.898 ms，仅比 for 循环慢 8 ms。为了代码的易维护性和易读性，这点性能上的微小牺牲，我认为是可以接受的。</p>
+<p>这种写法叫 transduce。有很多工具库提供了 transducer 函数。比如 <a href="https://link.zhihu.com/?target=https%3A//link.juejin.im/%3Ftarget%3Dhttps%3A%2F%2Fgithub.com%2Fcognitect-labs%2Ftransducers-js">transducers-js</a>。除了用 transducer 来遍历数组，还能用它来遍历对象和其它数据集。功能相当强大。</p>
+<p><strong>六，for 循环和 for &hellip; of 循环的区别</strong></p>
+<p>for &hellip; of 循环是在 ES6 引入 Iterator 后，为了遍历 Iterable 数据类型才产生的。EcmaScript 的 Iterable 数据类型有数组，字符串，Set 和 Map。for &hellip; of 循环属于重型的操作（具体细节我也没了解过），如果用 AirBNB 的 ESLint 规则，在代码中使用 for &hellip; of 来遍历数组是会被禁止的。</p>
+<p>那么，for &hellip; of 循环应该在哪些场景使用呢？目前我发现的合理使用场景是遍历自定义的 Iterable。来看这个题目：</p>
+<p><strong>问题十八：</strong> 将 Stark 家族成员名字遍历，每次遍历暂停一秒，然后将当前遍历的名字打印来，遍历完后回到第一个元素再重新开始，无限循环。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">const</span> starks <span style="color:#719e07">=</span> [
+  <span style="color:#2aa198">&#34;Eddard Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Catelyn Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Rickard Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Brandon Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Rob Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Sansa Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Arya Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Bran Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Rickon Stark&#34;</span>,
+  <span style="color:#2aa198">&#34;Lyanna Stark&#34;</span>
+];
+</code></pre></div><p><strong>答案：</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span><span style="color:#719e07">*</span> repeatedArr(arr) {
+  <span style="color:#268bd2">let</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>;
+  <span style="color:#719e07">while</span> (<span style="color:#cb4b16">true</span>) {
+    <span style="color:#719e07">yield</span> arr[i<span style="color:#719e07">++</span> <span style="color:#719e07">%</span> arr.length];
+  }
+}
+
+<span style="color:#268bd2">const</span> infiniteNameList <span style="color:#719e07">=</span> repeatedArr(starks);
+
+<span style="color:#268bd2">const</span> wait <span style="color:#719e07">=</span> ms =&gt;
+  <span style="color:#719e07">new</span> <span style="color:#b58900">Promise</span>(resolve =&gt; {
+    setTimeout(() =&gt; {
+      resolve();
+    }, ms);
+  });
+
+(async () =&gt; {
+  <span style="color:#719e07">for</span> (<span style="color:#268bd2">const</span> name <span style="color:#719e07">of</span> infiniteNameList) {
+    await wait(<span style="color:#2aa198">1000</span>);
+    console.log(name);
+  }
+})();
+</code></pre></div><p><strong>七，放弃倔强，实在需要用 for 循环了</strong></p>
+<p>前面讲到的问题基本覆盖了大部分需要使用 for 循环的场景。那是否我们可以保证永远不用 for 循环呢？其实不是。我讲了这么多，其实是在鼓励大家不要写 for 循环，而不是不用 for 循环。我们常用的数组原型链上的 map，filter 等高阶函数，底层其实是用 for 循环实现的。在需要写一些底层代码的时候，还是需要写 for 循环的。来看这个例子：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#b58900">Number</span>.prototype[Symbol.iterator] <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span><span style="color:#719e07">*</span>() {
+  <span style="color:#719e07">for</span> (<span style="color:#268bd2">let</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; i <span style="color:#719e07">&lt;=</span> <span style="color:#719e07">this</span>; i<span style="color:#719e07">++</span>) {
+    <span style="color:#719e07">yield</span> i;
+  }
+};
+
+[...<span style="color:#2aa198">6</span>]; <span style="color:#586e75">// [0, 1, 2, 3, 4, 5, 6]
+</span></code></pre></div><p>注意，这个例子只是为了好玩。生产环境中不要直接修改 JS 内置数据类型的原型链。原因是 V8 引擎有一个原型链快速推测机制，修改原型链会破坏这个机制，造成性能问题。</p>
+<p>发布于 2018-12-04</p>
+<blockquote>
+<p>本文转载自：https://zhuanlan.zhihu.com/p/51549583</p>
+</blockquote>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一用好-filtermap和其它-es6-新增的高阶遍历函数">一，用好 filter，map，和其它 ES6 新增的高阶遍历函数</a></li>
+    <li><a href="#二理解和熟练使用-reduce">二，理解和熟练使用 reduce</a></li>
+    <li><a href="#三用递归代替循环可以break">三，用递归代替循环（可以break！）</a></li>
+    <li><a href="#四使用高阶函数遍历数组时可能遇到的陷阱">四，使用高阶函数遍历数组时可能遇到的陷阱</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="案例源代码地址：https://github.com/ChenNing02/git-hunger/tree/master/AJAX
+各种请求方式 #  form 表单
+&lt;form action=&#34;/xxx&#34; method=&#34;GET&#34;&gt; &lt;input type=&#34;password&#34; name=&#34;password&#34;&gt; &lt;input type=&#34;submit&#34; value=&#34;提交&#34;&gt; &lt;/form&gt; link
+var link = document.createElement(&#39;link&#39;) link.rel = &#39;stylesheet&#39; link.href = &#39;/xxx&#39; document.head.appendChild(link) a 标签
+&lt;a id=x href=&#34;/xxx&#34;&gt;click&lt;/a&gt; &lt;script&gt; x.click() &lt;/script&gt; script
+var script = document.createElement(&#39;script&#39;) script.src = &#39;/yyy&#39; document.head.appendChild(script) img
+var image = document.createElement(&#39;img&#39;) image.src = &#39;/xxx&#39; image.onload = function(){ console.log(&#39;success&#39;) } image.onerror = function(){ console.log(&#39;fail&#39;) } 自制的AJAX请求 #  首先设置 server.js 的判断条件
+if (path === &#39;/xxx&#39;) { response.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="AJAX" />
+<meta property="og:description" content="案例源代码地址：https://github.com/ChenNing02/git-hunger/tree/master/AJAX
+各种请求方式 #  form 表单
+&lt;form action=&#34;/xxx&#34; method=&#34;GET&#34;&gt; &lt;input type=&#34;password&#34; name=&#34;password&#34;&gt; &lt;input type=&#34;submit&#34; value=&#34;提交&#34;&gt; &lt;/form&gt; link
+var link = document.createElement(&#39;link&#39;) link.rel = &#39;stylesheet&#39; link.href = &#39;/xxx&#39; document.head.appendChild(link) a 标签
+&lt;a id=x href=&#34;/xxx&#34;&gt;click&lt;/a&gt; &lt;script&gt; x.click() &lt;/script&gt; script
+var script = document.createElement(&#39;script&#39;) script.src = &#39;/yyy&#39; document.head.appendChild(script) img
+var image = document.createElement(&#39;img&#39;) image.src = &#39;/xxx&#39; image.onload = function(){ console.log(&#39;success&#39;) } image.onerror = function(){ console.log(&#39;fail&#39;) } 自制的AJAX请求 #  首先设置 server.js 的判断条件
+if (path === &#39;/xxx&#39;) { response." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/history/2019-09-17-ajax/" />
+<meta property="article:published_time" content="2019-09-17T14:31:34+00:00" />
+<meta property="article:modified_time" content="2019-09-17T14:31:34+00:00" />
+<title>AJAX | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-10-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E7%AE%80%E8%AE%B0/" class="">多人博客项目(简记)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-15-keyboard-nav/" class="">键盘导航</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-canvas/" class="">Canvas画板</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-%E5%AE%89%E5%8D%93%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E6%A1%88%E4%BE%8B/" class="">安卓音乐播放器案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-12-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E8%AF%AD%E6%B3%95%E7%B3%96%E7%AE%80%E7%89%88/" class="">函数与对象的语法糖(索引)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-function-object-sugar/" class="">函数与对象的语法糖一</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-%E5%87%BD%E6%95%B0%E4%B8%8E%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96%E4%BA%8C/" class="">函数与对象的语法糖二</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/0cd88b5c/" class="">模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-07-vue%E5%A4%9A%E4%BA%BA%E5%85%B1%E4%BA%AB%E5%8D%9A%E5%AE%A2/" class="">[项目] Vue 多人共享博客</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-03-31-jsonp/" class="">[高级] 35 - JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-25-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E8%AF%A6%E7%BB%86/" class="">多人博客项目(详细)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-vue-plugin-int/" class="">Vue插件安装</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-css-selector/" class="">CSS选择器总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/dd3e7bbd/" class="">常用的HTML5标签</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-25-%E7%AE%80%E5%8E%86%E6%80%8E%E4%B9%88%E5%86%99/" class="">简历怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-12-lx%E4%B8%BB%E9%A2%98%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/" class="">lx主题中文文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-27-css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80/" class="">CSS Grid 网格布局</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-jquery%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">jQuery常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-js%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">JS 常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-yarn%E5%85%A5%E9%97%A8/" class="">yarn 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-npm%E5%85%A5%E9%97%A8/" class="">npm 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-04-es6%E6%96%B0%E7%89%B9%E6%80%A7/" class="">ES6新特性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="">面向对象</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-jquery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/jquery%E8%BD%AE%E6%92%AD%E6%A1%88%E4%BE%8B/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E8%87%AA%E5%88%B6jquery/" class="">自制jQuery</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-01-mvvm/" class="">MVVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-28-this%E6%98%AF%E4%BB%80%E4%B9%88/" class="">this是什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-27-new%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/" class="">New做了什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-21-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9D%97%E5%8C%96/" class="">代码模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-20-mvc%E6%80%9D%E6%83%B3/" class="">MVC思想</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-18-%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0-ajax/" class="">自己实现 AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-17-ajax/" class="active">AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-16-jsonp/" class="">JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim-get-started/" class="">vim 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim%E7%9A%84%E4%BD%BF%E7%94%A8/" class="">vim 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-10-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="">命令行常用技巧</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" class="">浏览器缓存</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-css%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/" class="">CSS 常用属性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-01-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2-%E5%93%8D%E5%BA%94%E5%BC%8F/" class="">移动端页面(响应式)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/element-ui/" class="">Element UI</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B/" class="">Vue 入门案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E6%B5%8B%E8%AF%95%E9%A1%B5/" class="">测试页</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-webpack-use/" class="">webpack 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E5%9F%BA%E7%A1%80%E5%B8%B8%E8%AF%86/" class="">JS基础常识</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/action/" class="">Action 官方文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/axios%E5%85%A5%E9%97%A8/" class="">Axios 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E4%B8%AD%E7%9A%84symbol%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JS 中的 Symbol 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/json%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JSON 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-11-12-module%E8%AF%AD%E6%B3%95/" class="">Module语法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-%E7%82%B9%E5%87%BB%E7%A9%BA%E7%99%BD%E5%85%B3%E9%97%AD%E6%B5%AE%E5%B1%82/" class="">Vue 点击空白关闭浮层</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-cli%E4%BD%BF%E7%94%A8/" class="">Vue-cli 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vuex%E4%BD%BF%E7%94%A8/" class="">Vuex 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-02-03-%E5%8E%9F%E5%9E%8B%E9%93%BE%E8%A1%A5%E5%85%85/" class="">原型链补充</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-05-07-%E6%95%B0%E7%BB%84/" class="">数组</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-27-%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E7%AE%80%E5%8E%86%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="">简历该怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BE%A6%E5%90%AC%E5%99%A8/" class="">计算属性和监听器</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>AJAX</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#各种请求方式">各种请求方式</a></li>
+    <li><a href="#自制的ajax请求">自制的AJAX请求</a>
+      <ul>
+        <li><a href="#js-和-json-的区别">JS 和 JSON 的区别</a></li>
+        <li><a href="#使用-json-格式的数据">使用 JSON 格式的数据</a></li>
+      </ul>
+    </li>
+    <li><a href="#同源策略">同源策略</a></li>
+    <li><a href="#cors跨域">CORS跨域</a></li>
+    <li><a href="#使用原生js发送ajax请求">使用原生JS发送AJAX请求</a></li>
+    <li><a href="#mdn-文档内容">MDN 文档内容</a>
+      <ul>
+        <li><a href="#xmlhttprequestreadystate">XMLHttpRequest.readyState</a></li>
+        <li><a href="#xmlhttprequestopen">XMLHttpRequest.open()</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><p>案例源代码地址：https://github.com/ChenNing02/git-hunger/tree/master/AJAX</p>
+<h2 id="各种请求方式">
+  各种请求方式
+  <a class="anchor" href="#%e5%90%84%e7%a7%8d%e8%af%b7%e6%b1%82%e6%96%b9%e5%bc%8f">#</a>
+</h2>
+<p>form 表单</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#268bd2">form</span> action<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;/xxx&#34;</span> method<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;GET&#34;</span>&gt;
+    &lt;<span style="color:#268bd2">input</span> type<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;password&#34;</span> name<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;password&#34;</span>&gt;
+    &lt;<span style="color:#268bd2">input</span> type<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;submit&#34;</span> value<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;提交&#34;</span>&gt;
+&lt;/<span style="color:#268bd2">form</span>&gt;
+</code></pre></div><p>link</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">var</span> link <span style="color:#719e07">=</span> <span style="color:#b58900">document</span>.createElement(<span style="color:#2aa198">&#39;link&#39;</span>)
+link.rel <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;stylesheet&#39;</span>
+link.href <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;/xxx&#39;</span>
+<span style="color:#b58900">document</span>.head.appendChild(link)
+</code></pre></div><p>a 标签</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#268bd2">a</span> id<span style="color:#719e07">=</span><span style="color:#2aa198">x</span> href<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;/xxx&#34;</span>&gt;click&lt;/<span style="color:#268bd2">a</span>&gt;
+&lt;<span style="color:#268bd2">script</span>&gt;
+    x.click()
+&lt;/<span style="color:#268bd2">script</span>&gt;
+</code></pre></div><p>script</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">var</span> script <span style="color:#719e07">=</span> <span style="color:#b58900">document</span>.createElement(<span style="color:#2aa198">&#39;script&#39;</span>)
+script.src <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;/yyy&#39;</span>
+<span style="color:#b58900">document</span>.head.appendChild(script)
+</code></pre></div><p>img</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">var</span> image <span style="color:#719e07">=</span> <span style="color:#b58900">document</span>.createElement(<span style="color:#2aa198">&#39;img&#39;</span>)
+image.src <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;/xxx&#39;</span>
+image.onload <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(){
+    console.log(<span style="color:#2aa198">&#39;success&#39;</span>)
+}
+image.onerror <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(){
+	console.log(<span style="color:#2aa198">&#39;fail&#39;</span>)
+}
+</code></pre></div><h2 id="自制的ajax请求">
+  自制的AJAX请求
+  <a class="anchor" href="#%e8%87%aa%e5%88%b6%e7%9a%84ajax%e8%af%b7%e6%b1%82">#</a>
+</h2>
+<p>首先设置 server.js 的判断条件</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#719e07">if</span> (path <span style="color:#719e07">===</span> <span style="color:#2aa198">&#39;/xxx&#39;</span>) {
+    response.statusCode <span style="color:#719e07">=</span> <span style="color:#2aa198">400</span>
+    response.setHeader(<span style="color:#2aa198">&#39;Content-Type&#39;</span>, <span style="color:#2aa198">&#39;text/xml&#39;</span>)
+    response.write(<span style="color:#586e75">`
+</span><span style="color:#586e75">        &lt;note&gt;
+</span><span style="color:#586e75">            &lt;to&gt;Tove&lt;/to&gt;
+</span><span style="color:#586e75">            &lt;from&gt;Jani&lt;/from&gt;
+</span><span style="color:#586e75">            &lt;heading&gt;Reminder&lt;/heading&gt;
+</span><span style="color:#586e75">            &lt;body&gt;Don&#39;t forget me this weekend!&lt;/body&gt;
+</span><span style="color:#586e75">        &lt;/note&gt;
+</span><span style="color:#586e75">    `</span>)
+    response.end()
+}
+</code></pre></div><p>设置按钮点击时 new 一个 XMLHttprequest</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">buttons.addEventListener(<span style="color:#2aa198">&#39;click&#39;</span>, (e)=&gt;{
+    <span style="color:#268bd2">let</span> request <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> XMLHttpRequest()
+    request.open(<span style="color:#2aa198">&#39;GET&#39;</span>, <span style="color:#2aa198">&#39;/xxx&#39;</span>)  <span style="color:#586e75">// 配置 request
+</span><span style="color:#586e75"></span>    request.send()
+    console.log(request.readyState)
+})
+</code></pre></div><p><code>request.readyState</code> 表示请求的状态</p>
+<p>此时点击 button 查看 GET 请求所用的时间 ，也就是控制台 Network 中的 Time 一栏</p>
+<p>再次更改代码，每隔一毫秒问一次请求的状态：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">buttons.addEventListener(<span style="color:#2aa198">&#39;click&#39;</span>, (e)=&gt;{
+    <span style="color:#268bd2">let</span> request <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> XMLHttpRequest()
+    request.open(<span style="color:#2aa198">&#39;GET&#39;</span>, <span style="color:#2aa198">&#39;/xxx&#39;</span>)  <span style="color:#586e75">// 配置 request
+</span><span style="color:#586e75"></span>    request.send()
+    setInterval(()=&gt;{
+        console.log(request.readyState)
+    },<span style="color:#2aa198">1</span>) <span style="color:#586e75">// 每隔一毫秒执行一次箭头函数
+</span><span style="color:#586e75"></span>})
+</code></pre></div><p>在上述代码中1与4之间可能不存在 2 3 ，因为 2 3 太快，快过了1毫秒</p>
+<p>如果请求，响应全部执行完成 (也就是响应下载完毕)，它的状态码就是4</p>
+<p><strong>捕获状态 0</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">buttons.addEventListener(<span style="color:#2aa198">&#39;click&#39;</span>, (e)=&gt;{
+    <span style="color:#268bd2">let</span> request <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> XMLHttpRequest()
+    console.log(request.readyState)
+    request.open(<span style="color:#2aa198">&#39;GET&#39;</span>, <span style="color:#2aa198">&#39;/xxx&#39;</span>)  <span style="color:#586e75">// 配置 request
+</span><span style="color:#586e75"></span>    request.send()
+})
+</code></pre></div><p>此时状态为 0，每个状态的含义请查看MDN文档 (也可以看本文最后的 XMLHttpRequest.readyState )</p>
+<p><strong>捕获每个状态的变化</strong></p>
+<p>使用onreadystatechange</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">buttons.addEventListener(<span style="color:#2aa198">&#39;click&#39;</span>, (e)=&gt;{
+    <span style="color:#268bd2">let</span> request <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> XMLHttpRequest()
+    request.onreadystatechange <span style="color:#719e07">=</span> ()=&gt;{
+        console.log(request.readyState)
+    }
+    request.open(<span style="color:#2aa198">&#39;GET&#39;</span>, <span style="color:#2aa198">&#39;/xxx&#39;</span>)  <span style="color:#586e75">// 配置 request
+</span><span style="color:#586e75"></span>    request.send()
+})
+</code></pre></div><p>尽量把事件放在open前，这样可以捕获每个状态</p>
+<p><strong>判断响应状态</strong></p>
+<p>通过readyState判断状态码状态</p>
+<p>然后再通过 status 判断响应类型 如 200 400 等</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">buttons.addEventListener(<span style="color:#2aa198">&#39;click&#39;</span>, (e)=&gt;{
+    <span style="color:#268bd2">let</span> request <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> XMLHttpRequest()
+    request.onreadystatechange <span style="color:#719e07">=</span> ()=&gt;{
+        <span style="color:#719e07">if</span>(request.readyState <span style="color:#719e07">===</span> <span style="color:#2aa198">4</span>){
+            console.log(<span style="color:#2aa198">&#39;请求响应已完成&#39;</span>)
+            <span style="color:#719e07">if</span>(request.status <span style="color:#719e07">&gt;=</span> <span style="color:#2aa198">200</span> <span style="color:#719e07">&amp;&amp;</span> request.status <span style="color:#719e07">&lt;</span> <span style="color:#2aa198">300</span>){
+                console.log(<span style="color:#2aa198">&#39;请求成功&#39;</span>)
+            }<span style="color:#719e07">else</span> <span style="color:#719e07">if</span>(request.status <span style="color:#719e07">&gt;=</span> <span style="color:#2aa198">400</span>){
+                console.log(<span style="color:#2aa198">&#39;请求失败&#39;</span>)
+            }
+        }
+    }
+    request.open(<span style="color:#2aa198">&#39;GET&#39;</span>, <span style="color:#2aa198">&#39;/xxx&#39;</span>)  <span style="color:#586e75">// 配置 request
+</span><span style="color:#586e75"></span>    request.send()
+})
+</code></pre></div><blockquote>
+<p>如果出现返回 300 类的响应，服务器会再次发出请求，所以正常情况下不会出300类的状态</p>
+</blockquote>
+<p><strong>读取响应第四部分</strong></p>
+<p>使用 responseText 即可获取响应的第4部分文本内容</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">buttons.addEventListener(<span style="color:#2aa198">&#39;click&#39;</span>, (e)=&gt;{
+    <span style="color:#268bd2">let</span> request <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> XMLHttpRequest()
+    request.onreadystatechange <span style="color:#719e07">=</span> ()=&gt;{
+        <span style="color:#719e07">if</span>(request.readyState <span style="color:#719e07">===</span> <span style="color:#2aa198">4</span>){
+            console.log(<span style="color:#2aa198">&#39;请求响应已完成&#39;</span>)
+            <span style="color:#719e07">if</span>(request.status <span style="color:#719e07">&gt;=</span> <span style="color:#2aa198">200</span> <span style="color:#719e07">&amp;&amp;</span> request.status <span style="color:#719e07">&lt;</span> <span style="color:#2aa198">300</span>){
+                console.log(<span style="color:#2aa198">&#39;请求成功&#39;</span>)
+                console.log(request.responseText)
+            }<span style="color:#719e07">else</span> <span style="color:#719e07">if</span>(request.status <span style="color:#719e07">&gt;=</span> <span style="color:#2aa198">400</span>){
+                console.log(<span style="color:#2aa198">&#39;请求失败&#39;</span>)
+            }
+        }
+    }
+    request.open(<span style="color:#2aa198">&#39;GET&#39;</span>, <span style="color:#2aa198">&#39;/xxx&#39;</span>)  <span style="color:#586e75">// 配置 request
+</span><span style="color:#586e75"></span>    request.send()
+})
+</code></pre></div><h3 id="js-和-json-的区别">
+  JS 和 JSON 的区别
+  <a class="anchor" href="#js-%e5%92%8c-json-%e7%9a%84%e5%8c%ba%e5%88%ab">#</a>
+</h3>
+<p>JS 和 JSON 是两门语言，JSON 抄袭了 JS 的部分语法</p>
+<p>语法区别：</p>
+<table>
+<thead>
+<tr>
+<th>JS</th>
+<th>JSON</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>undefined</td>
+<td>没有</td>
+</tr>
+<tr>
+<td>null</td>
+<td>null</td>
+</tr>
+<tr>
+<td>[&lsquo;a&rsquo;, &lsquo;b&rsquo;]</td>
+<td>[&ldquo;a&rdquo;, &ldquo;b&rdquo;]</td>
+</tr>
+<tr>
+<td>{name: &lsquo;frank&rsquo;}</td>
+<td>{&ldquo;name&rdquo;: &ldquo;frank&rdquo;}</td>
+</tr>
+<tr>
+<td>&lsquo;frank&rsquo;</td>
+<td>&ldquo;frank&rdquo;</td>
+</tr>
+<tr>
+<td>function fn(){}</td>
+<td>没有</td>
+</tr>
+<tr>
+<td>var a = {}</td>
+<td>JSON没有变量</td>
+</tr>
+<tr>
+<td>{__proto__}</td>
+<td>JSON没有原型链</td>
+</tr>
+</tbody>
+</table>
+<p>JSON 中 没有 function 和 undefined</p>
+<p>JSON 的字符串首尾必须用 &quot; 包裹</p>
+<h3 id="使用-json-格式的数据">
+  使用 JSON 格式的数据
+  <a class="anchor" href="#%e4%bd%bf%e7%94%a8-json-%e6%a0%bc%e5%bc%8f%e7%9a%84%e6%95%b0%e6%8d%ae">#</a>
+</h3>
+<p>在 server 中添加JSON格式内容</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#719e07">if</span>(path <span style="color:#719e07">===</span> <span style="color:#2aa198">&#39;/xxx&#39;</span>){
+    response.statusCode <span style="color:#719e07">=</span> <span style="color:#2aa198">200</span>
+    response.setHeader(<span style="color:#2aa198">&#39;Content-Type&#39;</span>, <span style="color:#2aa198">&#39;text/json;charset=utf-8&#39;</span>)
+    response.write(<span style="color:#586e75">`
+</span><span style="color:#586e75">        {
+</span><span style="color:#586e75">          &#34;note&#34;:{
+</span><span style="color:#586e75">            &#34;to&#34;:&#34;Chen&#34;,
+</span><span style="color:#586e75">            &#34;from&#34;:&#34;lh&#34;,
+</span><span style="color:#586e75">            &#34;heading&#34;:&#34;fa&#34;,
+</span><span style="color:#586e75">            &#34;content&#34;:&#34;hi&#34;
+</span><span style="color:#586e75">          }
+</span><span style="color:#586e75">        }
+</span><span style="color:#586e75">    `</span>)
+    response.end()
+  }
+</code></pre></div><p>注意，添加后控制台返回的是 string 类型</p>
+<p>获取 JSON 格式数据</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">buttons.addEventListener(<span style="color:#2aa198">&#39;click&#39;</span>, (e)=&gt;{
+    <span style="color:#268bd2">let</span> request <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> XMLHttpRequest()
+    request.onreadystatechange <span style="color:#719e07">=</span> ()=&gt;{
+        <span style="color:#719e07">if</span>(request.readyState <span style="color:#719e07">===</span> <span style="color:#2aa198">4</span>){
+            console.log(<span style="color:#2aa198">&#39;请求响应已完成&#39;</span>)
+            <span style="color:#719e07">if</span>(request.status <span style="color:#719e07">&gt;=</span> <span style="color:#2aa198">200</span> <span style="color:#719e07">&amp;&amp;</span> request.status <span style="color:#719e07">&lt;</span> <span style="color:#2aa198">300</span>){
+                console.log(<span style="color:#2aa198">&#39;请求成功&#39;</span>)
+                console.log(request.responseText)
+                <span style="color:#268bd2">let</span> string <span style="color:#719e07">=</span> request.responseText
+                <span style="color:#586e75">// 使用浏览器提供的API将应该符合JSON语法的字符串转换为JS对应类型的值
+</span><span style="color:#586e75"></span>                <span style="color:#268bd2">let</span> object <span style="color:#719e07">=</span> <span style="color:#b58900">window</span>.JSON.parse(string)
+                console.log(<span style="color:#719e07">typeof</span> object)
+                console.log(object)
+                <span style="color:#586e75">// 获取对象中note属性的内容
+</span><span style="color:#586e75"></span>                console.log(<span style="color:#2aa198">&#39;object.note&#39;</span>)
+                console.log(object.note)
+            }<span style="color:#719e07">else</span> <span style="color:#719e07">if</span>(request.status <span style="color:#719e07">&gt;=</span> <span style="color:#2aa198">400</span>){
+                console.log(<span style="color:#2aa198">&#39;请求失败&#39;</span>)
+            }
+        }
+    }
+    request.open(<span style="color:#2aa198">&#39;GET&#39;</span>, <span style="color:#2aa198">&#39;/xxx&#39;</span>)  <span style="color:#586e75">// 配置 request
+</span><span style="color:#586e75"></span>    request.send()
+})
+</code></pre></div><p><strong>源代码链接</strong></p>
+<p><a href="https://github.com/ChenNing02/git-hunger/tree/master/course-demo/AJAX/b">https://github.com/ChenNing02/git-hunger/tree/master/course-demo/AJAX/b</a></p>
+<h2 id="同源策略">
+  同源策略
+  <a class="anchor" href="#%e5%90%8c%e6%ba%90%e7%ad%96%e7%95%a5">#</a>
+</h2>
+<p>使用form 表单向百度发GET请求</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#268bd2">form</span> action<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;https://www.baidu.com&#34;</span> method<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;GET&#34;</span>&gt;
+	&lt;<span style="color:#268bd2">input</span> type<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;password&#34;</span> name<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;password&#34;</span>&gt;
+	&lt;<span style="color:#268bd2">input</span> type<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;submit&#34;</span>&gt;
+&lt;/<span style="color:#268bd2">form</span>&gt;
+</code></pre></div><p>使用ajax 向百度发送请求</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">request.open(<span style="color:#2aa198">&#39;GET&#39;</span>, <span style="color:#2aa198">&#39;https://www.baidu.com&#39;</span>)  <span style="color:#586e75">// 配置 request
+</span></code></pre></div><p>虽然会请求成功，但无法返回内容，因为百度没有相应的响应</p>
+<p>这时查看 status 状态码为 0</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">console.log(request.status)
+</code></pre></div><p>如果你的域名不相同就无法发送 ajax 请求，但是其他请求却可以，比如上面的 form img 等</p>
+<p>只有 协议+端口+域名 一模一样才允许发送 AJAX 请求</p>
+<h2 id="cors跨域">
+  CORS跨域
+  <a class="anchor" href="#cors%e8%b7%a8%e5%9f%9f">#</a>
+</h2>
+<p>Cross-Origin Read Blocking (CORB)</p>
+<p>使用CORS可以告诉浏览器，是否允许指定域名访问</p>
+<p><strong>案例</strong></p>
+<p>打开 c 目录下的文件</p>
+<p>在 chen 和 ning 目录下分别开两个 server</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">node server <span style="color:#2aa198">8001</span> <span style="color:#586e75">// chen
+</span><span style="color:#586e75"></span>node server <span style="color:#2aa198">8002</span> <span style="color:#586e75">// ning
+</span></code></pre></div><p>在 chen 目录下的 main.js 中配置请求路径</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">request.open(<span style="color:#2aa198">&#39;GET&#39;</span>, <span style="color:#2aa198">&#39;http://ning.com:8002/xxx&#39;</span>)  <span style="color:#586e75">// 配置 request
+</span></code></pre></div><p>然后在 ning 目录下的 server.js 文件中添加一句话，表示允许 chen.com:8001 访问，即可请求成功</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">response.setHeader(<span style="color:#2aa198">&#39;Access-Control-Allow-Origin&#39;</span>, <span style="color:#2aa198">&#39;http://chen.com:8001&#39;</span>)
+</code></pre></div><p><strong>案例源代码</strong></p>
+<p><a href="https://github.com/ChenNing02/git-hunger/tree/master/course-demo/AJAX/c">https://github.com/ChenNing02/git-hunger/tree/master/course-demo/AJAX/c</a></p>
+<h2 id="使用原生js发送ajax请求">
+  使用原生JS发送AJAX请求
+  <a class="anchor" href="#%e4%bd%bf%e7%94%a8%e5%8e%9f%e7%94%9fjs%e5%8f%91%e9%80%81ajax%e8%af%b7%e6%b1%82">#</a>
+</h2>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">let</span> request <span style="color:#719e07">=</span> <span style="color:#719e07">new</span> XMLHttpRequest()
+request.open(<span style="color:#2aa198">&#39;get&#39;</span>, <span style="color:#2aa198">&#39;http://xxx.com&#39;</span>)
+request.send()
+request.onreadystatechange <span style="color:#719e07">=</span> ()=&gt;{
+    <span style="color:#719e07">if</span>(request.readyState <span style="color:#719e07">===</span> <span style="color:#2aa198">4</span>){
+        <span style="color:#719e07">if</span>(request.status <span style="color:#719e07">&gt;=</span> <span style="color:#2aa198">200</span> <span style="color:#719e07">&amp;&amp;</span> request.status <span style="color:#719e07">&lt;</span> <span style="color:#2aa198">300</span>){
+            <span style="color:#268bd2">let</span> string <span style="color:#719e07">=</span> request.responseText
+            <span style="color:#268bd2">let</span> object <span style="color:#719e07">=</span> <span style="color:#b58900">window</span>.JSON.parse(string)
+        }
+    }
+}
+</code></pre></div><h2 id="mdn-文档内容">
+  MDN 文档内容
+  <a class="anchor" href="#mdn-%e6%96%87%e6%a1%a3%e5%86%85%e5%ae%b9">#</a>
+</h2>
+<p>下面是MDN 文档中的内容</p>
+<h3 id="xmlhttprequestreadystate">
+  XMLHttpRequest.readyState
+  <a class="anchor" href="#xmlhttprequestreadystate">#</a>
+</h3>
+<p>原文链接：https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/readyState</p>
+<p><strong>XMLHttpRequest.readyState</strong> 属性返回一个 XMLHttpRequest  代理当前所处的状态。一个 XHR 代理总是处于下列状态中的一个：</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>状态</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td><code>UNSENT</code></td>
+<td>代理被创建，但尚未调用 open() 方法。</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td><code>OPENED</code></td>
+<td><code>open()</code> 方法已经被调用。</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td><code>HEADERS_RECEIVED</code></td>
+<td><code>send()</code> 方法已经被调用，并且头部和状态已经可获得。</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td><code>LOADING</code></td>
+<td>下载中； <code>responseText</code> 属性已经包含部分数据。</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td><code>DONE</code></td>
+<td>下载操作已完成。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>UNSENT</p>
+<p>XMLHttpRequest 代理已被创建， 但尚未调用 open() 方法。</p>
+</li>
+<li>
+<p>OPENED</p>
+<p>open() 方法已经被触发。在这个状态中，可以通过  <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/setRequestHeader">setRequestHeader()</a> 方法来设置请求的头部， 可以调用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/send">send()</a> 方法来发起请求。</p>
+</li>
+<li>
+<p>HEADERS_RECEIVED</p>
+<p>send() 方法已经被调用，响应头也已经被接收。</p>
+</li>
+<li>
+<p>LOADING</p>
+<p>响应体部分正在被接收。如果 <code>responseType</code> 属性是“text”或空字符串， <code>responseText</code> 将会在载入的过程中拥有部分响应数据。</p>
+</li>
+<li>
+<p>DONE</p>
+<p>请求操作已经完成。这意味着数据传输已经彻底完成或失败。</p>
+</li>
+</ul>
+<h3 id="xmlhttprequestopen">
+  XMLHttpRequest.open()
+  <a class="anchor" href="#xmlhttprequestopen">#</a>
+</h3>
+<p>原文链接：https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/open</p>
+<p><strong>XMLHttpRequest.open()</strong> 方法初始化一个请求。该方法要从JavaScript代码使用；从原生代码初始化一个请求，使用<code>openRequest()</code>替代。</p>
+<p>**注意：**为已激活的请求调用此方法（<code>open()</code>或<code>openRequest()</code>已被调用）相当于调用<code>abort()</code>。</p>
+<h4 id="语法">
+  语法
+  <a class="anchor" href="#%e8%af%ad%e6%b3%95">#</a>
+</h4>
+<pre><code>xhrReq.open(method, url);
+xhrReq.open(method, url, async);
+xhrReq.open(method, url, async, user);
+xhrReq.open(method, url, async, user, password);
+</code></pre><h4 id="参数">
+  参数
+  <a class="anchor" href="#%e5%8f%82%e6%95%b0">#</a>
+</h4>
+<ul>
+<li>
+<p><code>method</code></p>
+<p>要使用的HTTP方法，比如「GET」、「POST」、「PUT」、「DELETE」、等。对于非HTTP(S) URL被忽略。</p>
+</li>
+<li>
+<p><code>url</code></p>
+<p>一个<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DOMString"><code>DOMString</code></a>表示要向其发送请求的URL。</p>
+</li>
+<li>
+<p><code>async</code> 可选</p>
+<p>一个可选的布尔参数，默认为<code>true</code>，表示要不要异步执行操作。如果值为<code>false</code>，<code>send()</code>方法直到收到答复前不会返回。如果<code>true</code>，已完成事务的通知可供事件监听器使用。如果<code>multipart</code>属性为<code>true</code>则这个必须为<code>true</code>，否则将引发异常。**注意：**从Gecko 30.0 (Firefox 30.0 / Thunderbird 30.0 / SeaMonkey 2.27)开始，由于对用户体验的负面影响，主线程上的同步请求已不赞成。</p>
+</li>
+<li>
+<p><code>user</code> 可选</p>
+<p>可选的用户名用于认证用途；默认为<code>null</code>。</p>
+</li>
+<li>
+<p><code>password</code> 可选</p>
+<p>可选的密码用于认证用途，默认为<code>null</code>。</p>
+</li>
+</ul>
+<p>打出当前代码执行所需的时间：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">console.time(); <span style="color:#268bd2">var</span> a <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>; console.timeEnd()
+</code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#各种请求方式">各种请求方式</a></li>
+    <li><a href="#自制的ajax请求">自制的AJAX请求</a>
+      <ul>
+        <li><a href="#js-和-json-的区别">JS 和 JSON 的区别</a></li>
+        <li><a href="#使用-json-格式的数据">使用 JSON 格式的数据</a></li>
+      </ul>
+    </li>
+    <li><a href="#同源策略">同源策略</a></li>
+    <li><a href="#cors跨域">CORS跨域</a></li>
+    <li><a href="#使用原生js发送ajax请求">使用原生JS发送AJAX请求</a></li>
+    <li><a href="#mdn-文档内容">MDN 文档内容</a>
+      <ul>
+        <li><a href="#xmlhttprequestreadystate">XMLHttpRequest.readyState</a></li>
+        <li><a href="#xmlhttprequestopen">XMLHttpRequest.open()</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

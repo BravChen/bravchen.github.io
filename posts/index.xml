@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>博客 on MrChen</title>
+    <link>https://bravchen.github.io/posts/</link>
+    <description>Recent content in 博客 on MrChen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 Jun 2020 18:31:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://bravchen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Flex 布局教程：语法篇</title>
+      <link>https://bravchen.github.io/posts/flex0001/</link>
+      <pubDate>Tue, 19 May 2020 21:38:35 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/flex0001/</guid>
+      <description>作者： 阮一峰
+日期： 2015年7月10日
+ 网页布局（layout）是 CSS 的一个重点应用。
+布局的传统解决方案，基于盒状模型，依赖 display 属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。
+2009年，W3C 提出了一种新的方案&amp;mdash;-Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。
+Flex 布局将成为未来布局的首选方案。本文介绍它的语法，下一篇文章给出常见布局的 Flex 写法。网友 JailBreak 为本文的所有示例制作了 Demo，也可以参考。
+以下内容主要参考了下面两篇文章：A Complete Guide to Flexbox 和 A Visual Guide to CSS3 Flexbox Properties。
+一、Flex 布局是什么？ #  Flex 是 Flexible Box 的缩写，意为&amp;quot;弹性布局&amp;rdquo;，用来为盒状模型提供最大的灵活性。
+任何一个容器都可以指定为 Flex 布局。
+.box{ display: flex; } 行内元素也可以使用 Flex 布局。
+.box{ display: inline-flex; } Webkit 内核的浏览器，必须加上-webkit前缀。
+.box{ display: -webkit-flex; /* Safari */ display: flex; } 注意，设为 Flex 布局以后，子元素的float、clear和vertical-align属性将失效。</description>
+    </item>
+    
+    <item>
+      <title>Flex 布局教程：实例篇</title>
+      <link>https://bravchen.github.io/posts/flex0002/</link>
+      <pubDate>Tue, 19 May 2020 22:31:32 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/flex0002/</guid>
+      <description>作者： 阮一峰
+日期： 2015年7月14日
+ 上一篇文章介绍了Flex布局的语法，今天介绍常见布局的Flex写法。
+你会看到，不管是什么布局，Flex往往都可以几行命令搞定。
+我只列出代码，详细的语法解释请查阅《Flex布局教程：语法篇》。我的主要参考资料是Landon Schropp的文章和Solved by Flexbox。
+一、骰子的布局 #  骰子的一面，最多可以放置9个点。
+下面，就来看看Flex如何实现，从1个点到9个点的布局。你可以到codepen查看Demo。
+如果不加说明，本节的HTML模板一律如下。
+&amp;lt;div class=&amp;#34;box&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;item&amp;#34;&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt; 上面代码中，div元素（代表骰子的一个面）是Flex容器，span元素（代表一个点）是Flex项目。如果有多个项目，就要添加多个span元素，以此类推。
+1.1 单项目 #  首先，只有左上角1个点的情况。Flex布局默认就是首行左对齐，所以一行代码就够了。
+.box { display: flex; } 设置项目的对齐方式，就能实现居中对齐和右对齐。
+.box { display: flex; justify-content: center; } .box { display: flex; justify-content: flex-end; } 设置交叉轴对齐方式，可以垂直移动主轴。
+.box { display: flex; align-items: center; } .box { display: flex; justify-content: center; align-items: center; } .box { display: flex; justify-content: center; align-items: flex-end; } .</description>
+    </item>
+    
+    <item>
+      <title>学习目标and方法</title>
+      <link>https://bravchen.github.io/posts/2020-02-08-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87and%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/2020-02-08-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87and%E6%96%B9%E6%B3%95/</guid>
+      <description>学习的内因，外因 #  外因 #    关注前端的人比 Java Python 少多了
+  学习前端的人少，但是公司的需求并不少
+  前端工资高
+  内因 #    对前端有兴趣
+  希望自己的工作是可积累的
+  希望自己的工作是有挑战性的
+  三个忠告 #  忠告一 #  遗忘曲线：学习任何东西你都会忘掉，所以你需要记笔记和回顾
+ 总结：每次学习新知识后不间断的复习3-4天
+ 忠告二 #  你不可能一年就学会写文章
+多抄一些优秀的代码
+多使用 百度、Google 搜索
+看到三遍以上看不懂的内容，说明遇到了知识的诅咒
+ 总结：编程就像写文章，你需要临摹很多人的代码，才能原创一小段自己的代码
+ 忠告三 #  Done is better than Perfect
+做出来优于做到完美，不要在一开始就追求完美。
+ 总结：先做出来，再追求完美去完善
+ </description>
+    </item>
+    
+    <item>
+      <title>互联网的基石</title>
+      <link>https://bravchen.github.io/posts/a0000003/</link>
+      <pubDate>Wed, 15 Apr 2020 07:11:52 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/a0000003/</guid>
+      <description>WWW 的历史 #  1990年 万维网（World Wide Web）出生的年份。这一年 Tim Berners-Lee 发明了用网址就能访问网页的办法，他发明了第一个网页、第一个浏览器和第一个服务器。
+curl 命令 #  发请求，同时接收响应
+Markdown #  Markdown 不是一个被发明的东西，是被人们总结的语法，所以 MarkDown 的语法形式有很多。
+WWW 的发明 #  Tim Berners-Lee（下文中称为李爵士）在 1989 年至 1992 年间，发明了 WWW（World Wide Web），一种适用于全世界的网络。主要包含三个概念
+ URI，俗称网址 HTTP，两个电脑之间传输内容的协议 HTML，超级文本，主要用来做页面跳转  URL 的作用是能让你访问一个页面，HTTP 的作用是让你能下载这个页面，HTML 的作用是让你能看懂这个页面。这是一个简单而完美的系统。李爵士除了发明了这些概念，还付诸了行动：
+ 发明了第一个服务器 发明了第一个浏览器 写出了第一个网页，地址：info.cern.ch ，注：网站与网页是不同的，网站是有很多网页的，网页只是一个页面。  URI是什么 #  U(统一)R(资源)I(标识符)
+URI 分为 URL 和 URN 两种
+URN #  URN(统一资源名称)
+ISBN: 9787115275790 就是一个 URN，通过 URN 你可以确定一个「唯一的」资源，ISBN: 9787115275790 对应的资源的是《JavaScript 高级程序设计（第三版）》这本书。你去是介绍任何一个图书馆、书店，他们都知道是这本书。</description>
+    </item>
+    
+    <item>
+      <title>window.JSON的使用</title>
+      <link>https://bravchen.github.io/posts/2020-06-09-window-json-use/</link>
+      <pubDate>Tue, 09 Jun 2020 18:31:00 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/2020-06-09-window-json-use/</guid>
+      <description>JSON.parse #  作用：将符合JSON语法的字符串转换成JS对应的数据类型
+JSON字符串 =&amp;gt; JS 数据
+注意事项：由于JSON只有6种类型，所以转成的数据也只有6种，如果不符合JSON的语法，则直接抛出一个Error对象，大部分时候我们用try catch捕获这个错误，如下：
+let object try { object = JSON.parse(`{&amp;#39;name&amp;#39;:&amp;#39;frank&amp;#39;}`) }catch(error){ console.log(&amp;#39;出错了，错误详情是&amp;#39;) console.log(error) object = {&amp;#39;name&amp;#39;: &amp;#39;no name&amp;#39;} } 语法
+JSON.parse(value) JSON.stringify #  作用：JSON.parse的逆运算
+JS 数据 =&amp;gt; JSON字符串
+由于JS数据类型比JSON多，所以未必会转换成功，假如你在要转换的数据中加入了函数，那么很可能会报错，或者被浏览器忽略掉
+语法
+JSON.stringify(value) </description>
+    </item>
+    
+    <item>
+      <title>HTML5标签总结</title>
+      <link>https://bravchen.github.io/posts/2020-06-09-html5-label/</link>
+      <pubDate>Tue, 09 Jun 2020 09:59:42 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/2020-06-09-html5-label/</guid>
+      <description>目录 #  脚本 &amp;lt;template&amp;gt; 通过 JavaScript 在运行时实例化内容的容器。 章节 &amp;lt;section&amp;gt; 文档中的一个章节。 &amp;lt;nav&amp;gt; 只包含导航链接的章节。 &amp;lt;article&amp;gt; 可以独立于内容其余部分的完整独立内容块。 &amp;lt;aside&amp;gt; 和页面内容关联度较低的内容——如果被删除，剩下的内容仍然很合理。 &amp;lt;header&amp;gt; 页面或章节的头部。 &amp;lt;footer&amp;gt; 页面或章节的尾部 &amp;lt;main&amp;gt; 文档中主要或重要的内容。 组织内容 &amp;lt;figure&amp;gt; 图片示例 &amp;lt;figcaption&amp;gt; 图片说明 文字形式 &amp;lt;time&amp;gt; 用于表示时间，兼容性较低 &amp;lt;mark&amp;gt; 高亮文字 &amp;lt;ruby&amp;gt; 注释文本，用于包裹rt，rp，用于显示如中文汉字和它的拼音等 &amp;lt;rt&amp;gt; ruby注释，如中文拼音 &amp;lt;rp&amp;gt; 不支持 ruby 注释显示的浏览器中提供友好的注释显示。 &amp;lt;bdi&amp;gt; 代表需要脱离 父元素文本方向的一段文本。它允许嵌入一段不同或未知文本方向格式的文本。 &amp;lt;wbr&amp;gt; 代表建议换行 (Word Break Opportunity) ，当文本太长需要换行时将会在此处添加换行符。 嵌入内容 &amp;lt;embed&amp;gt; 代表一个嵌入 的外部资源，如应用程序或交互内容。 &amp;lt;video&amp;gt; 代表一段视频 及其视频文件和字幕，并提供了播放视频的用户界面。 &amp;lt;audio&amp;gt; 代表一段声音 ，或音频流 。 &amp;lt;source&amp;gt; 为 &amp;lt;video&amp;gt; 或 &amp;lt;audio&amp;gt; 这类媒体元素指定媒体源 。 &amp;lt;track&amp;gt; 为 &amp;lt;video&amp;gt; 或 &amp;lt;audio&amp;gt; 这类媒体元素指定文本轨道（字幕） 。 &amp;lt;canvas&amp;gt; 代表位图区域 ，可以通过脚本在它上面实时呈现图形，如图表、游戏绘图等。 &amp;lt;svg&amp;gt; 定义一个嵌入式矢量图 。 &amp;lt;math&amp;gt; 定义一段数学公式 。 表单 &amp;lt;datalist&amp;gt; 代表提供给其他控件的一组预定义选项 。 &amp;lt;keygen&amp;gt; 代表一个密钥对生成器 控件。 &amp;lt;output&amp;gt; 代表计算值 。 &amp;lt;progress&amp;gt; 代表进度条 。 &amp;lt;meter&amp;gt; 代表滑动条 。 交互元素 &amp;lt;details&amp;gt; 代表一个用户可以(点击)获取额外信息或控件的小部件 。 &amp;lt;summary&amp;gt; 代表 &amp;lt;details&amp;gt; 元素的综述 或标题 。 &amp;lt;menuitem&amp;gt; 代表一个用户可以点击的菜单项。 &amp;lt;menu&amp;gt; 代表菜单。 </description>
+    </item>
+    
+    <item>
+      <title>async 的使用</title>
+      <link>https://bravchen.github.io/posts/2020-06-07-async-use/</link>
+      <pubDate>Sun, 07 Jun 2020 23:23:57 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/2020-06-07-async-use/</guid>
+      <description>async 的特点
+ 它可以和 Promise 结合使用。 它能使异步函数更像是同步函数。 它的语法和结构会更像是标准的同步函数。  Promise 的使用 #  以一个摇色子案例为例：
+首先使用一个 Promise 函数封装一个三秒后返回 1 - 6 之间的随机数的函数，然后在调用时使用 .then() 方法获取返回的结果，如下：
+function fn(){ return new Promise((resolve, reject)=&amp;gt;{ setTimeout(()=&amp;gt;{ /* 产生一个 1-6之间的随机数 */ let n = parseInt(Math.random() * 6 + 1, 10) resolve(n) }) }) } fn().then( (data)=&amp;gt;{ console.log(&amp;#39;色子的点数是：&amp;#39;+data) }, ()=&amp;gt;{ console.log(&amp;#39;摇色子失败~&amp;#39;) } )  Math.random() 函数返回一个浮点, 从0到1，包含 0 但不包含 1
+ 案例链接：https://codesandbox.io/s/icy-wildflower-29wpi?file=/src/index.js
+async await 的使用 #  语法首先，await 只能在 async 中使用（强制规定），比如用以下两种方式调用上面的 fn 函数：</description>
+    </item>
+    
+    <item>
+      <title>JavaScript达到什么水平，可以写类似Vue的框架？</title>
+      <link>https://bravchen.github.io/posts/2020-06-04-wlfjscywv/</link>
+      <pubDate>Thu, 04 Jun 2020 19:05:43 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/2020-06-04-wlfjscywv/</guid>
+      <description>今天在看方方老师的课程时，看到一个很赞的回答，顺便记录下来鼓励一下自己。
+提问：JavaScript达到什么水平，可以写类似Vue的框架？ #  答：
+在编程界没有什么水平的定义，而是你先定一个目标，去实现它。要么实现了，要么实现不了。
+学习方式不是达到什么水平才去写什么，而是你写了什么才能达到什么水平。
+你要先去做，才能达到那个水平，而不是达到那个水平再去做，因为你没有做过是永远达不到那个水平的。
+先做在达到，做的时候去搜各种知识，不停的去迭代它，完善它。</description>
+    </item>
+    
+    <item>
+      <title>JS 拖曳事件总结</title>
+      <link>https://bravchen.github.io/posts/2020-06-01-js-mouse-event/</link>
+      <pubDate>Mon, 01 Jun 2020 19:17:59 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/2020-06-01-js-mouse-event/</guid>
+      <description>常用的三个事件 #  mousedown #  当指针(鼠标)在元素上按下时触发
+mousemove #  当指针(鼠标)在元素上移动时触发
+mouseup #  当指针(鼠标)在元素上抬起时触发
+使用案例 #  demo.onmousedown = function(){ console.log(&amp;#39;鼠标已按下&amp;#39;) } demo.addEventListener(&amp;#39;mousedown&amp;#39;, function(e){ console.log(&amp;#39;鼠标已按下&amp;#39;) }) </description>
+    </item>
+    
+    <item>
+      <title>AJAX 的封装</title>
+      <link>https://bravchen.github.io/posts/2020-05-29-ajax-use/</link>
+      <pubDate>Fri, 29 May 2020 21:19:30 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/2020-05-29-ajax-use/</guid>
+      <description>原生 JS 实现 AJAX #  let request = new XMLHttpRequest() request.open(&amp;#39;get&amp;#39;, &amp;#39;http://jack.com:8002/xxx&amp;#39;) request.send() request.onreadystatechange = ()=&amp;gt;{ if(request.readyState === 4){ if(request.status &amp;gt;= 200 &amp;amp;&amp;amp; request.status &amp;lt; 300){ let string = request.responseText let object = window.JSON.parse(string) console.log(&amp;#39;请求成功!&amp;#39;) }else if(request.status &amp;gt;= 400){ console.log(&amp;#39;请求失败!&amp;#39;) } } } 封装一个 jQuery.ajax #  window.jQuery.ajax = function(url, method, body, successFn, failFn){ let request = new XMLHttpRequest() request.open(method, url) request.onreadystatechange = ()=&amp;gt;{ if(request.readyState === 4){ if(request.status &amp;gt;= 200 &amp;amp;&amp;amp; request.</description>
+    </item>
+    
+    <item>
+      <title>Document API</title>
+      <link>https://bravchen.github.io/posts/a0000001/</link>
+      <pubDate>Sat, 16 May 2020 22:22:05 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/a0000001/</guid>
+      <description>Class 类名添加与删除 #  当点击 id 为 xxx 的元素时，如果 id 为 yyy 元素存在 active 的 class 样式就删除该 class 名，不存在就添加该 class 名
+xxx.onclick = function(){ yyy.classList.toggle(&amp;#39;active&amp;#39;) } 案例链接：https://jsbin.com/xoxelaj/1/edit?html,css,js,output
+String #  获取某一个索引对应的字符 (String.prototype.charAt()) #  var str = &amp;#39;wobuzaiyi&amp;#39; // 获取某一个索引对应的字符 str.charAt(0) // &amp;#34;w&amp;#34; // 获取某一个索引对应的字符的编码 -- String.prototype.charCodeAt() str.charCodeAt(0) // 119 -- &amp;#34;w&amp;#34;对应的字符编码 去掉字符串两边的空格 (String.prototype.trim()) #  &amp;#39; username &amp;#39;.trim() // &amp;#34;username&amp;#34; 字符串拼接 (Array.prototype.concat()) #  var s1 = &amp;#39;Hello&amp;#39; var s2 = &amp;#39;World&amp;#39; s1.</description>
+    </item>
+    
+    <item>
+      <title>字符串</title>
+      <link>https://bravchen.github.io/posts/a0000007/</link>
+      <pubDate>Tue, 12 May 2020 15:07:06 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/a0000007/</guid>
+      <description>.charCodeAt() #  charCodeAt() 方法返回0到65535之间的整数，表示给定索引处的UTF-16代码单元 (在 Unicode 编码单元表示一个单一的 UTF-16 编码单元的情况下，UTF-16 编码单元匹配 Unicode 编码单元。但在——例如 Unicode 编码单元 &amp;gt; 0x10000 的这种——不能被一个 UTF-16 编码单元单独表示的情况下，只能匹配 Unicode 代理对的第一个编码单元) 。如果你想要整个代码点的值，使用 codePointAt()。</description>
+    </item>
+    
+    <item>
+      <title>字面量增强</title>
+      <link>https://bravchen.github.io/posts/a0000006/</link>
+      <pubDate>Tue, 12 May 2020 12:12:32 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/a0000006/</guid>
+      <description>字面量的含义 #  它写出来就代表它所展示的意思，例如：1, 2, 3, true, false, {}，很直观的量。
+相反的，像构造函数，或者复杂的对象，就不是字面量。
+新版进制区分 #  如之前的写法
+二进制
+1010101 // 85 八进制
+0777 // 511 ES6 的写法
+二进制
+0b1010101 // 85 八进制
+0o777 // 511 字符串支持 Unicode #  获取字符编码
+以获取16进制的 &amp;quot;你&amp;quot; 的字符串编码为例：
+&amp;#34;你&amp;#34;.charCodeAt().toString(16) // &amp;#34;4f60&amp;#34; &amp;quot;你&amp;quot; 使用的字节：
+这里的 &amp;quot;你&amp;quot; 只需要 1 个字符表示，如下
+&amp;#34;你&amp;#34;.length // 1 而 &amp;quot;𝌆&amp;quot; 的则需要两个字符表示
+&amp;#34;𝌆&amp;#34;.length // 2 也就是，&amp;quot;𝌆&amp;quot; === &amp;quot;\uD834\uDF06&amp;quot; 如下：
+&amp;#34;𝌆&amp;#34;.charCodeAt(0).toString(16) // &amp;#34;d834&amp;#34; &amp;#34;𝌆&amp;#34;.charCodeAt(1).toString(16) // &amp;#34;df06&amp;#34; &amp;quot;𝌆&amp;quot; 使用的字节：</description>
+    </item>
+    
+    <item>
+      <title>新版变量声明：let 和 const</title>
+      <link>https://bravchen.github.io/posts/a0000002/</link>
+      <pubDate>Thu, 30 Apr 2020 17:55:32 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/posts/a0000002/</guid>
+      <description>ES 6 新特性一览：https://frankfang.github.io/es-6-tutorials/
+教程：es6.ruanyifeng.com
+先学 ES 5 还是 ES 6 #  无聊的问题，ES 6 包含 ES 5，你无论如何都必须先学 ES 5，才能看懂 ES 6
+ES 6 如何学 #   快速通览，然后使用 边使用边加深印象  自学的问题 #  你不知道一个语法为什么要存在
+ 触类旁通，去看看其他语言有没有这个语法，怎么用的 反证法，如果不用这个语法，该怎么实现需求  let &amp;amp; const #  我用了两个月的时间才理解 let
+ let 和 var 的区别 const 和 let 的区别 相关面试题  </description>
+    </item>
+    
+  </channel>
+</rss>

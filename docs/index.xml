@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>转载 on MrChen</title>
+    <link>https://bravchen.github.io/docs/</link>
+    <description>Recent content in 转载 on MrChen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Jun 2020 22:22:36 +0800</lastBuildDate>
+    
+	<atom:link href="https://bravchen.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Javascript模块化编程（一）：模块的写法</title>
+      <link>https://bravchen.github.io/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%80%E6%A8%A1%E5%9D%97%E7%9A%84%E5%86%99%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%80%E6%A8%A1%E5%9D%97%E7%9A%84%E5%86%99%E6%B3%95/</guid>
+      <description>作者： 阮一峰
+日期： 2012年10月26日
+随着网站逐渐变成&amp;rdquo;互联网应用程序&amp;quot;，嵌入网页的Javascript代码越来越庞大，越来越复杂。
+
+网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试等等&amp;hellip;&amp;hellip;开发者不得不使用软件工程的方法，管理网页的业务逻辑。
+Javascript模块化编程，已经成为一个迫切的需求。理想情况下，开发者只需要实现核心的业务逻辑，其他都可以加载别人已经写好的模块。
+但是，Javascript不是一种模块化编程语言，它不支持&amp;rdquo;类&amp;quot;（class），更遑论&amp;quot;模块&amp;rdquo;（module）了。（正在制定中的ECMAScript标准第六版，将正式支持&amp;quot;类&amp;quot;和&amp;quot;模块&amp;rdquo;，但还需要很长时间才能投入实用。）
+Javascript社区做了很多努力，在现有的运行环境中，实现&amp;quot;模块&amp;quot;的效果。本文总结了当前＂Javascript模块化编程＂的最佳实践，说明如何投入实用。虽然这不是初级教程，但是只要稍稍了解Javascript的基本语法，就能看懂。
+一、原始写法
+模块就是实现特定功能的一组方法。
+只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。
+function m1(){ //... } function m2(){ //... } 上面的函数m1()和m2()，组成一个模块。使用的时候，直接调用就行了。
+这种做法的缺点很明显：&amp;ldquo;污染&amp;quot;了全局变量，无法保证不与其他模块发生变量名冲突，而且模块成员之间看不出直接关系。
+二、对象写法
+为了解决上面的缺点，可以把模块写成一个对象，所有的模块成员都放到这个对象里面。
+var module1 = new Object({ _count : 0, m1 : function (){ //...  }, m2 : function (){ //...  } }); 上面的函数m1()和m2(），都封装在module1对象里。使用的时候，就是调用这个对象的属性。
+module1.m1(); 但是，这样的写法会暴露所有模块成员，内部状态可以被外部改写。比如，外部代码可以直接改变内部计数器的值。
+module1._count = 5; 三、立即执行函数写法
+使用&amp;rdquo;立即执行函数&amp;quot;（Immediately-Invoked Function Expression，IIFE），可以达到不暴露私有成员的目的。
+var module1 = (function(){ var _count = 0; var m1 = function(){ //.</description>
+    </item>
+    
+    <item>
+      <title>Javascript模块化编程（二）：AMD规范</title>
+      <link>https://bravchen.github.io/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%BA%8Camd%E8%A7%84%E8%8C%83/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%BA%8Camd%E8%A7%84%E8%8C%83/</guid>
+      <description>作者： 阮一峰
+日期： 2012年10月30日
+这个系列的第一部分介绍了Javascript模块的基本写法，今天介绍如何规范地使用模块。
+（接上文）
+七、模块的规范
+先想一想，为什么模块很重要？
+因为有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。
+但是，这样做有一个前提，那就是大家必须以同样的方式编写模块，否则你有你的写法，我有我的写法，岂不是乱了套！考虑到Javascript模块现在还没有官方规范，这一点就更重要了。
+目前，通行的Javascript模块规范共有两种：CommonJS和AMD。我主要介绍AMD，但是要先从CommonJS讲起。
+八、CommonJS
+2009年，美国程序员Ryan Dahl创造了node.js项目，将javascript语言用于服务器端编程。
+这标志&amp;quot;Javascript模块化编程&amp;quot;正式诞生。因为老实说，在浏览器环境下，没有模块也不是特别大的问题，毕竟网页程序的复杂性有限；但是在服务器端，一定要有模块，与操作系统和其他应用程序互动，否则根本没法编程。
+node.js的模块系统，就是参照CommonJS规范实现的。在CommonJS中，有一个全局性方法require()，用于加载模块。假定有一个数学模块math.js，就可以像下面这样加载。
+ 　var math = require(&amp;lsquo;math&amp;rsquo;);
+ 然后，就可以调用模块提供的方法：
+ 　var math = require(&amp;lsquo;math&amp;rsquo;);
+　math.add(2,3); // 5
+ 因为这个系列主要针对浏览器编程，不涉及node.js，所以对CommonJS就不多做介绍了。我们在这里只要知道，require()用于加载模块就行了。
+九、浏览器环境
+有了服务器端模块以后，很自然地，大家就想要客户端模块。而且最好两者能够兼容，一个模块不用修改，在服务器和浏览器都可以运行。
+但是，由于一个重大的局限，使得CommonJS规范不适用于浏览器环境。还是上一节的代码，如果在浏览器中运行，会有一个很大的问题，你能看出来吗？
+ 　var math = require(&amp;lsquo;math&amp;rsquo;);
+　math.add(2, 3);
+ 第二行math.add(2, 3)，在第一行require(&amp;lsquo;math&amp;rsquo;)之后运行，因此必须等math.js加载完成。也就是说，如果加载时间很长，整个应用就会停在那里等。
+这对服务器端不是一个问题，因为所有的模块都存放在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间。但是，对于浏览器，这却是一个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等很长时间，浏览器处于&amp;quot;假死&amp;quot;状态。
+因此，浏览器端的模块，不能采用&amp;quot;同步加载&amp;rdquo;（synchronous），只能采用&amp;quot;异步加载&amp;rdquo;（asynchronous）。这就是AMD规范诞生的背景。
+十、AMD
+AMD是&amp;quot;Asynchronous Module Definition&amp;quot;的缩写，意思就是&amp;quot;异步模块定义&amp;rdquo;。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。
+AMD也采用require()语句加载模块，但是不同于CommonJS，它要求两个参数：
+ 　require([module], callback);
+ 第一个参数[module]，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。如果将前面的代码改写成AMD形式，就是下面这样：
+ 　require([&amp;lsquo;math&amp;rsquo;], function (math) {</description>
+    </item>
+    
+    <item>
+      <title>Javascript模块化编程（三）：require.js的用法</title>
+      <link>https://bravchen.github.io/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%89require.js%E7%9A%84%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/javascript%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%89require.js%E7%9A%84%E7%94%A8%E6%B3%95/</guid>
+      <description>作者： 阮一峰
+日期： 2012年11月 7日
+这个系列的第一部分和第二部分，介绍了Javascript模块原型和理论概念，今天介绍如何将它们用于实战。
+我采用的是一个非常流行的库require.js。
+一、为什么要用require.js？
+最早的时候，所有Javascript代码都写在一个文件里面，只要加载这一个文件就够了。后来，代码越来越多，一个文件不够了，必须分成多个文件，依次加载。下面的网页代码，相信很多人都见过。
+&amp;lt;script src=&amp;#34;1.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;2.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;3.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;4.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;5.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;6.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 这段代码依次加载多个js文件。
+这样的写法有很大的缺点。首先，加载的时候，浏览器会停止网页渲染，加载文件越多，网页失去响应的时间就会越长；其次，由于js文件之间存在依赖关系，因此必须严格保证加载顺序（比如上例的1.js要在2.js的前面），依赖性最大的模块一定要放到最后加载，当依赖关系很复杂的时候，代码的编写和维护都会变得困难。
+require.js的诞生，就是为了解决这两个问题：
+　　（1）实现js文件的异步加载，避免网页失去响应；
+　（2）管理模块之间的依赖性，便于代码的编写和维护。
+二、require.js的加载
+使用require.js的第一步，是先去官方网站下载最新版本。
+下载后，假定把它放在js子目录下面，就可以加载了。
+&amp;lt;script src=&amp;#34;js/require.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 有人可能会想到，加载这个文件，也可能造成网页失去响应。解决办法有两个，一个是把它放在网页底部加载，另一个是写成下面这样：
+&amp;lt;script src=&amp;#34;js/require.js&amp;#34; defer async=&amp;#34;true&amp;#34; &amp;gt;&amp;lt;/script&amp;gt; async 属性表明这个文件需要异步加载，避免网页失去响应。IE不支持这个属性，只支持defer，所以把defer也写上。
+加载require.js以后，下一步就要加载我们自己的代码了。假定我们自己的代码文件是main.js，也放在js目录下面。那么，只需要写成下面这样就行了：
+&amp;lt;script src=&amp;#34;js/require.js&amp;#34; data-main=&amp;#34;js/main&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; data-main 属性的作用是，指定网页程序的主模块。在上例中，就是js目录下面的main.js，这个文件会第一个被require.js加载。由于require.js默认的文件后缀名是js，所以可以把main.js简写成main。
+三、主模块的写法
+上一节的main.js，我把它称为&amp;quot;主模块&amp;rdquo;，意思是整个网页的入口代码。它有点像C语言的main()函数，所有代码都从这儿开始运行。
+下面就来看，怎么写main.js。
+如果我们的代码不依赖任何其他模块，那么可以直接写入javascript代码。
+// main.js alert(&amp;#34;加载成功！&amp;#34;); 但这样的话，就没必要使用require.js了。真正常见的情况是，主模块依赖于其他模块，这时就要使用AMD规范定义的的require()函数。
+// main.js require([&amp;#39;moduleA&amp;#39;, &amp;#39;moduleB&amp;#39;, &amp;#39;moduleC&amp;#39;], function (moduleA, moduleB, moduleC){ // some code here }); require()函数接受两个参数。第一个参数是一个数组，表示所依赖的模块，上例就是[&amp;lsquo;moduleA&amp;rsquo;, &amp;lsquo;moduleB&amp;rsquo;, &amp;lsquo;moduleC&amp;rsquo;]，即主模块依赖这三个模块；第二个参数是一个回调函数，当前面指定的模块都加载成功后，它将被调用。加载的模块会以参数形式传入该函数，从而在回调函数内部就可以使用这些模块。</description>
+    </item>
+    
+    <item>
+      <title>Generator 函数的含义与用法</title>
+      <link>https://bravchen.github.io/docs/generator%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E4%B8%8E%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/generator%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E4%B8%8E%E7%94%A8%E6%B3%95/</guid>
+      <description>作者： 阮一峰
+日期： 2015年4月24日
+ 本文是《深入掌握 ECMAScript 6 异步编程》系列文章的第一篇。
+  Generator函数的含义与用法 Thunk函数的含义与用法 co函数库的含义与用法 async函数的含义与用法   异步编程对 JavaScript 语言太重要。JavaScript 只有一根线程，如果没有异步编程，根本没法用，非卡死不可。
+以前，异步编程的方法，大概有下面四种。
+  回调函数 事件监听 发布/订阅 Promise 对象   ECMAScript 6 （简称 ES6 ）作为下一代 JavaScript 语言，将 JavaScript 异步编程带入了一个全新的阶段。这组系列文章的主题，就是介绍更强大、更完善的 ES6 异步编程方法。
+新方法比较抽象，初学时，我常常感到费解，直到很久以后才想通，**异步编程的语法目标，就是怎样让它更像同步编程。**这组系列文章，将帮助你深入理解 JavaScript 异步编程的本质。所有将要讲到的内容，都已经实现了。也就是说，马上就能用，套用一句广告语，就是&amp;quot;未来已来&amp;rdquo;。
+一、什么是异步？ #  所谓&amp;quot;异步&amp;rdquo;，简单说就是一个任务分成两段，先执行第一段，然后转而执行其他任务，等做好了准备，再回过头执行第二段。比如，有一个任务是读取文件进行处理，异步的执行过程就是下面这样。
+上图中，任务的第一段是向操作系统发出请求，要求读取文件。然后，程序执行其他任务，等到操作系统返回文件，再接着执行任务的第二段（处理文件）。
+**这种不连续的执行，就叫做异步。**相应地，连续的执行，就叫做同步。
+上图就是同步的执行方式。由于是连续执行，不能插入其他任务，所以操作系统从硬盘读取文件的这段时间，程序只能干等着。
+二、回调函数的概念 #  JavaScript 语言对异步编程的实现，就是回调函数。**所谓回调函数，就是把任务的第二段单独写在一个函数里面，等到重新执行这个任务的时候，就直接调用这个函数。**它的英语名字 callback，直译过来就是&amp;quot;重新调用&amp;rdquo;。
+读取文件进行处理，是这样写的。
+fs.readFile(&amp;#39;/etc/passwd&amp;#39;, function (err, data) { if (err) throw err; console.log(data); }); 上面代码中，readFile 函数的第二个参数，就是回调函数，也就是任务的第二段。等到操作系统返回了 /etc/passwd 这个文件以后，回调函数才会执行。</description>
+    </item>
+    
+    <item>
+      <title>Javascript异步编程的4种方法</title>
+      <link>https://bravchen.github.io/docs/javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%E7%9A%844%E7%A7%8D%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%E7%9A%844%E7%A7%8D%E6%96%B9%E6%B3%95/</guid>
+      <description>作者： 阮一峰
+日期： 2012年12月21日
+ 你可能知道，Javascript语言的执行环境是&amp;quot;单线程&amp;rdquo;（single thread）。
+所谓&amp;quot;单线程&amp;rdquo;，就是指一次只能完成一件任务。如果有多个任务，就必须排队，前面一个任务完成，再执行后面一个任务，以此类推。
+这种模式的好处是实现起来比较简单，执行环境相对单纯；坏处是只要有一个任务耗时很长，后面的任务都必须排队等着，会拖延整个程序的执行。常见的浏览器无响应（假死），往往就是因为某一段Javascript代码长时间运行（比如死循环），导致整个页面卡在这个地方，其他任务无法执行。
+为了解决这个问题，Javascript语言将任务的执行模式分成两种：同步（Synchronous）和异步（Asynchronous）。
+&amp;ldquo;同步模式&amp;quot;就是上一段的模式，后一个任务等待前一个任务结束，然后再执行，程序的执行顺序与任务的排列顺序是一致的、同步的；&amp;ldquo;异步模式&amp;quot;则完全不同，每一个任务有一个或多个回调函数（callback），前一个任务结束后，不是执行后一个任务，而是执行回调函数，后一个任务则是不等前一个任务结束就执行，所以程序的执行顺序与任务的排列顺序是不一致的、异步的。
+&amp;ldquo;异步模式&amp;quot;非常重要。在浏览器端，耗时很长的操作都应该异步执行，避免浏览器失去响应，最好的例子就是Ajax操作。在服务器端，&amp;ldquo;异步模式&amp;quot;甚至是唯一的模式，因为执行环境是单线程的，如果允许同步执行所有http请求，服务器性能会急剧下降，很快就会失去响应。
+本文总结了&amp;quot;异步模式&amp;quot;编程的4种方法，理解它们可以让你写出结构更合理、性能更出色、维护更方便的Javascript程序。
+一、回调函数 #  这是异步编程最基本的方法。
+假定有两个函数f1和f2，后者等待前者的执行结果。
+f1(); f2(); 如果f1是一个很耗时的任务，可以考虑改写f1，把f2写成f1的回调函数。
+function f1(callback){ setTimeout(function () { // f1的任务代码 　callback(); }, 1000); } 执行代码就变成下面这样：
+f1(f2); 采用这种方式，我们把同步操作变成了异步操作，f1不会堵塞程序运行，相当于先执行程序的主要逻辑，将耗时的操作推迟执行。
+回调函数的优点是简单、容易理解和部署，缺点是不利于代码的阅读和维护，各个部分之间高度耦合（Coupling），流程会很混乱，而且每个任务只能指定一个回调函数。
+二、事件监听 #  另一种思路是采用事件驱动模式。任务的执行不取决于代码的顺序，而取决于某个事件是否发生。
+还是以f1和f2为例。首先，为f1绑定一个事件（这里采用的jQuery的写法）。
+f1.on(&amp;#39;done&amp;#39;, f2); 上面这行代码的意思是，当f1发生done事件，就执行f2。然后，对f1进行改写：
+function f1(){ setTimeout(function () { // f1的任务代码 　f1.trigger(&amp;#39;done&amp;#39;); }, 1000); } f1.trigger(&#39;done&#39;) 表示，执行完成后，立即触发done事件，从而开始执行f2。
+这种方法的优点是比较容易理解，可以绑定多个事件，每个事件可以指定多个回调函数，而且可以&amp;ldquo;去耦合&amp;rdquo;（Decoupling），有利于实现模块化。缺点是整个程序都要变成事件驱动型，运行流程会变得很不清晰。
+三、发布/订阅 #  上一节的&amp;quot;事件&amp;rdquo;，完全可以理解成&amp;quot;信号&amp;rdquo;。
+我们假定，存在一个&amp;quot;信号中心&amp;rdquo;，某个任务执行完成，就向信号中心&amp;quot;发布&amp;rdquo;（publish）一个信号，其他任务可以向信号中心&amp;quot;订阅&amp;rdquo;（subscribe）这个信号，从而知道什么时候自己可以开始执行。这就叫做&amp;ldquo;发布/订阅模式&amp;rdquo;（publish-subscribe pattern），又称&amp;ldquo;观察者模式&amp;rdquo;（observer pattern）。
+这个模式有多种实现，下面采用的是Ben Alman的Tiny Pub/Sub，这是jQuery的一个插件。</description>
+    </item>
+    
+    <item>
+      <title>Thunk 函数的含义和用法</title>
+      <link>https://bravchen.github.io/docs/thunk%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/thunk%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/</guid>
+      <description>作者： 阮一峰
+日期： 2015年5月 1日
+ 本文是《深入掌握 ECMAScript 6 异步编程》系列文章的第二篇。
+  Generator函数的含义与用法 Thunk函数的含义与用法 co函数库的含义与用法 async函数的含义与用法   一、参数的求值策略 #  Thunk函数早在上个世纪60年代就诞生了。
+那时，编程语言刚刚起步，计算机学家还在研究，编译器怎么写比较好。一个争论的焦点是&amp;ldquo;求值策略&amp;rdquo;，即函数的参数到底应该何时求值。
+var x = 1; function f(m){ return m * 2; } f(x + 5) 上面代码先定义函数 f，然后向它传入表达式 x + 5 。请问，这个表达式应该何时求值？
+一种意见是&amp;ldquo;传值调用&amp;rdquo;（call by value），即在进入函数体之前，就计算 x + 5 的值（等于6），再将这个值传入函数 f 。C语言就采用这种策略。
+f(x + 5) // 传值调用时，等同于 f(6) 另一种意见是&amp;ldquo;传名调用&amp;rdquo;（call by name），即直接将表达式 x + 5 传入函数体，只在用到它的时候求值。Hskell语言采用这种策略。
+f(x + 5) // 传名调用时，等同于 (x + 5) * 2 **传值调用和传名调用，哪一种比较好？回答是各有利弊。**传值调用比较简单，但是对参数求值的时候，实际上还没用到这个参数，有可能造成性能损失。</description>
+    </item>
+    
+    <item>
+      <title>co 函数库的含义和用法</title>
+      <link>https://bravchen.github.io/docs/co%E5%87%BD%E6%95%B0%E5%BA%93%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/co%E5%87%BD%E6%95%B0%E5%BA%93%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/</guid>
+      <description>作者： 阮一峰
+日期： 2015年5月 6日
+ 以下是《深入掌握 ECMAScript 6 异步编程》系列文章的第三篇。
+  Generator函数的含义与用法 Thunk函数的含义与用法 co函数库的含义与用法 async函数的含义与用法   一、什么是 co 函数库？ #  co 函数库是著名程序员 TJ Holowaychuk 于2013年6月发布的一个小工具，用于 Generator 函数的自动执行。
+比如，有一个 Generator 函数，用于依次读取两个文件。
+var gen = function* (){ var f1 = yield readFile(&amp;#39;/etc/fstab&amp;#39;); var f2 = yield readFile(&amp;#39;/etc/shells&amp;#39;); console.log(f1.toString()); console.log(f2.toString()); }; co 函数库可以让你不用编写 Generator 函数的执行器。
+var co = require(&amp;#39;co&amp;#39;); co(gen); 上面代码中，Generator 函数只要传入 co 函数，就会自动执行。
+co 函数返回一个 Promise 对象，因此可以用 then 方法添加回调函数。</description>
+    </item>
+    
+    <item>
+      <title>async 函数的含义和用法</title>
+      <link>https://bravchen.github.io/docs/async%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/async%E5%87%BD%E6%95%B0%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/</guid>
+      <description>作者： 阮一峰
+日期： 2015年5月11日
+ 本文是《深入掌握 ECMAScript 6 异步编程》系列文章的最后一篇。
+  Generator函数的含义与用法 Thunk函数的含义与用法 co函数库的含义与用法 async函数的含义与用法   一、终极解决 #  异步操作是 JavaScript 编程的麻烦事，麻烦到一直有人提出各种各样的方案，试图解决这个问题。
+从最早的回调函数，到 Promise 对象，再到 Generator 函数，每次都有所改进，但又让人觉得不彻底。它们都有额外的复杂性，都需要理解抽象的底层运行机制。
+异步I/O不就是读取一个文件吗，干嘛要搞得这么复杂？异步编程的最高境界，就是根本不用关心它是不是异步。
+async 函数就是隧道尽头的亮光，很多人认为它是异步操作的终极解决方案。
+二、async 函数是什么？ #  一句话，async 函数就是 Generator 函数的语法糖。
+前文有一个 Generator 函数，依次读取两个文件。
+var fs = require(&amp;#39;fs&amp;#39;); var readFile = function (fileName){ return new Promise(function (resolve, reject){ fs.readFile(fileName, function(error, data){ if (error) reject(error); resolve(data); }); }); }; var gen = function* (){ var f1 = yield readFile(&amp;#39;/etc/fstab&amp;#39;); var f2 = yield readFile(&amp;#39;/etc/shells&amp;#39;); console.</description>
+    </item>
+    
+    <item>
+      <title>快速理解 Vuex 的方法（转载）</title>
+      <link>https://bravchen.github.io/docs/2020-06-04-vuex-use/</link>
+      <pubDate>Thu, 04 Jun 2020 22:22:36 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/2020-06-04-vuex-use/</guid>
+      <description>对于初学者，学 vue 简单，但是当第一次遇到 Vuex 概念的时候，理解难度往往骤然陡峭，会让人感到挫败感，挫败感来自于大多数教程文章用了大量篇幅来介绍Vuex较为复杂，却看完感觉没什么作用（不知道如何运用）的实现模式，本文就是要简而化之，让你秒懂。
+本质 #  Vuex 术语定义叫做『全局状态管理』，其实质就是一个全局变量，可以供不同组件间调用，更新，自动通知。 当然在具体实现的时候，这个全局变量其实是一个全局对象：this.$store,
+所以记住这个 store 对象，它就是 vuex。
+来龙去脉 #  facebook 以前在搞他的那个网页app的时候，尤其是在做消息模块的时候，各种全局通知和聊天信息，组件间互相通信非常混乱，老出bug，于是他们就发明了一种解决这个问题的设计模式，叫做 FLUX。
+这个设计模式是按照怎样的原则来解决通信混乱的问题呢？
+1. 单一数据源（Single Source of Truth） #  也就是说，store 是一个唯一全局变量（对象），不能搞多个，搞多个就乱了。
+2. 数据只读（Data is Read-Only） #  这个只读不是说完全不让读，而是不能让 store 外部直接操作数据，必须通过 store 内部方法（mutations）来操作数据。
+3. 数据更新必须是同步的（Mutations Are Synchronous） #  异步数据会很混乱，必须是同步操作模式。
+为什么是这3个原则，你不用管，反正 facebook 反复实验，按照这三个原则设计，问题就搞定了。
+facebook 按照 FLUX 设计模式，开发了大名鼎鼎的 Redux库，React 必备搭配。Vue 看见此需求群众呼声很高，也配套了一个,也就是Vuex。
+所以，Redux 和 Vuex 都是对 Flux 这种设计模式的实现，别混为一谈。
+store的内部 #  store 这个对象，肯定是挂载Vue上面的，就是按照下面这种方式挂：</description>
+    </item>
+    
+    <item>
+      <title>科班 与 培训 的区别</title>
+      <link>https://bravchen.github.io/docs/7bcd3815/</link>
+      <pubDate>Mon, 18 May 2020 17:27:06 +0800</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/7bcd3815/</guid>
+      <description>科班生（术） #  科班生：一个本科生四年，学习计算机专业或软件专业
+学习路线
+ 大一： 高数、线性代数、离散数学、概率论 大二：C语言/VB(二选一)、数据结构、算法 大三：面向对象、操作系统、网络  将计算机领域未来10到20年的知识入门
+培训生（技） #  培训生：通过培训学习专业知识
+技能：HTML、CSS、JavaScript、Vue
+只学技能只能保证你 5 年成长。
+推荐学习：数据结构、算法（算法读解）
+你永远都没有不那么有压力的时间，需要学习的技能太多</description>
+    </item>
+    
+    <item>
+      <title>2020年前端面试提纲</title>
+      <link>https://bravchen.github.io/docs/2020-04-22-2020-interview-outline/</link>
+      <pubDate>Wed, 22 Apr 2020 11:21:35 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/2020-04-22-2020-interview-outline/</guid>
+      <description>押题内容来自：https://xiedaimala.com/tasks/e67878e4-ef45-4545-9cad-a1946c6e21f1
+说明：
+  代码：答案直接展示相关代码
+  举例：举一个实际使用的案例
+  阐述：阐述问题的概念
+  HTML #    必考：你是如何理解 HTML 语义化的？
+举例
+  meta viewport 是做什么用的，怎么写？
+举例
+  你用过哪些 HTML 5 标签？
+举例
+  H5 是什么？
+阐述
+  CSS #    必考：两种盒模型分别说一下。
+举例
+  必考：如何垂直居中？
+分情况讨论
+  必考：flex 怎么用，常用属性有哪些？
+举例
+  必考：BFC 是什么？
+举例
+  CSS 选择器优先级
+举例
+  清除浮动说一下</description>
+    </item>
+    
+    <item>
+      <title>关于知乎 &#34;哪些知识越了解越觉得『对这个世界很绝望』？&#34;</title>
+      <link>https://bravchen.github.io/docs/2020-04-18-guanyuzhihu-naxiezhishi/</link>
+      <pubDate>Sat, 18 Apr 2020 11:53:40 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/2020-04-18-guanyuzhihu-naxiezhishi/</guid>
+      <description>今天偶然在知乎上看到的一篇回答，刷新了我对90后现状的认识，以及资本主义的含义。
+引用文中的一张图，90后新名词：
+原文链接：哪些知识越了解越觉得『对这个世界很绝望』？ - Mushroobby的回答 - 知乎</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://bravchen.github.io/docs/git%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/git%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
+      <description>Git用法总结 #   老师谈经验：新人无法理解 git 的原理，你只能背命令。等你用 git 用一个月，再谈原理。 用 git 三个月，你就自然理解 git 了。不要试图一开始就理解 git！ Git 课外资料（可不看）：http://www.runoob.com/git/git-tutorial.html  配置 GitHub #    进入 https://github.com/settings/keys
+  如果页面里已经有一些 key，就点「delete」按钮把这些 key 全删掉。如果没有，就往下看
+  点击 New SSH key，你需要输入 Title 和 Key，但是你现在没有 key，往下看
+  打开 Git Bash
+  复制并运行 rm -rf ~/.ssh/* 把现有的 ssh key 都删掉，这句命令行如果你多打一个空格，可能就要重装系统了，建议复制运行。
+  运行 ssh-keygen -t rsa -b 4096 -C &amp;quot;你的邮箱&amp;quot;，注意填写你的邮箱！
+  按回车三次</description>
+    </item>
+    
+    <item>
+      <title>CSS Grid 网格布局教程</title>
+      <link>https://bravchen.github.io/docs/css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80%E6%95%99%E7%A8%8B/</guid>
+      <description>CSS Grid 网格布局教程 #  作者： 阮一峰
+日期： 2019年3月25日
+ 一、概述 #  网格布局（Grid）是最强大的 CSS 布局方案。
+它将网页划分成一个个网格，可以任意组合不同的网格，做出各种各样的布局。以前，只能通过复杂的 CSS 框架达到的效果，现在浏览器内置了。
+上图这样的布局，就是 Grid 布局的拿手好戏。
+Grid 布局与 Flex 布局有一定的相似性，都可以指定容器内部多个项目的位置。但是，它们也存在重大区别。
+Flex 布局是轴线布局，只能指定&amp;quot;项目&amp;quot;针对轴线的位置，可以看作是一维布局。Grid 布局则是将容器划分成&amp;quot;行&amp;quot;和&amp;quot;列&amp;rdquo;，产生单元格，然后指定&amp;quot;项目所在&amp;quot;的单元格，可以看作是二维布局。Grid 布局远比 Flex 布局强大。
+二、基本概念 #  学习 Grid 布局之前，需要了解一些基本概念。
+2.1 容器和项目 #  采用网格布局的区域，称为&amp;quot;容器&amp;rdquo;（container）。容器内部采用网格定位的子元素，称为&amp;quot;项目&amp;rdquo;（item）。
+&amp;lt;div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;p&amp;gt;1&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;p&amp;gt;2&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;&amp;lt;p&amp;gt;3&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; 上面代码中，最外层的元素就是容器，内层的三个元素就是项目。
+注意：项目只能是容器的顶层子元素，不包含项目的子元素，比如上面代码的``元素就不是项目。Grid 布局只对项目生效。
+2.2 行和列 #  容器里面的水平区域称为&amp;quot;行&amp;rdquo;（row），垂直区域称为&amp;quot;列&amp;rdquo;（column）。
+上图中，水平的深色区域就是&amp;quot;行&amp;rdquo;，垂直的深色区域就是&amp;quot;列&amp;rdquo;。
+2.3 单元格 #  行和列的交叉区域，称为&amp;quot;单元格&amp;rdquo;（cell）。
+正常情况下，n行和m列会产生n x m个单元格。比如，3行3列会产生9个单元格。
+2.4 网格线 #  划分网格的线，称为&amp;quot;网格线&amp;rdquo;（grid line）。水平网格线划分出行，垂直网格线划分出列。</description>
+    </item>
+    
+    <item>
+      <title>ES 6 新特性列表</title>
+      <link>https://bravchen.github.io/docs/es6-%E6%96%B0%E7%89%B9%E6%80%A7%E5%88%97%E8%A1%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/es6-%E6%96%B0%E7%89%B9%E6%80%A7%E5%88%97%E8%A1%A8/</guid>
+      <description>ES 6 新特性列表 #  由 饥人谷 搜集整理。点击链接，查看中文学习资料。
+ 作用域  块级作用域 块级变量 let 块级常量 const   箭头函数  sum = (a, b) =&amp;gt; a + b nums.forEach( v =&amp;gt; { console.log(v) }) 词法 this   参数处理  默认参数值 剩余参数 展开运算符   模板字面量  多行字符串 字符串插值 带标签的模板字面量 原始字符串   原有字面量加强  更安全的二进制字面量（0b1111101） 更安全的八进制字面量（0o767） 字符串支持 Unicode  String.fromCodePoint String.prototype.codePointAt   正则表达式字面量添加 Unicode 支持（u 标记） 正则表达式添加 y 标记，支持粘滞匹配   对象属性加强  属性定义支持短语法 obj = { x, y } 属性名支持表达式 obj = {[&amp;quot;baz&amp;quot; + quux() ]: 42} 添加 __proto__ 属性，但不建议使用   解构赋值  数组匹配 [ b, a ] = [ a, b ] 对象匹配 let { a, b, c } = objABC 参数匹配 function g ({ name: n, val: v }) {}   模块  导入（import） 导出（export） 默认导出（export default）   类  使用 extends 实现继承 重写构造器 super 关键字   迭代  迭代器 for of   生成器 Promise 元编程  代理（Proxy） 反射（Reflect）   新增数据类型  Symbol 类型 Set 类型 Map 类型 WeakSet 类型 WeakMap 类型 TypedArray 类型   原有内置对象 API 增强  Object.</description>
+    </item>
+    
+    <item>
+      <title>Unicode与JavaScript详解</title>
+      <link>https://bravchen.github.io/docs/unicode%E4%B8%8Ejavascript%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/unicode%E4%B8%8Ejavascript%E8%AF%A6%E8%A7%A3/</guid>
+      <description>分享按钮
+作者： 阮一峰
+日期： 2014年12月11日
+ 上个月，我做了一次分享，详细介绍了Unicode字符集，以及JavaScript语言对它的支持。下面就是这次分享的讲稿。
+一、Unicode是什么？ #  Unicode源于一个很简单的想法：将全世界所有的字符包含在一个集合里，计算机只要支持这一个字符集，就能显示所有的字符，再也不会有乱码了。
+**它从0开始，为每个符号指定一个编号，这叫做&amp;quot;码点&amp;rdquo;（code point）。**比如，码点0的符号就是null（表示所有二进制位都是0）。
+U+0000 = null 上式中，U+表示紧跟在后面的十六进制数是Unicode的码点。
+目前，Unicode的最新版本是7.0版，一共收入了109449个符号，其中的中日韩文字为74500个。可以近似认为，全世界现有的符号当中，三分之二以上来自东亚文字。比如，中文&amp;quot;好&amp;quot;的码点是十六进制的597D。
+U+597D = 好 这么多符号，Unicode不是一次性定义的，而是分区定义。每个区可以存放65536个（216）字符，称为一个平面（plane）。目前，一共有17个（25）平面，也就是说，整个Unicode字符集的大小现在是221。
+最前面的65536个字符位，称为基本平面（缩写BMP），它的码点范围是从0一直到216-1，写成16进制就是从U+0000到U+FFFF。所有最常见的字符都放在这个平面，这是Unicode最先定义和公布的一个平面。
+剩下的字符都放在辅助平面（缩写SMP），码点范围从U+010000一直到U+10FFFF。
+二、UTF-32与UTF-8 #  Unicode只规定了每个字符的码点，到底用什么样的字节序表示这个码点，就涉及到编码方法。
+**最直观的编码方法是，每个码点使用四个字节表示，字节内容一一对应码点。这种编码方法就叫做UTF-32。**比如，码点0就用四个字节的0表示，码点597D就在前面加两个字节的0。
+U+0000 = 0x0000 0000 U+597D = 0x0000 597D UTF-32的优点在于，转换规则简单直观，查找效率高。缺点在于浪费空间，同样内容的英语文本，它会比ASCII编码大四倍。这个缺点很致命，导致实际上没有人使用这种编码方法，HTML 5标准就明文规定，网页不得编码成UTF-32。
+人们真正需要的是一种节省空间的编码方法，这导致了UTF-8的诞生。**UTF-8是一种变长的编码方法，字符长度从1个字节到4个字节不等。**越是常用的字符，字节越短，最前面的128个字符，只使用1个字节表示，与ASCII码完全相同。
+   编号范围 字节     0x0000 - 0x007F 1   0x0080 - 0x07FF 2   0x0800 - 0xFFFF 3   0x010000 - 0x10FFFF 4    由于UTF-8这种节省空间的特性，导致它成为互联网上最常见的网页编码。不过，它跟今天的主题关系不大，我就不深入了，具体的转码方法，可以参考我多年前写的《字符编码笔记》。</description>
+    </item>
+    
+    <item>
+      <title>《前端学习指南》文章精选</title>
+      <link>https://bravchen.github.io/docs/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97-%E6%96%87%E7%AB%A0%E7%B2%BE%E9%80%89/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97-%E6%96%87%E7%AB%A0%E7%B2%BE%E9%80%89/</guid>
+      <description>《前端学习指南》文章精选 #  不知不觉，我和若愚的知乎专栏《前端学习指南》已经开通三个月了。
+这个专栏一开始是饥人谷给学员的福利，将平时教学中，学生经常问的问题总结成文字，方便查阅。
+写着写着，发现大家很喜欢我们这种「接地气」的文章，有些同学从第一篇到现在，每篇都看。
+如果你是最近才关注我们，下面是过去三个月的精选文章，可以看看，都很不错，业界良心。
+如果你最近要面试前端岗位，那你看完这些文章，就抱到佛脚了。
+ this 的值到底是什么？一次说清楚 JS 中的闭包是什么？ 独家前端书籍推荐 简述浏览器缓存是如何控制的 前端新手如何做简历 平时你从哪里获取前端知识？ 什么是立即执行函数 为什么 className 不要以 ad 开头？ JS 中的 Symbol 是什么？ cookie、session、localStorage分别是什么？有什么作用？ JSON 是什么？ AJAX 是什么？ CSRF 是什么？ 为什么不建议将 font-size 设置为 12px 以下？  如果觉得有用，请不要分享（这是个梗：有一次我写的是「请分享」，居然被人举报，说我诱导分享；后来知乎还真就把文章给封了。此后，我就只说「请不要分享」了，你说知乎气人不气人）。
+如果你看到不错的文章，欢迎投稿给我们。如果是英文，我们来翻译。
+欢迎进群与我探讨技术，暗号：前端/Java交流（附二维码）http://qr.jirengu.com/api/taskUrl?tid=56
+编辑于 2019-07-17
+  本文转自：https://zhuanlan.zhihu.com/p/23991042
+ </description>
+    </item>
+    
+    <item>
+      <title>如何在 JS 代码中消灭 for 循环</title>
+      <link>https://bravchen.github.io/docs/%E5%A6%82%E4%BD%95%E5%9C%A8-js-%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%B6%88%E7%81%AD-for-%E5%BE%AA%E7%8E%AF/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/%E5%A6%82%E4%BD%95%E5%9C%A8-js-%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%B6%88%E7%81%AD-for-%E5%BE%AA%E7%8E%AF/</guid>
+      <description>如何在 JS 代码中消灭 for 循环 #  一，用好 filter，map，和其它 ES6 新增的高阶遍历函数 #  **问题一：**将数组中的 false值去除
+const arrContainsEmptyVal = [3, 4, 5, 2, 3, undefined, null, 0, &amp;#34;&amp;#34;]; 答案：
+const compact = arr =&amp;gt; arr.filter(Boolean); 问题二： 将数组中的 VIP 用户余额加 10
+const users = [ { username: &amp;#34;Kelly&amp;#34;, isVIP: true, balance: 20 }, { username: &amp;#34;Tom&amp;#34;, isVIP: false, balance: 19 }, { username: &amp;#34;Stephanie&amp;#34;, isVIP: true, balance: 30 } ]; 答案：
+users.map( user =&amp;gt;(user.</description>
+    </item>
+    
+    <item>
+      <title>平时你从哪里获取前端知识？</title>
+      <link>https://bravchen.github.io/docs/%E5%B9%B3%E6%97%B6%E4%BD%A0%E4%BB%8E%E5%93%AA%E9%87%8C%E8%8E%B7%E5%8F%96%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/%E5%B9%B3%E6%97%B6%E4%BD%A0%E4%BB%8E%E5%93%AA%E9%87%8C%E8%8E%B7%E5%8F%96%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/</guid>
+      <description>平时你从哪里获取前端知识？ #  由于之前本文被和谐了，所以重发一篇。
+以下是我获取前端知识的网站：
+  用 MDN 查 JavaScript 和 CSS 基础知识
+  用维基百科查编程概念
+  用 Stackoverflow 查疑难杂症
+  用 http://Caniuse.com 查兼容性
+  用 Google 搜索
+   用「site:http://github.com 关键词」搜索好用的库 用「关键词 MDN」来搜索 MDN    用 http://jsfeeds.com 获取前端最新资讯（英文）
+  遇到牛人，我就会收藏到我的 GitHub
+  用 HackerNews 知道编程界最新动态
+  用知乎、微博了解国内前端界的动态
+  去 http://v2ex.com 水技术
+  尽量避开百度搜索
+  发布于 2016-10-09</description>
+    </item>
+    
+    <item>
+      <title>我用了两个月的时间才理解 let</title>
+      <link>https://bravchen.github.io/docs/2020-04-18-%E6%88%91%E7%94%A8%E4%BA%86%E4%B8%A4%E4%B8%AA%E6%9C%88%E7%9A%84%E6%97%B6%E9%97%B4%E6%89%8D%E7%90%86%E8%A7%A3-let/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/2020-04-18-%E6%88%91%E7%94%A8%E4%BA%86%E4%B8%A4%E4%B8%AA%E6%9C%88%E7%9A%84%E6%97%B6%E9%97%B4%E6%89%8D%E7%90%86%E8%A7%A3-let/</guid>
+      <description>我用了两个月的时间才理解 let #  当然不是说用完整的两个月时间来理解 let，而是零零碎碎地理解，同时我还要想着怎么写出一篇文章把这个事情说清楚。
+在 let 刚出来的时候，我就「以为」我理解了 let。然鹅在过去的两个月里，我对 let 的理解发生了一波三折的变化。
+我写这篇文章，是希望我的学习过程，能对你自学有帮助。
+初识 let #  跟很多人一样，我第一次了解 let 的特性是从 MDN 的文档：
+我得到的信息有这么几条：
+ let 声明的变量的作用域是块级的； let 不能重复声明已存在的变量； let 有暂时死区，不会被提升。  大部分人应该都是这么认为的，我也是这么理解的。
+这个理解「没有问题」，但是不够「全面和深刻」。
+第一次质疑 #  我第一次质疑我的理解是在遇到 for 循环的时候，代码如下。
+// 代码段1 var liList = document.querySelectorAll(&amp;#39;li&amp;#39;) // 共5个li for( var i=0; i&amp;lt;liList.length; i++){ liList[i].onclick = function(){ console.log(i) } } 大家都知道依次点击 li 会打印出 5 个 5。如果把 var i 改成 let i，就会分别打印出 0、1、2、3、4：</description>
+    </item>
+    
+    <item>
+      <title>知识的诅咒</title>
+      <link>https://bravchen.github.io/docs/2020-02-08-%E7%9F%A5%E8%AF%86%E7%9A%84%E8%AF%85%E5%92%92/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bravchen.github.io/docs/2020-02-08-%E7%9F%A5%E8%AF%86%E7%9A%84%E8%AF%85%E5%92%92/</guid>
+      <description>知识的诅咒 #    含义：一种认知偏差，形容专家常以术语交谈，但丧失与非专业人士的沟通的能力
+  如何破除
+尽量不使用专业术语来解释专业术语
+多让旁人指出他不懂的地方
+  </description>
+    </item>
+    
+  </channel>
+</rss>

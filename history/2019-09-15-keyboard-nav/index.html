@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="键盘导航 #  案例预览：xxx
+代码链接：xxx
+使用的API #  Element #  创建标签
+element = document.createElement(&#39;div&#39;) 追加到布局中
+element.appendChild(divs) 在元素中追加文本
+element.textContent = &#34;Hi&#34; 给元素设置class样式
+element.className = &#39;demo&#39; 监听整个文档的键盘事件
+element.onkeypress = event handling code // 实例 document.onkeypress = function(x){ console.log(x) } 获取当前事件的元素
+element.onclick = function(e){ console.log(e.target) // e.target 即当前元素 } 获取上一个兄弟节点
+element.previousSibling浏览器地址 #  修改浏览器当前地址栏的地址
+location.href = &#39;http://xxx.com&#39; 在新窗口打开地址
+window.open(&#39;http://xxx.com&#39;, &#39;_blank&#39;) 语法
+window.open(地址, 打开方式) LocalStorage #  在 localStorage 中存储一个哈希
+let keyValue = JSON.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="键盘导航" />
+<meta property="og:description" content="键盘导航 #  案例预览：xxx
+代码链接：xxx
+使用的API #  Element #  创建标签
+element = document.createElement(&#39;div&#39;) 追加到布局中
+element.appendChild(divs) 在元素中追加文本
+element.textContent = &#34;Hi&#34; 给元素设置class样式
+element.className = &#39;demo&#39; 监听整个文档的键盘事件
+element.onkeypress = event handling code // 实例 document.onkeypress = function(x){ console.log(x) } 获取当前事件的元素
+element.onclick = function(e){ console.log(e.target) // e.target 即当前元素 } 获取上一个兄弟节点
+element.previousSibling浏览器地址 #  修改浏览器当前地址栏的地址
+location.href = &#39;http://xxx.com&#39; 在新窗口打开地址
+window.open(&#39;http://xxx.com&#39;, &#39;_blank&#39;) 语法
+window.open(地址, 打开方式) LocalStorage #  在 localStorage 中存储一个哈希
+let keyValue = JSON." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/history/2019-09-15-keyboard-nav/" />
+<meta property="article:published_time" content="2019-09-15T22:53:55+00:00" />
+<meta property="article:modified_time" content="2019-09-15T22:53:55+00:00" />
+<title>键盘导航 | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-10-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E7%AE%80%E8%AE%B0/" class="">多人博客项目(简记)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-15-keyboard-nav/" class="active">键盘导航</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-canvas/" class="">Canvas画板</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-%E5%AE%89%E5%8D%93%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E6%A1%88%E4%BE%8B/" class="">安卓音乐播放器案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-12-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E8%AF%AD%E6%B3%95%E7%B3%96%E7%AE%80%E7%89%88/" class="">函数与对象的语法糖(索引)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-function-object-sugar/" class="">函数与对象的语法糖一</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-%E5%87%BD%E6%95%B0%E4%B8%8E%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96%E4%BA%8C/" class="">函数与对象的语法糖二</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/0cd88b5c/" class="">模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-07-vue%E5%A4%9A%E4%BA%BA%E5%85%B1%E4%BA%AB%E5%8D%9A%E5%AE%A2/" class="">[项目] Vue 多人共享博客</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-03-31-jsonp/" class="">[高级] 35 - JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-25-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E8%AF%A6%E7%BB%86/" class="">多人博客项目(详细)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-vue-plugin-int/" class="">Vue插件安装</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-css-selector/" class="">CSS选择器总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/dd3e7bbd/" class="">常用的HTML5标签</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-25-%E7%AE%80%E5%8E%86%E6%80%8E%E4%B9%88%E5%86%99/" class="">简历怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-12-lx%E4%B8%BB%E9%A2%98%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/" class="">lx主题中文文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-27-css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80/" class="">CSS Grid 网格布局</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-jquery%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">jQuery常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-js%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">JS 常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-yarn%E5%85%A5%E9%97%A8/" class="">yarn 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-npm%E5%85%A5%E9%97%A8/" class="">npm 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-04-es6%E6%96%B0%E7%89%B9%E6%80%A7/" class="">ES6新特性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="">面向对象</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-jquery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/jquery%E8%BD%AE%E6%92%AD%E6%A1%88%E4%BE%8B/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E8%87%AA%E5%88%B6jquery/" class="">自制jQuery</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-01-mvvm/" class="">MVVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-28-this%E6%98%AF%E4%BB%80%E4%B9%88/" class="">this是什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-27-new%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/" class="">New做了什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-21-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9D%97%E5%8C%96/" class="">代码模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-20-mvc%E6%80%9D%E6%83%B3/" class="">MVC思想</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-18-%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0-ajax/" class="">自己实现 AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-17-ajax/" class="">AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-16-jsonp/" class="">JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim-get-started/" class="">vim 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim%E7%9A%84%E4%BD%BF%E7%94%A8/" class="">vim 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-10-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="">命令行常用技巧</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" class="">浏览器缓存</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-css%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/" class="">CSS 常用属性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-01-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2-%E5%93%8D%E5%BA%94%E5%BC%8F/" class="">移动端页面(响应式)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/element-ui/" class="">Element UI</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B/" class="">Vue 入门案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E6%B5%8B%E8%AF%95%E9%A1%B5/" class="">测试页</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-webpack-use/" class="">webpack 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E5%9F%BA%E7%A1%80%E5%B8%B8%E8%AF%86/" class="">JS基础常识</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/action/" class="">Action 官方文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/axios%E5%85%A5%E9%97%A8/" class="">Axios 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E4%B8%AD%E7%9A%84symbol%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JS 中的 Symbol 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/json%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JSON 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-11-12-module%E8%AF%AD%E6%B3%95/" class="">Module语法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-%E7%82%B9%E5%87%BB%E7%A9%BA%E7%99%BD%E5%85%B3%E9%97%AD%E6%B5%AE%E5%B1%82/" class="">Vue 点击空白关闭浮层</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-cli%E4%BD%BF%E7%94%A8/" class="">Vue-cli 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vuex%E4%BD%BF%E7%94%A8/" class="">Vuex 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-02-03-%E5%8E%9F%E5%9E%8B%E9%93%BE%E8%A1%A5%E5%85%85/" class="">原型链补充</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-05-07-%E6%95%B0%E7%BB%84/" class="">数组</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-27-%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E7%AE%80%E5%8E%86%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="">简历该怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BE%A6%E5%90%AC%E5%99%A8/" class="">计算属性和监听器</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>键盘导航</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#键盘导航">键盘导航</a></li>
+    <li><a href="#使用的api">使用的API</a>
+      <ul>
+        <li><a href="#element">Element</a></li>
+        <li><a href="#浏览器地址">浏览器地址</a></li>
+        <li><a href="#localstorage">LocalStorage</a></li>
+        <li><a href="#json">JSON</a></li>
+        <li><a href="#事件错误处理函数">事件错误处理函数</a></li>
+      </ul>
+    </li>
+    <li><a href="#封装函数">封装函数</a></li>
+    <li><a href="#css属性">CSS属性</a></li>
+    <li><a href="#使用的工具">使用的工具</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="键盘导航">
+  键盘导航
+  <a class="anchor" href="#%e9%94%ae%e7%9b%98%e5%af%bc%e8%88%aa">#</a>
+</h2>
+<p>案例预览：xxx</p>
+<p>代码链接：xxx</p>
+<h2 id="使用的api">
+  使用的API
+  <a class="anchor" href="#%e4%bd%bf%e7%94%a8%e7%9a%84api">#</a>
+</h2>
+<h3 id="element">
+  Element
+  <a class="anchor" href="#element">#</a>
+</h3>
+<p><strong>创建标签</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">element <span style="color:#719e07">=</span> <span style="color:#b58900">document</span>.createElement(<span style="color:#2aa198">&#39;div&#39;</span>)
+</code></pre></div><p><strong>追加到布局中</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">element.appendChild(divs)
+</code></pre></div><p><strong>在元素中追加文本</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">element.textContent <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;Hi&#34;</span>
+</code></pre></div><p><strong>给元素设置class样式</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">element.className <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;demo&#39;</span>
+</code></pre></div><p><strong>监听整个文档的键盘事件</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">element.onkeypress <span style="color:#719e07">=</span> event handling code
+<span style="color:#586e75">// 实例
+</span><span style="color:#586e75"></span><span style="color:#b58900">document</span>.onkeypress <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(x){
+	console.log(x)
+}
+</code></pre></div><p><strong>获取当前事件的元素</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">element.onclick <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(e){
+	console.log(e.target)  <span style="color:#586e75">// e.target 即当前元素
+</span><span style="color:#586e75"></span>}
+</code></pre></div><p><strong>获取上一个兄弟节点</strong></p>
+<pre><code>element.previousSibling
+</code></pre><h3 id="浏览器地址">
+  浏览器地址
+  <a class="anchor" href="#%e6%b5%8f%e8%a7%88%e5%99%a8%e5%9c%b0%e5%9d%80">#</a>
+</h3>
+<p><strong>修改浏览器当前地址栏的地址</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">location.href <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;http://xxx.com&#39;</span>
+</code></pre></div><p><strong>在新窗口打开地址</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#b58900">window</span>.open(<span style="color:#2aa198">&#39;http://xxx.com&#39;</span>, <span style="color:#2aa198">&#39;_blank&#39;</span>)
+</code></pre></div><p>语法</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#b58900">window</span>.open(地址, 打开方式)
+</code></pre></div><h3 id="localstorage">
+  LocalStorage
+  <a class="anchor" href="#localstorage">#</a>
+</h3>
+<p>在 <code>localStorage</code> 中存储一个哈希</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">let</span> keyValue <span style="color:#719e07">=</span> JSON.stringify(hash) <span style="color:#586e75">//存储的值需要转换
+</span><span style="color:#586e75"></span>
+localStorage.setItem(keyName, keyValue)
+</code></pre></div><p>在 <code>localStorage</code> 中读取一个哈希</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">localStorage.getItem(keyName); <span style="color:#586e75">// 通过名称获取值
+</span></code></pre></div><blockquote>
+<p><code>getItem()</code>表示根据键名返回键的值</p>
+</blockquote>
+<h3 id="json">
+  JSON
+  <a class="anchor" href="#json">#</a>
+</h3>
+<p><strong>解析 JSON 格式的字符串</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">JSON.parse()
+</code></pre></div><p>案例：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">var</span> json <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;{&#34;result&#34;:true, &#34;count&#34;:42}&#39;</span>;
+obj <span style="color:#719e07">=</span> JSON.parse(json);
+</code></pre></div><p><strong>将一个JavaScript值 (对象或者数组) 转换为一个 JSON字符串</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">JSON.stringify(value) <span style="color:#586e75">// value 表示 JavaScript值 (对象或者数组)
+</span></code></pre></div><h3 id="事件错误处理函数">
+  事件错误处理函数
+  <a class="anchor" href="#%e4%ba%8b%e4%bb%b6%e9%94%99%e8%af%af%e5%a4%84%e7%90%86%e5%87%bd%e6%95%b0">#</a>
+</h3>
+<p><code>error</code> 事件的<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Event_handlers">事件处理程序</a>。针对各种目标的不同类型的错误触发了 Error 事件：</p>
+<p>当一项资源（如<code>img</code> 或 <code>script</code>）<strong>加载失败</strong>，加载资源的元素会触发一个<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event"><code>Event</code></a>接口的<code>error</code>事件，并执行该元素上的<code>onerror()</code>处理函数。这些error事件不会向上冒泡到window，不过（至少在Firefox中）能被单一的<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/addEventListener"><code>window.addEventListener</code></a>捕获。</p>
+<p>案例：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">img.onerror <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(e){
+	e.target.src <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;images.png&#39;</span>
+} <span style="color:#586e75">// 当获取图片的值错误时则执行 onerror 后的函数
+</span></code></pre></div><h2 id="封装函数">
+  封装函数
+  <a class="anchor" href="#%e5%b0%81%e8%a3%85%e5%87%bd%e6%95%b0">#</a>
+</h2>
+<p><strong>创建元素</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> tag(tagName){
+    <span style="color:#719e07">return</span> <span style="color:#b58900">document</span>.createElement(tagName)
+}
+</code></pre></div><p><strong>创建元素并添加属性</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">function</span> tag(tagName, attributes){
+	<span style="color:#268bd2">let</span> element <span style="color:#719e07">=</span> <span style="color:#b58900">document</span>.createElement(tagName)
+    <span style="color:#719e07">for</span>(<span style="color:#268bd2">let</span> key <span style="color:#719e07">in</span> attributes){
+        element[key] <span style="color:#719e07">=</span> attributes[key]
+    }
+    <span style="color:#719e07">return</span> element
+}
+<span style="color:#586e75">// 调用这个函数
+</span><span style="color:#586e75"></span>tag(<span style="color:#2aa198">&#39;div&#39;</span>,{ className<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;row&#39;</span>, textContent<span style="color:#719e07">:</span> <span style="color:#2aa198">&#39;Hi&#39;</span>})
+</code></pre></div><p><strong>return 多个值</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">
+<span style="color:#268bd2">function</span> myFunction(){
+    <span style="color:#268bd2">let</span> keys <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>
+    <span style="color:#268bd2">let</span> hash <span style="color:#719e07">=</span> <span style="color:#2aa198">2</span>
+    <span style="color:#719e07">return</span> {
+		<span style="color:#2aa198">&#39;keys&#39;</span><span style="color:#719e07">:</span> keys,
+		<span style="color:#2aa198">&#39;hash&#39;</span><span style="color:#719e07">:</span> hash
+	}
+}
+<span style="color:#586e75">// 调用
+</span><span style="color:#586e75"></span><span style="color:#268bd2">let</span> demo <span style="color:#719e07">=</span> myFunction()
+demo.keys
+demo.hash
+</code></pre></div><h2 id="css属性">
+  CSS属性
+  <a class="anchor" href="#css%e5%b1%9e%e6%80%a7">#</a>
+</h2>
+<p><strong>将元素的文本内容字母变为大写</strong></p>
+<pre><code>text-transform: uppercase;
+</code></pre><p><strong>背景图片布局</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#268bd2">body</span> {
+    <span style="color:#719e07">background</span>: <span style="color:#b58900">url</span>(<span style="color:#2aa198">../img/rs-cover.jpg</span>);
+    <span style="color:#586e75">/* 背景图片水平居中，垂直居中 */</span>
+    <span style="color:#719e07">background-position</span>: <span style="color:#cb4b16">center</span> <span style="color:#cb4b16">center</span>;
+    <span style="color:#586e75">/* 盖住我当前div的所有面积，按比例缩放。大概就是按照div的比例缩放的意思 */</span>
+    <span style="color:#719e07">background-size</span>: <span style="color:#cb4b16">cover</span>;
+}
+</code></pre></div><h2 id="使用的工具">
+  使用的工具
+  <a class="anchor" href="#%e4%bd%bf%e7%94%a8%e7%9a%84%e5%b7%a5%e5%85%b7">#</a>
+</h2>
+<p>在线图片压缩：https://compressjpeg.com/zh/</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#键盘导航">键盘导航</a></li>
+    <li><a href="#使用的api">使用的API</a>
+      <ul>
+        <li><a href="#element">Element</a></li>
+        <li><a href="#浏览器地址">浏览器地址</a></li>
+        <li><a href="#localstorage">LocalStorage</a></li>
+        <li><a href="#json">JSON</a></li>
+        <li><a href="#事件错误处理函数">事件错误处理函数</a></li>
+      </ul>
+    </li>
+    <li><a href="#封装函数">封装函数</a></li>
+    <li><a href="#css属性">CSS属性</a></li>
+    <li><a href="#使用的工具">使用的工具</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

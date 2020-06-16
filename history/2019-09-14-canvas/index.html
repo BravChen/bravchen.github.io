@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="画板案例 #  使用的单词 #   dot ——— n.点，小圆点； drawLine ——— n. 画直线； circle ——— n. 圆, 圆周; 圈, 环状物；  Canvas 大小自适应 #  设置自适应窗口的 Canvas 画板大小
+首先获取浏览器窗口当前最大化时的宽高
+let pageWidth = window.screen.availWidth let pageHeight = window.screen.availHeight 使用 window 窗口改变事件处理函数，每次窗口改变都执行一次 将当前画布记录下来放到一个变量中，然后重置画布大小为窗口最大化的大小，再将当前画布的放回去，这样即时调整画布也不会重置 canvas 的内容，并且调整窗口不会显示滚动条。
+代码如下：
+let canvas = document.querySelector(&#39;#draw&#39;) let context = canvas.getContext(&#39;2d&#39;) autoSetCanvasSize() /* 设置画板大小自适应 */ function autoSetCanvasSize(){ let pageWidth = window.screen.availWidth let pageHeight = window.screen.availHeight canvas.width = pageWidth canvas.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Canvas画板" />
+<meta property="og:description" content="画板案例 #  使用的单词 #   dot ——— n.点，小圆点； drawLine ——— n. 画直线； circle ——— n. 圆, 圆周; 圈, 环状物；  Canvas 大小自适应 #  设置自适应窗口的 Canvas 画板大小
+首先获取浏览器窗口当前最大化时的宽高
+let pageWidth = window.screen.availWidth let pageHeight = window.screen.availHeight 使用 window 窗口改变事件处理函数，每次窗口改变都执行一次 将当前画布记录下来放到一个变量中，然后重置画布大小为窗口最大化的大小，再将当前画布的放回去，这样即时调整画布也不会重置 canvas 的内容，并且调整窗口不会显示滚动条。
+代码如下：
+let canvas = document.querySelector(&#39;#draw&#39;) let context = canvas.getContext(&#39;2d&#39;) autoSetCanvasSize() /* 设置画板大小自适应 */ function autoSetCanvasSize(){ let pageWidth = window.screen.availWidth let pageHeight = window.screen.availHeight canvas.width = pageWidth canvas." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bravchen.github.io/history/2019-09-14-canvas/" />
+<meta property="article:published_time" content="2019-09-14T21:39:52+00:00" />
+<meta property="article:modified_time" content="2019-09-14T21:39:52+00:00" />
+<title>Canvas画板 | MrChen</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.e4e56f7c42eea0eaebdeab57881fc035b2061a6f8ab5f090eb5cb25469ab5944.css" integrity="sha256-5OVvfELuoOrr3qtXiB/ANbIGGm&#43;KtfCQ61yyVGmrWUQ=">
+<script defer src="/en.search.min.895afb2ab0f75c4553baefa3caf53699395d3e9abef4e8a782f78dd87c4a9c04.js" integrity="sha256-iVr7KrD3XEVTuu&#43;jyvU2mTldPpq&#43;9OingveN2HxKnAQ="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>MrChen</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/posts/" class="collapsed ">博客</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/" class="collapsed ">转载</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/" class="collapsed ">历史</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-10-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E7%AE%80%E8%AE%B0/" class="">多人博客项目(简记)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-15-keyboard-nav/" class="">键盘导航</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-canvas/" class="active">Canvas画板</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-%E5%AE%89%E5%8D%93%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E6%A1%88%E4%BE%8B/" class="">安卓音乐播放器案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-12-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E8%AF%AD%E6%B3%95%E7%B3%96%E7%AE%80%E7%89%88/" class="">函数与对象的语法糖(索引)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-function-object-sugar/" class="">函数与对象的语法糖一</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-12-01-%E5%87%BD%E6%95%B0%E4%B8%8E%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AF%AD%E6%B3%95%E7%B3%96%E4%BA%8C/" class="">函数与对象的语法糖二</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/0cd88b5c/" class="">模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-07-vue%E5%A4%9A%E4%BA%BA%E5%85%B1%E4%BA%AB%E5%8D%9A%E5%AE%A2/" class="">[项目] Vue 多人共享博客</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-03-31-jsonp/" class="">[高级] 35 - JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-25-%E5%A4%9A%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E8%AF%A6%E7%BB%86/" class="">多人博客项目(详细)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-vue-plugin-int/" class="">Vue插件安装</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-06-04-css-selector/" class="">CSS选择器总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/dd3e7bbd/" class="">常用的HTML5标签</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-25-%E7%AE%80%E5%8E%86%E6%80%8E%E4%B9%88%E5%86%99/" class="">简历怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-12-lx%E4%B8%BB%E9%A2%98%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/" class="">lx主题中文文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-27-css-grid-%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80/" class="">CSS Grid 网格布局</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-jquery%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">jQuery常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-js%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="">JS 常用API总结</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-yarn%E5%85%A5%E9%97%A8/" class="">yarn 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-17-npm%E5%85%A5%E9%97%A8/" class="">npm 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-04-es6%E6%96%B0%E7%89%B9%E6%80%A7/" class="">ES6新特性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="">面向对象</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-jquery%E5%88%B6%E4%BD%9C%E8%BD%AE%E6%92%AD/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/jquery%E8%BD%AE%E6%92%AD%E6%A1%88%E4%BE%8B/" class="">jQuery制作轮播</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-03-%E8%87%AA%E5%88%B6jquery/" class="">自制jQuery</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-10-01-mvvm/" class="">MVVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-28-this%E6%98%AF%E4%BB%80%E4%B9%88/" class="">this是什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-27-new%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/" class="">New做了什么</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-21-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9D%97%E5%8C%96/" class="">代码模块化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-20-mvc%E6%80%9D%E6%83%B3/" class="">MVC思想</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-18-%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0-ajax/" class="">自己实现 AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-17-ajax/" class="">AJAX</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-16-jsonp/" class="">JSONP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim-get-started/" class="">vim 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-14-vim%E7%9A%84%E4%BD%BF%E7%94%A8/" class="">vim 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-10-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" class="">命令行常用技巧</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" class="">浏览器缓存</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-09-css%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7/" class="">CSS 常用属性</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-09-01-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2-%E5%93%8D%E5%BA%94%E5%BC%8F/" class="">移动端页面(响应式)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/element-ui/" class="">Element UI</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B/" class="">Vue 入门案例</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E6%B5%8B%E8%AF%95%E9%A1%B5/" class="">测试页</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-08-28-webpack-use/" class="">webpack 的使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E5%9F%BA%E7%A1%80%E5%B8%B8%E8%AF%86/" class="">JS基础常识</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/action/" class="">Action 官方文档</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/axios%E5%85%A5%E9%97%A8/" class="">Axios 入门</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/js%E4%B8%AD%E7%9A%84symbol%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JS 中的 Symbol 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/json%E6%98%AF%E4%BB%80%E4%B9%88/" class="">JSON 是什么？</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2019-11-12-module%E8%AF%AD%E6%B3%95/" class="">Module语法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-%E7%82%B9%E5%87%BB%E7%A9%BA%E7%99%BD%E5%85%B3%E9%97%AD%E6%B5%AE%E5%B1%82/" class="">Vue 点击空白关闭浮层</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vue-cli%E4%BD%BF%E7%94%A8/" class="">Vue-cli 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/vuex%E4%BD%BF%E7%94%A8/" class="">Vuex 使用</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-02-03-%E5%8E%9F%E5%9E%8B%E9%93%BE%E8%A1%A5%E5%85%85/" class="">原型链补充</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-05-07-%E6%95%B0%E7%BB%84/" class="">数组</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/2020-04-27-%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E7%AE%80%E5%8E%86%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="">简历该怎么写</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/history/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BE%A6%E5%90%AC%E5%99%A8/" class="">计算属性和监听器</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Canvas画板</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#画板案例">画板案例</a>
+      <ul>
+        <li><a href="#使用的单词">使用的单词</a></li>
+        <li><a href="#canvas-大小自适应">Canvas 大小自适应</a></li>
+        <li><a href="#画点函数">画点函数</a></li>
+        <li><a href="#画线函数">画线函数</a></li>
+        <li><a href="#组成画线函数">组成画线函数</a></li>
+        <li><a href="#设置点击其他地方关闭浮层">设置点击其他地方关闭浮层</a></li>
+      </ul>
+    </li>
+    <li><a href="#使用到的api">使用到的API</a>
+      <ul>
+        <li><a href="#获取">获取</a></li>
+        <li><a href="#添加">添加</a></li>
+        <li><a href="#鼠标事件">鼠标事件</a></li>
+        <li><a href="#触屏设备">触屏设备</a></li>
+        <li><a href="#canvas">Canvas</a></li>
+      </ul>
+    </li>
+    <li><a href="#css样式">CSS样式</a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="画板案例">
+  画板案例
+  <a class="anchor" href="#%e7%94%bb%e6%9d%bf%e6%a1%88%e4%be%8b">#</a>
+</h2>
+<h3 id="使用的单词">
+  使用的单词
+  <a class="anchor" href="#%e4%bd%bf%e7%94%a8%e7%9a%84%e5%8d%95%e8%af%8d">#</a>
+</h3>
+<ul>
+<li>dot ——— n.点，小圆点；</li>
+<li>drawLine ——— n. 画直线；</li>
+<li>circle ——— n. 圆, 圆周; 圈, 环状物；</li>
+</ul>
+<h3 id="canvas-大小自适应">
+  Canvas 大小自适应
+  <a class="anchor" href="#canvas-%e5%a4%a7%e5%b0%8f%e8%87%aa%e9%80%82%e5%ba%94">#</a>
+</h3>
+<p>设置自适应窗口的 Canvas 画板大小</p>
+<p>首先获取浏览器窗口当前最大化时的宽高</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">let</span> pageWidth <span style="color:#719e07">=</span> <span style="color:#b58900">window</span>.screen.availWidth
+<span style="color:#268bd2">let</span> pageHeight <span style="color:#719e07">=</span> <span style="color:#b58900">window</span>.screen.availHeight
+</code></pre></div><p>使用 window 窗口改变事件处理函数，每次窗口改变都执行一次 将当前画布记录下来放到一个变量中，然后重置画布大小为窗口最大化的大小，再将当前画布的放回去，这样即时调整画布也不会重置 canvas 的内容，并且调整窗口不会显示滚动条。</p>
+<p>代码如下：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">let</span> canvas <span style="color:#719e07">=</span> <span style="color:#b58900">document</span>.querySelector(<span style="color:#2aa198">&#39;#draw&#39;</span>)
+<span style="color:#268bd2">let</span> context <span style="color:#719e07">=</span> canvas.getContext(<span style="color:#2aa198">&#39;2d&#39;</span>)
+
+autoSetCanvasSize()
+<span style="color:#586e75">/* 设置画板大小自适应 */</span>
+<span style="color:#268bd2">function</span> autoSetCanvasSize(){
+    <span style="color:#268bd2">let</span> pageWidth <span style="color:#719e07">=</span> <span style="color:#b58900">window</span>.screen.availWidth
+    <span style="color:#268bd2">let</span> pageHeight <span style="color:#719e07">=</span> <span style="color:#b58900">window</span>.screen.availHeight
+    canvas.width <span style="color:#719e07">=</span> pageWidth
+    canvas.height <span style="color:#719e07">=</span> pageHeight
+    <span style="color:#268bd2">let</span> backups <span style="color:#719e07">=</span> context.getImageData(<span style="color:#2aa198">0</span>, <span style="color:#2aa198">0</span>, canvas.width, canvas.height)
+    <span style="color:#b58900">window</span>.onresize <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(){
+        backups <span style="color:#719e07">=</span> context.getImageData(<span style="color:#2aa198">0</span>, <span style="color:#2aa198">0</span>, canvas.width, canvas.height)
+        canvas.width <span style="color:#719e07">=</span> pageWidth
+        canvas.height <span style="color:#719e07">=</span> pageHeight
+        context.putImageData(backups, <span style="color:#2aa198">0</span>, <span style="color:#2aa198">0</span>)
+    }
+}
+</code></pre></div><p>也可以使用 addEventListener，如</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#b58900">window</span>.addEventListener(<span style="color:#2aa198">&#39;resize&#39;</span>,<span style="color:#268bd2">function</span>(){
+    SetCanvasSize()
+})
+</code></pre></div><p>或 jQuery ，如</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#586e75">// 每当当前窗口大小改变时
+</span><span style="color:#586e75"></span>$(<span style="color:#b58900">window</span>).resize(<span style="color:#268bd2">function</span>(){
+    console.log($(<span style="color:#b58900">window</span>).height())
+    console.log($(<span style="color:#b58900">document</span>).height())
+})
+</code></pre></div><h3 id="画点函数">
+  画点函数
+  <a class="anchor" href="#%e7%94%bb%e7%82%b9%e5%87%bd%e6%95%b0">#</a>
+</h3>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#586e75">/* 画点函数 */</span>
+<span style="color:#268bd2">function</span> drawDot(x, y, radius){
+    context.beginPath()
+    context.fillStyle <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;#333333&#39;</span>;
+    context.arc(x, y, radius, <span style="color:#2aa198">0</span>, <span style="color:#b58900">Math</span>.PI<span style="color:#719e07">*</span><span style="color:#2aa198">2</span>)
+    context.fill() <span style="color:#586e75">// 描边
+</span><span style="color:#586e75"></span>}
+</code></pre></div><h3 id="画线函数">
+  画线函数
+  <a class="anchor" href="#%e7%94%bb%e7%ba%bf%e5%87%bd%e6%95%b0">#</a>
+</h3>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#586e75">/* 画线函数 */</span>
+<span style="color:#268bd2">function</span> drawLine(x1, y1, x2, y2, width){
+    context.beginPath();
+    context.strokeStyle <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;black&#39;</span>
+    context.moveTo(x1, y1);
+    context.lineWidth <span style="color:#719e07">=</span> width
+    context.lineTo(x2, y2);
+    context.stroke();
+}
+</code></pre></div><h3 id="组成画线函数">
+  组成画线函数
+  <a class="anchor" href="#%e7%bb%84%e6%88%90%e7%94%bb%e7%ba%bf%e5%87%bd%e6%95%b0">#</a>
+</h3>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">canvas.onmousedown <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span> (a) {
+    <span style="color:#268bd2">let</span> top <span style="color:#719e07">=</span> a.target.offsetTop
+    <span style="color:#268bd2">let</span> left <span style="color:#719e07">=</span> a.target.offsetLeft
+    painting <span style="color:#719e07">=</span> <span style="color:#cb4b16">true</span>
+    <span style="color:#268bd2">let</span> x <span style="color:#719e07">=</span> a.clientX <span style="color:#719e07">-</span> left
+    <span style="color:#268bd2">let</span> y <span style="color:#719e07">=</span> a.clientY <span style="color:#719e07">-</span> top
+    lastPoint <span style="color:#719e07">=</span> {<span style="color:#2aa198">&#39;x&#39;</span><span style="color:#719e07">:</span>x, <span style="color:#2aa198">&#39;y&#39;</span><span style="color:#719e07">:</span>y}
+    drawDot(x, y, <span style="color:#2aa198">1</span>)
+}
+canvas.onmousemove <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(a){
+    <span style="color:#719e07">if</span>(painting){
+        <span style="color:#268bd2">let</span> top <span style="color:#719e07">=</span> a.target.offsetTop
+        <span style="color:#268bd2">let</span> left <span style="color:#719e07">=</span> a.target.offsetLeft
+        <span style="color:#268bd2">let</span> x <span style="color:#719e07">=</span> a.clientX <span style="color:#719e07">-</span> left
+        <span style="color:#268bd2">let</span> y <span style="color:#719e07">=</span> a.clientY <span style="color:#719e07">-</span> top
+        <span style="color:#268bd2">let</span> newPoint <span style="color:#719e07">=</span> {<span style="color:#2aa198">&#39;x&#39;</span><span style="color:#719e07">:</span>x, <span style="color:#2aa198">&#39;y&#39;</span><span style="color:#719e07">:</span>y}
+        drawDot(x, y, <span style="color:#2aa198">1</span>)
+        drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+        lastPoint <span style="color:#719e07">=</span> newPoint
+    }
+}
+canvas.onmouseup <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(){ painting <span style="color:#719e07">=</span> <span style="color:#cb4b16">false</span> }
+</code></pre></div><h3 id="设置点击其他地方关闭浮层">
+  设置点击其他地方关闭浮层
+  <a class="anchor" href="#%e8%ae%be%e7%bd%ae%e7%82%b9%e5%87%bb%e5%85%b6%e4%bb%96%e5%9c%b0%e6%96%b9%e5%85%b3%e9%97%ad%e6%b5%ae%e5%b1%82">#</a>
+</h3>
+<p>Html</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#268bd2">style</span>&gt;
+    .<span style="color:#268bd2">popover</span> {
+        <span style="color:#719e07">width</span>: <span style="color:#2aa198">100</span><span style="color:#dc322f">px</span>;
+        <span style="color:#719e07">height</span>: <span style="color:#2aa198">100</span><span style="color:#dc322f">px</span>;
+        <span style="color:#719e07">position</span>: <span style="color:#cb4b16">absolute</span>;
+        <span style="color:#719e07">top</span>: <span style="color:#2aa198">8</span><span style="color:#dc322f">px</span>;
+        <span style="color:#719e07">left</span>: <span style="color:#2aa198">52</span><span style="color:#dc322f">px</span>;
+        <span style="color:#719e07">background-color</span>: <span style="color:#2aa198">#ccc</span>;
+    }
+&lt;/<span style="color:#268bd2">style</span>&gt;
+&lt;<span style="color:#268bd2">div</span> id<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;wrapper&#34;</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;wrapper&#34;</span>&gt;
+    &lt;<span style="color:#268bd2">button</span> id<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;clickMe&#34;</span>&gt;点我&lt;/<span style="color:#268bd2">button</span>&gt;
+    &lt;<span style="color:#268bd2">div</span> id<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;popover&#34;</span> class<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;popover&#34;</span>&gt;
+        &lt;<span style="color:#268bd2">input</span> type<span style="color:#719e07">=</span><span style="color:#2aa198">&#34;checkbox&#34;</span>&gt;选我
+    &lt;/<span style="color:#268bd2">div</span>&gt;
+&lt;/<span style="color:#268bd2">div</span>&gt;
+</code></pre></div><p>JS</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">let</span> $ <span style="color:#719e07">=</span> (element)=&gt;{ <span style="color:#719e07">return</span> <span style="color:#b58900">document</span>.querySelector(element)}
+<span style="color:#268bd2">let</span> popover <span style="color:#719e07">=</span> $(<span style="color:#2aa198">&#39;#popover&#39;</span>)
+<span style="color:#268bd2">let</span> clickMe <span style="color:#719e07">=</span> $(<span style="color:#2aa198">&#39;#clickMe&#39;</span>)
+<span style="color:#268bd2">let</span> wrapper <span style="color:#719e07">=</span> $(<span style="color:#2aa198">&#39;#wrapper&#39;</span>)
+<span style="color:#268bd2">let</span> open <span style="color:#719e07">=</span> <span style="color:#cb4b16">true</span>
+clickMe.addEventListener(<span style="color:#2aa198">&#39;click&#39;</span>, <span style="color:#268bd2">function</span>(e){
+    open <span style="color:#719e07">=</span> <span style="color:#719e07">!</span>open
+    open <span style="color:#719e07">?</span> popover.style.display <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;block&#39;</span> <span style="color:#719e07">:</span> popover.style.display <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;none&#39;</span>
+<span style="color:#586e75">/*  if(open){ popover.style.display = &#39;block&#39; 
+</span><span style="color:#586e75">    }else { popover.style.display = &#39;none&#39; } */</span>
+})
+wrapper.addEventListener(<span style="color:#2aa198">&#39;click&#39;</span>, <span style="color:#268bd2">function</span>(e){
+    e.stopPropagation()  <span style="color:#586e75">/* 阻断事件冒泡 */</span>
+})
+<span style="color:#b58900">document</span>.addEventListener(<span style="color:#2aa198">&#39;click&#39;</span>, <span style="color:#268bd2">function</span>(){
+    popover.style.display <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;none&#39;</span>
+    open <span style="color:#719e07">=</span> <span style="color:#cb4b16">false</span>
+})
+</code></pre></div><h2 id="使用到的api">
+  使用到的API
+  <a class="anchor" href="#%e4%bd%bf%e7%94%a8%e5%88%b0%e7%9a%84api">#</a>
+</h2>
+<h3 id="获取">
+  获取
+  <a class="anchor" href="#%e8%8e%b7%e5%8f%96">#</a>
+</h3>
+<h4 id="获取元素">
+  获取元素
+  <a class="anchor" href="#%e8%8e%b7%e5%8f%96%e5%85%83%e7%b4%a0">#</a>
+</h4>
+<p>通过 id 获取元素</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#b58900">document</span>.getElementById(Id)
+</code></pre></div><p>通过标签获取元素</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">element.getElementsByTagName(<span style="color:#2aa198">&#39;div&#39;</span>)
+</code></pre></div><p>通过选择器获取元素</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">element.querySelector(<span style="color:#2aa198">&#39;div &gt; h2&#39;</span>)
+</code></pre></div><h4 id="获取坐标">
+  获取坐标
+  <a class="anchor" href="#%e8%8e%b7%e5%8f%96%e5%9d%90%e6%a0%87">#</a>
+</h4>
+<p><strong>语法</strong></p>
+<p>获取鼠标点击元素时的X轴、Y轴坐标 ( 此处坐标与元素的位置无关，只与鼠标位置有关 )</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">MouseEvent.clientX <span style="color:#586e75">// 只读
+</span><span style="color:#586e75"></span>鼠标指针在点击元素（DOM）中的X坐标。
+MouseEvent.clientY <span style="color:#586e75">// 只读
+</span><span style="color:#586e75"></span>鼠标指针在点击元素（DOM）中的Y坐标。
+</code></pre></div><p>获取当前事件元素距离屏幕顶部的距离X轴、Y轴坐标</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">element.offsetTop;
+element.offsetLeft
+</code></pre></div><p><strong>案例</strong></p>
+<p>获取鼠标坐标</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">element.onmousedown <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(t){
+    <span style="color:#268bd2">let</span> x <span style="color:#719e07">=</span> t.clientX
+    <span style="color:#268bd2">let</span> y <span style="color:#719e07">=</span> t.clientY
+    console.log(<span style="color:#2aa198">&#39;x:&#39;</span><span style="color:#719e07">+</span>x)
+    console.log(<span style="color:#2aa198">&#39;y:&#39;</span><span style="color:#719e07">+</span>y)
+}
+</code></pre></div><p>获取当前事件的元素距离屏幕的距离</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">element.onmousedown <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(t){
+    <span style="color:#268bd2">let</span> top <span style="color:#719e07">=</span> a.target.offsetTop
+	<span style="color:#268bd2">let</span> left <span style="color:#719e07">=</span> a.target.offsetLeft
+}
+</code></pre></div><blockquote>
+<p>缺点：对移动版浏览器兼容性较差</p>
+</blockquote>
+<h4 id="获取网页当前视窗宽高">
+  获取网页当前视窗宽高
+  <a class="anchor" href="#%e8%8e%b7%e5%8f%96%e7%bd%91%e9%a1%b5%e5%bd%93%e5%89%8d%e8%a7%86%e7%aa%97%e5%ae%bd%e9%ab%98">#</a>
+</h4>
+<p><strong>语法</strong></p>
+<p>这个属性是只读属性，如果没有定义CSS或者内联布局盒子的元素为0。该属性包括内边距，但不包括垂直滚动条（如果有）、边框和外边距。</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">var</span> Width <span style="color:#719e07">=</span> element.clientWidth;
+<span style="color:#268bd2">var</span> Height <span style="color:#719e07">=</span> element.clientHeight;
+</code></pre></div><p><strong>案例</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#268bd2">var</span> pageWidth <span style="color:#719e07">=</span> <span style="color:#b58900">document</span>.documentElement.clientWidth  <span style="color:#586e75">// 当前视窗宽度
+</span><span style="color:#586e75"></span><span style="color:#268bd2">var</span> pageHeight <span style="color:#719e07">=</span>  <span style="color:#b58900">document</span>.documentElement.clientHeight  <span style="color:#586e75">// 当前视窗高度
+</span></code></pre></div><h4 id="获取浏览器窗口当前最大化时的宽高">
+  获取浏览器窗口当前最大化时的宽高
+  <a class="anchor" href="#%e8%8e%b7%e5%8f%96%e6%b5%8f%e8%a7%88%e5%99%a8%e7%aa%97%e5%8f%a3%e5%bd%93%e5%89%8d%e6%9c%80%e5%a4%a7%e5%8c%96%e6%97%b6%e7%9a%84%e5%ae%bd%e9%ab%98">#</a>
+</h4>
+<p><strong>语法</strong></p>
+<p>返回浏览器窗口可占用的水平宽度 / 高度</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#b58900">window</span>.screen.availWidth
+<span style="color:#b58900">window</span>.screen.availHeight
+</code></pre></div><p><strong>案例</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">let</span> pageWidth <span style="color:#719e07">=</span> <span style="color:#b58900">window</span>.screen.availWidth
+<span style="color:#268bd2">let</span> pageHeight <span style="color:#719e07">=</span> <span style="color:#b58900">window</span>.screen.availHeight
+</code></pre></div><h3 id="添加">
+  添加
+  <a class="anchor" href="#%e6%b7%bb%e5%8a%a0">#</a>
+</h3>
+<p><strong>追加class样式</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">element.classList.add(<span style="color:#2aa198">&#39;active&#39;</span>)
+</code></pre></div><p><strong>删除class样式</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">element.classList.remove(<span style="color:#2aa198">&#39;active&#39;</span>)
+</code></pre></div><h3 id="鼠标事件">
+  鼠标事件
+  <a class="anchor" href="#%e9%bc%a0%e6%a0%87%e4%ba%8b%e4%bb%b6">#</a>
+</h3>
+<h4 id="鼠标按下">
+  鼠标按下
+  <a class="anchor" href="#%e9%bc%a0%e6%a0%87%e6%8c%89%e4%b8%8b">#</a>
+</h4>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">element.onmousedown <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(){}
+</code></pre></div><h4 id="鼠标移动">
+  鼠标移动
+  <a class="anchor" href="#%e9%bc%a0%e6%a0%87%e7%a7%bb%e5%8a%a8">#</a>
+</h4>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">element.onmousemove <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(){}
+</code></pre></div><h4 id="鼠标松开">
+  鼠标松开
+  <a class="anchor" href="#%e9%bc%a0%e6%a0%87%e6%9d%be%e5%bc%80">#</a>
+</h4>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">element.onmouseup <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(){}
+</code></pre></div><h3 id="触屏设备">
+  触屏设备
+  <a class="anchor" href="#%e8%a7%a6%e5%b1%8f%e8%ae%be%e5%a4%87">#</a>
+</h3>
+<p>给网页添加 meta 标签</p>
+<p><strong>判断是否支持触屏</strong></p>
+<p>Google 搜索：<code>js detech touch support</code></p>
+<p>如果获取该事件的值为 null 说明支持该事件，如果获取该事件的值的 undefined 说明不支持该事件。通过这种方法就可以添加 if 判断来区分是否支持触屏</p>
+<p>如：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#b58900">document</span>.body.ontouchstart 
+<span style="color:#586e75">// 如果为 null 则是存在，如果为 undefined则是不存在
+</span><span style="color:#586e75">// 所以可以用if判断
+</span><span style="color:#586e75"></span><span style="color:#719e07">if</span>(<span style="color:#b58900">document</span>.body.ontouchstart <span style="color:#719e07">!==</span> <span style="color:#cb4b16">undefined</span>){则为触屏设备}
+</code></pre></div><p>也可以通过 in 判断：</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#2aa198">&#39;ontouchstart&#39;</span> <span style="color:#719e07">in</span> <span style="color:#b58900">document</span>.body  <span style="color:#586e75">// 如果支持就是 true 不支持就是 false
+</span></code></pre></div><h4 id="手指按下">
+  手指按下
+  <a class="anchor" href="#%e6%89%8b%e6%8c%87%e6%8c%89%e4%b8%8b">#</a>
+</h4>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">canvas.ontouchstart <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(){ console.log(<span style="color:#2aa198">&#39;开始触摸屏幕&#39;</span>) }
+</code></pre></div><h4 id="手指移动">
+  手指移动
+  <a class="anchor" href="#%e6%89%8b%e6%8c%87%e7%a7%bb%e5%8a%a8">#</a>
+</h4>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">canvas.ontouchmove <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(){ console.log(<span style="color:#2aa198">&#39;触摸并移动&#39;</span>) }
+</code></pre></div><h4 id="手指抬起">
+  手指抬起
+  <a class="anchor" href="#%e6%89%8b%e6%8c%87%e6%8a%ac%e8%b5%b7">#</a>
+</h4>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">canvas.ontouchend <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(){ console.log(<span style="color:#2aa198">&#39;抬起手指&#39;</span>) }
+</code></pre></div><p>获取触摸坐标</p>
+<p>由于移动设备可能会支持多点触控，所以它们的坐标属性会有多个，例如</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">canvas.ontouchstart <span style="color:#719e07">=</span> <span style="color:#268bd2">function</span>(x){ 
+    console.log(a.touches[<span style="color:#2aa198">0</span>].clientX) <span style="color:#586e75">/* x坐标 */</span> 
+} 
+</code></pre></div><h3 id="canvas">
+  Canvas
+  <a class="anchor" href="#canvas">#</a>
+</h3>
+<h4 id="画一个矩形">
+  画一个矩形
+  <a class="anchor" href="#%e7%94%bb%e4%b8%80%e4%b8%aa%e7%9f%a9%e5%bd%a2">#</a>
+</h4>
+<h5 id="语法">
+  语法
+  <a class="anchor" href="#%e8%af%ad%e6%b3%95">#</a>
+</h5>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#586e75">// 绘制一个填充的矩形
+</span><span style="color:#586e75"></span>fillRect(x, y, width, height)
+<span style="color:#586e75">// 绘制一个矩形的边框
+</span><span style="color:#586e75"></span>strokeRect(x, y, width, height)
+<span style="color:#586e75">// 清除指定矩形区域，让清除部分完全透明。
+</span><span style="color:#586e75"></span>clearRect(x, y, width, height)
+<span style="color:#586e75">// 建立一个 2D 渲染背景的上下文
+</span><span style="color:#586e75"></span>canvas.getContext(<span style="color:#2aa198">&#39;2d&#39;</span>);
+</code></pre></div><h5 id="填充案例">
+  填充案例
+  <a class="anchor" href="#%e5%a1%ab%e5%85%85%e6%a1%88%e4%be%8b">#</a>
+</h5>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> canvas <span style="color:#719e07">=</span> <span style="color:#b58900">document</span>.getElementById(<span style="color:#2aa198">&#39;canvas&#39;</span>);
+<span style="color:#268bd2">const</span> context <span style="color:#719e07">=</span> canvas.getContext(<span style="color:#2aa198">&#39;2d&#39;</span>);
+
+context.fillStyle <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;green&#39;</span>;
+context.fillRect(<span style="color:#2aa198">10</span>, <span style="color:#2aa198">10</span>, <span style="color:#2aa198">150</span>, <span style="color:#2aa198">100</span>);
+</code></pre></div><blockquote>
+<p>rect 是 rectangle 的缩写</p>
+</blockquote>
+<p>Js Bin 链接：https://jsbin.com/lerukuhero/1/edit?html,js,output</p>
+<h5 id="描边案例">
+  描边案例
+  <a class="anchor" href="#%e6%8f%8f%e8%be%b9%e6%a1%88%e4%be%8b">#</a>
+</h5>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> canvas <span style="color:#719e07">=</span> <span style="color:#b58900">document</span>.getElementById(<span style="color:#2aa198">&#39;canvas&#39;</span>);
+<span style="color:#268bd2">const</span> context <span style="color:#719e07">=</span> canvas.getContext(<span style="color:#2aa198">&#39;2d&#39;</span>);
+
+context.strokeStyle <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;green&#39;</span>; <span style="color:#586e75">// 边框颜色，设置要在 fillRect 前
+</span><span style="color:#586e75"></span>context.strokeRect(<span style="color:#2aa198">10</span>, <span style="color:#2aa198">10</span>, <span style="color:#2aa198">150</span>, <span style="color:#2aa198">100</span>);
+</code></pre></div><blockquote>
+<p>stroke 一画, 一笔</p>
+</blockquote>
+<p>Js Bin 链接：https://jsbin.com/nizalababo/1/edit?html,js,output</p>
+<h5 id="清除案例">
+  清除案例
+  <a class="anchor" href="#%e6%b8%85%e9%99%a4%e6%a1%88%e4%be%8b">#</a>
+</h5>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">const</span> canvas <span style="color:#719e07">=</span> <span style="color:#b58900">document</span>.getElementById(<span style="color:#2aa198">&#39;demo&#39;</span>);
+<span style="color:#268bd2">const</span> context <span style="color:#719e07">=</span> canvas.getContext(<span style="color:#2aa198">&#39;2d&#39;</span>);
+
+context.fillStyle <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;green&#39;</span>;
+context.fillRect(<span style="color:#2aa198">10</span>, <span style="color:#2aa198">10</span>, <span style="color:#2aa198">150</span>, <span style="color:#2aa198">100</span>);
+context.clearRect(<span style="color:#2aa198">20</span>, <span style="color:#2aa198">20</span>, <span style="color:#2aa198">50</span>, <span style="color:#2aa198">50</span>)
+</code></pre></div><p>Js Bin 链接：https://jsbin.com/zumiqeceno/edit?html,js,output</p>
+<h4 id="画线">
+  画线
+  <a class="anchor" href="#%e7%94%bb%e7%ba%bf">#</a>
+</h4>
+<h5 id="语法-1">
+  语法
+  <a class="anchor" href="#%e8%af%ad%e6%b3%95-1">#</a>
+</h5>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">beginPath()
+<span style="color:#586e75">//新建一条路径，生成之后，图形绘制命令被指向到路径上生成路径。
+</span><span style="color:#586e75"></span>closePath()
+<span style="color:#586e75">//闭合路径之后图形绘制命令又重新指向到上下文中。
+</span><span style="color:#586e75"></span>stroke()
+<span style="color:#586e75">//通过线条来绘制图形轮廓。
+</span><span style="color:#586e75"></span>fill()
+<span style="color:#586e75">//通过填充路径的内容区域生成实心的图形。
+</span><span style="color:#586e75"></span>lineWidth 
+<span style="color:#586e75">//线宽
+</span></code></pre></div><h5 id="案例">
+  案例
+  <a class="anchor" href="#%e6%a1%88%e4%be%8b">#</a>
+</h5>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">let</span> canvas <span style="color:#719e07">=</span> <span style="color:#b58900">document</span>.getElementById(<span style="color:#2aa198">&#39;xxx&#39;</span>);
+<span style="color:#268bd2">let</span> context <span style="color:#719e07">=</span> canvas.getContext(<span style="color:#2aa198">&#39;2d&#39;</span>);
+
+context.beginPath();
+context.strokeStyle <span style="color:#719e07">=</span> <span style="color:#2aa198">&#39;black&#39;</span>
+context.moveTo(<span style="color:#2aa198">5</span>, <span style="color:#2aa198">5</span>);
+context.lineWidth <span style="color:#719e07">=</span> <span style="color:#2aa198">5</span>
+context.lineTo(<span style="color:#2aa198">100</span>, <span style="color:#2aa198">5</span>);
+context.stroke();
+</code></pre></div><p>Js Bin 链接：http://js.jirengu.com/qepamorena/1/edit</p>
+<h5 id="画一个三角形">
+  画一个三角形
+  <a class="anchor" href="#%e7%94%bb%e4%b8%80%e4%b8%aa%e4%b8%89%e8%a7%92%e5%bd%a2">#</a>
+</h5>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">let</span> canvas <span style="color:#719e07">=</span> <span style="color:#b58900">document</span>.getElementById(<span style="color:#2aa198">&#39;canvas&#39;</span>);
+<span style="color:#268bd2">let</span> context <span style="color:#719e07">=</span> canvas.getContext(<span style="color:#2aa198">&#39;2d&#39;</span>);
+
+context.beginPath(); <span style="color:#586e75">// 开始画
+</span><span style="color:#586e75"></span>context.moveTo(<span style="color:#2aa198">75</span>, <span style="color:#2aa198">50</span>);  <span style="color:#586e75">// 画笔起始位置
+</span><span style="color:#586e75"></span>context.lineTo(<span style="color:#2aa198">100</span>, <span style="color:#2aa198">75</span>);  <span style="color:#586e75">// 第一笔画到的位置
+</span><span style="color:#586e75"></span>context.lineTo(<span style="color:#2aa198">100</span>, <span style="color:#2aa198">25</span>);  <span style="color:#586e75">// 第二笔画到的位置
+</span><span style="color:#586e75"></span>context.fill();  <span style="color:#586e75">// 填充
+</span></code></pre></div><p>案例链接：http://js.jirengu.com/denawusato/3/edit?html,css,js,output</p>
+<h4 id="画弧线">
+  画弧线
+  <a class="anchor" href="#%e7%94%bb%e5%bc%a7%e7%ba%bf">#</a>
+</h4>
+<h5 id="语法-2">
+  语法
+  <a class="anchor" href="#%e8%af%ad%e6%b3%95-2">#</a>
+</h5>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">arc(x, y, radius, startAngle, endAngle, anticlockwise)
+</code></pre></div><blockquote>
+<p>前两个值为圆心的坐标，第三个值是圆心的半径，最后两个值分别表示起始度数和结束度数 (这里的度数都是以Π为单位)</p>
+</blockquote>
+<h5 id="画一个圆">
+  画一个圆
+  <a class="anchor" href="#%e7%94%bb%e4%b8%80%e4%b8%aa%e5%9c%86">#</a>
+</h5>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#268bd2">let</span> canvas <span style="color:#719e07">=</span> <span style="color:#b58900">document</span>.getElementById(<span style="color:#2aa198">&#39;canvas&#39;</span>)
+<span style="color:#268bd2">let</span> context <span style="color:#719e07">=</span> canvas.getContext(<span style="color:#2aa198">&#39;2d&#39;</span>)
+
+context.beginPath()
+context.arc(<span style="color:#2aa198">150</span>, <span style="color:#2aa198">150</span>, <span style="color:#2aa198">50</span>, <span style="color:#2aa198">0</span>, <span style="color:#b58900">Math</span>.PI<span style="color:#719e07">*</span><span style="color:#2aa198">2</span>)
+context.stroke() <span style="color:#586e75">// 描边
+</span></code></pre></div><p>案例链接：http://js.jirengu.com/vigaqibequ/4/edit</p>
+<p>画图形分别可以用两种方式结尾：描边 <code>context.stroke();</code> ，填充 <code>context.fill();</code></p>
+<h2 id="css样式">
+  CSS样式
+  <a class="anchor" href="#css%e6%a0%b7%e5%bc%8f">#</a>
+</h2>
+<p><strong>屏幕的高度</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#268bd2">height</span><span style="color:#719e07">:</span> <span style="color:#268bd2">100vh</span><span style="color:#719e07">;</span>
+</code></pre></div><blockquote>
+<p>vh 是 viewport height 的简称</p>
+</blockquote>
+<p><strong>动画</strong></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#268bd2">transform</span><span style="color:#719e07">:</span> <span style="color:#268bd2">scale</span><span style="color:#719e07">(</span><span style="color:#268bd2">1</span>.<span style="color:#268bd2">2</span><span style="color:#719e07">);</span> <span style="color:#586e75">/* 放大1.2倍 */</span>
+<span style="color:#268bd2">transition</span><span style="color:#719e07">:</span>  <span style="color:#268bd2">all</span> <span style="color:#268bd2">0</span>.<span style="color:#268bd2">3s</span><span style="color:#719e07">;</span> <span style="color:#586e75">/* 动画平滑过渡 0.3秒 */</span>
+</code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#画板案例">画板案例</a>
+      <ul>
+        <li><a href="#使用的单词">使用的单词</a></li>
+        <li><a href="#canvas-大小自适应">Canvas 大小自适应</a></li>
+        <li><a href="#画点函数">画点函数</a></li>
+        <li><a href="#画线函数">画线函数</a></li>
+        <li><a href="#组成画线函数">组成画线函数</a></li>
+        <li><a href="#设置点击其他地方关闭浮层">设置点击其他地方关闭浮层</a></li>
+      </ul>
+    </li>
+    <li><a href="#使用到的api">使用到的API</a>
+      <ul>
+        <li><a href="#获取">获取</a></li>
+        <li><a href="#添加">添加</a></li>
+        <li><a href="#鼠标事件">鼠标事件</a></li>
+        <li><a href="#触屏设备">触屏设备</a></li>
+        <li><a href="#canvas">Canvas</a></li>
+      </ul>
+    </li>
+    <li><a href="#css样式">CSS样式</a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
